@@ -10,7 +10,8 @@
     $arrWorks = '';
 
 
-
+    header('Content-type: text/plain; charset=utf-8');
+    
 ini_set('display_errors',1); # uncomment if you need debugging
 
     $articles	= (isset($_POST['articles'])	? $_POST['articles']	: '');
