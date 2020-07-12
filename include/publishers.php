@@ -11,7 +11,7 @@ class publishers{
         if($publishers_id){
             $db = new DBManager();
             $query = "SELECT id, publisher, description, link FROM publishers WHERE id = $publishers_id";
-            $arrElements = $db->queryList($query);
+            $arrElements = $db->query($query);
         }
         
         return $arrElements;
