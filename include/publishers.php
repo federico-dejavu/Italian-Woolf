@@ -10,9 +10,8 @@ class publishers{
        
         if($publishers_id){
             $db = new DBManager();
-            $conn = $db->DBConnaction();
             $query = "SELECT id, publisher, description, link FROM publishers WHERE id = $publishers_id";
-            $arrElements = $conn->queryList($query);
+            $arrElements = $db->queryList($query);
         }
         
         return $arrElements;
@@ -25,9 +24,8 @@ class publishers{
        
         if($arrEditionsID){
             $db = new DBManager();
-            $conn = $db->DBConnaction();
             $queryW = "SELECT id, publisher, description, link FROM publishers";
-            $arrElements = $conn->queryList($queryW);
+            $arrElements = $db->queryList($queryW);
             $arrTotal[] = $arrElements;
         }
         
