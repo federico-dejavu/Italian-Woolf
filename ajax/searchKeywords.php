@@ -26,7 +26,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
         $arrayWorks=array();
         foreach($allWorksID as $work_id){
             $singleWork = $works->getWorksByWork_id($work_id);
-            $publisherObject = new publisher();
+            $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
             $singleWork['publisher']=$publisher['publisher'];
             $arrayWorks[]=$singleWork;
