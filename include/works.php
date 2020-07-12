@@ -48,7 +48,9 @@ class works{
                 $arrTotal[] = $arrWorks;
             }
         }
+        echo "<code>";
         var_dump($arrTotal);
+        echo "</code>";
         return $arrTotal;
     }      
     
