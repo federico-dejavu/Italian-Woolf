@@ -33,15 +33,20 @@ class DBManager{
 		    echo "Error: " . $mysqli->error . "\n";
 		    exit;
 		}
+		/*
 		$data = array();
 		while ($row = $result->fetch_assoc()) {
 			$data[] = $row;
 	    }
 		
 		return $data;
-
+		*/
+		$row = $result->fetch_assoc();
 		$result->free();
 		$mysqli->close();
+		return $row;
+
+
 		
     }
     
