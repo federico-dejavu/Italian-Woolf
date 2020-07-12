@@ -12,7 +12,7 @@ class works{
         /* Estraggo i works_id con queste KW */
         if($keywords){
             $db = new DBManager();
-            $queryK = "SELECT WK.works_id FROM works_keywords as WK, keywords as K  where K.id = WK.keywords_id and K.keyword REGEXP '$keywords' ";
+            $queryK = "SELECT WK.works_id FROM works_keywords as WK, keywords as K  where K.id = WK.keywords_id and K.keyword REGEXP '$keywords' order by title ";
             $arrWorksID = $db->queryList($queryK);
         }
         
@@ -42,13 +42,13 @@ class works{
             foreach ($arrWorksID as $work_id){
                 
                 $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
-                var_dump( $queryW);
                 
+
                 $arrWorks = $db->queryList($queryW);
                 $arrTotal[$work_id] = $arrWorks;
             }
         }
-        
+        var_dump($arrTotal);
         return $arrTotal;
     }      
     
