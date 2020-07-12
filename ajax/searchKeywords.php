@@ -20,8 +20,10 @@ ini_set('display_errors',1); # uncomment if you need debugging
         $cleaner = new cleaner();
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
         $works = new works();
-        $arrayWorks = $works->getWorkIdByKeywords($keyOptimized);
-var_dump($arrayWorks);
+        $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
+        
+        $arrayWorks $works->getWorksByListOfWork_id($allWorksID);
+
         echo $twig->render('searchKeywords.tpl', [
 		
             'works'		=> $arrayWorks,
