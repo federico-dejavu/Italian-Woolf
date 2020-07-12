@@ -28,13 +28,12 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $singleWork = $works->getWorksByWork_id($work_id);
             $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
-            var_dump($publisher);
             $singleWork['publisher']=$publisher['publisher'];
             $arrayWorks[]=$singleWork;
         }
 
         //$arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
-
+        var_dump($arrayWorks);
         
         echo $twig->render('works.tpl', [
 		
