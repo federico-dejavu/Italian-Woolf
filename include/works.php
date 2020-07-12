@@ -44,7 +44,7 @@ class works{
                 $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
                 
 
-                $arrWorks = $db->queryList($queryW);
+                $arrWorks = $db->query($queryW);
                 $arrTotal[$work_id] = $arrWorks;
             }
         }
