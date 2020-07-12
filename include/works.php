@@ -40,8 +40,10 @@ class works{
         if($arrWorksID){
             $db = new DBManager();
             foreach ($arrWorksID as $work_id){
-                var_dump($work_id);
+                
                 $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
+                var_dump( $queryW);
+                
                 $arrWorks = $db->queryList($queryW);
                 $arrTotal[$work_id] = $arrWorks;
             }
