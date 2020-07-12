@@ -4,6 +4,7 @@
     //require_once '../include/search.php';
     require_once '../include/cleaner.php';
     require_once '../include/works.php';
+    require_once '../include/publisher.php';
 	require_once '../include/twig.php';
 
     $arrWorks = '';
