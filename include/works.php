@@ -45,7 +45,7 @@ class works{
                 
 
                 $arrWorks = $db->query($queryW);
-                $arrTotal[$work_id] = $arrWorks;
+                $arrTotal[] = $arrWorks;
             }
         }
         var_dump($arrTotal);
