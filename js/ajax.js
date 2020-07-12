@@ -1,6 +1,6 @@
 $(document).ready(function(){
 		
-	var baseUrl = 'https://italianwoolf.reading.ac.uk/staging/';
+	var baseUrl = 'https://italianwoolf.reading.ac.uk/stage/';
 
 	$('#submit').click(function() {
 
