@@ -6,7 +6,7 @@
 					<h2>Works {{ works|length }}</h2>
 					 {% for work in works %}
 					<p>
-						<a href=“”><b>{{ work.title }},</b></a> {{ work.year }}
+						<a href=“”><b>{{ work.title }},</b></a> {{ work.year }} / {{ work.publisher }}
 					</p>
 					{% endfor %}
 				</div>

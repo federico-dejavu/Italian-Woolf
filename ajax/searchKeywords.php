@@ -22,7 +22,17 @@ ini_set('display_errors',1); # uncomment if you need debugging
         $works = new works();
         $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
         //var_dump($allWorksID);
-        $arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
+        $arrayWorks=array();
+        foreach($allWorksID as $work_id){
+            $singleWork = $works->getWorksByWork_id($work_id);
+            $publisherObject = new publisher();
+            $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+            $singleWork['publisher']=$publisher['publisher'];
+            $arrayWorks[]=$singleWork;
+        }
+
+        //$arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
+
         
         echo $twig->render('works.tpl', [
 		

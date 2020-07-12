@@ -26,7 +26,7 @@ class works{
         if($work_id){
             $db = new DBManager();
             $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
-            $arrWorks = $db->queryList($queryW);
+            $arrWorks = $db->query($queryW);
         }
         
         return $arrWorks;
@@ -42,9 +42,8 @@ class works{
             foreach ($arrWorksID as $work_id){
                 
                 $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
-                
-
                 $arrWorks = $db->query($queryW);
+
                 $arrTotal[] = $arrWorks;
             }
         }
