@@ -25,8 +25,8 @@ ini_set('display_errors',1); # uncomment if you need debugging
         $arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
 
       
-
-        echo $twig->render('searchKeywords.tpl', [
+        
+        echo $twig->render('works.tpl', [
 		
             'works'		=> $arrayWorks,
     
