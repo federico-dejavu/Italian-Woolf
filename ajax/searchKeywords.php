@@ -23,6 +23,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
         $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
         //var_dump($allWorksID);
         $arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
+        $arrayWorks = array_map(utf8_encode($arrayWorks));
 
       
         
