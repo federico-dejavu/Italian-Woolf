@@ -12,9 +12,8 @@ class works{
         /* Estraggo i works_id con queste KW */
         if($keywords){
             $db = new DBManager();
-            $conn = $db->DBConnection();
             $queryK = "SELECT WK.works_id FROM works_keywords as WK, keywords as K  where K.id = WK.keywords_id and K.keyword REGEXP '$keywords' ";
-            $arrWorksID = $conn->queryList($queryK);
+            $arrWorksID = $db->queryList($queryK);
         }
         
         return $arrWorksID;
@@ -26,9 +25,8 @@ class works{
        
         if($work_id){
             $db = new DBManager();
-            $conn = $db->DBConnection();
             $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
-            $arrWorks = $conn->queryList($queryW);
+            $arrWorks = $db->queryList($queryW);
         }
         
         return $arrWorks;
@@ -41,10 +39,9 @@ class works{
        
         if($arrWorksID){
             $db = new DBManager();
-            $conn = $db->DBConnection();
             foreach ($arrWorksID as $work_id){
                 $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id";
-                $arrWorks = $conn->queryList($queryW);
+                $arrWorks = $db->queryList($queryW);
                 $arrTotal[$work_id] = $arrWorks;
             }
         }
