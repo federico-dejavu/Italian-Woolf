@@ -5,6 +5,7 @@
     require_once '../include/cleaner.php';
     require_once '../include/works.php';
     require_once '../include/publishers.php';
+    require_once '../include/authors.php';
 	require_once '../include/twig.php';
 
     $arrWorks = '';
@@ -23,13 +24,21 @@ ini_set('display_errors',1); # uncomment if you need debugging
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
         $works = new works();
         $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
-        //var_dump($allWorksID);
+        
         $arrayWorks=array();
         foreach($allWorksID as $work_id){
             $singleWork = $works->getWorksByWork_id($work_id);
+            /* Reperisco dati publisher */
             $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
             $singleWork['publisher']=$publisher[0]['publisher'];
+
+            /* Reperisco dati Author */
+            $authors = new authors();
+            $arrAuthors = $authors->getAuthoByWorkId($work_id);
+            $singleWork['author']=$arrAuthors;
+
+            
             $arrayWorks[]=$singleWork;
         }
 
