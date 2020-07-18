@@ -53,7 +53,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $editionsList = $editions->getEditionsByWork_id($work_id);
             $arrEditions = array();
             foreach($editionsList as $edition_id){
-                $arrEditions = $editions->getEditionById($edition_id);
+                $arrEditions[] = $editions->getEditionById($edition_id);
             }
             echo "<pre> Works</br>";
             var_dump($arrEditions);
