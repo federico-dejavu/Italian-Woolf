@@ -75,7 +75,7 @@
        /* Estraggo articles */
        if($articlesParam){ 
 
-        $articles = new works();
+        $articles = new articles();
         $allArticlesID = $articles->getArticlesIdByKeywords($keyOptimized);
                 
         $arrayArticles=array();
