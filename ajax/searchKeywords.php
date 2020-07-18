@@ -25,6 +25,7 @@
         $cleaner = new cleaner();
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
 
+
         /* Estraggo works ed editions */
         if($worksParam){ 
  
@@ -102,6 +103,8 @@
 
             $arrayArticles[]=$singleArticles;
         }
+
+       
      
     }
 
