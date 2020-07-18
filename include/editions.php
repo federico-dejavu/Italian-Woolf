@@ -9,7 +9,7 @@ class editions{
        
         if($work_id){
             $db = new DBManager();
-            $query = "SELECT id FROM editions WHERE works_id = $work_id";
+            $query = "SELECT id FROM editions WHERE works_id = $work_id order by year desc";
             $arrElements = $db->queryList($query);
         }
         

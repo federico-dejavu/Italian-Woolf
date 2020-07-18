@@ -12,7 +12,7 @@
 						 {% endfor %}
 						<ul>
 						{% for edition in work.editions %}
-						<li> {{ edition.title }} - {{ edition.year }}</li>
+						<li> <a href=“”><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
 						 {% endfor %}
 						 </ul>
 					</p>
