@@ -9,9 +9,8 @@ class editions{
        
         if($work_id){
             $db = new DBManager();
-            $conn = $db->DBConnaction();
             $query = "SELECT id FROM editions WHERE work_id = $work_id";
-            $arrElements = $conn->queryList($query);
+            $arrElements = $db->queryList($query);
         }
         
         return $arrElements;
@@ -23,9 +22,8 @@ class editions{
        
         if($id){
             $db = new DBManager();
-            $conn = $db->DBConnaction();
             $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM works WHERE id = $id";
-            $arrElements = $conn->queryList($queryW);
+            $arrElements = $db->queryList($queryW);
         }
         return $arrElements;
     }    
@@ -37,10 +35,9 @@ class editions{
        
         if($arrEditionsID){
             $db = new DBManager();
-            $conn = $db->DBConnaction();
             foreach ($arrEditionsID as $editions_id){
                 $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM works WHERE id = $editions_id";
-                $arrElements = $conn->queryList($queryW);
+                $arrElements = $db->queryList($queryW);
                 $arrTotal[$editions_id] = $arrElements;
             }
         }
