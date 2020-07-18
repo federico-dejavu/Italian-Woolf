@@ -80,7 +80,7 @@
                 
         $arrayArticles=array();
         foreach($allArticlesID as $articles_id){
-            $singleArticles = $articles->getWorksByArticles_id($articles_id);
+            $singleArticles = $articles->getArticlesByArticles_id($articles_id);
             /* Reperisco dati publisher */
             $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);

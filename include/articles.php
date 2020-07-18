@@ -18,8 +18,8 @@ class articles{
         return $arrArticlesID;
     }
     
-    /* Dato un word_id restituisce un array di articles */
-    public function getWorksByArticles_id($id = "") {
+    /* Dato un word_id restite un array di articles */
+    public function getArticlesByArticles_id($id = "") {
         $arrArticles = array();
        
         if($id){
