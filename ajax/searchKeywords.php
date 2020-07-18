@@ -44,8 +44,8 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $people = new peoples();
             $arrElements = array();
             foreach($arrAuthors as $key=>$value){
-                var_dump($value);
-                $author = $people->getPeopleById($value['people_id']);
+               
+                $author = $people->getPeopleById($value['peoples_id']);
                 
                 $arrElements[] = $author;     
             }
