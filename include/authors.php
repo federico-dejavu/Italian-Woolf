@@ -13,13 +13,18 @@ class authors{
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
             $arrPeoples[] = $db->query($query);
+            echo "<pre>Peoples</br>";
+            var_dump($arrPeoples);
+            echo "</pre>";
             $people = new peolples();
             foreach($arrPeoples as $key,$value){
                 $author = $people->getPeopleById($value['id']);
                 $arrElements[] = $author;
             }
         }
-        
+        echo "<pre>Authr</br>";
+        var_dump($arrElements);
+        echo "</pre>";
         return $arrElements;
     }   
     

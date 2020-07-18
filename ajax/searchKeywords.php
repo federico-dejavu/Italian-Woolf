@@ -36,6 +36,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
             /* Reperisco dati Author */
             $authors = new authors();
             $arrAuthors = $authors->getAuthoByWorkId($work_id);
+            var_dump($arrAuthors);
             $singleWork['author']=$arrAuthors;
 
             
