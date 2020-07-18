@@ -11,7 +11,7 @@ class works{
         /* Estraggo i works_id con queste KW */
         if($keywords){
             $db = new DBManager();
-            $queryK = "SELECT distinct(WK.works_id) FROM works_keywords as WK, keywords as K, works ad W  where K.id = WK.keywords_id and K.keyword REGEXP '$keywords' and W.works_id = WK.works_id order by W.title asc";
+            $queryK = "SELECT distinct(WK.works_id) FROM works_keywords as WK, keywords as K, works as W  where K.id = WK.keywords_id and K.keyword REGEXP '$keywords' and W.works_id = WK.works_id order by W.title asc";
             $arrWorksID = $db->queryList($queryK);
         }
         
