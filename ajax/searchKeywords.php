@@ -37,15 +37,9 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $authors = new authors();
             $arrAuthors = $authors->getAuthoByWorkId($work_id);
             $singleWork['author']=$arrAuthors;
-
-
-            echo ("<pre>SingleWorks</br>");
-            var_dump($singleWork);
-            echo ("</pre>");            
+           
             $arrayWorks[]=$singleWork;
-            echo ("<pre>arrayWorks</br>");
-            var_dump($arrayWorks);
-            echo ("</pre>");             
+         
         }
 
         //$arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
