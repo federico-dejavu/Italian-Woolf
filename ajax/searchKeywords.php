@@ -38,7 +38,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $arrAuthors = $authors->getAuthoByWorkId($work_id);
             $people = new peoples();
             foreach($arrAuthors as $people_id){
-                $author = $people->getPeopleById($value['people_id']);
+                $author = $people->getPeopleById($people_id);
                 $arrElements[] = $author[0];     
             }
             $singleWork['author']=$arrElements;
