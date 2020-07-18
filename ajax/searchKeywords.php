@@ -6,6 +6,7 @@
     require_once '../include/works.php';
     require_once '../include/publishers.php';
     require_once '../include/authors.php';
+    require_once '../include/editions.php';
 	require_once '../include/twig.php';
 
     $arrWorks = '';
@@ -46,6 +47,22 @@ ini_set('display_errors',1); # uncomment if you need debugging
                 $arrElements[] = $author;     
             }
             $singleWork['author']=$arrElements;
+
+            /* Reperisco le edizioni */
+            $editions = new editions();
+            $editionsList = $editions->getEditionsByWork_id($work_id);
+            $arrEditions = array();
+            foreach($editionsList as $edition_id){
+                $arrEditions[] = $editions->getEditionById($edition_id);
+            }
+            echo "<pre> Works</br>";
+            var_dump($arrEditions);
+            echo "</pre>";   
+            $singleWork['editions'] = $arrEditions;
+
+
+            
+
             $arrayWorks[]=$singleWork;
          
         }

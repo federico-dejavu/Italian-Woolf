@@ -15,7 +15,20 @@ class editions{
         }
         
         return $arrElements;
-    }   
+    }
+    
+     /* Dato un array di works_id restituisce un array di works */
+     public function getEditionById($id = "") {
+        $arrElements = array();
+       
+        if($id){
+            $db = new DBManager();
+            $conn = $db->DBConnaction();
+            $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM works WHERE id = $id";
+            $arrElements = $conn->queryList($queryW);
+        }
+        return $arrElements;
+    }    
     
     /* Dato un array di works_id restituisce un array di works */
     public function getEditionsByListOfEdition_id($arrEditionsID = "") {
