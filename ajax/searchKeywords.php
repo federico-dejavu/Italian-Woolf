@@ -37,10 +37,6 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $authors = new authors();
             $arrAuthors = $authors->getAuthorsByWorkId($work_id);
             
-            echo "<pre> Author</br>";
-            var_dump($arrAuthors);
-            echo "</pre>";
-            
             $people = new peoples();
             $arrElements = array();
             foreach($arrAuthors as $peoples_id){
