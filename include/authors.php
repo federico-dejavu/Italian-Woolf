@@ -12,11 +12,11 @@ class authors{
         if($id>0){
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
-            $arrPeoples = $db->query($query);
+            $arrPeoples[] = $db->query($query);
             $people = new peoples();
             foreach($arrPeoples as $key=>$value){
                 
-                $author = $people->getPeopleById($value);
+                $author = $people->getPeopleById($value['id']);
                 $arrElements = $author;
             }
         }
