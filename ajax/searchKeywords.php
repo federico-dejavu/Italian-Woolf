@@ -98,9 +98,9 @@
                 
                 $arrElements[] = $author;     
             }
-            $singleArticle['author']=$arrElements;
+            $singleArticles['author']=$arrElements;
 
-            $arrayArticles[]=$singleArticle;
+            $arrayArticles[]=$singleArticles;
         }
      
     }
