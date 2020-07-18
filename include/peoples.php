@@ -9,7 +9,7 @@ class peoples{
        
         if($id){
             $db = new DBManager();
-            $query = "SELECT id, other_name, fullname, birth_date, death_date, authority_record, image FROM peoples WHERE id = $id order by fullname";
+            $query = "SELECT id, other_name, fullname, birth_date, death_date, authority_record, image FROM peoples WHERE id = $id order by fullname desc";
 
             $arrElements = $db->query($query);
         }
