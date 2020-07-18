@@ -4,7 +4,7 @@ require_once('peoples.php');
 
 class authors{
     
-    /* Dato un work restituisce un array di publisher */
+    /* Dato un work restituisce un array di  
     public function getAuthoByWorkId($id = "") {
         $arrElements = array();
         $arrPeoples = array();
@@ -17,18 +17,29 @@ class authors{
             foreach($arrPeoples as $key=>$value){
                 
                 $authors = $people->getPeopleById($value['people_id']);
-                /*
-                foreach($authors as $author){
-                    $arrElements = $author;
-                }
-                */
+
 
                 $arrElements[] = $authors;
                 
             }
         }
         return $arrElements;
-    }   
+    }  
+    */
+    
+    
+      /* Dato un work restituisce un array di author */
+      public function getAuthoByWorkId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
+            $arrPeoples = $db->query($query);
+        }
+        return $arrPeoples;
+    }    
     
     /* Dato un array di works_id restituisce un array di publisher */
     public function getAllPublishers() {

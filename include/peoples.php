@@ -11,7 +11,7 @@ class peoples{
             $db = new DBManager();
             $query = "SELECT id, other_name, fullname, birth_date, death_date, authority_record, image FROM peoples WHERE id = $id";
 
-            $arrElements[] = $db->query($query);
+            $arrElements = $db->query($query);
         }
         
         return $arrElements;

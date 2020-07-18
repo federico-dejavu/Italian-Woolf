@@ -36,15 +36,20 @@ ini_set('display_errors',1); # uncomment if you need debugging
             /* Reperisco dati Author */
             $authors = new authors();
             $arrAuthors = $authors->getAuthoByWorkId($work_id);
-            $singleWork['author']=$arrAuthors;
+            $people = new peoples();
+            foreach($arrAuthors as $people_id){
+                $author = $people->getPeopleById($value['people_id']);
+                $arrElements[] = $author[0];     
+            }
+            $singleWork['author']=$arrElements;
            
             $arrayWorks[]=$singleWork;
             
          
         }
-
+        echo "<pre> Works</br>";
         var_dump($arrayWorks);
-       
+        echo "</pre>";
         
         echo $twig->render('works.tpl', [
 		
