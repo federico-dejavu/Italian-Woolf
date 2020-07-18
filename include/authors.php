@@ -15,8 +15,8 @@ class authors{
             $arrPeoples[] = $db->query($query);
             $people = new peoples();
             foreach($arrPeoples as $key=>$value){
-                var_dump($value);
-                $author = $people->getPeopleById($value['people_id']);
+                
+                $author[] = $people->getPeopleById($value['people_id']);
                 $arrElements = $author;
             }
         }
