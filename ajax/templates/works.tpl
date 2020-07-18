@@ -27,7 +27,7 @@
 					<p>
 						<a href=“”><b>{{ article.title }},</b></a> {{ article.year }} / {{ article.publisher }} -
 						{% for author in article.author %}
-						 {{ article.fullname }}
+						 {{ author.fullname }}
 						 {% endfor %}
 					</p>
 					{% endfor %}
