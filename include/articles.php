@@ -25,7 +25,7 @@ class articles{
         if($id){
             $db = new DBManager();
             $queryW = "SELECT id, title, volume_title, journal_title, journal_issue, pubblication_date, year, publisher_id, city, serie_id, pages, price, typology_id, language, open_access, abstract, description, isbn, issn, libraries, image, doi FROM articles WHERE id = $id order by title asc";
-           var_dump(queryW);
+           var_dump($queryW);
             $arrArticles = $db->query($queryW);
         }
         
