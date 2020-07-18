@@ -23,7 +23,7 @@ class editions{
         if($id){
             $db = new DBManager();
             $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM editions WHERE id = $id";
-            $arrElements = $db->queryList($queryW);
+            $arrElements = $db->query($queryW);
         }
         return $arrElements;
     }    
