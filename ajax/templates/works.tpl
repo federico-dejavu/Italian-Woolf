@@ -6,7 +6,10 @@
 					<h2>Works {{ works|length }}</h2>
 					 {% for work in works %}
 					<p>
-						<a href=“”><b>{{ work.title }},</b></a> {{ work.year }} / {{ work.publisher }} - {{ work.author.fullname }}
+						<a href=“”><b>{{ work.title }},</b></a> {{ work.year }} / {{ work.publisher }} -
+						{% for author in work.author %}
+						 {{ fullname }}
+						 {% endfor %}
 					</p>
 					{% endfor %}
 				</div>
