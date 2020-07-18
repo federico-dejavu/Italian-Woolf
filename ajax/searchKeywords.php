@@ -43,7 +43,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
          
         }
 
-        //var_dump($arrayWorks);
+        var_dump($arrayWorks);
        
         
         echo $twig->render('works.tpl', [
