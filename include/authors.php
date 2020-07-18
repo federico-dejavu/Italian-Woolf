@@ -13,7 +13,7 @@ class authors{
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
             $arrPeoples = $db->query($query);
-            $people = new peolples();
+            $people = new peoples();
             foreach($arrPeoples as $key=>$value){
                 $author = $people->getPeopleById($value['id']);
                 $arrElements[] = $author;
