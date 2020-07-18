@@ -105,11 +105,11 @@
      
     }
 
-        
+        /*
         echo "<pre> Works</br>";
         var_dump($arrayArticles);
         echo "</pre>";
-       
+       */
         echo $twig->render('works.tpl', [
 		
             'works'		=> $arrayWorks,
