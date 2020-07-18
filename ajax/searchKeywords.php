@@ -42,7 +42,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
             echo "</pre>";
             */
             $people = new peoples();
-            $arrElements = new array();
+            $arrElements = array();
             foreach($arrAuthors as $people_id){
                 $author = $people->getPeopleById($people_id);
                 $arrElements[] = $author;     
