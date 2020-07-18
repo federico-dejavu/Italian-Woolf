@@ -10,6 +10,11 @@
 						{% for author in work.author %}
 						 {{ author.fullname }}
 						 {% endfor %}
+						<ul>
+						{% for edition in work.editions %}
+						<li> {{ editions.title }} - {{ editions.year }}</li>
+						 {% endfor %}
+						 </ul>
 					</p>
 					{% endfor %}
 				</div>
