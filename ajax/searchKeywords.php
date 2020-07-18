@@ -117,31 +117,5 @@
     
         ]);
     }
-/*
-    $instance = new search();
-    $keywordsList = $instance->getAllKeywords();
-   
-    if($keywords != ""){
-        
-        $keyOptimized = $instance->clearKeywords($keywords);
-               
-        if($works == 'on'){
-            $arrWorks = $instance->simpleSearchWorks($works,$articles, $keyOptimized);
-            
-        }
-        
-    }
-	
-	echo $twig->render('searchKeywords.tpl', [
-		
-		'works'		=> $arrWorks,
-
-	]);
-*/	
-/*
-	echo '<code style="white-space: pre-wrap;">';
-	var_dump($arrWorks);
-	echo '</code>';
-*/
 
 ?>
