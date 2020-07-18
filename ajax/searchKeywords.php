@@ -43,8 +43,8 @@ ini_set('display_errors',1); # uncomment if you need debugging
             */
             $people = new peoples();
             $arrElements = array();
-            foreach($arrAuthors as $people_id){
-                $author = $people->getPeopleById($people_id);
+            foreach($arrAuthors as $key=>$value){
+                $author = $people->getPeopleById($value['people_id']);
                 $arrElements[] = $author;     
             }
             $singleWork['author']=$arrElements;
