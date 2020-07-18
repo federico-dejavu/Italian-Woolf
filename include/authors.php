@@ -9,7 +9,7 @@ class authors{
         $arrElements = array();
         $arrPeoples = array();
        
-        if($id){
+        if($id>0){
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
             $arrPeoples = $db->query($query);
@@ -19,10 +19,6 @@ class authors{
                 $arrElements = $author;
             }
         }
-
-        echo ("<pre>Authr</br>");
-        var_dump($arrElements);
-        echo ("</pre>");
         return $arrElements;
     }   
     
