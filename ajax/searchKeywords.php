@@ -83,7 +83,7 @@
             $singleArticles = $articles->getArticlesByArticles_id($articles_id);
             /* Reperisco dati publisher */
             $publisherObject = new publishers();
-            $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+            $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
             $singleArticle['publisher']=$publisher[0]['publisher'];
 
             /* Reperisco dati Author */
