@@ -43,8 +43,8 @@ ini_set('display_errors',1); # uncomment if you need debugging
          
         }
 
-        var_dump($arrayWorks);
-        //$arrayWorks = $works->getWorksByListOfWork_id($allWorksID);
+        //var_dump($arrayWorks);
+       
         
         echo $twig->render('works.tpl', [
 		
