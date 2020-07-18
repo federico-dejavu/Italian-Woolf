@@ -40,21 +40,18 @@ class authors{
         }
         return $arrPeoples;
     }    
-    
-    /* Dato un array di works_id restituisce un array di publisher */
-    public function getAllPublishers() {
-        $arrElements = array();
-        $arrTotal = array();
+  
+       public function getAuthorsByArticleId($id = "") {
+
+        $arrPeoples = array();
        
-        if($arrEditionsID){
+        if($id>0){
             $db = new DBManager();
-            $queryW = "SELECT id, publisher, description, link FROM publishers";
-            $arrElements = $db->queryList($queryW);
-            $arrTotal[] = $arrElements;
+            $query = "SELECT peoples_id FROM articles_authors WHERE articles_id = $id";
+            $arrPeoples = $db->queryList($query);
         }
-        
-        return $arrTotal;
-    }      
+        return $arrPeoples;
+    }       
     
 
 }

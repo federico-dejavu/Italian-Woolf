@@ -19,6 +19,24 @@
 					{% endfor %}
 				</div>
 			</div>
+
+			<div class=“row”>
+				<div class=“col”>
+					<h2>Articles {{ articles|length }}</h2>
+					 {% for article in articles %}
+					<p>
+						<a href=“”><b>{{ article.title }},</b></a> {{ article.year }} / {{ article.publisher }} -
+						{% for author in article.author %}
+						 {{ article.fullname }}
+						 {% endfor %}
+					</p>
+					{% endfor %}
+				</div>
+			</div>
+
+
+
+
 	    </div>
 <!— end Twig —>
 {% endautoescape %}
