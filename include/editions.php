@@ -22,7 +22,7 @@ class editions{
        
         if($id){
             $db = new DBManager();
-            $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM works WHERE id = $id";
+            $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM editions WHERE id = $id";
             $arrElements = $db->queryList($queryW);
         }
         return $arrElements;
@@ -36,7 +36,7 @@ class editions{
         if($arrEditionsID){
             $db = new DBManager();
             foreach ($arrEditionsID as $editions_id){
-                $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM works WHERE id = $editions_id";
+                $queryW = "SELECT id, title, works_id, original, year, publisher_id, city, serie_id, pages, price, description, isbn, libraries, image FROM editions WHERE id = $editions_id";
                 $arrElements = $db->queryList($queryW);
                 $arrTotal[$editions_id] = $arrElements;
             }
