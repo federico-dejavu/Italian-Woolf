@@ -29,14 +29,14 @@ class authors{
     
     
       /* Dato un work restituisce un array di author */
-      public function getAuthoByWorkId($id = "") {
+      public function getAuthorsByWorkId($id = "") {
 
         $arrPeoples = array();
        
         if($id>0){
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
-            $arrPeoples[] = $db->query($query);
+            $arrPeoples[] = $db->queryList($query);
         }
         return $arrPeoples;
     }    
