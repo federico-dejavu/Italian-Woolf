@@ -42,7 +42,7 @@ ini_set('display_errors',1); # uncomment if you need debugging
             $people = new peoples();
             foreach($arrAuthors as $people_id){
                 $author = $people->getPeopleById($people_id);
-                $arrElements[] = $author[0];     
+                $arrElements[] = $author;     
             }
             $singleWork['author']=$arrElements;
            
