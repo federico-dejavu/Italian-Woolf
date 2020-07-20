@@ -75,8 +75,33 @@
 					</div>
 				</div>
 				<div class="row align-items-center">
+				
 					<div class="col">
-						<input type="button" value="Search" id="submit" /> or <a href="advancedSearch.php" >Advanced search</a>
+						<input type="text" placeholder="Nome"/>
+						<input id="authors"     type="checkbox" checked/><label for="authors">Autori</label>
+						<input id="translators" type="checkbox" checked/><label for="translators">Traduttori</label>
+						<input id="mediatori"   type="checkbox" checked/><label for="mediatori">Mediatori</label>
+					</div>
+
+					<div class="col">
+						<input type="text" 		name="title" id="title" />
+					</div>
+				</div>	
+
+				<div class="row align-items-center">
+				
+					<div class="col">
+						<input type="text" placeholder="publischer" name="publischer" id="publischer"/>
+					</div>
+
+					<div class="col">
+						<input type="text" placeholder="journal"	name="journal" id="journal" />
+					</div>
+				</div>				
+
+				<div class="row align-items-center">
+					<div class="col">
+						<input type="button" value="Search" id="submit" /> 
 					</div>
 				</div>
 			</form>
