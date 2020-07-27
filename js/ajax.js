@@ -2,11 +2,11 @@ $(document).ready(function(){
 		
 	var baseUrl = 'https://italianwoolf.reading.ac.uk/stage/';
 
-	$('#submit').click(function() {
+	function search(action) {
 
 		$.ajax({
 			type: "POST",
-			url: baseUrl + 'ajax/searchKeywords.php',
+			url: baseUrl + 'ajax/' + action + '.php',
 			async: false,
 			data: $("#search").serialize(),
 			success: function(html) {
@@ -15,6 +15,6 @@ $(document).ready(function(){
 
 		})		
 
-	});
+	}
 
 });
