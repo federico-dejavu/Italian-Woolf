@@ -9,7 +9,7 @@
 			{% endfor %}
 			{% if test_works == 1 %}
 			<div class="row">
-				<div class="col">
+				<div class="col-5">
 					<h2>Works {{ works|length }}</h2>
 					 {% for work in works %}
 					 {% if work.type == "work" %}
@@ -29,7 +29,7 @@
 			{% endfor %}
 			{% if test_article == 1 %}
 			<div class="row">
-				<div class="col">
+				<div class="col-5">
 					<h2>Articles {{ works|length }}</h2>
 					 {% for work in works %}
 					 {% if work.type == "article" %}
