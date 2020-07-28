@@ -46,16 +46,8 @@
 
     /* A differenza del modulo semplice qui comandano works & articles poiché diventano loro il filtro principale */
     if($workParam){
-
-
         $works = new works();
-
-      
-
-        $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,);
-
-
-
+        $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$postLanguage,$postTypology,$postopenAccess);
 
     }
 
