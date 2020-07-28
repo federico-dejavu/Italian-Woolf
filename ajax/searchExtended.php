@@ -8,17 +8,63 @@
     require_once '../include/authors.php';
     require_once '../include/editions.php';
     require_once '../include/articles.php';
+    require_once '../include/languages.php';   
 	require_once '../include/twig.php';
 
     $arrWorks = '';
-
+    $keyOptimized="";
+    $typologyOptimized="";
 
     header('Content-type: text/plain; charset=utf-8');
     ini_set('display_errors',1); # uncomment if you need debugging
 
-    $articlesParam	= (isset($_POST['articles'])	? $_POST['articles']	: '');
-    $worksParam		= (isset($_POST['works'])		? $_POST['works']		: '');
-    $postKeywords	= (isset($_POST['keywords'])	? $_POST['keywords']	: '');
+    $articlesParam	    = (isset($_POST['articles'])	? $_POST['articles']	: '');
+    $worksParam		    = (isset($_POST['works'])		? $_POST['works']		: '');
+    $postKeywords	    = (isset($_POST['keywords'])	? $_POST['keywords']	: '');
+    $postNome	        = (isset($_POST['nome'])	    ? $_POST['nome']	    : '');
+    $postAuthors        = (isset($_POST['authors'])	    ? $_POST['authors']	    : '');
+    $postTranslators    = (isset($_POST['translators']) ? $_POST['translators']	    : '');
+    $postEditors        = (isset($_POST['editors'])	    ? $_POST['editors']	    : '');   
+    $postTitle          = (isset($_POST['title'])	    ? $_POST['title']	    : '');
+    $postPublisher      = (isset($_POST['publisher'])	? $_POST['publisher']	    : '');          
+    $postJournal        = (isset($_POST['journal'])	    ? $_POST['journal']	    : '');
+    $postLanguage       = (isset($_POST['language'])    ? $_POST['language']	    : '');
+    $postTypology       = (isset($_POST['typology'])    ? $_POST['typology']	    : '');    
+    $postopenAccess     = (isset($_POST['openAccess'])  ? $_POST['openAccess']	    : '');
+    
+    $cleaner = new cleaner();
+
+    if($postKeywords){
+        // Razionalizzo le keywords
+        $keyOptimized = $cleaner->clearKeywords($postTypology);
+    }
+
+    if($postTypology){
+        // Razionalizzo le typologies
+        $typologyOptimized = $cleaner->clearKeywords($postKeywords);
+    }
+
+    /* A differenza del modulo semplice qui comandano works & articles poiché diventano loro il filtro principale */
+    if($workParam){
+
+
+        $works = new works();
+
+      
+
+        $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,);
+
+
+
+
+    }
+
+    if($articlesParam){
+
+    }
+
+
+
 
     if($postKeywords){
         // Razionalizzo le keywords
