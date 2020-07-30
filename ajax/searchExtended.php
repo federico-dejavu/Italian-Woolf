@@ -46,49 +46,46 @@
         $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
       
         $arrayWorks=array();
-            foreach($allWorksID as $work_id){
-                $singleWork = $works->getWorksByWork_id($work_id);
-                /* Reperisco dati publisher */
-                $publisherObject = new publishers();
-                $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
-                $singleWork['publisher']=$publisher[0]['publisher'];
+        foreach($allWorksID as $work_id){
+            $singleWork = $works->getWorksByWork_id($work_id);
+            /* Reperisco dati publisher */
+            $publisherObject = new publishers();
+            $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+            $singleWork['publisher']=$publisher[0]['publisher'];
 
-                /* Reperisco dati Author */
-                $authors = new authors();
-                $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+            /* Reperisco dati Author */
+            $authors = new authors();
+            $arrAuthors = $authors->getAuthorsByWorkId($work_id);
                 
-                $people = new peoples();
-                $arrElements = array();
-                foreach($arrAuthors as $peoples_id){
-                
-                    $author = $people->getPeopleById($peoples_id);
-                    
-                    $arrElements[] = $author;     
-                }
-                $singleWork['author']=$arrElements;
-
-                /* Reperisco le edizioni */
-                $editions = new editions();
-                $editionsList = $editions->getEditionsByWork_id($work_id);
-                $arrEditions = array();
-                foreach($editionsList as $edition_id){
-                    $arrEditions[] = $editions->getEditionById($edition_id);
-                }
-                /*
-                echo "<pre> Works</br>";
-                var_dump($arrEditions);
-                echo "</pre>";  
-                */ 
-                $singleWork['editions'] = $arrEditions;
-
-                $arrayWorks[]=$singleWork;
+            $people = new peoples();
+            $arrElements = array();
+            foreach($arrAuthors as $peoples_id){  
+                $author = $people->getPeopleById($peoples_id);    
+                $arrElements[] = $author;     
             }
-         
+            $singleWork['author']=$arrElements;
+
+            /* Reperisco le edizioni */
+            $editions = new editions();
+            $editionsList = $editions->getEditionsByWork_id($work_id);
+            $arrEditions = array();
+            foreach($editionsList as $edition_id){
+                $arrEditions[] = $editions->getEditionById($edition_id);
+            }
+            /*
+            echo "<pre> Works</br>";
+            var_dump($arrEditions);
+            echo "</pre>";  
+            */ 
+            $singleWork['editions'] = $arrEditions;
+
+            $arrayWorks[]=$singleWork;
         }
+         
+    }
 
-       /* Estraggo articles */
-       if($articlesParam){ 
-
+    /* Estraggo articles */
+    if($articlesParam){ 
         $articles = new articles();
         $allArticlesID = $articles->getArticlesIdByKeywords($keyOptimized);
                 
@@ -115,23 +112,18 @@
             $singleArticles['author']=$arrElements;
 
             $arrayArticles[]=$singleArticles;
-        }
-
-       
-     
+        } 
     }
 
-        /*
-        echo "<pre> Works</br>";
-        var_dump($arrayArticles);
-        echo "</pre>";
-       */
-        echo $twig->render('works.tpl', [
+    /*
+    echo "<pre> Works</br>";
+     var_dump($arrayArticles);
+    echo "</pre>";
+    */
+    echo $twig->render('works.tpl', [
 		
-            'works'		=> $arrayWorks,
-            'articles'	=> $arrayArticles,
+        'works'		=> $arrayWorks,
+        'articles'	=> $arrayArticles,
     
-        ]);
-    }    
-
+    ]);
 ?>
