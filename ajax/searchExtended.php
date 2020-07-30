@@ -132,5 +132,6 @@
             'articles'	=> $arrayArticles,
     
         ]);
+    }    
 
 ?>
