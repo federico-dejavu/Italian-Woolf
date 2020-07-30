@@ -28,6 +28,8 @@
     $postTitle          = (isset($_POST['title'])	    ? $_POST['title']	    : '');
     $postPublisher      = (isset($_POST['publisher'])	? $_POST['publisher']	    : '');          
     $postJournal        = (isset($_POST['journal'])	    ? $_POST['journal']	    : '');
+    $fromYear           = (isset($_POST['fromYear'])	? $_POST['fromYear']	    : '');
+    $toYear             = (isset($_POST['toYear'])	    ? $_POST['toYear']	    : '');   
     $postLanguage       = (isset($_POST['language'])    ? $_POST['language']	    : '');
     $postTypology       = (isset($_POST['typology'])    ? $_POST['typology']	    : '');    
     $postopenAccess     = (isset($_POST['openAccess'])  ? $_POST['openAccess']	    : '');
@@ -39,38 +41,11 @@
         $keyOptimized = $cleaner->clearKeywords($postTypology);
     }
 
-    if($postTypology){
-        // Razionalizzo le typologies
-        $typologyOptimized = $cleaner->clearKeywords($postKeywords);
-    }
-
-    /* A differenza del modulo semplice qui comandano works & articles poiché diventano loro il filtro principale */
-    if($workParam){
+    if($workParam){   
         $works = new works();
-        $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$postLanguage,$postTypology,$postopenAccess);
-
-    }
-
-    if($articlesParam){
-
-    }
-
-
-
-
-    if($postKeywords){
-        // Razionalizzo le keywords
-        $cleaner = new cleaner();
-        $keyOptimized = $cleaner->clearKeywords($postKeywords);
-
-
-        /* Estraggo works ed editions */
-        if($worksParam){ 
- 
-            $works = new works();
-            $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
-                    
-            $arrayWorks=array();
+        $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+      
+        $arrayWorks=array();
             foreach($allWorksID as $work_id){
                 $singleWork = $works->getWorksByWork_id($work_id);
                 /* Reperisco dati publisher */
@@ -157,6 +132,5 @@
             'articles'	=> $arrayArticles,
     
         ]);
-    }
 
 ?>

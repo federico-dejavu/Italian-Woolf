@@ -10,6 +10,6 @@ class languages{
         $queryW = "SELECT id, language, code FROM languages";
         $arrElements = $db->query($queryW);
         return $arrElements;
-
+    }
 }
 ?>
