@@ -90,6 +90,7 @@ class works{
             $where = $where." AND W.publishers_id = $postPublishers ";
         }           
         $query = $query.$from." WHERE ".$where." order by W.title asc";
+        var_dump($query);
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
     }  
