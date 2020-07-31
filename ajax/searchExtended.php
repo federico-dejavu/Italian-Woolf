@@ -45,7 +45,7 @@
     }
 
     echo "<pre> Works</br>";
-    var_dump($postKeywords);
+    var_dump($keyOptimized.",".$postNome.",".$postAuthors.",".$postTranslators.",".$postEditors.",".$postTitle.",".$postPublisher.",".$postJournal.",".$fromYear.",".$toYear.",".$postLanguage.",".$postTypology.",".$postopenAccess);
     echo "</pre>"; 
     
     if($worksParam){   
