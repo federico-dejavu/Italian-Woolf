@@ -42,6 +42,10 @@
         // Razionalizzo le keywords
         $keyOptimized = $cleaner->clearKeywords($postTypology);
     }
+
+    echo "<pre> Works</br>";
+    var_dump($keyOptimized);
+    echo "</pre>"; 
     
     if($worksParam){   
         $works = new works();
