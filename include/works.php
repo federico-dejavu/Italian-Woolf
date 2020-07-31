@@ -26,6 +26,7 @@ class works{
         $query = "SELECT distinct(WK.works_id),title";
         $from =" FROM works as W";
         $where ="";
+        echo "Debug1";
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
