@@ -36,11 +36,16 @@
     
     $cleaner = new cleaner();
 
+    echo "<pre> Works</br>";
+    var_dump($workParam);
+    var_dump($_POST);
+    echo "</pre>"; 
+
     if($postKeywords){
         // Razionalizzo le keywords
         $keyOptimized = $cleaner->clearKeywords($postTypology);
     }
-
+    
     if($workParam){   
         $works = new works();
         $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
