@@ -168,7 +168,7 @@ class articles{
             }
         }         
 
-        $query = $query.$from." WHERE ".$where." order by W.title asc";
+        $query = $query.$from." WHERE ".$where." order by A.title asc";
 
         echo "<pre> QUERY Works</br>";
         var_dump($query);
