@@ -121,7 +121,11 @@ class articles{
         }        
     
         $query = $query.$from." WHERE ".$where." order by A.title asc";
-  
+
+        echo "<pre> QUERY Articles</br>";
+        var_dump($query);
+        echo "</pre>";
+
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
     } 

@@ -43,11 +43,11 @@
         // Razionalizzo le keywords
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
     }
-
+/*
     echo "<pre> Works</br>";
     var_dump($keyOptimized.",".$postNome.",".$postAuthors.",".$postTranslators.",".$postEditors.",".$postTitle.",".$postPublisher.",".$postJournal.",".$fromYear.",".$toYear.",".$postLanguage.",".$postTypology.",".$postopenAccess);
     echo "</pre>"; 
-    
+*/  
     if($worksParam){   
         $works = new works();
         $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
