@@ -23,7 +23,7 @@ class works{
     public function getWorksByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
-        $query = "SELECT distinct(W.works_id),title";
+        $query = "SELECT distinct(W.id),title";
         $from =" FROM works as W";
         $where ="";
         $passo = 0;
