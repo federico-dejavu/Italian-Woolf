@@ -50,7 +50,7 @@
     
     if($worksParam){   
         $works = new works();
-        $allWorksID = $works->getWorkByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+        $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
       
         $arrayWorks=array();
         foreach($allWorksID as $work_id){
@@ -94,8 +94,8 @@
     /* Estraggo articles */
     if($articlesParam){ 
         $articles = new articles();
-        $allArticlesID = $articles->getArticlesIdByKeywords($keyOptimized);
-                
+        $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+   
         $arrayArticles=array();
         foreach($allArticlesID as $articles_id){
             $singleArticles = $articles->getArticlesByArticles_id($articles_id);

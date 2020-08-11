@@ -20,13 +20,13 @@ class works{
 
     /* Dato tutti i parametri del form di ricerca avanzata recupera i work_id che soddisfano la ricerca */
 
-    public function getWorkByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
+    public function getWorksByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
         $query = "SELECT distinct(WK.works_id),title";
         $from =" FROM works as W";
         $where ="";
-        echo "Debug1";
+
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
@@ -91,7 +91,7 @@ class works{
             $where = $where." AND W.publishers_id = $postPublishers ";
         }           
         $query = $query.$from." WHERE ".$where." order by W.title asc";
-        var_dump($query);
+  
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
     }  
