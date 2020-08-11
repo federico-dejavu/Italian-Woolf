@@ -88,7 +88,7 @@ class works{
         }  
         
         if($postPublisher){
-            $where = $where." AND W.publishers_id = $postPublisher ";
+            $where = $where." AND W.publisher_id = $postPublisher ";
         }   
 
         $query = $query.$from." WHERE ".$where." order by W.title asc";
