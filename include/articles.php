@@ -109,7 +109,7 @@ class articles{
         }          
         
         if($postPublisher){
-            $where = $where." AND A.publishers_id = $postPublisher ";
+            $where = $where." AND A.publisher_id = $postPublisher ";
         }     
         
         if($postJournal){
