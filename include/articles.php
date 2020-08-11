@@ -34,98 +34,146 @@ class articles{
     
     
     /* Dato tutti i parametri del form di ricerca avanzata recupera i articles_id che soddisfano la ricerca */
-
     public function getArticlesByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
         $query = "SELECT distinct(A.id),title";
         $from =" FROM articles as A";
         $where ="";
-    
+        $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", articles_keywords as AK, keywords as K ";
             $where = $where." K.id = AK.keywords_id and K.keyword REGEXP '$keyOptimized' and A.id = AK.articles_id ";
-            
+            $passo = 1;
         }
 
         if($postTitle){
-            $where = $where." and title like'%".$postTitle."%' ";
+            if($passo ==1){  
+                $where = $where." and title like'%".$postTitle."%' ";
+            } else {
+                $where = $where." title like'%".$postTitle."%' ";
+                $passo = 1;
+            }
+            
         }
 
         if($fromYear){
-            $where = $where." and year >= $fromYear ";
+            if($passo ==1){ 
+                $where = $where." and year >= $fromYear ";
+            } else {
+                $where = $where." year >= $fromYear ";
+                $passo = 1;
+            }
         }        
 
         if($toYear){
-            $where = $where." and year <= $toYear ";
+            if($passo ==1){ 
+                $where = $where." and year <= $toYear ";
+            } else {
+                $where = $where." year <= $toYear "; 
+                $passo = 1;
+            }    
         } 
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
         if($postNome){
             $from = $from.", peoples as P ";
-            $where = $where." AND P.fullname LIKE '%".$postNome."%' AND ("; 
-            $passo = 0;
+            if($passo == 1){
+                $where = $where." AND P.fullname LIKE '%".$postNome."%' AND ("; 
+            } else {
+                $where = $where." P.fullname LIKE '%".$postNome."%' AND (";  
+                $passo = 1; 
+            }
+            $or = 0;
             if($postAuthors){
                 $from = $from.", articles_authors AS AA"; 
                 $where = $where." AA.peoples_id=P.id ";
-                $passo = 1;
+                $or = 1;
             }
 
             if($postTranslators){
                 $from = $from.", articles_translators AS AT"; 
-                if($passo == 0){
+                if($or == 0){
                     $where = $where." AT.peoples_id=P.id ";
                 } else {
                     $where = $where." OR AT.peoples_id=P.id ";
-                    $passo = 1;
+                    $or = 1;
                 }
             }
             if($postEditors){
                 $from = $from.", articles_editors AS AE";
-                if($passo == 0){
+                if($or == 0){
                     $where = $where." AE.peoples_id=P.id ";
                 } else {
                     $where = $where." OR AE.peoples_id=P.id ";
-                    $passo = 1;
+                    $or = 1;
                 }
             }           
             $where = $where.") ";
-        }
-        
-        if($postLanguage){
-            $where = $where." AND original = $postLanguage ";
+       
         }
 
-        /* Tengo qs codice perché penso che Elisa potrebbe chiederci di far diventare qs campo un multi - multi 
+        if($postLanguage){
+            if($passo == 1){
+                $where = $where." AND original = $postLanguage ";
+            } else {
+                $where = $where." original = $postLanguage ";
+            }
+            
+        }
+        /* lo tengo nel caso in cui elisa decida di passare a N:N 
         if($postTypology){
             $from = $from.", works_typologies AS WTP, typologies as T";
-            $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = A.id ";
+            if($passo == 1){
+                $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+            } else {
+                $where = $where." WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+            }
         }  
         */
-
         if($postTypology){
-            $where = $where." AND A.typology_id = $postTypology ";
-        }          
-        
+            if($passo == 1){
+                $where = $where." AND A.typology_id = $postTypology ";
+            } else {
+                $where = $where." A.typology_id = $postTypology ";
+                $passo = 1;
+            }
+        }  
+
         if($postPublisher){
-            $where = $where." AND A.publisher_id = $postPublisher ";
-        }     
+            if($passo == 1){
+                $where = $where." AND A.publisher_id = $postPublisher ";
+            } else   {
+                $where = $where." A.publisher_id = $postPublisher ";
+                $passo = 1;
+            }
+        }
         
         if($postJournal){
-            $where = $where." and journal_title like'%".$postJournal."%' ";
+            if($passo == 1){
+                $where = $where." and A.journal_title like'%".$postJournal."%' ";
+            } else {
+                $where = $where." A.journal_title like'%".$postJournal."%' ";
+                $passo = 1;
+            }
         } 
         
         if($postopenAccess){
-            $where = $where." and A.open_access =  $postopenAccess";
-        }        
-    
-        $query = $query.$from." WHERE ".$where." order by A.title asc";
+            if($passo == 1){
+                $where = $where." and A.open_access =  $postopenAccess";
+            } else {
+                $where = $where." A.open_access =  $postopenAccess";
+                $passo = 1;
+            }
+        }         
 
-        echo "<pre> QUERY Articles</br>";
+        $query = $query.$from." WHERE ".$where." order by W.title asc";
+
+        echo "<pre> QUERY Works</br>";
         var_dump($query);
         echo "</pre>";
-
+         
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
     } 

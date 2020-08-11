@@ -26,69 +26,105 @@ class works{
         $query = "SELECT distinct(WK.works_id),title";
         $from =" FROM works as W";
         $where ="";
-
+        $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", works_keywords as WK, keywords as K ";
             $where = $where." K.id = WK.keywords_id and K.keyword REGEXP '$keyOptimized' and W.id = WK.works_id ";
-            
+            $passo = 1;
         }
 
         if($postTitle){
-            $where = $where." and title like'%".$postTitle."%' ";
+            if($passo ==1){  
+                $where = $where." and title like'%".$postTitle."%' ";
+            } else {
+                $where = $where." title like'%".$postTitle."%' ";
+                $passo = 1;
+            }
+            
         }
 
         if($fromYear){
-            $where = $where." and year >= $fromYear ";
+            if($passo ==1){ 
+                $where = $where." and year >= $fromYear ";
+            } else {
+                $where = $where." year >= $fromYear ";
+                $passo = 1;
+            }
         }        
 
         if($toYear){
-            $where = $where." and year <= $toYear ";
+            if($passo ==1){ 
+                $where = $where." and year <= $toYear ";
+            } else {
+                $where = $where." year <= $toYear "; 
+                $passo = 1;
+            }    
         } 
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
         if($postNome){
             $from = $from.", peoples as P ";
-            $where = $where." AND P.fullname LIKE '%".$postNome."%' AND ("; 
-            $passo = 0;
+            if($passo == 1){
+                $where = $where." AND P.fullname LIKE '%".$postNome."%' AND ("; 
+            } else {
+                $where = $where." P.fullname LIKE '%".$postNome."%' AND (";  
+                $passo = 1; 
+            }
+            $or = 0;
             if($postAuthors){
                 $from = $from.", works_authors AS WA"; 
                 $where = $where." WA.peoples_id=P.id ";
-                $passo = 1;
+                $or = 1;
             }
 
             if($postTranslators){
                 $from = $from.", works_translators AS WT"; 
-                if($passo == 0){
+                if($or == 0){
                     $where = $where." WT.peoples_id=P.id ";
                 } else {
                     $where = $where." OR WT.peoples_id=P.id ";
-                    $passo = 1;
+                    $or = 1;
                 }
             }
             if($postEditors){
                 $from = $from.", works_editors AS WE";
-                if($passo == 0){
+                if($or == 0){
                     $where = $where." WE.peoples_id=P.id ";
                 } else {
                     $where = $where." OR WE.peoples_id=P.id ";
-                    $passo = 1;
+                    $or = 1;
                 }
             }           
             $where = $where.") ";
+       
         }
-        
+
         if($postLanguage){
-            $where = $where." AND original = $postLanguage ";
+            if($passo == 1){
+                $where = $where." AND original = $postLanguage ";
+            } else {
+                $where = $where." original = $postLanguage ";
+            }
+            
         }
 
         if($postTypology){
             $from = $from.", works_typologies AS WTP, typologies as T";
-            $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+            if($passo == 1){
+                $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+            } else {
+                $where = $where." WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+            }
         }  
         
         if($postPublisher){
-            $where = $where." AND W.publisher_id = $postPublisher ";
+            if($passo == 1){
+                $where = $where." AND W.publisher_id = $postPublisher ";
+            } else   {
+                $where = $where." W.publisher_id = $postPublisher ";
+                $passo = 1;
+            }
         }   
 
         $query = $query.$from." WHERE ".$where." order by W.title asc";
