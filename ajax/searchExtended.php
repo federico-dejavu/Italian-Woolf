@@ -44,7 +44,11 @@
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
     }
 
-    echo "<pre> Works</br>";
+    echo "<pre> POST</br>";
+    var_dump($_POST);
+    echo "</pre>"; 
+
+    echo "<pre> PARAMETER</br>";
     var_dump("Keywords:".$keyOptimized.", Nome:".$postNome.", Author:".$postAuthors.", Translator: ".$postTranslators.", Editors:".$postEditors.", Title: ".$postTitle.", Publisher:".$postPublisher.", Journal:".$postJournal.", FromYear:".$fromYear.", ToYear:".$toYear.", Language:".$postLanguage.", Typology:".$postTypology.", OpenAccess:".$postopenAccess);
     echo "</pre>"; 
   
