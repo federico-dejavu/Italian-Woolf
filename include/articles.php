@@ -79,39 +79,26 @@ class articles{
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
         if($postNome){
             $from = $from.", peoples as P ";
-            if($passo == 1){
-                $where = $where." AND P.fullname LIKE '%".$postNome."%' AND ("; 
-            } else {
-                $where = $where." P.fullname LIKE '%".$postNome."%' AND (";  
-                $passo = 1; 
-            }
-            $or = 0;
+
             if($postAuthors){
-                $from = $from.", articles_authors AS AA"; 
-                $where = $where." AA.peoples_id=P.id ";
-                $or = 1;
+                $from = $from." LEFT JOIN articles_translators AS AT ON P.id = AT.peoples_id "; 
+            } 
+
+            
+            if($postTranslators){
+                $from = $from." LEFT JOIN articles_translators AS AT ON P.id = AT.peoples_id "; 
             }
 
-            if($postTranslators){
-                $from = $from.", articles_translators AS AT"; 
-                if($or == 0){
-                    $where = $where." AT.peoples_id=P.id ";
-                } else {
-                    $where = $where." OR AT.peoples_id=P.id ";
-                    $or = 1;
-                }
-            }
             if($postEditors){
-                $from = $from.", articles_editors AS AE";
-                if($or == 0){
-                    $where = $where." AE.peoples_id=P.id ";
-                } else {
-                    $where = $where." OR AE.peoples_id=P.id ";
-                    $or = 1;
-                }
-            }           
-            $where = $where.") ";
-       
+                $from = $from." LEFT JOIN articles_editors AS AE ON P.id=AE.peoples_id ";
+            }             
+
+            if($passo == 1){
+                $where = $where." AND P.fullname LIKE '%".$postNome."%' "; 
+            } else {
+                $where = $where." P.fullname LIKE '%".$postNome."%' ";  
+                $passo = 1; 
+            }   
         }
 
         if($postLanguage){
