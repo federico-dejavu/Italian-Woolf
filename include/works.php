@@ -67,16 +67,16 @@ class works{
             $from = $from.", peoples as P ";
 
             if($postAuthors){
-                $from = $from." LEFT JOIN articles_translators AS AT ON P.id = AT.peoples_id "; 
+                $from = $from." LEFT JOIN works_authors AS WA ON P.id = WA.peoples_id "; 
             } 
 
             
             if($postTranslators){
-                $from = $from." LEFT JOIN articles_translators AS AT ON P.id = AT.peoples_id "; 
+                $from = $from." LEFT JOIN works_translators AS WT ON P.id = WT.peoples_id "; 
             }
 
             if($postEditors){
-                $from = $from." LEFT JOIN articles_editors AS AE ON P.id=AE.peoples_id ";
+                $from = $from." LEFT JOIN works_editors AS WE ON P.id=WE.peoples_id ";
             }             
 
             if($passo == 1){

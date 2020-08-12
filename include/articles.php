@@ -81,7 +81,7 @@ class articles{
             $from = $from.", peoples as P ";
 
             if($postAuthors){
-                $from = $from." LEFT JOIN articles_translators AS AT ON P.id = AT.peoples_id "; 
+                $from = $from." LEFT JOIN articles_authors AS AA ON P.id = AA.peoples_id "; 
             } 
 
             
