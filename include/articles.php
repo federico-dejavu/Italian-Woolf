@@ -83,7 +83,7 @@ class articles{
             if($postAuthors){
                 
                 $from = $from.", articles_authors AS AA "; 
-                if($concat == 0){
+                if($concat == 0 & $passo == 0){
                     $where = $where." (P.id = AA.peoples_id and A.id = AA.articles_id) ";
                 } else {
                     $where = $where." OR (P.id = AA.peoples_id and A.id = AA.articles_id) ";
@@ -95,7 +95,7 @@ class articles{
             
             if($postTranslators){   
                 $from = $from.", articles_translators AS AT ";
-                if($concat == 0){
+                if($concat == 0 & $passo == 0){
                     $where = $where." (P.id = AT.peoples_id and A.id = AT.articles_id) ";
                 } else {
                     $where = $where." OR (P.id = AT.peoples_id and A.id = AT.articles_id) ";
@@ -106,7 +106,7 @@ class articles{
 
             if($postEditors){
                 $from = $from.", articles_editors AS AE ";
-                if($concat == 0){
+                if($concat == 0 & $passo == 0){
                     $where = $where." (P.id = AE.peoples_id and A.id = AE.articles_id) ";
                 } else {
                     $where = $where." OR (P.id = AE.peoples_id and A.id = AE.articles_id) ";
