@@ -79,26 +79,29 @@ class articles{
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
         if($postNome){
             $from = $from.", peoples as P ";
-
+            $concat = 0;
             if($postAuthors){
+                
                 $from = $from.", articles_authors AS AA "; 
                 if($passo == 1){
                     $where = $where." (P.id = AA.peoples_id and A.id = AA.articles_id) ";
                 } else {
                     $where = $where." AND (P.id = AA.peoples_id and A.id = AA.articles_id) ";
                     $passo =1;
-                }                
+                } 
+                $concat = 1;               
             } 
 
             
-            if($postTranslators){
+            if($postTranslators){   
                 $from = $from.", articles_translators AS AT ";
-                if($passo == 1){
+                if($concat == 1){
                     $where = $where." (P.id = AT.peoples_id and A.id = AT.articles_id) ";
                 } else {
                     $where = $where." AND (P.id = AT.peoples_id and A.id = AT.articles_id) ";
                     $passo =1;
-                }                  
+                }  
+                $concat = 1;                
             }
 
             if($postEditors){
@@ -108,7 +111,8 @@ class articles{
                 } else {
                     $where = $where." AND (P.id = AE.peoples_id and A.id = AE.articles_id) ";
                     $passo =1;
-                }                 
+                }   
+                $concat = 1;              
             } 
 
             $where = $where." AND P.fullname LIKE '%".$postNome."%' ";
