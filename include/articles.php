@@ -81,24 +81,38 @@ class articles{
             $from = $from.", peoples as P ";
 
             if($postAuthors){
-                $from = $from." LEFT JOIN articles_authors AS AA ON P.id = AA.peoples_id "; 
+                $from = $from.", articles_authors AS AA "; 
+                if($passo == 1){
+                    $where = $where." (P.id = AA.peoples_id and A.id = AA.articles_id) ";
+                } else {
+                    $where = $where." AND (P.id = AA.peoples_id and A.id = AA.articles_id) ";
+                    $passo =1;
+                }                
             } 
 
             
             if($postTranslators){
-                $from = $from." LEFT JOIN articles_translators AS AT ON P.id = AT.peoples_id "; 
+                $from = $from.", articles_translators AS AT ";
+                if($passo == 1){
+                    $where = $where." (P.id = AT.peoples_id and A.id = AT.articles_id) ";
+                } else {
+                    $where = $where." AND (P.id = AT.peoples_id and A.id = AT.articles_id) ";
+                    $passo =1;
+                }                  
             }
 
             if($postEditors){
-                $from = $from." LEFT JOIN articles_editors AS AE ON P.id=AE.peoples_id ";
-            }             
+                $from = $from.", articles_editors AS AE ";
+                if($passo == 1){
+                    $where = $where." (P.id = AE.peoples_id and A.id = AE.articles_id) ";
+                } else {
+                    $where = $where." AND (P.id = AE.peoples_id and A.id = AE.articles_id) ";
+                    $passo =1;
+                }                 
+            } 
 
-            if($passo == 1){
-                $where = $where." AND P.fullname LIKE '%".$postNome."%' "; 
-            } else {
-                $where = $where." P.fullname LIKE '%".$postNome."%' ";  
-                $passo = 1; 
-            }   
+            $where = $where." AND P.fullname LIKE '%".$postNome."%' ";
+ 
         }
 
         if($postLanguage){
