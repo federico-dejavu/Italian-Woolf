@@ -52,7 +52,7 @@
 
         $arrayWorks[]=$singleWork;
 
-        
+        var_dump($arrayWorks);
         echo $twig->render('result/work.tpl', [
             'works'		=> $arrayWorks,    
         ]);
