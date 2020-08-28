@@ -10,5 +10,10 @@
 
 	define('DEBUG','false');
 
-	require_once '/vendor/autoload.php';
+    require_once WOOLF_PATH.'/vendor/autoload.php';
+    
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+        'cache' => '/cache',
+    ]);
 ?>
