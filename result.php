@@ -5,6 +5,8 @@
     require_once 'include/works.php';
     require_once 'include/publishers.php';
     require_once 'include/authors.php';
+    require_once 'include/editors.php';
+    require_once 'include/illustrators.php';
     require_once 'include/editions.php';
     require_once 'include/articles.php';
 
@@ -39,6 +41,31 @@
             $arrElements[] = $author;     
         }
         $singleWork['author']=$arrElements;
+
+        /* Reperisco dati Editor */
+        $editors = new editors();
+        $arrEditors = $editors->getAuthorsByWorkId($id);
+        $arrElements = array();
+        foreach($arrEditors as $peoples_id){
+                
+            $editor = $people->getPeopleById($peoples_id);
+                    
+            $arrElements[] = $editor;     
+        }
+        $singleWork['editors']=$arrElements; 
+        
+        /* Reperisco dati Illustrator */
+        $illustrators = new illustrators();
+        $arrIllustrators = $illustrators->getIllustratorsByWorkId($id);
+        $arrElements = array();
+        foreach($arrIllustrators as $peoples_id){
+                
+            $illustrator = $people->getPeopleById($peoples_id);
+                    
+            $arrElements[] = $illustrator;     
+        }
+        $singleWork['illustrators']=$arrElements; 
+
 
         /* Reperisco le edizioni */
         $editions = new editions();

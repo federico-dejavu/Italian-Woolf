@@ -9,10 +9,15 @@
 			{% for work in works %}
 			<div class="row">
 				<div class="col">
-					<a href=""><b>{{ work.title }},</b></a> {{ work.year }} / {{ work.publisher }} -
+					<a href=""><b>{{ work.title }},</b></a> di 
 					{% for author in work.author %}
 						 {{ author.fullname }}
-					{% endfor %}
+					{% endfor %} | {{ work.publisher }} - {{ work.year }} 
+					{{ work.description }}
+					</br>
+					Lingua: 
+					</br>
+					Edizioni:</br>
 					<ul>
 						{% for edition in work.editions %}
 							<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
