@@ -12,9 +12,11 @@
 						 {{ author.fullname }}
 					{% endfor %} | {{ work.publisher }} - {{ work.year }} 
 					{{ work.description }}
-					</br>
-					Lingua: 
-					</br>
+					{{ if work.isbn }}
+					<p>
+					ISBN: {{ work.isbn }}
+					{{ endif }}
+					</p>
 					Edizioni:</br>
 					<ul>
 						{% for edition in work.editions %}
