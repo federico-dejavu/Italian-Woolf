@@ -53,11 +53,15 @@
 
         $arrayWorks[]=$singleWork;
 
+        echo "<pre> Works</br>";
+        var_dump($arrayWorks);
+        echo "</pre>";
 
+        /*
         echo $twig->render('work.tpl', [
             'works'		=> $arrayWorks,    
         ]);
-
+        */
 
 
     }
