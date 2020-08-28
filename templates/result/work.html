@@ -15,14 +15,18 @@
 					{% if work.isbn %}
 					<p>
 					ISBN: {{ work.isbn }}
-					{% endif %}
 					</p>
-					Edizioni:</br>
-					<ul>
-						{% for edition in work.editions %}
-							<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
-						 {% endfor %}
-					</ul>
+					{% endif %}
+					{% if work.editions %}
+					<p>
+						Editions:
+					</p>
+						<ul>
+							{% for edition in work.editions %}
+								<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
+							 {% endfor %}
+						</ul>
+					{% endif %}
 				</div>
 			</div>
 		</div>
