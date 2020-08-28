@@ -7,7 +7,7 @@
     require_once 'include/authors.php';
     require_once 'include/editions.php';
     require_once 'include/articles.php';
-	require_once './include/twig.php';
+	require_once 'include/twig.php';
 
     $arrWorks = '';
 
