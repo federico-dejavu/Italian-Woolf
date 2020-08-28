@@ -7,6 +7,7 @@
     require_once 'include/authors.php';
     require_once 'include/secondary_authors.php';   
     require_once 'include/editors.php';
+    require_once 'include/languages.php';  
     require_once 'include/illustrators.php';
     require_once 'include/editions.php';
     require_once 'include/articles.php';
@@ -26,10 +27,16 @@
     if($actionParam == "work"){
         $workObject = new works();
         $work = $workObject->getWorksByWork_id($id);
+
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
         $publisher = $publisherObject->getPublisherById($work['publisher_id']);
         $work['publisher']=$publisher[0]['publisher'];
+
+        /* Reperisco lingua */
+        $languages = new languages();
+        $language = $languages->getLanguageById($work['original']);
+        $work['language']=$language['language'];
 
         /* Reperisco dati Author */
         $authors = new authors();
@@ -107,6 +114,7 @@
     pages
     description
     isbn
+    language
     libraries
         []
     image
