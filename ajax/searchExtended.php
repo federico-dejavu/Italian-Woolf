@@ -125,7 +125,7 @@
         } 
     }
 
-    if (isset(DEBUG)&&(DEBUG=true)) {
+    if (isset(DEBUG)&&(DEBUG==true)) {
         echo "<pre> Works</br>";
         var_dump($arrayArticles);
         echo "</pre>";
