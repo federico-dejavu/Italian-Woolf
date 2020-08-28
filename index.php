@@ -1,4 +1,7 @@
-<?php include_once('include/head.php'); ?>
+<?php 
+	$page_name = basename($_SERVER['PHP_SELF']);
+	include_once('include/head.php'); 	
+?>
 <body>
 <?php include_once('include/header.php'); ?>
      <div id="research">
