@@ -19,7 +19,7 @@
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
     if($actionParam == "works"){
- 
+        $works = new works;
         $singleWork = $works->getWorksByWork_id($work_id);
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
