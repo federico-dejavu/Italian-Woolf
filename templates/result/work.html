@@ -3,20 +3,34 @@
 	    <div class="container">
 			<div class="row">
 				<div class="col">
-					<h2>{{ work.title }}</h2>
+					<h2>{{ work.title }}
+					{% if work.year %}
+						({{ work.year }})
+					{% endif %}
+					</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
 					{% for author in work.authors %}
-						 {{ author.fullname }}
-					{% endfor %} | {{ work.publisher }} - {{ work.year }} 
-					{{ work.description }}
+					<b>{{ author.fullname }}</b> |
+					{% endfor %}  
+					<i>{{ work.publisher }}</i>
+
 					{% if work.isbn %}
 					<p>
 					ISBN: {{ work.isbn }}
 					</p>
 					{% endif %}
+
+					<p>
+						{% if work.image %}
+						<img src="{{ work.image }}" align="left">
+						{% endif %}
+						{{ work.description }}
+					</p>  
+					
+
 					{% if work.editions %}
 					<p>
 						Editions:
