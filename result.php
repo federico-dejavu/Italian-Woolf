@@ -18,7 +18,7 @@
     $subject	= (isset($_REQUEST['subject'])	? $_REQUEST['subject']	: '');
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
-    if($actionParam == "works"){
+    if($actionParam == "work"){
         $works = new works();
         $singleWork = $works->getWorksByWork_id($work_id);
         /* Reperisco dati publisher */
@@ -52,7 +52,7 @@
 
         $arrayWorks[]=$singleWork;
 
-        var_dump($arrayWorks);
+        
         echo $twig->render('result/work.tpl', [
             'works'		=> $arrayWorks,    
         ]);
