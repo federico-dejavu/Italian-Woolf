@@ -21,7 +21,7 @@
 				</div>
 				<div class="row align-items-center">
 					<div class="col">
-						<input type="button" value="Search" id="submit" onClick="ajaxSearch('searchKeywords');" /> or <a href="advancedSearch.html" >Advanced search</a>
+						<input type="button" value="Search" id="submit" onClick="ajaxSearch('searchKeywords');" /> or <a href="advancedSearch.php" >Advanced search</a>
 					</div>
 				</div>
 			</form>
