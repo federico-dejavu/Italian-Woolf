@@ -1,6 +1,4 @@
-<?php 
-	 include_once('functions/frontend.php');
-?><!doctype html>
+<!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
@@ -21,7 +19,7 @@
 	<link rel="stylesheet/less" type="text/css" href="css/style.less" />
 <?php 
 	$filename = WOOLF_PATH.'/css/'.$page_name.'.less';
-
+	echo "<!-- ".$page_name."-->";
 	if (file_exists($filename)) {
 
 		echo  '<link rel="stylesheet/less" type="text/css" href="'.WOOLF_URL.'/css/'.page_name.'.less" />';
