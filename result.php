@@ -40,9 +40,9 @@
                 
             $author = $people->getPeopleById($peoples_id);
                     
-            $arrElements[] = $author;     
+            $arrElements[] = $author;
         }
-        $work['author']=$arrElements;
+        $work['authors']=$arrElements;
 
         /* Reperisco dati Editor */
         $editors = new editors();
@@ -78,9 +78,51 @@
         }
 
         $work['editions'] = $arrEditions;
+/**
+    
+    $work[]
 
-        var_dump($work);
-        
+    id
+    title
+    original
+    year
+    publisher_id
+    city
+    serie_id
+    pages
+    description
+    isbn
+    libraries
+        []
+    image
+    publisher
+    authors
+        id
+        other_name
+        fullname
+        birth_date
+        death_date
+        authority_record
+        image
+    editors
+        id
+        other_name
+        fullname
+        birth_date
+        death_date
+        authority_record
+        image
+    illustrators
+        id
+        other_name
+        fullname
+        birth_date
+        death_date
+        authority_record
+        image
+    editions
+        []
+**/
         echo $twig->render('result/work.html', [
             'work'		=> $work,    
         ]);

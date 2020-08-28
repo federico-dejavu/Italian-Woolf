@@ -155,7 +155,5 @@ class works{
 
         return $arrTotal;
     }      
-    
-
 }
 ?>

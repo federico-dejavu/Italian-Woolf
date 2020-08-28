@@ -6,11 +6,10 @@
 					<h2>Works</h2>
 				</div>
 			</div>
-			{% for work in works %}
 			<div class="row">
 				<div class="col">
 					<a href=""><b>{{ work.title }},</b></a> di 
-					{% for author in work.author %}
+					{% for author in work.authors %}
 						 {{ author.fullname }}
 					{% endfor %} | {{ work.publisher }} - {{ work.year }} 
 					{{ work.description }}
