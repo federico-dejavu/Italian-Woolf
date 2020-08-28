@@ -26,6 +26,16 @@
 						</p>
 					{% endif %}
 
+					
+					{% if work.editors %}
+						<p>
+						Editor:
+						{% for editor in work.editors %}
+							{{ editor.fullname }}|
+						{% endfor %}
+						</p>
+					{% endif %}
+
 					{% if work.language %}
 					<p>
 					Language: {{ work.language }}
