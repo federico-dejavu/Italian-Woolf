@@ -113,7 +113,7 @@
         var_dump($arrayArticles);
         echo "</pre>";
        */
-        echo $twig->render('works.tpl', [
+        echo $twig->render('searchResults.tpl', [
 		
             'works'		=> $arrayWorks,
             'articles'	=> $arrayArticles,
