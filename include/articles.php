@@ -143,7 +143,7 @@ class articles{
                 }   
             }
  
-        }
+
 
         if($postLanguage){
             if($passo == 1){
