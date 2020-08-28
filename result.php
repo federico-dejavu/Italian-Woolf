@@ -20,7 +20,7 @@
 
     if($actionParam == "work"){
         $works = new works();
-        $singleWork = $works->getWorksByWork_id($work_id);
+        $singleWork = $works->getWorksByWork_id($id);
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
         $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
@@ -28,7 +28,7 @@
 
         /* Reperisco dati Author */
         $authors = new authors();
-        $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+        $arrAuthors = $authors->getAuthorsByWorkId($id);
                 
         $people = new peoples();
         $arrElements = array();
@@ -42,7 +42,7 @@
 
         /* Reperisco le edizioni */
         $editions = new editions();
-        $editionsList = $editions->getEditionsByWork_id($work_id);
+        $editionsList = $editions->getEditionsByWork_id($id);
         $arrEditions = array();
         foreach($editionsList as $edition_id){
             $arrEditions[] = $editions->getEditionById($edition_id);
@@ -56,21 +56,16 @@
         echo $twig->render('result/work.tpl', [
             'works'		=> $arrayWorks,    
         ]);
-
-
     }
          
 
 
        /* Estraggo articles */
-       if($articlesParam){ 
+       if($actionParam == "article"){ 
 
         $articles = new articles();
-        $allArticlesID = $articles->getArticlesIdByKeywords($keyOptimized);
-                
-        $arrayArticles=array();
-        foreach($allArticlesID as $articles_id){
-            $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+
+            $singleArticles = $articles->getArticlesByArticles_id($id);
             /* Reperisco dati publisher */
             $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
@@ -78,7 +73,7 @@
 
             /* Reperisco dati Author */
             $authors = new authors();
-            $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
+            $arrAuthors = $authors->getAuthorsByArticleId($id);
             
             $people = new peoples();
             $arrElements = array();
@@ -91,9 +86,10 @@
             $singleArticles['author']=$arrElements;
 
             $arrayArticles[]=$singleArticles;
-        }
+            echo $twig->render('result/article.tpl', [
+                'works'		=> $arrayArticles,    
+            ]);
 
-       
      
     }
 
