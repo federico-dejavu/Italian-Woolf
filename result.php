@@ -54,7 +54,7 @@
         $arrayWorks[]=$singleWork;
 
         
-        echo $twig->render('templates/result/work.tpl', [
+        echo $twig->render('result/work.tpl', [
             'works'		=> $arrayWorks,    
         ]);
 
