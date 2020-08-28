@@ -1,7 +1,6 @@
 <?php
 
 	require_once '../include/config.php';
-    //require_once '../include/search.php';
     require_once '../include/cleaner.php';
     require_once '../include/works.php';
     require_once '../include/publishers.php';
@@ -61,11 +60,11 @@
                 foreach($editionsList as $edition_id){
                     $arrEditions[] = $editions->getEditionById($edition_id);
                 }
-                /*
-                echo "<pre> Works</br>";
-                var_dump($arrEditions);
-                echo "</pre>";  
-                */ 
+                if (isset(DEBUG)&&(DEBUG=true)) {
+                    echo "<pre> Works</br>";
+                    var_dump($arrEditions);
+                    echo "</pre>";  
+                }
                 $singleWork['editions'] = $arrEditions;
 
                 $arrayWorks[]=$singleWork;
@@ -108,11 +107,12 @@
      
     }
 
-        /*
-        echo "<pre> Works</br>";
-        var_dump($arrayArticles);
-        echo "</pre>";
-       */
+    if (isset(DEBUG)&&(DEBUG=true)) {
+            echo "<pre> Works</br>";
+            var_dump($arrayArticles);
+            echo "</pre>";
+        }
+        
         echo $twig->render('searchResults.tpl', [
 		
             'works'		=> $arrayWorks,
