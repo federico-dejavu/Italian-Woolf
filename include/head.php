@@ -19,10 +19,8 @@
 	<link rel="stylesheet/less" type="text/css" href="css/style.less" />
 <?php 
 	$filename = WOOLF_PATH.'/css/'.$page_name.'.less';
-	echo "<!-- ".$page_name."-->";
 	if (file_exists($filename)) {
-
-		echo  '<link rel="stylesheet/less" type="text/css" href="'.WOOLF_URL.'/css/'.$page_name.'.less" />';
+		echo  '<link rel="stylesheet/less" type="text/css" href="css/'.$page_name.'.less" />';
 	}
 ?>
 	<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>

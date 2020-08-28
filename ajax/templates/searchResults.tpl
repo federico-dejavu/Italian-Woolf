@@ -3,9 +3,10 @@
 	    <div class=“container”>
 			<div class=“row”>
 				<div class=“col”>
-					<h2>Works {{ works|length }}</h2>
+					<h2>Works</h2>
 					 {% for work in works %}
-					<p>
+				</div>
+				<div class=“row”>
 						<a href=“”><b>{{ work.title }},</b></a> {{ work.year }} / {{ work.publisher }} -
 						{% for author in work.author %}
 						 {{ author.fullname }}
