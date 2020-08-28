@@ -13,7 +13,6 @@
     $arrWorks = '';
 
 
-    header('Content-type: text/plain; charset=utf-8');
     ini_set('display_errors',1); # uncomment if you need debugging
     include_once('include/head.php');
     echo "<body>";
@@ -47,7 +46,7 @@
 
         /* Reperisco dati Editor */
         $editors = new editors();
-        $arrEditors = $editors->getAuthorsByWorkId($id);
+        $arrEditors = $editors->getEditorsByWorkId($id);
         $arrElements = array();
         foreach($arrEditors as $peoples_id){
                 
