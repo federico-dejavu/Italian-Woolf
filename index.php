@@ -1,5 +1,5 @@
 <?php 
-	require_once '../include/config.php';
+	require_once 'include/config.php';
 	$page_name = basename($_SERVER['PHP_SELF']);
 	include_once('include/head.php'); 	
 ?>
