@@ -123,16 +123,16 @@ class articles{
                 $from = $from.", peoples as P ";
     
                 if($postAuthors){
-                    $from = $from." INNER JOIN articles_authors  ON P.id = articles_authors.peoples_id "; 
+                    $from = $from." RIGHT JOIN articles_authors  ON P.id = articles_authors.peoples_id "; 
                 } 
     
                 
                 if($postTranslators){
-                    $from = $from." INNER JOIN articles_translators ON P.id = articles_translators.peoples_id "; 
+                    $from = $from." RIGHT JOIN articles_translators ON P.id = articles_translators.peoples_id "; 
                 }
     
                 if($postEditors){
-                    $from = $from." INNER JOIN articles_editors  ON P.id=articles_editors.peoples_id ";
+                    $from = $from." RIGHT JOIN articles_editors  ON P.id=articles_editors.peoples_id ";
                 }             
     
                 if($passo == 1){
