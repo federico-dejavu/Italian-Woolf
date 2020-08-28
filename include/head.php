@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet/less" type="text/css" href="css/style.less" />
 <?php 
+	require_once '../include/config.php';
 	$filename = WOOLF_PATH.'/css/'.$page_name.'.less';
 	if (file_exists($filename)) {
 		echo  '<link rel="stylesheet/less" type="text/css" href="css/'.$page_name.'.less" />';
