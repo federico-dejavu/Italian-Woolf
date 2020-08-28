@@ -12,10 +12,10 @@
 						 {{ author.fullname }}
 					{% endfor %} | {{ work.publisher }} - {{ work.year }} 
 					{{ work.description }}
-					{{ if work.isbn }}
+					{% if work.isbn %}
 					<p>
 					ISBN: {{ work.isbn }}
-					{{ endif }}
+					{% endif %}
 					</p>
 					Edizioni:</br>
 					<ul>
