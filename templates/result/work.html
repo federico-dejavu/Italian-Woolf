@@ -3,12 +3,11 @@
 	    <div class="container">
 			<div class="row">
 				<div class="col">
-					<h2>Works</h2>
+					<h2>{{ work.title }}</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
-					<a href=""><b>{{ work.title }},</b></a> di 
 					{% for author in work.authors %}
 						 {{ author.fullname }}
 					{% endfor %} | {{ work.publisher }} - {{ work.year }} 
@@ -24,7 +23,6 @@
 					</ul>
 				</div>
 			</div>
-			{% endfor %}
 		</div>
 <!— end Twig —>
 {% endautoescape %}
