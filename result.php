@@ -47,7 +47,7 @@
 
         /* Reperisco dati Secondary Author */
         $secondary_authors = new secondary_authors();
-        $arrSecondaryAuthors = $secondary_authors->getAuthorsByWorkId($id);
+        $arrSecondaryAuthors = $secondary_authors->getSecondaryAuthorsByWorkId($id);
                 
         $arrElements = array();
         foreach($arrSecondaryAuthors as $peoples_id){
