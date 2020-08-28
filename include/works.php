@@ -124,7 +124,7 @@ class works{
         return $arrWorksID;
     }  
     
-    /* Dato un word_id restituisce un array di works */
+    /* Dato un word_id restituisce un work */
     public function getWorksByWork_id($work_id = "") {
         $arrWorks = array();
        

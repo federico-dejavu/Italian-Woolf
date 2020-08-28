@@ -23,12 +23,12 @@
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
     if($actionParam == "work"){
-        $works = new works();
-        $singleWork = $works->getWorksByWork_id($id);
+        $workObject = new works();
+        $work = $workObject->getWorksByWork_id($id);
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
-        $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
-        $singleWork['publisher']=$publisher[0]['publisher'];
+        $publisher = $publisherObject->getPublisherById($work['publisher_id']);
+        $work['publisher']=$publisher[0]['publisher'];
 
         /* Reperisco dati Author */
         $authors = new authors();
@@ -42,7 +42,7 @@
                     
             $arrElements[] = $author;     
         }
-        $singleWork['author']=$arrElements;
+        $work['author']=$arrElements;
 
         /* Reperisco dati Editor */
         $editors = new editors();
@@ -54,7 +54,7 @@
                     
             $arrElements[] = $editor;     
         }
-        $singleWork['editors']=$arrElements; 
+        $work['editors']=$arrElements; 
         
         /* Reperisco dati Illustrator */
         $illustrators = new illustrators();
@@ -66,7 +66,7 @@
                     
             $arrElements[] = $illustrator;     
         }
-        $singleWork['illustrators']=$arrElements; 
+        $work['illustrators']=$arrElements; 
 
 
         /* Reperisco le edizioni */
@@ -77,13 +77,12 @@
             $arrEditions[] = $editions->getEditionById($edition_id);
         }
 
-        $singleWork['editions'] = $arrEditions;
+        $work['editions'] = $arrEditions;
 
-        $arrayWorks[]=$singleWork;
-
+        var_dump($work);
         
         echo $twig->render('result/work.html', [
-            'works'		=> $arrayWorks,    
+            'work'		=> $work,    
         ]);
     }
          
