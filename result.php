@@ -36,6 +36,7 @@
         /* Reperisco lingua */
         $languages = new languages();
         $language = $languages->getLanguageById($work['original']);
+        var_dump($language);
         $work['language']=$language['language'];
 
         /* Reperisco dati Author */
