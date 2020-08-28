@@ -77,6 +77,7 @@ class articles{
             }    
         } 
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
+        /*
         if($postNome){
             $from = $from.", peoples as P ";
             $concat = 0;
@@ -116,6 +117,31 @@ class articles{
             } 
 
             $where = $where." AND P.fullname LIKE '%".$postNome."%' ";
+            */
+
+            if($postNome){
+                $from = $from.", peoples as P ";
+    
+                if($postAuthors){
+                    $from = $from." LEFT JOIN articles_authors  ON P.id = articles_authors.peoples_id "; 
+                } 
+    
+                
+                if($postTranslators){
+                    $from = $from." LEFT JOIN articles_translators ON P.id = articles_translators.peoples_id "; 
+                }
+    
+                if($postEditors){
+                    $from = $from." LEFT JOIN articles_editors  ON P.id=articles_editors.peoples_id ";
+                }             
+    
+                if($passo == 1){
+                    $where = $where." AND P.fullname LIKE '%".$postNome."%' "; 
+                } else {
+                    $where = $where." P.fullname LIKE '%".$postNome."%' ";  
+                    $passo = 1; 
+                }   
+            }
  
         }
 
