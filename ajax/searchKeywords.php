@@ -33,6 +33,7 @@
                     
             $arrayWorks=array();
             foreach($allWorksID as $work_id){
+                $arrayWorks['id']=$work_id;
                 $singleWork = $works->getWorksByWork_id($work_id);
                 /* Reperisco dati publisher */
                 $publisherObject = new publishers();
