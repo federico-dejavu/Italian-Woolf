@@ -17,6 +17,15 @@
 					{% endfor %}  
 					<i>{{ work.publisher }}</i>
 
+					{% if work.secondary_authors %}
+						<p>
+						Secondary Author:
+						{% for secondary_author in work.secondary_authors %}
+							{{ secondary_author.fullname }}|
+						{% endfor %}
+						</p>
+					{% endif %}
+
 					{% if work.isbn %}
 					<p>
 					ISBN: {{ work.isbn }}

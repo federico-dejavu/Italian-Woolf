@@ -44,6 +44,20 @@
         }
         $work['authors']=$arrElements;
 
+        /* Reperisco dati Secondary Author */
+        $secondary_authors = new secondary_authors();
+        $arrSecondaryAuthors = $secondary_authors->getAuthorsByWorkId($id);
+                
+        $arrElements = array();
+        foreach($arrSecondaryAuthors as $peoples_id){
+                
+            $secondary_author = $people->getPeopleById($peoples_id);
+                    
+            $arrElements[] = $secondary_author;
+        }
+        $work['secondary_authors']=$arrElements;
+
+
         /* Reperisco dati Editor */
         $editors = new editors();
         $arrEditors = $editors->getEditorsByWorkId($id);
@@ -104,6 +118,14 @@
         death_date
         authority_record
         image
+    secondary_authors
+        id
+        other_name
+        fullname
+        birth_date
+        death_date
+        authority_record
+        image        
     editors
         id
         other_name
