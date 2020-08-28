@@ -61,7 +61,7 @@
                 foreach($editionsList as $edition_id){
                     $arrEditions[] = $editions->getEditionById($edition_id);
                 }
-                if (DEBUG==true) {
+                if (DEBUG===true) {
                     echo "<pre> Works</br>";
                     var_dump($arrEditions);
                     echo "</pre>";  
@@ -108,7 +108,7 @@
      
     }
 
-    if (DEBUG==true) {
+    if (DEBUG===true) {
             echo "<pre> Works</br>";
             var_dump($arrayArticles);
             echo "</pre>";
