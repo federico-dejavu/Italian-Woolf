@@ -15,7 +15,7 @@ class languages{
     public function getLanguageById($id="") {
         $db = new DBManager();
         $queryW = "SELECT id, language, code FROM languages where id = $id";
-        $arrElements = $db->queryList($queryW);
+        $arrElements = $db->query($queryW);
         return $arrElements;
     }
 }
