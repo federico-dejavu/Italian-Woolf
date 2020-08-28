@@ -17,18 +17,18 @@
     ini_set('display_errors',1); # uncomment if you need debugging
 
 
-    $articlesParam	    = (isset($_POST['articles'])	? $_POST['articles']	: '');
-    $worksParam		    = (isset($_POST['works'])		? $_POST['works']		: '');
-    $postKeywords	    = (isset($_POST['keywords'])	? $_POST['keywords']	: '');
-    $postNome	        = (isset($_POST['nome'])	    ? $_POST['nome']	    : '');
-    $postAuthors        = (isset($_POST['authors'])	    ? $_POST['authors']	    : '');
+    $articlesParam	    = (isset($_POST['articles'])	? $_POST['articles']	    : '');
+    $worksParam		    = (isset($_POST['works'])		? $_POST['works']		    : '');
+    $postKeywords	    = (isset($_POST['keywords'])	? $_POST['keywords']	    : '');
+    $postNome	        = (isset($_POST['nome'])	    ? $_POST['nome']	        : '');
+    $postAuthors        = (isset($_POST['authors'])	    ? $_POST['authors']	        : '');
     $postTranslators    = (isset($_POST['translators']) ? $_POST['translators']	    : '');
-    $postEditors        = (isset($_POST['editors'])	    ? $_POST['editors']	    : '');   
-    $postTitle          = (isset($_POST['title'])	    ? $_POST['title']	    : '');
+    $postEditors        = (isset($_POST['editors'])	    ? $_POST['editors']	        : '');   
+    $postTitle          = (isset($_POST['title'])	    ? $_POST['title']	        : '');
     $postPublisher      = (isset($_POST['publisher'])	? $_POST['publisher']	    : '');          
-    $postJournal        = (isset($_POST['journal'])	    ? $_POST['journal']	    : '');
+    $postJournal        = (isset($_POST['journal'])	    ? $_POST['journal']	        : '');
     $fromYear           = (isset($_POST['fromYear'])	? $_POST['fromYear']	    : '');
-    $toYear             = (isset($_POST['toYear'])	    ? $_POST['toYear']	    : '');   
+    $toYear             = (isset($_POST['toYear'])	    ? $_POST['toYear']	        : '');   
     $postLanguage       = (isset($_POST['language'])    ? $_POST['language']	    : '');
     $postTypology       = (isset($_POST['typology'])    ? $_POST['typology']	    : '');    
     $postopenAccess     = (isset($_POST['openAccess'])  ? $_POST['openAccess']	    : '');

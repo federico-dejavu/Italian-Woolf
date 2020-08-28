@@ -1,21 +1,16 @@
 <?php
 
 	require_once 'include/config.php';
-    require_once 'include/cleaner.php';
-    require_once 'include/works.php';
-    require_once 'include/publishers.php';
-    require_once 'include/authors.php';
-    require_once 'include/editors.php';
-    require_once 'include/illustrators.php';
-    require_once 'include/editions.php';
-    require_once 'include/articles.php';
 
     $arrWorks = '';
 
 
     header('Content-type: text/plain; charset=utf-8');
     ini_set('display_errors',1); # uncomment if you need debugging
-
+    include_once('include/head.php');
+    echo "<body>";
+    include_once('include/header.php');
+    
     $actionParam	= (isset($_REQUEST['action'])	? $_REQUEST['action']	: '');
     $subject	= (isset($_REQUEST['subject'])	? $_REQUEST['subject']	: '');
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
@@ -111,7 +106,7 @@
                 $arrElements[] = $author;     
             }
             $singleArticles['author']=$arrElements;
-
+        
             $arrayArticles[]=$singleArticles;
             echo $twig->render('result/article.tpl', [
                 'works'		=> $arrayArticles,    
