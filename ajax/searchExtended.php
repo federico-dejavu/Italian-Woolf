@@ -1,7 +1,6 @@
 <?php
 
 	require_once '../include/config.php';
-    //require_once '../include/search.php';
     require_once '../include/cleaner.php';
     require_once '../include/works.php';
     require_once '../include/publishers.php';
@@ -126,11 +125,11 @@
         } 
     }
 
-    /*
-    echo "<pre> Works</br>";
-     var_dump($arrayArticles);
-    echo "</pre>";
-    */
+    if (isset(DEBUG)&&(DEBUG=true)) {
+        echo "<pre> Works</br>";
+        var_dump($arrayArticles);
+        echo "</pre>";
+    }
     echo $twig->render('searchResults.tpl', [
 		
         'works'		=> $arrayWorks,
