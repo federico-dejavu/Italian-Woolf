@@ -8,7 +8,6 @@
     require_once '../include/editions.php';
     require_once '../include/articles.php';
     require_once '../include/languages.php';   
-	require_once '../include/twig.php';
 
     $arrWorks = '';
     $keyOptimized="";

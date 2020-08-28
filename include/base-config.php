@@ -8,4 +8,7 @@
 	define('WOOLF_PATH', dirname(dirname(__FILE__)));
 	define('WOOLF_URL', '');
 
+	define('DEBUG','false');
+
+	require_once '/vendor/autoload.php';
 ?>
