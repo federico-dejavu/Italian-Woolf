@@ -74,8 +74,6 @@
 
 **/
          
-
-
     $articlesObject = new articles();
     $article = $articlesObject->getArticlesByArticles_id($id);
 
@@ -99,6 +97,7 @@
         $arrElements[] = $editor;     
     }
     $article['editors']=$arrElements; 
+    var_dump($article['editors']);
             
     /* Reperisco dati publisher */
     $publisherObject = new publishers();
