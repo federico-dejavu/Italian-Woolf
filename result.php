@@ -32,12 +32,12 @@
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
         $publisher = $publisherObject->getPublisherById($work['publisher_id']);
-        $work['publisher']=$publisher[0]['publisher'];
+        $work['publisher']=$publisher['publisher'];
 
         /* Reperisco della serie */
         $seriesObject = new series();
         $serie = $seriesObject->getSerierById($work['series_id']);
-        $work['serie']=$serie[0]['serie'];        
+        $work['serie']=$serie['serie'];        
 
         /* Reperisco lingua */
         $languages = new languages();
@@ -122,7 +122,6 @@
     isbn
     language
     libraries
-        []
     image
     publisher
         id, 
