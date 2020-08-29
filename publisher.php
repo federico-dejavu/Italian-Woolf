@@ -24,10 +24,8 @@
         link
    
 **/
-
-
         echo $twig->render('result/publisher.html', [
-            'work'		=> $publisher,    
+            'publisher'		=> $publisher,    
         ]);
     }
 ?>
