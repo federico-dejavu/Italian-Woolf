@@ -17,8 +17,9 @@
 					{% endfor %}  
 
 					<!-- questo dovrebbe essere un pop-up -->
-
-					<a href="publisher.php?id={{ work.publisher.id }}" target="main"><i>{{ work.publisher.publisher }}</i> </a>
+					{% for item in work.publisher %}
+						<a href="publisher.php?id={{ item.id }}" target="main"><i>{{ item.publisher }}</i> </a>
+					{% endfor %}
 
 					{% if work.serie %}	
 						<i> - {{ work.serie }}</i>
