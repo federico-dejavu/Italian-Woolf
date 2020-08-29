@@ -1,15 +1,15 @@
 <?php
 require_once('DBManager.php');
 
-class publishers{
+class series{
     
-    /* Dato un publishers_id restituisce un array di publisher */
-    public function getPublisherById($publishers_id = "") {
+    /* Dato un id restituisce una serie */
+    public function getPublisherById($serie_id = "") {
         $arrElements = array();
        
-        if($publishers_id){
+        if($serie_id){
             $db = new DBManager();
-            $query = "SELECT id, publisher, description, link FROM publishers WHERE id = $publishers_id";
+            $query = "SELECT id, publisher_id, serie FROM series WHERE id = $serie_id";
 
             $arrElements[] = $db->query($query);
         }
@@ -17,14 +17,14 @@ class publishers{
         return $arrElements;
     }   
     
-    /* Dato un array di works_id restituisce un array di publisher */
+    /* Dato un id serie restituisce un array di series */
     public function getAllPublishers() {
         $arrElements = array();
         $arrTotal = array();
        
         if($arrEditionsID){
             $db = new DBManager();
-            $queryW = "SELECT id, publisher, description, link FROM publishers";
+            $queryW = "SELECT id, publisher_id, serie FROM series";
             $arrElements = $db->queryList($queryW);
             $arrTotal[] = $arrElements;
         }

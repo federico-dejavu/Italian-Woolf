@@ -33,6 +33,11 @@
         $publisher = $publisherObject->getPublisherById($work['publisher_id']);
         $work['publisher']=$publisher[0]['publisher'];
 
+        /* Reperisco della serie */
+        $seriesObject = new series();
+        $serie = $seriesObject->getPublisherById($work['serie_id']);
+        $work['serie']=$publisher[0]['serie'];        
+
         /* Reperisco lingua */
         $languages = new languages();
         $language = $languages->getLanguageById($work['original']);
@@ -119,6 +124,14 @@
         []
     image
     publisher
+        id, 
+        publisher, 
+        description, 
+        link
+    serie
+        id, 
+        publisher_id, 
+        serie
     authors
         id
         other_name
