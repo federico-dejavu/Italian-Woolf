@@ -66,16 +66,16 @@ class works{
         if($postNome){
 
             if($postAuthors){
-                $from = $from." JOIN works_authors ON (works_authors.peoples_id = peoples.id AND works.id = works_authors.works_id) "; 
+                $from = $from." RIGHT JOIN works_authors ON (works_authors.peoples_id = peoples.id AND works.id = works_authors.works_id) "; 
             } 
 
             
             if($postTranslators){
-                $from = $from." JOIN works_translators ON works_translators.peoples_id = peoples.id AND works.id = works_translators.works_id "; 
+                $from = $from." LEFT JOIN works_translators ON works_translators.peoples_id = peoples.id AND works.id = works_translators.works_id "; 
             }
 
             if($postEditors){
-                $from = $from." JOIN works_editors ON works_editors.peoples_id = peoples.id AND works.id = works_editors.works_id ";
+                $from = $from." LEFT JOIN works_editors ON works_editors.peoples_id = peoples.id AND works.id = works_editors.works_id ";
             }             
 
             if($passo == 1){
