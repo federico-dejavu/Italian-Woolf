@@ -205,8 +205,8 @@
     $languages = new languages();
     $language = $languages->getLanguageById($article['language']);
     $article['language']=$language['language']; 
-var_dump($article);
-    echo $twig->render('searchResults.tpl', [
+
+    echo $twig->render('article.html', [
         'articles'	=> $article,
     ]);
 
