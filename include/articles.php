@@ -128,7 +128,7 @@ class articles{
     
                 
                 if($postTranslators){
-                    $from = $from." JOIN articles_translators ON articles_translators.peoples_id = peoples.id AND articles.id = articles_translators.articles_id "; 
+                    $from = $from." JOIN articles_translators ON articles_translators.peoples_id = peoples_id AND articles.id = articles_translators.articles_id "; 
                 }
     
                 if($postEditors){

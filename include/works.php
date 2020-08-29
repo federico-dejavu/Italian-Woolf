@@ -71,7 +71,7 @@ class works{
 
             
             if($postTranslators){
-                $from = $from." JOIN works_translators ON works_translators.peoples_id = peoples.id AND works.id = works_translators.works_id "; 
+                $from = $from." JOIN works_translators ON works_translators.peoples_id = peoples_id AND works.id = works_translators.works_id "; 
             }
 
             if($postEditors){
