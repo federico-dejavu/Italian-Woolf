@@ -210,7 +210,7 @@
 
  
         echo "<pre> Works</br>";
-        var_dump($workObject);
+        var_dump($work);
         echo "</pre>";
              /* 
         echo $twig->render('searchResults.tpl', [
