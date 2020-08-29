@@ -21,8 +21,6 @@
 				</div>
 			</div>
 			{% endfor %}
-
-			<div class="row">
 			<div class="row">
 				<div class="col">
 					<h2>Articles</h2>

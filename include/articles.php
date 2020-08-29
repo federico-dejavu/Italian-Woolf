@@ -37,15 +37,15 @@ class articles{
     public function getArticlesByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
-        $query = "SELECT distinct(A.id),title";
-        $from =" FROM articles as A";
+        $query = "SELECT distinct(articles.id),title";
+        $from =" FROM (articles, peoples)";
         $where ="";
         $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", articles_keywords as AK, keywords as K ";
-            $where = $where." K.id = AK.keywords_id and K.keyword REGEXP '$keyOptimized' and A.id = AK.articles_id ";
+            $where = $where." K.id = AK.keywords_id and K.keyword REGEXP '$keyOptimized' and articles.id = AK.articles_id ";
             $passo = 1;
         }
 
@@ -123,22 +123,22 @@ class articles{
                 $from = $from.", peoples as P ";
     
                 if($postAuthors){
-                    $from = $from." RIGHT JOIN articles_authors  ON P.id = articles_authors.peoples_id "; 
+                    $from = $from." JOIN articles_authors ON articles_authors.peoples_id = peoples.id AND articles.id = articles_authors.articles_id  "; 
                 } 
     
                 
                 if($postTranslators){
-                    $from = $from." RIGHT JOIN articles_translators ON P.id = articles_translators.peoples_id "; 
+                    $from = $from." JOIN articles_translators ON articles_translators.peoples_id = peoples.id AND articles.id = articles_translators.articles_id "; 
                 }
     
                 if($postEditors){
-                    $from = $from." RIGHT JOIN articles_editors  ON P.id=articles_editors.peoples_id ";
+                    $from = $from." JOIN articles_editors ON articles_editors.peoples_id = peoples.id AND articles.id = articles_editors.articles_id ";
                 }             
     
                 if($passo == 1){
-                    $where = $where." AND P.fullname LIKE '%".$postNome."%' "; 
+                    $where = $where." AND peoples.fullname LIKE '%".$postNome."%' "; 
                 } else {
-                    $where = $where." P.fullname LIKE '%".$postNome."%' ";  
+                    $where = $where." peoples.fullname LIKE '%".$postNome."%' ";  
                     $passo = 1; 
                 }   
             }
@@ -165,41 +165,41 @@ class articles{
         */
         if($postTypology){
             if($passo == 1){
-                $where = $where." AND A.typology_id = $postTypology ";
+                $where = $where." AND articles.typology_id = $postTypology ";
             } else {
-                $where = $where." A.typology_id = $postTypology ";
+                $where = $where." articles.typology_id = $postTypology ";
                 $passo = 1;
             }
         }  
 
         if($postPublisher){
             if($passo == 1){
-                $where = $where." AND A.publisher_id = $postPublisher ";
+                $where = $where." AND articles.publisher_id = $postPublisher ";
             } else   {
-                $where = $where." A.publisher_id = $postPublisher ";
+                $where = $where." articles.publisher_id = $postPublisher ";
                 $passo = 1;
             }
         }
         
         if($postJournal){
             if($passo == 1){
-                $where = $where." and A.journal_title like'%".$postJournal."%' ";
+                $where = $where." and articles.journal_title like'%".$postJournal."%' ";
             } else {
-                $where = $where." A.journal_title like'%".$postJournal."%' ";
+                $where = $where." articles.journal_title like'%".$postJournal."%' ";
                 $passo = 1;
             }
         } 
         
         if($postopenAccess){
             if($passo == 1){
-                $where = $where." and A.open_access =  $postopenAccess";
+                $where = $where." and articles.open_access =  $postopenAccess";
             } else {
-                $where = $where." A.open_access =  $postopenAccess";
+                $where = $where." articles.open_access =  $postopenAccess";
                 $passo = 1;
             }
         }         
 
-        $query = $query.$from." WHERE ".$where." order by A.title asc";
+        $query = $query.$from." WHERE ".$where." order by articles.title asc";
 
         echo "<pre> QUERY Works</br>";
         var_dump($query);

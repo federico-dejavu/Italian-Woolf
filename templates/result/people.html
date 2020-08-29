@@ -1,0 +1,42 @@
+{% autoescape false %}
+<!— Output by Twig :: modul "wysiwyg" —>
+	    <div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>{{ people.fullname }}
+					{% if people.other_name %}
+						({{ people.other_name }})
+					{% endif %}
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{% if people.birth_date %}
+					<p>
+					Birth date: {{ people.birth_date }}
+					</p>
+					{% endif %}
+
+					{% if people.death_date %}
+					<p>
+					Birth date: {{ people.death_date }}
+					</p>
+					{% endif %}	
+					
+					{% if people.authority_record %}
+					<p>
+						Authority record: <a href="{{ people.authority_record }}"><i>{{ people.authority_record }}</i> </a>
+					</p>
+					{% endif %}
+
+					<p>
+						{% if people.image %}
+						<img src="{{ people.image }}" align="left">
+						{% endif %}
+					</p>
+					</div>
+			</div>
+		</div>
+<!— end Twig —>
+{% endautoescape %}

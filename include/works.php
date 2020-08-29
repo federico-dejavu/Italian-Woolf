@@ -23,15 +23,15 @@ class works{
     public function getWorksByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
-        $query = "SELECT distinct(W.id),title";
-        $from =" FROM works as W";
+        $query = "SELECT distinct(works.id),title";
+        $from =" FROM (works,peoples) ";
         $where ="";
         $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", works_keywords as WK, keywords as K ";
-            $where = $where." K.id = WK.keywords_id and K.keyword REGEXP '$keyOptimized' and W.id = WK.works_id ";
+            $where = $where." K.id = works_keywords.keywords_id and K.keyword REGEXP '$keyOptimized' and works.id = WK.works_id ";
             $passo = 1;
         }
 
@@ -64,25 +64,24 @@ class works{
         } 
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
         if($postNome){
-            $from = $from.", peoples as P ";
 
             if($postAuthors){
-                $from = $from." LEFT JOIN works_authors AS WA ON P.id = WA.peoples_id "; 
+                $from = $from." JOIN works_authors ON (works_authors.peoples_id = peoples.id AND works.id = works_authors.works_id) "; 
             } 
 
             
             if($postTranslators){
-                $from = $from." LEFT JOIN works_translators AS WT ON P.id = WT.peoples_id "; 
+                $from = $from." JOIN works_translators ON works_translators.peoples_id = peoples.id AND works.id = works_translators.works_id "; 
             }
 
             if($postEditors){
-                $from = $from." LEFT JOIN works_editors AS WE ON P.id=WE.peoples_id ";
+                $from = $from." JOIN works_editors ON works_editors.peoples_id = peoples.id AND works.id = works_editors.works_id ";
             }             
 
             if($passo == 1){
-                $where = $where." AND P.fullname LIKE '%".$postNome."%' "; 
+                $where = $where." AND peoples.fullname LIKE '%".$postNome."%' "; 
             } else {
-                $where = $where." P.fullname LIKE '%".$postNome."%' ";  
+                $where = $where." pwoples.fullname LIKE '%".$postNome."%' ";  
                 $passo = 1; 
             }   
         }
@@ -99,26 +98,22 @@ class works{
         if($postTypology){
             $from = $from.", works_typologies AS WTP, typologies as T";
             if($passo == 1){
-                $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+                $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = works.id ";
             } else {
-                $where = $where." WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = W.id ";
+                $where = $where." WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = works.id ";
             }
         }  
         
         if($postPublisher){
             if($passo == 1){
-                $where = $where." AND W.publisher_id = $postPublisher ";
+                $where = $where." AND works.publisher_id = $postPublisher ";
             } else   {
-                $where = $where." W.publisher_id = $postPublisher ";
+                $where = $where." works.publisher_id = $postPublisher ";
                 $passo = 1;
             }
         }   
 
-        $query = $query.$from." WHERE ".$where." order by W.title asc";
-
-        echo "<pre> QUERY Works</br>";
-        var_dump($query);
-        echo "</pre>";
+        $query = $query.$from." WHERE ".$where." order by works.title asc";
          
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
