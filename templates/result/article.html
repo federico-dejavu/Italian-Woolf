@@ -1,0 +1,91 @@
+{% autoescape false %}
+<!— Output by Twig :: modul "wysiwyg" —>
+	    <div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>{{ article.title }}
+					{% if article.year %}
+						({{ article.year }})
+					{% endif %}
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{% for author in article.authors %}
+					<b>{{ author.fullname }}</b> |
+					{% endfor %}  
+
+					<!-- questo dovrebbe essere un pop-up -->
+					<a href="publisher.php?subject={{ article.publisher_name }}&id={{ article.publisher_id }}" target="main"><i>{{ article.publisher_name }}</i> </a>
+					
+					{{ article.publisher['publisher'] }}
+					{% if article.serie %}	
+						<i> - {{ article.serie }}</i>
+					{% endif %} 
+					&nbsp;{{ article.city }} {{ article.libraries }}
+
+					{% if article.secondary_authors %}
+						<p>
+						Secondary Author:
+						{% for secondary_author in article.secondary_authors %}
+							{{ secondary_author.fullname }}|
+						{% endfor %}
+						</p>
+					{% endif %}
+
+					{% if article.language %}
+					<p>
+					Language: {{ article.language }}
+					</p>
+					{% endif %}
+
+					{% if article.isbn %}
+					<p>
+					Pages: {{ article.pages }} | ISBN: {{ article.isbn }}
+					</p>
+					{% endif %}
+
+					{% if article.editors %}
+						<p>
+						Editor:
+						{% for editor in article.editors %}
+							{{ editor.fullname }}|
+						{% endfor %}
+						</p>
+					{% endif %}
+
+					{% if article.translators %}
+						<p>
+						Translator:
+						{% for translator in article.translator %}
+							{{ translator.fullname }}|
+						{% endfor %}
+						</p>
+					{% endif %}					
+
+
+
+					<p>
+						{% if article.image %}
+						<img src="{{ article.image }}" align="left">
+						{% endif %}
+						{{ article.description }}
+					</p>  
+					
+
+					{% if article.editions %}
+					<p>
+						Editions:
+					</p>
+						<ul>
+							{% for edition in article.editions %}
+								<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
+							 {% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+<!— end Twig —>
+{% endautoescape %}
