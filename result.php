@@ -36,7 +36,7 @@
 
         /* Reperisco della serie */
         $seriesObject = new series();
-        $serie = $seriesObject->getSerierById($work['series_id']);
+        $serie = $seriesObject->getSerierById($work['serie_id']);
         $work['serie']=$serie['serie'];        
 
         /* Reperisco lingua */
@@ -168,9 +168,6 @@
         []
 **/
 
-echo "<pre> Publisher</br>";
-var_dump($publisher);
-echo "</pre>";
 
         echo $twig->render('result/work.html', [
             'work'		=> $work,    
