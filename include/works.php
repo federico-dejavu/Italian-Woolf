@@ -114,11 +114,6 @@ class works{
         }   
 
         $query = $query.$from." WHERE ".$where." order by works.title asc";
-
-        
-    echo "<pre> Query works</br>";
-    var_dump($query);
-    echo "</pre>"; 
          
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
