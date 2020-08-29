@@ -208,11 +208,11 @@
      
     }
 
-        /*
+ 
         echo "<pre> Works</br>";
-        var_dump($arrayArticles);
+        var_dump($workObject);
         echo "</pre>";
-       
+             /* 
         echo $twig->render('searchResults.tpl', [
 		
             'works'		=> $arrayWorks,
