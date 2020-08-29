@@ -17,7 +17,7 @@
 					{% endfor %}  
 					
 					{% if work.publisher_link %}
-						<a href="work.publisher_link"><i>{{ work.publisher }}</i> </a>
+						<a href="{{ work.publisher_link }}"><i>{{ work.publisher }}</i> </a>
 					{% else %}
 						<i>{{ work.publisher }}</i> 
 					{% endif %}
