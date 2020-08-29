@@ -81,7 +81,7 @@ class works{
             if($passo == 1){
                 $where = $where." AND peoples.fullname LIKE '%".$postNome."%' "; 
             } else {
-                $where = $where." pwoples.fullname LIKE '%".$postNome."%' ";  
+                $where = $where." peoples.fullname LIKE '%".$postNome."%' ";  
                 $passo = 1; 
             }   
         }
