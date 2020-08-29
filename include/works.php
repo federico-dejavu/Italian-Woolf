@@ -66,7 +66,7 @@ class works{
         if($postNome){
 
             if($postAuthors){
-                $from = $from." JOIN works_authors ON (works_authors.peoples_id = peoples.id AND works.id = works_authors.works_id) "; 
+                $from = $from." JOIN works_authors ON (works_authors.peoples_id = peoples_id AND works.id = works_authors.works_id) "; 
             } 
 
             
@@ -75,7 +75,7 @@ class works{
             }
 
             if($postEditors){
-                $from = $from." JOIN works_editors ON works_editors.peoples_id = peoples.id AND works.id = works_editors.works_id ";
+                $from = $from." JOIN works_editors ON works_editors.peoples_id = peoples_id AND works.id = works_editors.works_id ";
             }             
 
             if($passo == 1){
