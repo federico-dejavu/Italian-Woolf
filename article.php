@@ -79,7 +79,7 @@
 
     /* Reperisco dati Author */
     $authors = new authors();
-    $arrAuthors = $authors->getAuthorsByWorkId($id);        
+    $arrAuthors = $authors->getAuthorsByArticleId($id);        
     $people = new peoples();
     $arrElements = array();
     foreach($arrAuthors as $peoples_id){      
@@ -90,7 +90,7 @@
 
     /* Reperisco dati Editor */
     $editors = new editors();
-    $arrEditors = $editors->getEditorsByWorkId($id);
+    $arrEditors = $editors->getEditorsByArticleId($id);
     $arrElements = array();
     foreach($arrEditors as $peoples_id){
         $editor = $people->getPeopleById($peoples_id);         
