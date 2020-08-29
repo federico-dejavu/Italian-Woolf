@@ -36,7 +36,7 @@
 
         /* Reperisco della serie */
         $seriesObject = new series();
-        $serie = $seriesObject->getPublisherById($work['series_id']);
+        $serie = $seriesObject->getSerierById($work['series_id']);
         $work['serie']=$serie[0]['serie'];        
 
         /* Reperisco lingua */

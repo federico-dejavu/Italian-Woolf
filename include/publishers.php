@@ -5,13 +5,13 @@ class publishers{
     
     /* Dato un publishers_id restituisce un array di publisher */
     public function getPublisherById($publishers_id = "") {
-        $arrElements = array();
+
        
         if($publishers_id){
             $db = new DBManager();
             $query = "SELECT id, publisher, description, link FROM publishers WHERE id = $publishers_id";
 
-            $arrElements[] = $db->query($query);
+            $arrElements = $db->queryList($query);
         }
         
         return $arrElements;
