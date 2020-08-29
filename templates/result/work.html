@@ -15,12 +15,11 @@
 					{% for author in work.authors %}
 					<b>{{ author.fullname }}</b> |
 					{% endfor %}  
-					
-					{% if work.publisher_link %}
-						<a href="{{ work.publisher_link }}"><i>{{ work.publisher }}</i> </a>
-					{% else %}
-						<i>{{ work.publisher }}</i> 
-					{% endif %}
+
+					<!-- questo dovrebbe essere un pop-up -->
+
+					<a href="publisher.php?id={{ work.publisher.id }}" target="main"><i>{{ work.publisher.publisher }}</i> </a>
+
 					{% if work.serie %}	
 						<i> - {{ work.serie }}</i>
 					{% endif %} 

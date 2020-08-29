@@ -1,0 +1,25 @@
+{% autoescape false %}
+<!— Output by Twig :: modul "wysiwyg" —>
+	    <div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>{{ publisher.publisher }}</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p>
+						{{ publisher.description }}
+					</p>  
+					
+
+					{% if publisher.link %}
+					<p>
+						Web site: <a href="{{ publisher.link }}">{{ publisher.publisher }}</a>
+					</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+<!— end Twig —>
+{% endautoescape %}
