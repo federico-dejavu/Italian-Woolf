@@ -167,6 +167,11 @@
     editions
         []
 **/
+
+echo "<pre> Publisher</br>";
+var_dump($publisher);
+echo "</pre>";
+
         echo $twig->render('result/work.html', [
             'work'		=> $work,    
         ]);
@@ -208,9 +213,7 @@
     }
 
  
-        echo "<pre> Publisher</br>";
-        var_dump($publisher);
-        echo "</pre>";
+
              /* 
         echo $twig->render('searchResults.tpl', [
 		

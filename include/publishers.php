@@ -11,7 +11,6 @@ class publishers{
 
             $arrElements = $db->queryList($query);
         }
-        var_dump($query);
         return $arrElements;
     }   
     
