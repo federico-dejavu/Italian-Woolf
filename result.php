@@ -33,6 +33,7 @@
         $publisherObject = new publishers();
         $publisher = $publisherObject->getPublisherById($work['publisher_id']);
         $work['publisher']=$publisher['publisher'];
+        $work['publisher_link']=$publisher['link'];
 
         /* Reperisco della serie */
         $seriesObject = new series();

@@ -15,12 +15,16 @@
 					{% for author in work.authors %}
 					<b>{{ author.fullname }}</b> |
 					{% endfor %}  
-		
-					<i>{{ work.publisher }}</i> 
-						{% if work.serie %}	
-							<i> - {{ work.serie }}</i>
-						{% endif %} 
-						&nbsp;{{ work.city }} {{ work.libraries }}
+					
+					{% if work.publisher_link %}
+						<a href="work.publisher_link"><i>{{ work.publisher }}</i> </a>
+					{% else %}
+						<i>{{ work.publisher }}</i> 
+					{% endif %}
+					{% if work.serie %}	
+						<i> - {{ work.serie }}</i>
+					{% endif %} 
+					&nbsp;{{ work.city }} {{ work.libraries }}
 
 					{% if work.secondary_authors %}
 						<p>
