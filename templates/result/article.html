@@ -27,11 +27,12 @@
 					<a href="publisher.php?subject={{ article.publisher_name }}&id={{ article.publisher_id }}" target="main"><i>{{ article.publisher_name }}</i> </a>
 
 					{% if article.editors %}
+					<p>
 					Editor:
 					{% for editor in article.editors %}
 					<p>{{ editor.fullname }}</p>|
 					{% endfor %} 
-
+					</p>
 					{% endif %} 
 
 					{{ article.publisher['publisher'] }}
