@@ -24,7 +24,6 @@
         link
    
 **/
-var_dump($publisher);
         echo $twig->render('result/publisher.html', [
             'publisher'		=> $publisher,    
         ]);
