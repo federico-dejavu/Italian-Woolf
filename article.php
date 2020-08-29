@@ -206,7 +206,7 @@
     $language = $languages->getLanguageById($article['language']);
     $article['language']=$language['language']; 
 
-    echo $twig->render('article.html', [
+    echo $twig->render('result/article.html', [
         'articles'	=> $article,
     ]);
 
