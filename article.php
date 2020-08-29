@@ -2,7 +2,7 @@
 
 	require_once 'include/config.php';
     require_once 'include/cleaner.php';
-    require_once 'include/works.php';
+
     require_once 'include/publishers.php';
     require_once 'include/authors.php';
     require_once 'include/secondary_authors.php';   
@@ -12,9 +12,6 @@
     require_once 'include/illustrators.php';
     require_once 'include/editions.php';
     require_once 'include/articles.php';
-
-    $arrWorks = '';
-
 
     ini_set('display_errors',1); # uncomment if you need debugging
     include_once('include/head.php');
@@ -173,12 +170,6 @@
     $article['publisher_id']=$article['publisher_id'];
     $article['publisher_name']=$article['publisher'];
     $article['publisher_link']=$article['link'];
-        
-
-            echo $twig->render('result/work.html', [
-                'article'		=> $article,    
-            ]);
-    }
 
     /* Reperisco della serie */
     $seriesObject = new series();
