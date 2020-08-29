@@ -110,7 +110,32 @@
 /**
     
     $article[]
-
+    id
+    title
+    volume_title
+    journal_title
+    journal_issue
+    pubblication_date
+    year
+    publisher_id
+    city
+    serie_id
+    pages
+    price
+    typology_id
+    language
+    open_access
+    abstract
+    description
+    isbn
+    issn
+    libraries
+    image
+    doi
+    authos[]
+    editors[]
+    authority_record
+    image
     publisher_id
     publisher_name
     publisher_link
