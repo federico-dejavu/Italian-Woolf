@@ -26,7 +26,7 @@
 					<!-- questo dovrebbe essere un pop-up -->
 					<a href="publisher.php?subject={{ article.publisher_name }}&id={{ article.publisher_id }}" target="main"><i>{{ article.publisher_name }}</i> </a>
 
-					{% if article.editor %}
+					{% if article.editors %}
 					Editor:
 					{% for editor in article.editors %}
 					<p>{{ editor.fullname }}</p>|

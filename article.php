@@ -97,7 +97,6 @@
         $arrElements[] = $editor;     
     }
     $article['editors']=$arrElements; 
-    var_dump($article['editors']);
             
     /* Reperisco dati publisher */
     $publisherObject = new publishers();
