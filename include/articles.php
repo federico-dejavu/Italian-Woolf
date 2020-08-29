@@ -120,6 +120,11 @@ class articles{
             */
 
             if($postNome){
+
+
+
+
+
                 if($postAuthors){
                     $from = $from." RIGHT JOIN articles_authors ON articles_authors.peoples_id = peoples.id AND articles.id = articles_authors.articles_id  "; 
                 } 

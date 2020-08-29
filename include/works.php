@@ -65,6 +65,17 @@ class works{
         /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
         if($postNome){
 
+            /* Con qs query invece concateno in OR e prendo tutti i works che hanno XXX o come autore, o come traduttore o come editore
+
+SELECT distinct(works.id),title FROM (works,peoples) 
+LEFT JOIN (works_authors,works_translators,works_editors) ON 
+((works_authors.peoples_id = peoples.id AND works.id = works_authors.works_id) 
+ OR (works_editors.peoples_id = peoples.id AND works.id = works_editors.works_id) 
+ OR (works_translators.peoples_id = peoples.id AND works.id = works_translators.works_id ))
+WHERE  peoples.fullname LIKE '%fusini%'  order by works.title asc
+
+            */
+            // Con qs query invece concateno in AND quindi prendo tutti i works che hanno XXX o come autore,  traduttore e editore
             if($postAuthors){
                 $from = $from." RIGHT JOIN works_authors ON (works_authors.peoples_id = peoples.id AND works.id = works_authors.works_id) "; 
             } 
