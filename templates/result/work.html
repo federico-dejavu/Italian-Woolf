@@ -20,7 +20,7 @@
 					{% for item in work.publisher %}
 						<a href="publisher.php?id={{ item.id }}" target="main"><i>{{ item.publisher }}</i> </a>
 					{% endfor %}
-					{{ item.publisher['publisher'] }}
+					{{ work.publisher['publisher'] }}
 					{% if work.serie %}	
 						<i> - {{ work.serie }}</i>
 					{% endif %} 
