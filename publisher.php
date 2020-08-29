@@ -12,7 +12,7 @@
     if($id > 0){
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
-        $publisher = $publisherObject->getPublisherById($work['publisher_id']);
+        $publisher = $publisherObject->getPublisherById($id);
 
 
 /**
