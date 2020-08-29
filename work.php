@@ -32,7 +32,9 @@
         /* Reperisco dati publisher */
         $publisherObject = new publishers();
         $publisher = $publisherObject->getPublisherById($work['publisher_id']);
-        $work['publisher']=$publisher;
+        $work['publisher_id']=$work['publisher_id'];
+        $work['publisher_name']=$publisher['publisher'];
+        $work['publisher_link']=$publisher['link'];
 
 
         /* Reperisco della serie */
@@ -124,6 +126,9 @@
     language
     libraries
     image
+    publisher_id
+    publisher_name
+    publisher_link
     publisher
         id, 
         publisher, 
