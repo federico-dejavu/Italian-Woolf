@@ -80,7 +80,8 @@
 					</p>
 						<ul>
 							{% for edition in work.editions %}
-								<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
+								
+								<li> <a href="edition.php?subject={{ edition.title }}&id={{ edition.id }}" ><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
 							 {% endfor %}
 						</ul>
 					{% endif %}
