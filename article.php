@@ -207,7 +207,7 @@
     $article['language']=$language['language']; 
 
     echo $twig->render('result/article.html', [
-        'articles'	=> $article,
+        'article'	=> $article,
     ]);
 
 ?>
