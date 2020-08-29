@@ -200,10 +200,6 @@ class articles{
         }         
 
         $query = $query.$from." WHERE ".$where." order by articles.title asc";
-
-        echo "<pre> QUERY Works</br>";
-        var_dump($query);
-        echo "</pre>";
          
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;

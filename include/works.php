@@ -31,7 +31,7 @@ class works{
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", works_keywords as WK, keywords as K ";
-            $where = $where." K.id = works_keywords.keywords_id and K.keyword REGEXP '$keyOptimized' and works.id = WK.works_id ";
+            $where = $where." K.id = WK.keywords_id and K.keyword REGEXP '$keyOptimized' and works.id = WK.works_id ";
             $passo = 1;
         }
 
