@@ -77,7 +77,9 @@
     /* Reperisco lingua */
     $languages = new languages();
     $language = $languages->getLanguageById($edition['original']);
-    $edition['language']=$language['language']; 
+    $edition['language']=$language['language'];
+    
+    var_dump($edition);
 
     echo $twig->render('result/edition.html', [
         'edition'	=> $edition,
