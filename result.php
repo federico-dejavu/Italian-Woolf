@@ -7,7 +7,8 @@
     require_once 'include/authors.php';
     require_once 'include/secondary_authors.php';   
     require_once 'include/editors.php';
-    require_once 'include/languages.php';  
+    require_once 'include/languages.php'; 
+    require_once 'include/series.php';     
     require_once 'include/illustrators.php';
     require_once 'include/editions.php';
     require_once 'include/articles.php';
