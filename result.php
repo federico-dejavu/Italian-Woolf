@@ -208,8 +208,8 @@
     }
 
  
-        echo "<pre> Works</br>";
-        var_dump($work);
+        echo "<pre> Publisher</br>";
+        var_dump($publisher);
         echo "</pre>";
              /* 
         echo $twig->render('searchResults.tpl', [
