@@ -4,6 +4,7 @@
     require_once '../include/cleaner.php';
     require_once '../include/works.php';
     require_once '../include/publishers.php';
+    require_once '../include/peoples.php';
     require_once '../include/authors.php';
     require_once '../include/editions.php';
     require_once '../include/articles.php';
@@ -41,20 +42,44 @@
         // Razionalizzo le keywords
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
     }
-  
+
+    if($worksParam){
+        $works = new works();
+        $arrayWorks=array();
+
+        if($keyOptimized != ""){
+            $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
+        }
+
+        if($postNome){
+            $people = new peoples();
+            $arrPeoples = $people->getPeopleByFullName($postNome);
+        }
+        echo "<pre> Works</br>";
+        var_dump($allWorksID);
+        var_dump($arrPeoples);
+        echo "</pre>";  
+            
+    }
+
+
+
+
+  /*
     if($worksParam){   
         $works = new works();
+
         $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
       
         $arrayWorks=array();
         foreach($allWorksID as $work_id){
             $singleWork = $works->getWorksByWork_id($work_id);
-            /* Reperisco dati publisher */
+            // Reperisco dati publisher 
             $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
             $singleWork['publisher']=$publisher[0]['publisher'];
 
-            /* Reperisco dati Author */
+            // Reperisco dati Author 
             $authors = new authors();
             $arrAuthors = $authors->getAuthorsByWorkId($work_id);
                 
@@ -66,18 +91,13 @@
             }
             $singleWork['author']=$arrElements;
 
-            /* Reperisco le edizioni */
+            // Reperisco le edizioni 
             $editions = new editions();
             $editionsList = $editions->getEditionsByWork_id($work_id);
             $arrEditions = array();
             foreach($editionsList as $edition_id){
                 $arrEditions[] = $editions->getEditionById($edition_id);
             }
-            /*
-            echo "<pre> Works</br>";
-            var_dump($arrEditions);
-            echo "</pre>";  
-            */ 
             $singleWork['editions'] = $arrEditions;
 
             $arrayWorks[]=$singleWork;
@@ -85,7 +105,9 @@
          
     }
 
-    /* Estraggo articles */
+    
+
+    // Estraggo articles 
     if($articlesParam){ 
         $articles = new articles();
         $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
@@ -93,12 +115,12 @@
         $arrayArticles=array();
         foreach($allArticlesID as $articles_id){
             $singleArticles = $articles->getArticlesByArticles_id($articles_id);
-            /* Reperisco dati publisher */
+            // Reperisco dati publisher 
             $publisherObject = new publishers();
             $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
             $singleArticle['publisher']=$publisher[0]['publisher'];
 
-            /* Reperisco dati Author */
+            // Reperisco dati Author 
             $authors = new authors();
             $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
             
@@ -115,7 +137,7 @@
             $arrayArticles[]=$singleArticles;
         } 
     }
-
+    */
     if (DEBUG===true) {
         echo "<pre> Works</br>";
         var_dump($arrayArticles);

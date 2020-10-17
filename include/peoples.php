@@ -16,9 +16,22 @@ class peoples{
         
         return $arrElements;
     }   
+
+    public function getPeopleByFullName($fullname = "") {
+        $arrElements = array();
+       
+        if($fullname){
+            $db = new DBManager();
+            $query = "SELECT id, other_name, fullname, birth_date, death_date, authority_record, image FROM peoples WHERE fullname like (%".$fullname."%) order by fullname desc";
+
+            $arrElements = $db->query($query);
+        }
+        
+        return $arrElements;
+    }   
     
    
-    public function getAllPublishers() {
+    public function getAllPeopless() {
         $arrElements = array();
         $arrTotal = array();
        
