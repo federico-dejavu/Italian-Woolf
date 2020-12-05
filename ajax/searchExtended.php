@@ -53,6 +53,9 @@
         if($postNome){
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
+            echo "<pre>People</br>";
+            var_dump($peoplesList);
+            echo "</pre>"; 
 
             foreach($allWorksID as $work_id){
                 if($postAuthors){
@@ -63,7 +66,7 @@
                     var_dump($authorList);
                     echo "</pre>"; 
 
-                    $intersec = array_intersect($peopleList,$authorList);
+                    $intersec = array_intersect($peoplesList,$authorList);
                     echo "<pre>Intersec</br>";
                     var_dump($intersec);
                     echo "</pre>"; 
@@ -81,7 +84,7 @@
                 if($postTranslators){
                     $translators = new $translator();
                     $translatorsList = $translators->getAuthorsByWorkId($work_id);
-                    $intersec = array_intersect($peopleList,$translatorsList);
+                    $intersec = array_intersect($peoplesList,$translatorsList);
                     if(empty($intersec)){
                         continue;
                     }
@@ -91,7 +94,7 @@
                 if($postEditors){
                     $editors = new editors();
                     $editorsList = $editors->getAuthorsByWorkId($work_id);
-                    $intersec = array_intersect($peopleList,$editorsList);
+                    $intersec = array_intersect($peoplesList,$editorsList);
                     if(empty($intersec)){
                         continue;
                     }
@@ -100,17 +103,11 @@
                 $arrWorks[] = $work_id;
             }
         }
-        echo "<pre>Post</br>";
-        var_dump($_POST);
-        echo "</pre>"; 
 
-        echo "<pre>Works</br>";
-        var_dump($allWorksID);
-        echo "</pre>";  
 
-        echo "<pre>People</br>";
-        var_dump($peoplesList);
-        echo "</pre>"; 
+
+
+
 
         echo "<pre>Filtered Works</br>";
         var_dump($arrWorks);
