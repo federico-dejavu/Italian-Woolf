@@ -58,50 +58,72 @@
             echo "</pre>"; 
 
             foreach($allWorksID as $work_id){
+                $trovato = 0;
                 if($postAuthors){
                     $authors = new authors();
                     $authorList = $authors->getAuthorsByWorkId($work_id);
 
                     $intersec = array_intersect($peoplesList,$authorList);
 
-                    if(empty($intersec)){
-                        continue;
+                    if(!empty($intersec)){
+                        $trovato = 1;
                     }
-                    echo "<pre>Trovato $work_id</br></pre>";
-                    echo "<pre>Intersec</br>";
-                    var_dump($intersec);
-                    echo "</pre>"; 
-
                 }
-    
 
-     /*
                 if($postTranslators){
                     $translators = new $translator();
                     $translatorsList = $translators->getAuthorsByWorkId($work_id);
                     $intersec = array_intersect($peoplesList,$translatorsList);
-                    if(empty($intersec)){
-                        continue;
+                    if(!empty($intersec)){
+                        $trovato = 1;
                     }
                 }
-
 
                 if($postEditors){
                     $editors = new editors();
                     $editorsList = $editors->getAuthorsByWorkId($work_id);
                     $intersec = array_intersect($peoplesList,$editorsList);
-                    if(empty($intersec)){
-                        continue;
+                    if(!empty($intersec)){
+                        $trovato = 1;
                     }
                 }
-     */           
-                $arrayWorks[] = $work_id;
+                if($trovato == 1){
+                    $arrayWorks['id'] = $work_id;
+                    $singleWork = $works->getWorksByWork_id($work_id);
+                    /* Reperisco dati publisher */
+                    $publisherObject = new publishers();
+                    $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $singleWork['publisher']=$publisher[0]['publisher'];
+
+                    /* Reperisco dati Author */
+                    $authors = new authors();
+                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+                
+                    $people = new peoples();
+                    $arrElements = array();
+                    foreach($arrAuthors as $peoples_id){
+                
+                        $author = $people->getPeopleById($peoples_id);
+                    
+                        $arrElements[] = $author;     
+                    }
+                    $singleWork['author']=$arrElements;
+
+                    /* Reperisco le edizioni */
+                    $editions = new editions();
+                    $editionsList = $editions->getEditionsByWork_id($work_id);
+                    $arrEditions = array();
+                    foreach($editionsList as $edition_id){
+                        $arrEditions[] = $editions->getEditionById($edition_id);
+                    }
+
+                    $singleWork['editions'] = $arrEditions;
+
+                    $arrayWorks[]=$singleWork;
+                }
+                
             }
         }
-
-
-
-
 
 
         echo "<pre>Filtered Works</br>";
@@ -114,44 +136,6 @@
 
 
   /*
-    if($worksParam){   
-        $works = new works();
-
-        $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
-      
-        $arrayWorks=array();
-        foreach($allWorksID as $work_id){
-            $singleWork = $works->getWorksByWork_id($work_id);
-            // Reperisco dati publisher 
-            $publisherObject = new publishers();
-            $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
-            $singleWork['publisher']=$publisher[0]['publisher'];
-
-            // Reperisco dati Author 
-            $authors = new authors();
-            $arrAuthors = $authors->getAuthorsByWorkId($work_id);
-                
-            $people = new peoples();
-            $arrElements = array();
-            foreach($arrAuthors as $peoples_id){  
-                $author = $people->getPeopleById($peoples_id);    
-                $arrElements[] = $author;     
-            }
-            $singleWork['author']=$arrElements;
-
-            // Reperisco le edizioni 
-            $editions = new editions();
-            $editionsList = $editions->getEditionsByWork_id($work_id);
-            $arrEditions = array();
-            foreach($editionsList as $edition_id){
-                $arrEditions[] = $editions->getEditionById($edition_id);
-            }
-            $singleWork['editions'] = $arrEditions;
-
-            $arrayWorks[]=$singleWork;
-        }
-         
-    }
 
     
 
