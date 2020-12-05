@@ -75,31 +75,31 @@
                     echo "<pre>Trovato $work_id</pre>";
 
                 }
-        }
+    
 
- /*
-            if($postTranslators){
-                $translators = new $translator();
-                $translatorsList = $translators->getAuthorsByWorkId();
-                $intersec = array_intersect($peopleList,$translatorsList);
-                if(empty($intersec)){
-                    continue;
+     /*
+                if($postTranslators){
+                    $translators = new $translator();
+                    $translatorsList = $translators->getAuthorsByWorkId();
+                    $intersec = array_intersect($peopleList,$translatorsList);
+                    if(empty($intersec)){
+                        continue;
+                    }
                 }
-            }
 
 
-            if($postEditors){
-                $editors = new editors();
-                $editorsList = $editors->getAuthorsByWorkId();
-                $intersec = array_intersect($peopleList,$editorsList);
-                if(empty($intersec)){
-                    continue;
+                if($postEditors){
+                    $editors = new editors();
+                    $editorsList = $editors->getAuthorsByWorkId();
+                    $intersec = array_intersect($peopleList,$editorsList);
+                    if(empty($intersec)){
+                        continue;
+                    }
                 }
+     */           
+                $arrWorks[] = $work_id;
             }
- */           
-            $arrWorks[] = $work_id;
         }
-
         echo "<pre>Post</br>";
         var_dump($_POST);
         echo "</pre>"; 
@@ -115,7 +115,6 @@
         echo "<pre>Filtered Works</br>";
         var_dump($arrWorks);
         echo "</pre>"; 
-
             
     }
 
