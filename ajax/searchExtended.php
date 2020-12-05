@@ -57,7 +57,7 @@
             foreach($allWorksID as $work_id){
                 if($postAuthors){
                     $authors = new authors();
-                    $authorList = $authors->getAuthorsByWorkId();
+                    $authorList = $authors->getAuthorsByWorkId($work_id);
 
                     echo "<pre>Author</br>";
                     var_dump($authorList);
@@ -80,7 +80,7 @@
      /*
                 if($postTranslators){
                     $translators = new $translator();
-                    $translatorsList = $translators->getAuthorsByWorkId();
+                    $translatorsList = $translators->getAuthorsByWorkId($work_id);
                     $intersec = array_intersect($peopleList,$translatorsList);
                     if(empty($intersec)){
                         continue;
@@ -90,7 +90,7 @@
 
                 if($postEditors){
                     $editors = new editors();
-                    $editorsList = $editors->getAuthorsByWorkId();
+                    $editorsList = $editors->getAuthorsByWorkId($work_id);
                     $intersec = array_intersect($peopleList,$editorsList);
                     if(empty($intersec)){
                         continue;
