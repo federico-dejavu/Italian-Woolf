@@ -202,10 +202,8 @@
                 }
             }
         }
-
     }
-
-
+}
     if (DEBUG===true) {
         echo "<pre> Works</br>";
         var_dump($arrayArticles);
