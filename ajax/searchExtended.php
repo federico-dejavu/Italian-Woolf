@@ -79,7 +79,7 @@
 
                 if($postEditors){
                     $editors = new editors();
-                    $editorsList = $editors->getAuthorsByWorkId($work_id);
+                    $editorsList = $editors->getEditorsByWorkId($work_id);
                     $intersec = array_intersect($peoplesList,$editorsList);
                     if(!empty($intersec)){
                         $trovato = 1;
