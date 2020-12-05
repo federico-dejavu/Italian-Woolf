@@ -6,6 +6,7 @@
     require_once '../include/publishers.php';
     require_once '../include/peoples.php';
     require_once '../include/authors.php';
+    require_once '../include/translators.php';
     require_once '../include/editions.php';
     require_once '../include/articles.php';
     require_once '../include/languages.php';   
@@ -46,19 +47,58 @@
     if($worksParam){
         $works = new works();
         $arrayWorks=array();
-
-        if($keyOptimized != ""){
-            $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
-        }
+        $arrayWorksIntersec = array();
+        $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
 
         if($postNome){
             $people = new peoples();
-            $arrPeoples = $people->getPeopleByFullName($postNome);
+            $peoplesList = $people->getPeopleListIdByFullName($postNome);
         }
-        echo "<pre> Works</br>";
-        
-        var_dump($arrPeoples);
+
+        foreach($allArticlesID as $work_id){
+            if($postAuthors){
+                $authors = new $authors();
+                $authorList = $authors->getAuthorsByWorkId();
+                $intersec = array_intersect($peopleList,$authorList);
+                if(empty($intersec)){
+                    continue;
+                }
+            }
+ 
+            if($postTranslators){
+                $translators = new $translator();
+                $translatorsList = $translators->getAuthorsByWorkId();
+                $intersec = array_intersect($peopleList,$translatorsList);
+                if(empty($intersec)){
+                    continue;
+                }
+            }
+
+
+            if($postEditors){
+                $editors = new editors();
+                $editorsList = $editors->getAuthorsByWorkId();
+                $intersec = array_intersect($peopleList,$editorsList);
+                if(empty($intersec)){
+                    continue;
+                }
+            }   
+            $arrWorks[] = $work_id;
+        }
+
+
+        echo "<pre>Works</br>";
+        var_dump($allWorksID);
         echo "</pre>";  
+
+        echo "<pre>People</br>";
+        var_dump($peoplesList);
+        echo "</pre>"; 
+
+        echo "<pre>Filtered Works</br>";
+        var_dump($arrWorks);
+        echo "</pre>"; 
+
             
     }
 

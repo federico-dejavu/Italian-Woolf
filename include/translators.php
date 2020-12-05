@@ -2,7 +2,7 @@
 require_once('DBManager.php');
 require_once('peoples.php');
 
-class authors{
+class translators{
     
       /* Dato un work restituisce un array di author */
       public function getAuthorsByWorkId($id = "") {
@@ -11,7 +11,7 @@ class authors{
        
         if($id>0){
             $db = new DBManager();
-            $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
+            $query = "SELECT peoples_id FROM works_translators WHERE works_id = $id";
             $arrPeoples = $db->queryList($query);
         }
         return $arrPeoples;
@@ -24,7 +24,7 @@ class authors{
        
         if($id>0){
             $db = new DBManager();
-            $query = "SELECT peoples_id FROM articles_authors WHERE articles_id = $id";
+            $query = "SELECT peoples_id FROM articles_translators WHERE articles_id = $id";
             $arrPeoples = $db->queryList($query);
         }
         return $arrPeoples;
