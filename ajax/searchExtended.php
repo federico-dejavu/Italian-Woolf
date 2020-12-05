@@ -47,7 +47,15 @@
         $works = new works();
         $arrayWorks=array();
         $arrayWorksIntersec = array();
-        $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+        $allWorksID = array();
+
+        if($keyOptimized || $postNome || $postTitle || $postPublisher || $postJournal || $fromYear || $toYear || $postLanguage || $postTypology || $postopenAccess){
+            $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+        }
+
+        if(empty($allWorksID)){
+            $allWorksID = $works->getAllWorks();
+        }
 
         if($postNome){
             $people = new peoples();
@@ -119,7 +127,7 @@
                     $arrayWorks[]=$singleWork;
                 }
             }
-        }
+        } 
             
     }
 
@@ -128,7 +136,12 @@
         $arrayArticles=array();
         $arrayArticlesIntersec = array();
 
-        $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+        if($keyOptimized || $postNome || $postTitle || $postPublisher || $postJournal || $fromYear || $toYear || $postLanguage || $postTypology || $postopenAccess){
+            $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+        }
+        if(empty($allWorksID)){
+            $allArticlesID = $works->getAllArticless();
+        }
    
         $arrayArticles=array();
         foreach($allArticlesID as $articles_id){

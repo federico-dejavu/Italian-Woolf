@@ -3,7 +3,22 @@ require_once('DBManager.php');
 
 class works{
     
-    // Commento di prova 
+
+    public function getAllWorks() {
+        $arrWorksID = array();
+       
+        /* Estraggo i works_id con queste KW */
+
+        $db = new DBManager();
+        $queryK = "SELECT works_id,title FROM works order by title asc";
+        $arrWorksID = $db->queryList($queryK);
+
+        return $arrWorksID;
+    }
+
+
+
+
     /* Dato un elenco di Keyword restituisce un array di work_id */
     public function getWorkIdByKeywords($keywords = "") {
         $arrWorksID = array();

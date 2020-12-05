@@ -3,6 +3,18 @@ require_once('DBManager.php');
 
 class articles{
     
+    public function getAllArticles() {
+        $arrArticlesID = array();
+       
+        /* Estraggo i works_id con queste KW */
+
+        $db = new DBManager();
+        $queryK = "SELECT articles_id,title FROM articles order by title asc";
+        $arrArticlesID = $db->queryList($queryK);
+        return $arrArticlesID;
+    }
+
+
     // Commento di prova 
     /* Dato un elenco di Keyword restituisce un array di articles_id */
     public function getArticlesIdByKeywords($keywords = "") {
