@@ -51,7 +51,7 @@ class articles{
         $db = new DBManager();
         $query = "SELECT distinct(articles.id),title";
         $from =" FROM (articles, peoples)";
-        $where ="";
+        $where =" articles_id != '' ";
         $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
@@ -62,41 +62,20 @@ class articles{
         }
 
         if($postTitle){
-            if($passo ==1){  
-                $where = $where." and title like'%".$postTitle."%' ";
-            } else {
-                $where = $where." title like'%".$postTitle."%' ";
-                $passo = 1;
-            }
-            
+            $where = $where." and title like'%".$postTitle."%' ";
         }
 
         if($fromYear){
-            if($passo ==1){ 
-                $where = $where." and year >= $fromYear ";
-            } else {
-                $where = $where." year >= $fromYear ";
-                $passo = 1;
-            }
+            $where = $where." and year >= $fromYear ";
         }        
 
         if($toYear){
-            if($passo ==1){ 
-                $where = $where." and year <= $toYear ";
-            } else {
-                $where = $where." year <= $toYear "; 
-                $passo = 1;
-            }    
+            $where = $where." and year <= $toYear ";
         } 
  
 
         if($postLanguage){
-            if($passo == 1){
-                $where = $where." AND original = $postLanguage ";
-            } else {
-                $where = $where." original = $postLanguage ";
-            }
-            
+            $where = $where." AND original = $postLanguage ";            
         }
         /* lo tengo nel caso in cui elisa decida di passare a N:N 
         if($postTypology){
@@ -109,39 +88,19 @@ class articles{
         }  
         */
         if($postTypology){
-            if($passo == 1){
-                $where = $where." AND articles.typology_id = $postTypology ";
-            } else {
-                $where = $where." articles.typology_id = $postTypology ";
-                $passo = 1;
-            }
+            $where = $where." AND articles.typology_id = $postTypology ";
         }  
 
         if($postPublisher){
-            if($passo == 1){
-                $where = $where." AND articles.publisher_id = $postPublisher ";
-            } else   {
-                $where = $where." articles.publisher_id = $postPublisher ";
-                $passo = 1;
-            }
+            $where = $where." AND articles.publisher_id = $postPublisher ";
         }
         
         if($postJournal){
-            if($passo == 1){
-                $where = $where." and articles.journal_title like'%".$postJournal."%' ";
-            } else {
-                $where = $where." articles.journal_title like'%".$postJournal."%' ";
-                $passo = 1;
-            }
+            $where = $where." and articles.journal_title like'%".$postJournal."%' ";
         } 
         
         if($postopenAccess){
-            if($passo == 1){
-                $where = $where." and articles.open_access =  $postopenAccess";
-            } else {
-                $where = $where." articles.open_access =  $postopenAccess";
-                $passo = 1;
-            }
+            $where = $where." and articles.open_access =  $postopenAccess";
         }         
 
         $query = $query.$from." WHERE ".$where." order by articles.title asc";

@@ -139,8 +139,9 @@
         if($keyOptimized || $postNome || $postTitle || $postPublisher || $postJournal || $fromYear || $toYear || $postLanguage || $postTypology || $postopenAccess){
             $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
         }
+
         if(empty($allWorksID)){
-            $allArticlesID = $works->getAllArticless();
+            $allArticlesID = $works->getAllArticles();
         }
    
         $arrayArticles=array();

@@ -40,69 +40,39 @@ class works{
         $db = new DBManager();
         $query = "SELECT distinct(works.id),title";
         $from =" FROM (works,peoples) ";
-        $where ="";
+        $where =" works_id !=''";
         $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", works_keywords as WK, keywords as K ";
-            $where = $where." K.id = WK.keywords_id and K.keyword REGEXP '$keyOptimized' and works.id = WK.works_id ";
+            $where = $where." AND K.id = WK.keywords_id and K.keyword REGEXP '$keyOptimized' and works.id = WK.works_id ";
             $passo = 1;
         }
 
         if($postTitle){
-            if($passo ==1){  
-                $where = $where." and title like'%".$postTitle."%' ";
-            } else {
-                $where = $where." title like'%".$postTitle."%' ";
-                $passo = 1;
-            }
-            
+            $where = $where." and title like'%".$postTitle."%' ";
         }
 
         if($fromYear){
-            if($passo ==1){ 
-                $where = $where." and year >= $fromYear ";
-            } else {
-                $where = $where." year >= $fromYear ";
-                $passo = 1;
-            }
+            $where = $where." and year >= $fromYear ";
         }        
 
         if($toYear){
-            if($passo ==1){ 
-                $where = $where." and year <= $toYear ";
-            } else {
-                $where = $where." year <= $toYear "; 
-                $passo = 1;
-            }    
+            $where = $where." and year <= $toYear ";
         } 
   
         if($postLanguage){
-            if($passo == 1){
-                $where = $where." AND original = $postLanguage ";
-            } else {
-                $where = $where." original = $postLanguage ";
-            }
-            
+            $where = $where." AND original = $postLanguage ";
         }
 
         if($postTypology){
             $from = $from.", works_typologies AS WTP, typologies as T";
-            if($passo == 1){
-                $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = works.id ";
-            } else {
-                $where = $where." WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = works.id ";
-            }
+            $where = $where." AND WTP.typologies_id=T.id AND T.id = $postTypology AND WTP.works_id = works.id ";
         }  
         
         if($postPublisher){
-            if($passo == 1){
-                $where = $where." AND works.publisher_id = $postPublisher ";
-            } else   {
-                $where = $where." works.publisher_id = $postPublisher ";
-                $passo = 1;
-            }
+            $where = $where." AND works.publisher_id = $postPublisher ";
         }   
 
         $query = $query.$from." WHERE ".$where." order by works.title asc";
