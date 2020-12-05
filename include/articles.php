@@ -57,7 +57,7 @@ class articles{
         /* Compongo la query in relazione ai parametri */
         if($keyOptimized){ 
             $from = $from.", articles_keywords as AK, keywords as K ";
-            $where = $where." K.id = AK.keywords_id and K.keyword REGEXP '$keyOptimized' and articles.id = AK.articles_id ";
+            $where = $where."AND K.id = AK.keywords_id and K.keyword REGEXP '$keyOptimized' and articles.id = AK.articles_id ";
             $passo = 1;
         }
 
