@@ -54,7 +54,7 @@
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
 
-            foreach($allArticlesID as $work_id){
+            foreach($allWorksID as $work_id){
                 if($postAuthors){
                     $authors = new $authors();
                     $authorList = $authors->getAuthorsByWorkId();
