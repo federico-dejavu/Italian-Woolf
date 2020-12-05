@@ -38,8 +38,6 @@
     
     $cleaner = new cleaner();
 
-
-
     if($postKeywords){
         // Razionalizzo le keywords
         $keyOptimized = $cleaner->clearKeywords($postKeywords);
@@ -203,7 +201,7 @@
             }
         }
     }
-}
+
     if (DEBUG===true) {
         echo "<pre> Works</br>";
         var_dump($arrayArticles);

@@ -76,77 +76,7 @@ class articles{
                 $passo = 1;
             }    
         } 
-        /* solo se nome è valorizzato ha senso che cerco in authors, translators ed editors*/
-        /*
-        if($postNome){
-            $from = $from.", peoples as P ";
-            $concat = 0;
-            if($postAuthors){
-                
-                $from = $from.", articles_authors AS AA "; 
-                if($concat == 0 & $passo == 0){
-                    $where = $where." (P.id = AA.peoples_id and A.id = AA.articles_id) ";
-                } else {
-                    $where = $where." OR (P.id = AA.peoples_id and A.id = AA.articles_id) ";
-                    $passo =1;
-                } 
-                $concat = 1;               
-            } 
-
-            
-            if($postTranslators){   
-                $from = $from.", articles_translators AS AT ";
-                if($concat == 0 & $passo == 0){
-                    $where = $where." (P.id = AT.peoples_id and A.id = AT.articles_id) ";
-                } else {
-                    $where = $where." OR (P.id = AT.peoples_id and A.id = AT.articles_id) ";
-                    $passo =1;
-                }  
-                $concat = 1;                
-            }
-
-            if($postEditors){
-                $from = $from.", articles_editors AS AE ";
-                if($concat == 0 & $passo == 0){
-                    $where = $where." (P.id = AE.peoples_id and A.id = AE.articles_id) ";
-                } else {
-                    $where = $where." OR (P.id = AE.peoples_id and A.id = AE.articles_id) ";
-                    $passo =1;
-                }   
-                $concat = 1;              
-            } 
-
-            $where = $where." AND P.fullname LIKE '%".$postNome."%' ";
-            */
-
-            if($postNome){
-
-
-
-
-
-                if($postAuthors){
-                    $from = $from." RIGHT JOIN articles_authors ON articles_authors.peoples_id = peoples.id AND articles.id = articles_authors.articles_id  "; 
-                } 
-    
-                
-                if($postTranslators){
-                    $from = $from." LEFT JOIN articles_translators ON articles_translators.peoples_id = peoples.id AND articles.id = articles_translators.articles_id "; 
-                }
-    
-                if($postEditors){
-                    $from = $from." LEFT JOIN articles_editors ON articles_editors.peoples_id = peoples.id AND articles.id = articles_editors.articles_id ";
-                }             
-    
-                if($passo == 1){
-                    $where = $where." AND peoples.fullname LIKE '%".$postNome."%' "; 
-                } else {
-                    $where = $where." peoples.fullname LIKE '%".$postNome."%' ";  
-                    $passo = 1; 
-                }   
-            }
  
-
 
         if($postLanguage){
             if($passo == 1){
