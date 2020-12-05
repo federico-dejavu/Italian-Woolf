@@ -71,7 +71,7 @@
                 }
 
                 if($postTranslators){
-                    $translators = new $translator();
+                    $translators = new translator();
                     $translatorsList = $translators->getAuthorsByWorkId($work_id);
                     $intersec = array_intersect($peoplesList,$translatorsList);
                     if(!empty($intersec)){
