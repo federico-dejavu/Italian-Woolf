@@ -156,7 +156,7 @@
 
                 if($postEditors){
                     $editors = new editors();
-                    $editorsList = $editors->getAuthorsByArticleId($work_id);
+                    $editorsList = $editors->geEditorsByArticleId($work_id);
                     $intersec = array_intersect($peoplesList,$editorsList);
                     if(!empty($intersec)){
                         $trovato = 1;
