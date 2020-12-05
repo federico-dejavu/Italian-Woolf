@@ -62,20 +62,15 @@
                     $authors = new authors();
                     $authorList = $authors->getAuthorsByWorkId($work_id);
 
-                    echo "<pre>Author</br>";
-                    var_dump($authorList);
-                    echo "</pre>"; 
-
                     $intersec = array_intersect($peoplesList,$authorList);
-                    echo "<pre>Intersec</br>";
-                    var_dump($intersec);
-                    echo "</pre>"; 
-
 
                     if(empty($intersec)){
                         continue;
                     }
-                    echo "<pre>Trovato $work_id</pre>";
+                    echo "<pre>Trovato $work_id</br></pre>";
+                    echo "<pre>Intersec</br>";
+                    var_dump($intersec);
+                    echo "</pre>"; 
 
                 }
     
@@ -100,7 +95,7 @@
                     }
                 }
      */           
-                $arrWorks[] = $work_id;
+                $arrayWorks[] = $work_id;
             }
         }
 
@@ -110,7 +105,7 @@
 
 
         echo "<pre>Filtered Works</br>";
-        var_dump($arrWorks);
+        var_dump($arrayWorks);
         echo "</pre>"; 
             
     }
