@@ -198,7 +198,6 @@
 
                     $arrayWorks[]=$singleArticles;
                 }
-            }
         }
     }
 
