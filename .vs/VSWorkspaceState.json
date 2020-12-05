@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\include",
-    "\\templates",
-    "\\templates\\result"
+    ""
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\templates",
   "PreviewInSolutionExplorer": false
 }
