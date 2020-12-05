@@ -56,7 +56,7 @@
 
             foreach($allWorksID as $work_id){
                 if($postAuthors){
-                    $authors = new $authors();
+                    $authors = new authors();
                     $authorList = $authors->getAuthorsByWorkId();
 
                     echo "<pre>Author</br>";
