@@ -40,7 +40,7 @@ class works{
         $db = new DBManager();
         $query = "SELECT distinct(works.id),title";
         $from =" FROM (works,peoples) ";
-        $where =" works_id !=''";
+        $where =" id !=''";
         $passo = 0;
 
         /* Compongo la query in relazione ai parametri */

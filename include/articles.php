@@ -51,7 +51,7 @@ class articles{
         $db = new DBManager();
         $query = "SELECT distinct(articles.id),title";
         $from =" FROM (articles, peoples)";
-        $where =" articles_id != '' ";
+        $where =" id != '' ";
         $passo = 0;
 
         /* Compongo la query in relazione ai parametri */
