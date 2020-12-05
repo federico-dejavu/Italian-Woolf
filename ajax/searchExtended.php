@@ -53,9 +53,6 @@
         if($postNome){
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
-            echo "<pre>People</br>";
-            var_dump($peoplesList);
-            echo "</pre>"; 
 
             foreach($allWorksID as $work_id){
                 $trovato = 0;
@@ -71,7 +68,7 @@
                 }
 
                 if($postTranslators){
-                    $translators = new translator();
+                    $translators = new translators();
                     $translatorsList = $translators->getAuthorsByWorkId($work_id);
                     $intersec = array_intersect($peoplesList,$translatorsList);
                     if(!empty($intersec)){
@@ -87,6 +84,7 @@
                         $trovato = 1;
                     }
                 }
+
                 if($trovato == 1){
                     $arrayWorks['id'] = $work_id;
                     $singleWork = $works->getWorksByWork_id($work_id);
