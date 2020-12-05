@@ -59,12 +59,21 @@
             if($postAuthors){
                 $authors = new $authors();
                 $authorList = $authors->getAuthorsByWorkId();
+
+        echo "<pre>Author</br>";
+        var_dump($authorList);
+        echo "</pre>"; 
                 $intersec = array_intersect($peopleList,$authorList);
+        echo "<pre>Intersec</br>";
+        var_dump($intersec);
+        echo "</pre>"; 
                 if(empty($intersec)){
                     continue;
                 }
+        echo "<pre>Trovato $work_id</pre>";
+
             }
- 
+ /*
             if($postTranslators){
                 $translators = new $translator();
                 $translatorsList = $translators->getAuthorsByWorkId();
@@ -82,7 +91,8 @@
                 if(empty($intersec)){
                     continue;
                 }
-            }   
+            }
+ */           
             $arrWorks[] = $work_id;
         }
 
