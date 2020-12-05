@@ -56,7 +56,7 @@
             $arrPeoples = $people->getPeopleByFullName($postNome);
         }
         echo "<pre> Works</br>";
-        var_dump($allWorksID);
+        
         var_dump($arrPeoples);
         echo "</pre>";  
             

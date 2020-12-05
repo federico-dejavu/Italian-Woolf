@@ -23,7 +23,7 @@ class peoples{
         if($fullname){
             $db = new DBManager();
             $query = "SELECT id, other_name, fullname, birth_date, death_date, authority_record, image FROM peoples WHERE fullname like (%".$fullname."%) order by fullname desc";
-
+            var_dump($query);
             $arrElements = $db->query($query);
         }
         
