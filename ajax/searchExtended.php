@@ -120,55 +120,92 @@
 
                     $arrayWorks[]=$singleWork;
                 }
-                
             }
         }
-
-
-        echo "<pre>Filtered Works</br>";
-        var_dump($arrayWorks);
-        echo "</pre>"; 
             
     }
 
-
-
-
-  /*
-
-    
-
-    // Estraggo articles 
     if($articlesParam){ 
         $articles = new articles();
+        $arrayArticles=array();
+        $arrayArticlesIntersec = array();
+
         $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
    
         $arrayArticles=array();
         foreach($allArticlesID as $articles_id){
-            $singleArticles = $articles->getArticlesByArticles_id($articles_id);
-            // Reperisco dati publisher 
-            $publisherObject = new publishers();
-            $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
-            $singleArticle['publisher']=$publisher[0]['publisher'];
 
-            // Reperisco dati Author 
-            $authors = new authors();
-            $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
-            
-            $people = new peoples();
-            $arrElements = array();
-            foreach($arrAuthors as $peoples_id){
-            
-                $author = $people->getPeopleById($peoples_id);
+              $trovato = 0;
+                if($postAuthors){
+                    $authors = new authors();
+                    $authorList = $authors->getAuthorsByArticleId($work_id);
+
+                    $intersec = array_intersect($peoplesList,$authorList);
+
+                    if(!empty($intersec)){
+                        $trovato = 1;
+                    }
+                }
+
+                if($postTranslators){
+                    $translators = new translators();
+                    $translatorsList = $translators->getAuthorsByArticleId($work_id);
+                    $intersec = array_intersect($peoplesList,$translatorsList);
+                    if(!empty($intersec)){
+                        $trovato = 1;
+                    }
+                }
+
+                if($postEditors){
+                    $editors = new editors();
+                    $editorsList = $editors->getAuthorsByArticleId($work_id);
+                    $intersec = array_intersect($peoplesList,$editorsList);
+                    if(!empty($intersec)){
+                        $trovato = 1;
+                    }
+                }
+
+                if($trovato == 1){
+                    $arrayArticles['id'] = $work_id;
+                    $singleArticles = $articles->getWorksByWork_id($work_id);
+
+                    /* Reperisco dati publisher */
+                    $publisherObject = new publishers();
+                    $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
+                    $singleArticles['publisher']=$publisher[0]['publisher'];
+
+                    /* Reperisco dati Author */
+                    $authors = new authors();
+                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
                 
-                $arrElements[] = $author;     
-            }
-            $singleArticles['author']=$arrElements;
+                    $people = new peoples();
+                    $arrElements = array();
+                    foreach($arrAuthors as $peoples_id){
+                
+                        $author = $people->getPeopleById($peoples_id);
+                    
+                        $arrElements[] = $author;     
+                    }
+                    $singleArticles['author']=$arrElements;
 
-            $arrayArticles[]=$singleArticles;
-        } 
+                    /* Reperisco le edizioni */
+                    $editions = new editions();
+                    $editionsList = $editions->getEditionsByWork_id($work_id);
+                    $arrEditions = array();
+                    foreach($editionsList as $edition_id){
+                        $arrEditions[] = $editions->getEditionById($edition_id);
+                    }
+
+                    $singleArticles['editions'] = $arrEditions;
+
+                    $arrayWorks[]=$singleArticles;
+                }
+            }
+        }
+
     }
-    */
+
+
     if (DEBUG===true) {
         echo "<pre> Works</br>";
         var_dump($arrayArticles);
