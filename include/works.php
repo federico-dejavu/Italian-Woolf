@@ -39,7 +39,7 @@ class works{
         $arrWorksID = array();
         $db = new DBManager();
         $query = "SELECT distinct(works.id),title";
-        $from =" FROM (works,peoples) ";
+        $from =" FROM works ";
         $where =" id !=''";
         $passo = 0;
 

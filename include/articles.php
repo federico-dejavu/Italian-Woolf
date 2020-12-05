@@ -50,7 +50,7 @@ class articles{
         $arrWorksID = array();
         $db = new DBManager();
         $query = "SELECT distinct(articles.id),title";
-        $from =" FROM (articles, peoples)";
+        $from =" FROM articles";
         $where =" id != '' ";
         $passo = 0;
 
