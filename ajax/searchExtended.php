@@ -134,7 +134,43 @@
                     $arrayWorks[]=$singleWork;
                 }
             }
-        } 
+        } else {
+            // Solo se non devo filtrare per peoples
+            foreach($allWorksID as $work_id){
+                    $arrayWorks['id'] = $work_id;
+                    $singleWork = $works->getWorksByWork_id($work_id);
+                    /* Reperisco dati publisher */
+                    $publisherObject = new publishers();
+                    $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $singleWork['publisher']=$publisher[0]['publisher'];
+
+                    /* Reperisco dati Author */
+                    $authors = new authors();
+                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+                
+                    $people = new peoples();
+                    $arrElements = array();
+                    foreach($arrAuthors as $peoples_id){
+                
+                        $author = $people->getPeopleById($peoples_id);
+                    
+                        $arrElements[] = $author;     
+                    }
+                    $singleWork['author']=$arrElements;
+
+                    /* Reperisco le edizioni */
+                    $editions = new editions();
+                    $editionsList = $editions->getEditionsByWork_id($work_id);
+                    $arrEditions = array();
+                    foreach($editionsList as $edition_id){
+                        $arrEditions[] = $editions->getEditionById($edition_id);
+                    }
+
+                    $singleWork['editions'] = $arrEditions;
+
+                    $arrayWorks[]=$singleWork;
+            }
+        }
             
     }
 
@@ -230,6 +266,44 @@
 
                     $arrayWorks[]=$singleArticles;
                 }
+            }
+        } else {
+            // Solo se non devo filtrare per peoples
+            $arrayArticles=array();
+            foreach($allArticlesID as $articles_id){
+                    $arrayArticles['id'] = $work_id;
+                    $singleArticles = $articles->getWorksByWork_id($work_id);
+
+                    /* Reperisco dati publisher */
+                    $publisherObject = new publishers();
+                    $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
+                    $singleArticles['publisher']=$publisher[0]['publisher'];
+
+                    /* Reperisco dati Author */
+                    $authors = new authors();
+                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+                
+                    $people = new peoples();
+                    $arrElements = array();
+                    foreach($arrAuthors as $peoples_id){
+                
+                        $author = $people->getPeopleById($peoples_id);
+                    
+                        $arrElements[] = $author;     
+                    }
+                    $singleArticles['author']=$arrElements;
+
+                    /* Reperisco le edizioni */
+                    $editions = new editions();
+                    $editionsList = $editions->getEditionsByWork_id($work_id);
+                    $arrEditions = array();
+                    foreach($editionsList as $edition_id){
+                        $arrEditions[] = $editions->getEditionById($edition_id);
+                    }
+
+                    $singleArticles['editions'] = $arrEditions;
+
+                    $arrayWorks[]=$singleArticles;
             }
         }
     }
