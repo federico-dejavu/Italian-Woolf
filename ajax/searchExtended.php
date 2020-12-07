@@ -173,6 +173,11 @@
             
     }
 
+        if (DEBUG) {
+            echo "<pre> articlesParam</br>";
+            var_dump($articlesParam);
+            echo "</pre>";
+        }
     if($articlesParam){ 
         $articles = new articles();
         $arrayArticles=array();
