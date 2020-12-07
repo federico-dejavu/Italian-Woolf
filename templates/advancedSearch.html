@@ -1,5 +1,6 @@
 {% autoescape false %}
 <!— Output by Twig :: modul "wysiwyg" —>
+<form id="search">
 <div id="research">
 	<div class="container">
 		<div class="row">
@@ -7,7 +8,6 @@
 				<h2>Research</h2>
 			</div>
 		</div>
-		<form id="search">
 			<div class="row align-items-center">
 				<div class="col-12">
 					<input type="text" 	placeholder="Keywords" 	name="keywords" id="keywords" />
@@ -79,9 +79,9 @@
 					<input type="button" value="Search" onClick="ajaxSearch('searchExtended');" id="submit" /> 
 				</div>
 			</div>
-		</form>
 	</div>
 </div>
+</form>
 <div id="result">
 </div>
 </body>
