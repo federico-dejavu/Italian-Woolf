@@ -49,10 +49,8 @@
         $arrayWorksIntersec = array();
         $allWorksID = array();
 
-        if($keyOptimized || $postNome || $postTitle || $postPublisher || $postJournal || $fromYear || $toYear || $postLanguage || $postTypology || $postopenAccess){
-            $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
-        }
 
+        $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
 
 
         if (DEBUG===true) {
@@ -181,11 +179,7 @@
         $arrayArticles=array();
         $arrayArticlesIntersec = array();
 
-        if($keyOptimized || $postNome || $postTitle || $postPublisher || $postJournal || $fromYear || $toYear || $postLanguage || $postTypology || $postopenAccess){
-            $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
-        }
-
-
+        $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
 
         if (DEBUG===true) {
             echo "<pre> Articles</br>";
@@ -262,6 +256,11 @@
                 }
             }
         } else {
+            if (DEBUG===true) {
+                echo "<pre> post Nome</br>";
+                var_dump($postNome);
+                echo "</pre>";
+            }
             // Solo se non devo filtrare per peoples
             $arrayArticles=array();
             foreach($allArticlesID as $articles_id){
