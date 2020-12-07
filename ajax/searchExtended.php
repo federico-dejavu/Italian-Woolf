@@ -295,7 +295,11 @@
 
 
     if (DEBUG) {
+        echo "<h2>Pre template</h2><br />";
         echo "<pre> Works</br>";
+        var_dump($arrayWorks);
+        echo "</pre>";
+        echo "<pre> Articles</br>";
         var_dump($arrayArticles);
         echo "</pre>";
     }
