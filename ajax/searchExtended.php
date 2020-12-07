@@ -143,6 +143,10 @@
         if(empty($allWorksID)){
             $allArticlesID = $articles->getAllArticles();
         }
+
+        if($postNome){
+            $people = new peoples();
+            $peoplesList = $people->getPeopleListIdByFullName($postNome);
    
         $arrayArticles=array();
         foreach($allArticlesID as $articles_id){
@@ -212,6 +216,7 @@
 
                     $arrayWorks[]=$singleArticles;
                 }
+            }
         }
     }
 
