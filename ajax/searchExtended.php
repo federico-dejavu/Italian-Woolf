@@ -180,6 +180,10 @@
         $arrayArticlesIntersec = array();
 
         $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
+            echo "<pre> Articles</br>";
+            echo "allArticlesID</br>";
+            var_dump($allArticlesID);
+            echo "</pre>";
 
         if (DEBUG===true) {
             echo "<pre> Articles</br>";
@@ -189,11 +193,14 @@
         }
 
         if($postNome){
+            var_dump($postNome);
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
 
             if(empty($allArticlesID)){
                 $allArticlesID = $articles->getAllArticles();
+                var_dump("getAllArticle");
+                var_dump($allArticlesID);
             }
    
             $arrayArticles=array();
