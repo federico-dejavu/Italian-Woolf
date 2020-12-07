@@ -8,7 +8,7 @@
 	define('WOOLF_PATH', dirname(dirname(__FILE__)));
 	define('WOOLF_URL', 'http://italianwoolf.reading.ac.uk/staging');
 
-	define('DEBUG','true');
+	define('DEBUG','false');
 
 	require_once '../vendor/autoload.php';
 
