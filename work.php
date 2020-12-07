@@ -172,6 +172,10 @@
         []
 **/
 
+        if (DEBUG) {
+            echo "<pre><h2>Work Dump preTemplate</h2><br />".$work."</pre>";
+
+        }
 
         echo $twig->render('result/work.html', [
             'work'		=> $work,    
