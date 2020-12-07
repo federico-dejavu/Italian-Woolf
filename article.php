@@ -15,7 +15,6 @@
 
     ini_set('display_errors',1); # uncomment if you need debugging
     include_once('include/head.php');
-    echo "<body>";
     include_once('include/header.php');
     
     $actionParam	= (isset($_REQUEST['action'])	? $_REQUEST['action']	: '');
