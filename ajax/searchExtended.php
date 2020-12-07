@@ -54,11 +54,10 @@
 
         echo "PIPPO";
 
-        if (DEBUG===true) {
-            echo "<pre> Works</br>";
-            echo "allWorksID</br>";
-            var_dump($allWorksID);
-            echo "</pre>";
+        if (DEBUG) {
+
+            echo "PLUTO";
+
         }
 
         if($postNome){
