@@ -9,7 +9,7 @@ class articles{
         /* Estraggo i works_id con queste KW */
 
         $db = new DBManager();
-        $queryK = "SELECT articles_id,title FROM articles order by title asc";
+        $queryK = "SELECT id,title FROM articles order by title asc";
         $arrArticlesID = $db->queryList($queryK);
         return $arrArticlesID;
     }
