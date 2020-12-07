@@ -204,7 +204,7 @@
               $trovato = 0;
                 if($postAuthors){
                     $authors = new authors();
-                    $authorList = $authors->getAuthorsByArticleId($work_id);
+                    $authorList = $authors->getAuthorsByArticleId($articles_id);
 
                     $intersec = array_intersect($peoplesList,$authorList);
 
@@ -215,7 +215,7 @@
 
                 if($postTranslators){
                     $translators = new translators();
-                    $translatorsList = $translators->getAuthorsByArticleId($work_id);
+                    $translatorsList = $translators->getAuthorsByArticleId($articles_id);
                     $intersec = array_intersect($peoplesList,$translatorsList);
                     if(!empty($intersec)){
                         $trovato = 1;
@@ -224,7 +224,7 @@
 
                 if($postEditors){
                     $editors = new editors();
-                    $editorsList = $editors->getEditorsByArticleId($work_id);
+                    $editorsList = $editors->getEditorsByArticleId($articles_id);
                     $intersec = array_intersect($peoplesList,$editorsList);
                     if(!empty($intersec)){
                         $trovato = 1;
@@ -232,8 +232,8 @@
                 }
 
                 if($trovato == 1){
-                    $arrayArticles['id'] = $work_id;
-                    $singleArticles = $articles->getWorksByWork_id($work_id);
+                    $arrayArticles['id'] = $articles_id;
+                    $singleArticles = $articles->getArticlesByArticles_id($articles_id);
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
@@ -242,7 +242,7 @@
 
                     /* Reperisco dati Author */
                     $authors = new authors();
-                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+                    $arrAuthors = $authors->getAuthorsByArticleId($work_id);
                 
                     $people = new peoples();
                     $arrElements = array();
@@ -253,16 +253,6 @@
                         $arrElements[] = $author;     
                     }
                     $singleArticles['author']=$arrElements;
-
-                    /* Reperisco le edizioni */
-                    $editions = new editions();
-                    $editionsList = $editions->getEditionsByWork_id($work_id);
-                    $arrEditions = array();
-                    foreach($editionsList as $edition_id){
-                        $arrEditions[] = $editions->getEditionById($edition_id);
-                    }
-
-                    $singleArticles['editions'] = $arrEditions;
 
                     $arrayWorks[]=$singleArticles;
                 }
@@ -281,7 +271,7 @@
 
                     /* Reperisco dati Author */
                     $authors = new authors();
-                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+                    $arrAuthors = $authors->getAuthorsByArticleId($work_id);
                 
                     $people = new peoples();
                     $arrElements = array();
@@ -292,16 +282,6 @@
                         $arrElements[] = $author;     
                     }
                     $singleArticles['author']=$arrElements;
-
-                    /* Reperisco le edizioni */
-                    $editions = new editions();
-                    $editionsList = $editions->getEditionsByWork_id($work_id);
-                    $arrEditions = array();
-                    foreach($editionsList as $edition_id){
-                        $arrEditions[] = $editions->getEditionById($edition_id);
-                    }
-
-                    $singleArticles['editions'] = $arrEditions;
 
                     $arrayWorks[]=$singleArticles;
             }
