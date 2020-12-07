@@ -57,6 +57,13 @@
             $allWorksID = $works->getAllWorks();
         }
 
+        if (DEBUG===true) {
+            echo "<pre> Works</br>";
+            echo "allWorksID</br>";
+            var_dump($allWorksID);
+            echo "</pre>";
+        }
+
         if($postNome){
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
@@ -140,16 +147,23 @@
             $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
         }
 
-        if(empty($allWorksID)){
+        if(empty($allArticlesID)){
             $allArticlesID = $articles->getAllArticles();
+        }
+
+        if (DEBUG===true) {
+            echo "<pre> Articles</br>";
+            echo "allArticlesID</br>";
+            var_dump($allArticlesID);
+            echo "</pre>";
         }
 
         if($postNome){
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
    
-        $arrayArticles=array();
-        foreach($allArticlesID as $articles_id){
+            $arrayArticles=array();
+            foreach($allArticlesID as $articles_id){
 
               $trovato = 0;
                 if($postAuthors){
