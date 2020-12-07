@@ -52,6 +52,7 @@
 
         $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
 
+        echo "PIPPO";
 
         if (DEBUG===true) {
             echo "<pre> Works</br>";
