@@ -262,7 +262,7 @@
             $arrayArticles=array();
             foreach($allArticlesID as $articles_id){
                     $arrayArticles['id'] = $work_id;
-                    $singleArticles = $articles->getWorksByWork_id($work_id);
+                    $singleArticles = $articles->getArticlesByArticles_id($work_id);
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
