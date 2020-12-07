@@ -188,14 +188,12 @@
         }
 
         if($postNome){
-            var_dump($postNome);
+
             $people = new peoples();
             $peoplesList = $people->getPeopleListIdByFullName($postNome);
 
             if(empty($allArticlesID)){
                 $allArticlesID = $articles->getAllArticles();
-                var_dump("getAllArticle");
-                var_dump($allArticlesID);
             }
    
             $arrayArticles=array();
