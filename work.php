@@ -173,7 +173,7 @@
 **/
 
         if (DEBUG) {
-            echo "<pre><h2>Work Dump preTemplate</h2><br />".$work."</pre>";
+            echo "<pre><h2>Work Dump preTemplate</h2><br />".var_dump($work)."</pre>";
 
         }
 
