@@ -253,7 +253,7 @@
                     }
                     $singleArticles['author']=$arrElements;
 
-                    $arrayWorks[]=$singleArticles;
+                    $arrayArticles[]=$singleArticles;
                 }
             }
         } else {
@@ -287,7 +287,7 @@
                     }
                     $singleArticles['author']=$arrElements;
 
-                    $arrayWorks[]=$singleArticles;
+                    $arrayArticles[]=$singleArticles;
             }
         }
     }
