@@ -10,7 +10,7 @@ class works{
         /* Estraggo i works_id con queste KW */
 
         $db = new DBManager();
-        $queryK = "SELECT works_id,title FROM works order by title asc";
+        $queryK = "SELECT id,title FROM works order by title asc";
         $arrWorksID = $db->queryList($queryK);
 
         return $arrWorksID;
