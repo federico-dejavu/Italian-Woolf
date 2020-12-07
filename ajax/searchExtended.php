@@ -52,12 +52,11 @@
 
         $allWorksID = $works->getWorksByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
 
-        echo "PIPPO";
-
         if (DEBUG) {
-
-            echo "PLUTO";
-
+            echo "<pre> Works</br>";
+            echo "allWorksID</br>";
+            var_dump($allWorksID);
+            echo "</pre>";
         }
 
         if($postNome){
@@ -180,12 +179,8 @@
         $arrayArticlesIntersec = array();
 
         $allArticlesID = $articles->getArticlesByParam($keyOptimized,$postNome,$postAuthors,$postTranslators,$postEditors,$postTitle,$postPublisher,$postJournal,$fromYear,$toYear,$postLanguage,$postTypology,$postopenAccess);
-            echo "<pre> Articles</br>";
-            echo "allArticlesID</br>";
-            var_dump($allArticlesID);
-            echo "</pre>";
 
-        if (DEBUG===true) {
+        if (DEBUG) {
             echo "<pre> Articles</br>";
             echo "allArticlesID</br>";
             var_dump($allArticlesID);
@@ -263,7 +258,7 @@
                 }
             }
         } else {
-            if (DEBUG===true) {
+            if (DEBUG) {
                 echo "<pre> post Nome</br>";
                 var_dump($postNome);
                 echo "</pre>";
@@ -299,7 +294,7 @@
     }
 
 
-    if (DEBUG===true) {
+    if (DEBUG) {
         echo "<pre> Works</br>";
         var_dump($arrayArticles);
         echo "</pre>";
