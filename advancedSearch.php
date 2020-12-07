@@ -6,4 +6,4 @@
 	include_once('include/head.php');
 	include_once('include/header.php');
 
-    echo $twig->render('templates/advancedSearch.html');
+    echo $twig->render('advancedSearch.html');
