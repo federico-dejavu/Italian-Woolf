@@ -99,7 +99,7 @@
                 }
 
                 if($trovato == 1){
-                    $arrayWorks['id'] = $work_id;
+                    //$arrayWorks['id'] = $work_id;
                     $singleWork = $works->getWorksByWork_id($work_id);
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
@@ -136,7 +136,7 @@
         } else {
             // Solo se non devo filtrare per peoples
             foreach($allWorksID as $work_id){
-                    $arrayWorks['id'] = $work_id;
+                    //$arrayWorks['id'] = $work_id;
                     $singleWork = $works->getWorksByWork_id($work_id);
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
@@ -232,7 +232,7 @@
                 }
 
                 if($trovato == 1){
-                    $arrayArticles['id'] = $articles_id;
+                    //$arrayArticles['id'] = $articles_id;
                     $singleArticles = $articles->getArticlesByArticles_id($articles_id);
 
                     /* Reperisco dati publisher */
@@ -242,7 +242,7 @@
 
                     /* Reperisco dati Author */
                     $authors = new authors();
-                    $arrAuthors = $authors->getAuthorsByArticleId($work_id);
+                    $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
                 
                     $people = new peoples();
                     $arrElements = array();
@@ -266,8 +266,8 @@
             // Solo se non devo filtrare per peoples
             $arrayArticles=array();
             foreach($allArticlesID as $articles_id){
-                    $arrayArticles['id'] = $work_id;
-                    $singleArticles = $articles->getArticlesByArticles_id($work_id);
+                    //$arrayArticles['id'] = $articles_id;
+                    $singleArticles = $articles->getArticlesByArticles_id($articles_id);
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
@@ -276,7 +276,7 @@
 
                     /* Reperisco dati Author */
                     $authors = new authors();
-                    $arrAuthors = $authors->getAuthorsByArticleId($work_id);
+                    $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
                 
                     $people = new peoples();
                     $arrElements = array();
