@@ -104,7 +104,11 @@ class articles{
         }         
 
         $query = $query.$from." WHERE ".$where." order by articles.title asc";
-         
+        if (DEBUG) {
+            echo "<pre>getArticlesByParam Query</br>";
+            var_dump($query);
+            echo "</pre>";
+        } 
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
     } 
