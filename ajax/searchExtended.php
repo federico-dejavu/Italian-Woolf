@@ -141,7 +141,7 @@
         }
 
         if(empty($allWorksID)){
-            $allArticlesID = $works->getAllArticles();
+            $allArticlesID = $articles->getAllArticles();
         }
    
         $arrayArticles=array();
