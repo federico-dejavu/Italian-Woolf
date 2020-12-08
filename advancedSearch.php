@@ -9,10 +9,13 @@
 
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
+	$contatore = 0;
 	foreach($publishersList as $publisherID){
 		var_dump($publisherID);
-		$publisherSingle = $publishers_obj->getPublisherById($publisherID[0]);
-		$publishers[$publisherID] = $publisherSingle[0]['publisher'];
+		$idPublisher = $publisherID[$contatore];
+		$publisherSingle = $publishers_obj->getPublisherById($idPublisher);
+		$publishers[$idPublisher] = $publisherSingle[0]['publisher'];
+		$contatore++;
 	}
 
 	var_dump($publishers);
