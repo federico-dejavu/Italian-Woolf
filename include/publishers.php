@@ -23,6 +23,7 @@ class publishers{
         $queryW = "SELECT id, publisher, description, link FROM publishers";
         $arrElements = $db->query($queryW);
             
+        var_dump($arrElements);
         return $arrElements;
     }      
 }
