@@ -1,8 +1,7 @@
 {% autoescape false %}
 <!— Output by Twig :: modul "wysiwyg" —>
-	    <div class="container">
-			<div class="row">
-				<div class="col">
+<div class="col">
+	<div class="row">
 					<h2>{{ article.title }}
 					{% if article.year %}
 						({{ article.year }})
@@ -11,10 +10,8 @@
 					<h3>
 						{{ article.abstract }}	
 					</h3>
-				</div>
 			</div>
 			<div class="row">
-				<div class="col">
 					<p>Pubblication date: {{ article.pubblication_date }} </p>
 					<p>Volume title: {{ article.volume_title }} </p>
 					<p>Journal title: {{ article.journal_title }} </p>
@@ -92,7 +89,6 @@
 						</ul>
 					{% endif %}
 				</div>
-			</div>
 		</div>
 <!— end Twig —>
 {% endautoescape %}
