@@ -10,6 +10,8 @@
 	$publishers_obj = new publishers();
 	$publishers = $publishers_obj->getAllPublishers();
 
+	var_dump($publishers);
+
     echo $twig->render('advancedSearch.html', [
         'publishers' => $publishers,
 	]);
