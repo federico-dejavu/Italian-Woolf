@@ -10,7 +10,8 @@
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
 	foreach($publishersList as $publisherID){
-		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
+		var_dump($publisherID);
+		$publisherSingle = $publishers_obj->getPublisherById($publisherID[0]);
 		$publishers[$publisherID] = $publisherSingle[0]['publisher'];
 	}
 
