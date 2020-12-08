@@ -13,6 +13,15 @@
 	foreach($publishersList as $publisherID){
 		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
 		$publishers[$publisherID] = $publisherSingle[0]['publisher'];
+		if (DEBUG) {
+			echo "<h2>Publisher</h2><br />";
+			echo "<pre>PublisherID</br>";
+			var_dump($publisherID);
+			echo "</pre>";
+			echo "<pre>publisherSingle</br>";
+			var_dump($publisherSingle);
+			echo "</pre>";
+		}		
 		$contatore++;
 	}
 
