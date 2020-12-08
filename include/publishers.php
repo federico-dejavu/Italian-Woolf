@@ -26,6 +26,8 @@ class publishers{
             $arrTotal[] = $arrElements;
         }
         
+        var_dump($arrTotal);
+
         return $arrTotal;
     }      
 }
