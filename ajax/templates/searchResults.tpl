@@ -2,7 +2,7 @@
 <!— Output by Twig :: modul "wysiwyg" —>
 	    <div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-6 works">
 					<h2>Works</h2>
 				{% for work in works %}
 					<a href="work.php?subject={{ work.title }}&id={{ work.id }}"><b>{{ work.title }},</b></a> {{ work.year }} / {{ work.publisher }} -
@@ -16,7 +16,7 @@
 					</ul>
 				{% endfor %}
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 articles">
 					<h2>Articles</h2>
 				{% for article in articles %}
 					<p>
