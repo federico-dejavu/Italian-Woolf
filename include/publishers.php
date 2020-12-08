@@ -21,7 +21,7 @@ class publishers{
        
         $db = new DBManager();
         $queryW = "SELECT id, publisher, description, link FROM publishers";
-        $arrElements = $db->queryList($queryW);
+        $arrElements = $db->query($queryW);
         $arrTotal[] = $arrElements;
 
             
