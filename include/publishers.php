@@ -19,10 +19,10 @@ class publishers{
         $arrElements = array();
        
         $db = new DBManager();
-        $queryW = "SELECT id, publisher, description, link FROM publishers";
-        $arrElements = $db->query($queryW);
+        $query = "SELECT id, publisher, description, link FROM publishers";
+        $arrElements = $db->queryList($query);
             
-        var_dump($queryW);
+        var_dump($arrElements);
         return $arrElements;
     }      
 }
