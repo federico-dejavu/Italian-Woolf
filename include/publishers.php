@@ -21,8 +21,7 @@ class publishers{
         $db = new DBManager();
         $query = "SELECT id, publisher, description, link FROM publishers";
         $arrElements[] = $db->queryList($query);
-        var_dump("DENTRO");
-        var_dump($arrElements);
+
         return $arrElements;
     }      
 }

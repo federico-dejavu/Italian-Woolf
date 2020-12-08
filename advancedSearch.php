@@ -8,7 +8,11 @@
 	include_once('include/publishers.php');
 
 	$publishers_obj = new publishers();
-	$publishers = $publishers_obj->getAllPublishers();
+	$publishersList = $publishers_obj->getAllPublishers();
+	foreach($publishersList as $publisherID){
+		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
+		$publishers[$publisherID] = $publisherSingle[0]['publisher'];
+	}
 
 	var_dump($publishers);
 
