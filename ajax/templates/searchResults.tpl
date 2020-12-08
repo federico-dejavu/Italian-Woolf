@@ -15,6 +15,7 @@
 						{% endfor %}
 					</ul>
 				{% endfor %}
+				</div>
 				<div class="col-md-6">
 					<h2>Articles</h2>
 				{% for article in articles %}
