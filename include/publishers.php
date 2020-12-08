@@ -19,15 +19,12 @@ class publishers{
         $arrElements = array();
         $arrTotal = array();
        
-        if($arrEditionsID){
-            $db = new DBManager();
-            $queryW = "SELECT id, publisher, description, link FROM publishers";
-            $arrElements = $db->queryList($queryW);
-            $arrTotal[] = $arrElements;
-        }
-        
-        var_dump($arrTotal);
+        $db = new DBManager();
+        $queryW = "SELECT id, publisher, description, link FROM publishers";
+        $arrElements = $db->queryList($queryW);
+        $arrTotal[] = $arrElements;
 
+            
         return $arrTotal;
     }      
 }
