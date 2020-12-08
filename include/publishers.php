@@ -20,9 +20,7 @@ class publishers{
        
         $db = new DBManager();
         $query = "SELECT id, publisher, description, link FROM publishers";
-        $arrElements[] = $db->query($query);
-            
-        var_dump($arrElements);
+        $arrElements[] = $db->queryList($query);
         return $arrElements;
     }      
 }
