@@ -17,13 +17,12 @@ class publishers{
     /* Dato un array di works_id restituisce un array di publisher */
     public function getAllPublishers() {
         $arrElements = array();
-        $arrTotal = array();
        
         $db = new DBManager();
         $queryW = "SELECT id, publisher, description, link FROM publishers";
         $arrElements = $db->query($queryW);
             
-        var_dump($arrElements);
+        var_dump($queryW);
         return $arrElements;
     }      
 }
