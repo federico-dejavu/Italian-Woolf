@@ -12,8 +12,9 @@
 	$contatore = 0;
 	foreach($publishersList as $publisherID){
 		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
-		$publishers[$publisherID] = $publisherSingle[0]['publisher'];
-		
+		//$publishers[$publisherID] = $publisherSingle['publisher'];
+		$publishers[$publisherID] = $publisherSingle;
+		/*
 			echo "<h2>Publisher</h2><br />";
 			echo "<pre>PublisherID</br>";
 			var_dump($publisherID);
@@ -21,11 +22,9 @@
 			echo "<pre>publisherSingle</br>";
 			var_dump($publisherSingle);
 			echo "</pre>";
-	
-		$contatore++;
+		*/
 	}
 
-	var_dump($publishers);
 
     echo $twig->render('advancedSearch.html', [
         'publishers' => $publishers,
