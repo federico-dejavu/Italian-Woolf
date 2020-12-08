@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ajax",
+    "\\ajax\\templates",
+    "\\functions",
+    "\\include",
+    "\\templates",
+    "\\templates\\result",
+    "\\vendor",
+    "\\vendor\\twig"
   ],
-  "SelectedNode": "\\templates",
+  "SelectedNode": "\\advancedSearch.php",
   "PreviewInSolutionExplorer": false
 }
