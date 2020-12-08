@@ -11,8 +11,8 @@
 	$publishersList = $publishers_obj->getAllPublishers();
 	$contatore = 0;
 	foreach($publishersList as $publisherID){
-		var_dump($publisherID);
 		$idPublisher = $publisherID[$contatore];
+		var_dump($idPublisher);
 		$publisherSingle = $publishers_obj->getPublisherById($idPublisher);
 		$publishers[$idPublisher] = $publisherSingle[0]['publisher'];
 		$contatore++;
