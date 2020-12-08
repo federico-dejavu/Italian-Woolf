@@ -19,7 +19,7 @@ class publishers{
         $arrElements = array();
        
         $db = new DBManager();
-        $query = "SELECT id, publisher, description, link FROM publishers";
+        $query = "SELECT id, publisher, description, link FROM publishers order by publisher";
         $arrElements = $db->queryList($query);
 
         return $arrElements;
