@@ -13,6 +13,7 @@
 	foreach($publishersList as $publisherID){
 		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
 		$publishers[$publisherID] = $publisherSingle;
+	}
 
 
     echo $twig->render('advancedSearch.html', [
