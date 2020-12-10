@@ -11,7 +11,13 @@ class DBManager{
         
 	        // Create connection
 	        $conn = new mysqli(WOOLF_DB_SERVER, WOOLF_DB_USER, WOOLF_DB_PASSWORD, WOOLF_DB_NAME);
-	        // Check connection
+
+			echo "Initial character set is: " . $mysqli -> character_set_name();
+		
+			// Change character set to utf8
+			$mysqli -> set_charset("utf8");
+
+			// Check connection
 	        if ($conn->connect_error) {
 	          die("Connection failed: " . $conn->connect_error);
 	        } 
