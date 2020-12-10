@@ -10,6 +10,8 @@
 
 	define('DEBUG','false');
 
+	mysql_query("SET NAMES 'utf8'");
+
 	require_once '../vendor/autoload.php';
 
 ?>
