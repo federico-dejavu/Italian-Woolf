@@ -10,14 +10,6 @@
 
 	define('DEBUG','false');
 
-	mysql_query("SET NAMES 'utf8'");
-	echo "Initial character set is: " . $mysqli -> character_set_name();
-
-	// Change character set to utf8
-	$mysqli -> set_charset("utf8");
-
-	echo "Current character set is: " . $mysqli -> character_set_name();
-
 	require_once '../vendor/autoload.php';
 
 ?>
