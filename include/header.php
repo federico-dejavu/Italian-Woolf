@@ -15,9 +15,9 @@
 				</div>
 				<div class="col">
 					<nav>
-						<a href="">Project</a>
-						<a href="">Paths</a>
-						<a href="">Search</a>
+						<a href="<?php echo WOOLF_URL; ?>project.php">Project</a>
+						<a href="<?php echo WOOLF_URL; ?>path.php">Paths</a>
+						<a href="<?php echo WOOLF_URL; ?>search.php">Search</a>
 					</nav>
 				</div>
 			</div>
