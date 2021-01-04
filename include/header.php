@@ -5,13 +5,13 @@
 				<div class="col">
 				</div>
 				<div class="col">
-					<p class="title">
+					<a class="title" href="/">
 						VIRGINIA
 						<br />
 						WOOLF 
 						<br />
 						IN ITALY
-					</p>
+					</a>
 				</div>
 				<div class="col">
 					<nav>
