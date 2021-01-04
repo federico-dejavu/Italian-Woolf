@@ -175,4 +175,6 @@
             'work'		=> $work,    
         ]);
 
+        include_once('include/footer.php'); 
+	
 ?>

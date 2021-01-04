@@ -31,4 +31,7 @@
         'people'	=> $people,
     ]);
 
+
+	include_once('include/footer.php'); 
+	
 ?>

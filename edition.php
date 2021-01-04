@@ -83,4 +83,6 @@
         'edition'	=> $edition,
     ]);
 
+	include_once('include/footer.php'); 
+	
 ?>

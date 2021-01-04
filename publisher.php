@@ -27,4 +27,7 @@
             'publisher'		=> $publisher,    
         ]);
     }
+
+	include_once('include/footer.php'); 
+	
 ?>
