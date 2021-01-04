@@ -5,7 +5,7 @@
 				<div class="col">
 				</div>
 				<div class="col">
-					<a class="title" href="/">
+					<a class="title" href="<?php echo WOOLF_URL; ?>">
 						VIRGINIA
 						<br />
 						WOOLF 
