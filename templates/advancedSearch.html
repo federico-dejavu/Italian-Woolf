@@ -65,7 +65,14 @@
 					</label>
 				</div>
 				<div class="col">
-					<input type="text" placeholder="Tipology" name="typology" id="typology" />
+					<label class="custom-select" for="typology">
+						<select  name="typology" id="typology" >
+							<option value="" id="">All typologies</option>
+							{% for typology in typologies %}
+							<option value="{{ typology.id }}" id="{{ typology.id }}">{{ typology.typology }}</option>
+							{% endfor %}
+						</select>
+					</label>
 				</div>					
 			</div>	
 			<div class="row align-items-center">

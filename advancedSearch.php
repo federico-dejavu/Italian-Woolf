@@ -7,6 +7,7 @@
 	include_once('include/header.php');
 	include_once('include/publishers.php');
 	include_once('include/languages.php');
+	include_once('include/typologies.php');
 
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
@@ -21,9 +22,19 @@
 		$languageSingle = $languages_obj->getLanguageById($languageID);
 		$languages[$languageID] = $languageSingle;
 	}
-    echo $twig->render('advancedSearch.html', [
+
+	$typologies_obj = new typologies();
+	$typologiesList = $typologies_obj->getAllTypologies();
+	foreach($typologiesList as $typologyID){
+		$typologySingle = $typologies_obj->getTypologyById($typologyID);
+		$typologies[$typologyID] = $typologySingle;
+	}
+
+
+	echo $twig->render('advancedSearch.html', [
         'publishers'	=> $publishers,
-        'languages'		=> $languages,
+		'languages'		=> $languages,
+		'typologies'	=> $typologies,
 	]);
 
 
