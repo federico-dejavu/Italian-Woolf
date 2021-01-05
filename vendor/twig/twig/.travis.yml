@@ -2,11 +2,13 @@ language: php
 
 dist: xenial
 
-cache:
-    directories:
-        - vendor
-        - extra/*/vendor
-        - $HOME/.composer/cache/files
+cache: false
+
+# cache:
+#     directories:
+#         - vendor
+#         - extra/*/vendor
+#         - $HOME/.composer/cache/files
 
 env:
     global:
