@@ -75,7 +75,7 @@ class articles{
  
 
         if($postLanguage){
-            $where = $where." AND original = $postLanguage ";            
+            $where = $where." AND language = $postLanguage ";            
         }
         /* lo tengo nel caso in cui elisa decida di passare a N:N 
         if($postTypology){
