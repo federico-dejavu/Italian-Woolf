@@ -55,6 +55,14 @@
 			</div>					
 			<div class="row align-items-center">
 				<div class="col-6">
+					<label class="custom-select" for="language">
+						<select  name="language" id="language" >
+							<option value="" id="">All languages</option>
+							{% for language in languages %}
+							<option value="{{ language.id }}" id="{{ language.id }}">{{ language.language }}</option>
+							{% endfor %}
+						</select>
+					</label>
 					<input type="text" placeholder="Language" name="language" id="language" />
 				</div>
 				<div class="col">
