@@ -14,13 +14,13 @@
 				</div>
 				<div class="col-4">
 					<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">Works</label>
-					<input id="articles" 	name="articles"	type="checkbox" checked/><label for="articles">Articles</label>
+					<input id="articles" 	name="articles" type="checkbox" checked/><label for="articles">Articles</label>
 				</div>
 			</div>
 			<div class="row align-items-center">
 			
 				<div class="col">
-					<input type="text" 	placeholder="nome" 	name="nome" id="nome" />
+					<input type="text" 	placeholder="Name" 	name="nome" id="nome" />
 					<input id="authors"   name="authors"   type="checkbox" value="1" checked/><label for="authors">Autori</label>
 					<input id="translators" name="translators" type="checkbox" value="1" checked/><label for="translators">Traduttori</label>
 					<input id="editors"   name="editors" type="checkbox" value="1" checked/><label for="editors">Editors</label>
@@ -28,54 +28,43 @@
 			</div>
 			<div class="row align-items-center">
 				<div class="col">
-					<input type="text" placeholder="Title"		name="title" id="title" />
+					<input type="text" placeholder="Title" name="title" id="title" />
 				</div>
 			</div>	
-
 			<div class="row align-items-center">
 				<div class="col-6">
 					<select  name="publisher" id="publisher" >
-						<option value="" id="">Qualsiasi editore</option>
+						<option value="" id="">All editors</option>
 						{% for publisher in publishers %}
 						<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
 						{% endfor %}
 					</select>
 				</div>
 				<div class="col-6">
-					<input type="text" placeholder="Journal"	name="journal" id="journal" />
+					<input type="text" placeholder="Journal" name="journal" id="journal" />
 				</div>
 			</div>		
-			
 			<div class="row align-items-center">
-			
-				<div class="col">
-					<input type="text" placeholder="1901" name="fromYear" id="fromYear"/>
+				<div class="col-6">
+					<input type="text" placeholder="Year start (1901)" name="fromYear" id="fromYear"/>
 				</div>
-
-				<div class="col">
-					<input type="text" placeholder="1956"	name="toYear" id="toYear" />
+				<div class="col-6">
+					<input type="text" placeholder="year ending (1956)" name="toYear" id="toYear" />
 				</div>
 			</div>					
-
 			<div class="row align-items-center">
-
-				<div class="col">
-					<input type="text" placeholder="EN"	name="language" id="language" />
+				<div class="col-6">
+					<input type="text" placeholder="Language" name="language" id="language" />
 				</div>
-
-				
 				<div class="col">
-					<input type="text" placeholder="Novel"	name="typology" id="typology" />
+					<input type="text" placeholder="Tipology" name="typology" id="typology" />
 				</div>					
 			</div>	
-			
-			
 			<div class="row align-items-center">
-				<div class="col">
-					<input type="text" placeholder="openAccess"	name="openAccess" id="openAccess" />
+				<div class="col-6">
+					<input type="text" placeholder="openAccess" name="openAccess" id="openAccess" />
 				</div>					
 			</div>					
-
 			<div class="row align-items-center">
 				<div class="col">
 					<input type="button" value="Search" onClick="ajaxSearch('searchExtended');" id="submit" /> 
