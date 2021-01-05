@@ -14,8 +14,8 @@ class languages{
     }
  
     /* Dato un languages_id restituisce un array di language */
-    public function getLanguageById($languages_id="") {
-        if($publishers_id){
+    public function getLanguageById($languages_id = "") {
+        if($languages_id){
             $db = new DBManager();
             $query = "SELECT id, language, code FROM languages where id = $languages_id";
          
