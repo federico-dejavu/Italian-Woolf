@@ -94,7 +94,7 @@ body {
 
 	#research {
 		
-		background-color: #E6E6E6;
+		background-color: @bgresearch;
 		padding-bottom: 3em;
 		
 		form {
@@ -169,13 +169,19 @@ body {
 
 			.custom-select {
 
+				text-align: left;
+				width: 100%;
+				line-height: 2.360em;
+				font-size: 1.563em;
+				padding-left: 1.18em;
+				padding-right: 1.18em;
+				font-weight: 300;
+				border: 0;
+				border-radius: 100px;
+				margin-bottom: 1em;
 				position: relative;
 				display: block;
-				max-width: 400px;
-				min-width: 180px;
-				margin: 0 auto;
-				border: 1px solid #3C1C78;
-				background-color: #16013E;
+				background-color: #FFF;
 				z-index: 10;
 
 				  select {
@@ -191,8 +197,13 @@ body {
 					display: block;
 					width: 100%;
 					padding: 12px 55px 15px 15px;
-					font-size: 14px;
-					color: #714BB9;
+					text-align: left;
+					line-height: 2.360em;
+					font-size: 1.563em;
+					padding-left: 1.18em; 
+					padding-right: 1.18em; 
+					font-weight: 300;
+					border: 0;
 
 				} // select
 				
@@ -203,12 +214,12 @@ body {
 					top: 0;
 					width: 50px;
 					height: 100%;
-					line-height: 38px;
+					line-height: 2.360em;
 					content: "∨";
 					text-align: center;
-					color: #714BB9;
+					color: #DDD;
 					font-size: 24px;
-					border-left: 1px solid #3C1C78;
+					border-left: 1px solid #DDD;
 					z-index: -1;
 				
 				} // ::after
