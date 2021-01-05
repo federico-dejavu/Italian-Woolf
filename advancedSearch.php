@@ -20,7 +20,7 @@
 	foreach($languagesList as $language){
 		$languages[$language[0]]['id'] = $language[0];
 		$languages[$language[0]]['language'] = $language[1];
-		$languages[$language[0]]['code'] = $language[02;
+		$languages[$language[0]]['code'] = $language[2];
 		var_dump($languages);
 	}
 
