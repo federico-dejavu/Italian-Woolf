@@ -10,22 +10,13 @@
 
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
-	foreach($publishersList as $publisherID){
-		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
-		$publishers[$publisherID] = $publisherSingle;
-	}
 
 	$languages_obj = new languages();
 	$languagesList = $languages_obj->getAllLanguages();
-	var_dump($languagesList);
-	foreach($languagesList as $language){
-		$languages[$language[0]]['id'] = $language[0];
-		$languages[$language[0]]['language'] = $language[1];
-		$languages[$language[0]]['code'] = $language[2];
-	}
 
     echo $twig->render('advancedSearch.html', [
-        'publishers' => $publishers,
+        'publishers'	=> $publishersList,
+        'languages'		=> $languagesList,
 	]);
 
 
