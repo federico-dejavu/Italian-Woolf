@@ -18,9 +18,10 @@
 	$languages_obj = new languages();
 	$languagesList = $languages_obj->getAllLanguages();
 	foreach($languagesList as $language){
-		var_dump($language);
-		// $publisherSingle = $publishers_obj->getPublisherById($publisherID);
-		// $publishers[$publisherID] = $publisherSingle;
+		$languages[$language[0]]['id'] = $language[0];
+		$languages[$language[0]]['language'] = $language[1];
+		$languages[$language[0]]['code'] = $language[02;
+		var_dump($languages);
 	}
 
     echo $twig->render('advancedSearch.html', [
