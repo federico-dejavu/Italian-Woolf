@@ -17,11 +17,11 @@
 
 	$languages_obj = new languages();
 	$languagesList = $languages_obj->getAllLanguages();
+	var_dump($languagesList);
 	foreach($languagesList as $language){
 		$languages[$language[0]]['id'] = $language[0];
 		$languages[$language[0]]['language'] = $language[1];
 		$languages[$language[0]]['code'] = $language[2];
-		var_dump($languages);
 	}
 
     echo $twig->render('advancedSearch.html', [
