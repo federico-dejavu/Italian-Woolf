@@ -6,15 +6,22 @@
 	include_once('include/head.php');
 	include_once('include/header.php');
 	include_once('include/publishers.php');
+	include_once('include/languages.php');
 
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
-	$contatore = 0;
 	foreach($publishersList as $publisherID){
 		$publisherSingle = $publishers_obj->getPublisherById($publisherID);
 		$publishers[$publisherID] = $publisherSingle;
 	}
 
+	$languages_obj = new languages();
+	$languagesList = $languages_obj->getAllLanguages();
+	foreach($languagesList as $language){
+		var_dump($language);
+		// $publisherSingle = $publishers_obj->getPublisherById($publisherID);
+		// $publishers[$publisherID] = $publisherSingle;
+	}
 
     echo $twig->render('advancedSearch.html', [
         'publishers' => $publishers,
