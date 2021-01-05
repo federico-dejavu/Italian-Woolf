@@ -18,7 +18,6 @@
 				</div>
 			</div>
 			<div class="row align-items-center">
-			
 				<div class="col">
 					<input type="text" 	placeholder="Name" 	name="nome" id="nome" />
 					<input id="authors"   name="authors"   type="checkbox" value="1" checked/><label for="authors">Autori</label>
@@ -33,12 +32,14 @@
 			</div>	
 			<div class="row align-items-center">
 				<div class="col-6">
-					<select  name="publisher" id="publisher" >
-						<option value="" id="">All editors</option>
-						{% for publisher in publishers %}
-						<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
-						{% endfor %}
-					</select>
+					<label class="custom-select" for="publisher">
+						<select  name="publisher" id="publisher" >
+							<option value="" id="">All editors</option>
+							{% for publisher in publishers %}
+							<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
+							{% endfor %}
+						</select>
+					</label>
 				</div>
 				<div class="col-6">
 					<input type="text" placeholder="Journal" name="journal" id="journal" />
@@ -49,7 +50,7 @@
 					<input type="text" placeholder="Year start (1901)" name="fromYear" id="fromYear"/>
 				</div>
 				<div class="col-6">
-					<input type="text" placeholder="year ending (1956)" name="toYear" id="toYear" />
+					<input type="text" placeholder="Year ending (1956)" name="toYear" id="toYear" />
 				</div>
 			</div>					
 			<div class="row align-items-center">
