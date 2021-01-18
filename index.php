@@ -7,10 +7,8 @@
 
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
-    $page = $pageObject->getWebpageByContentKeyId("HOME");
+    $page = $pageObject->getWebpageByContentKeyId('HOME','1');
     var_dump($page);
-
-
 
 	echo $twig->render('home.html');
 
