@@ -6,7 +6,7 @@ class webpages{
       /* Dato un id restituisce un array di del contenuto della pagina */
       public function getWebpageById($id = "") {
  
-        if($id=>0){
+        if ($id) {
             $db = new DBManager();
             $query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE id = $id";
             $Webpage = $db->queryList($query);
