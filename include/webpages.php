@@ -10,7 +10,8 @@ class webpages{
             $db = new DBManager();
             $query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE id = $id";
             $Webpage = $db->queryList($query);
-        }
+		}
+		var_dump($Webpage);
         return $Webpage;
     }    
 	
