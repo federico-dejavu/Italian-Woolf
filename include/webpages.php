@@ -19,7 +19,7 @@ class webpages{
  
         if($content_key!=""){
             $db = new DBManager();
-            $query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE id = $content_key AND languages_id = $languages_id";
+            $query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE content_key = '$content_key' AND languages_id = $languages_id";
             $Webpage = $db->queryList($query);
         }
         return $Webpage;
