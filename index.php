@@ -10,7 +10,9 @@
     $page = $pageObject->getWebpageByContentKeyId('HOME','1');
     var_dump($page);
 
-	echo $twig->render('home.html');
+	echo $twig->render('home.html', [
+        'page'	=> $page,
+    ]);
 
 	include_once('include/footer.php'); 
 

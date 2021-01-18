@@ -9,7 +9,7 @@ class webpages{
         if ($id) {
             $db = new DBManager();
             $query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE id = $id";
-            $Webpage = $db->queryList($query);
+            $Webpage = $db->query($query);
 		}
 
         return $Webpage;
@@ -23,10 +23,9 @@ class webpages{
             $db = new DBManager();
 			$query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE content_key = '$content_key' AND languages_id = $languages_id";
 			echo $query;
-            $Webpage = $db->queryList($query);
+            $Webpage = $db->query($query);
         }
 
-		var_dump($Webpage);
 		return $Webpage;
 
     }    
