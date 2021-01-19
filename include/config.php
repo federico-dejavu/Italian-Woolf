@@ -5,6 +5,8 @@
 	define('WOOLF_DB_PASSWORD', "Civetta54!");
 	define('WOOLF_DB_NAME', "xb921315_ItalianWoolf");
 
+	define('SITE_TITLE', "Virginia Woolf in Italy");
+
 	define('WOOLF_PATH', dirname(dirname(__FILE__)));
 	define('WOOLF_URL', 'http://italianwoolf.reading.ac.uk/staging');
 
