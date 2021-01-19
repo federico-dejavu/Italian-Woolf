@@ -1,14 +1,14 @@
 <?php
 
 	define('WOOLF_DB_SERVER', "127.0.0.1");
-	define('WOOLF_DB_USER', "xb921315_dbmanager");
-	define('WOOLF_DB_PASSWORD', "Civetta54!");
-	define('WOOLF_DB_NAME', "xb921315_ItalianWoolf");
+	define('WOOLF_DB_USER', "");
+	define('WOOLF_DB_PASSWORD', "");
+	define('WOOLF_DB_NAME', "");
 
-	define('SITE_TITLE', "Virginia Woolf in Italy");
+	define('SITE_TITLE', "");
 
 	define('WOOLF_PATH', dirname(dirname(__FILE__)));
-	define('WOOLF_URL', 'https://italianwoolf.reading.ac.uk/stage/');
+	define('WOOLF_URL', '');
 	
 	define('DEBUG',FALSE);
 
