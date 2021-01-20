@@ -3,6 +3,7 @@
 {{ include('head.html') }}
 {{ include('header.html') }}
 </head>
+{% if page.content_key == 'HOME' %}
 <div id="home">
 	<div class="container">
 		<div class="row align-items-center">
@@ -16,6 +17,7 @@
 		</div>
 	</div>
 </div>
+{% endif %}
 <div id="content">
 	<div class="container">
 		<div class="row align-items-center">
