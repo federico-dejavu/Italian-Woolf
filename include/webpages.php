@@ -34,7 +34,7 @@ class webpages{
 
 }
 
-public function renderPage($content_key = "HOME", $languages_id = "1") {
+function renderPage($content_key = "HOME", $languages_id = "1") {
 
     $page_name = strtolower($content_key);
     $filename = WOOLF_PATH.'/css/'.$page_name.'.less';
