@@ -1,6 +1,7 @@
 <?php 
 	require_once('include/webpages.php'); 
 		
-	$pageRender->renderPage('HOME','2');
-	
+	$pageObject = new webpages();
+	$pageObject->renderPage('HOME','2');
+
 ?>
