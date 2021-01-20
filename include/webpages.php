@@ -46,6 +46,11 @@ function renderPage($content_key = "HOME", $languages_id = "1") {
     $pageObject = new webpages();
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
         
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+        'cache' => false,
+    ]);
+    
     echo $twig->render('webpages.html', [
         'SITE_TITLE'	=> SITE_TITLE,
         'WOOLF_URL'	    => WOOLF_URL,
