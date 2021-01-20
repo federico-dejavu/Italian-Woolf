@@ -32,27 +32,28 @@ class webpages{
     }    
 
 
-    public function renderPage($content_key = "HOME", $languages_id = "1") {
-
-        $page_name = strtolower($content_key);
-        $filename = WOOLF_PATH.'/css/'.$page_name.'.less';
-        if (!file_exists($filename)) {
-            $page_name = NULL;
-        }
-        
-        
-        
-        // Reperisco i contenuti ella webpage
-        $pageObject = new webpages();
-        $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
-        
-        echo $twig->render('webpages.html', [
-            'SITE_TITLE'	=> SITE_TITLE,
-            'WOOLF_URL'	    => WOOLF_URL,
-            'page'			=> $page,
-            'page_name' 	=> $page_name,
-        ]);
-    
-    }
 }
+
+public function renderPage($content_key = "HOME", $languages_id = "1") {
+
+    $page_name = strtolower($content_key);
+    $filename = WOOLF_PATH.'/css/'.$page_name.'.less';
+    if (!file_exists($filename)) {
+        $page_name = NULL;
+    }
+
+    // Reperisco i contenuti ella webpage
+    $pageObject = new webpages();
+    $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
+        
+    echo $twig->render('webpages.html', [
+        'SITE_TITLE'	=> SITE_TITLE,
+        'WOOLF_URL'	    => WOOLF_URL,
+        'page'			=> $page,
+        'page_name' 	=> $page_name,
+    ]);
+
+}
+
+
 ?>
