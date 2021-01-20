@@ -5,8 +5,8 @@ require_once('DBManager.php');
 
 class webpages{
     
-      /* Dato un id restituisce un array di del contenuto della pagina */
-      public function getWebpageById($id = "") {
+    /* Dato un id restituisce un array di del contenuto della pagina */
+    public function getWebpageById($id = "") {
  
         if ($id) {
             $db = new DBManager();
@@ -48,7 +48,7 @@ class webpages{
         
         echo $twig->render('webpages.html', [
             'SITE_TITLE'	=> SITE_TITLE,
-            'WOOLF_URL'	=> WOOLF_URL,
+            'WOOLF_URL'	    => WOOLF_URL,
             'page'			=> $page,
             'page_name' 	=> $page_name,
         ]);
