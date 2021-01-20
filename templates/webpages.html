@@ -1,0 +1,30 @@
+{% autoescape false %}
+<!— Output by Twig :: modul "wysiwyg" —>
+{% include 'head.html' with vars %}
+{% include 'header.html' with vars %}
+</head>
+<div id="home">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col align-self-center">
+				<h1>VIRGINIA WOOLF IN <span class="black">ITALY</span></h1>
+				<p>
+					Search among translations, texts, articles, essays, books and reviews on Virginia Woolf published in Italy.
+				</p>
+				<a href="">Search</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="content">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col align-self-center">
+					{{ page.content }}
+			</div>
+		</div>
+	</div>
+</div>
+{% include 'footer.html' with vars %}
+<!— end Twig —>
+{% endautoescape %}
