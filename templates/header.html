@@ -5,15 +5,10 @@
 	    <div class="container">
 			<div class="row align-items-start">
 				<div class="col">
-					<nav>
-						<a href="{{ WOOLF_URL }}archives.php" class="{% if page.content_key == 'ARCHIVES' %}current{% else %}black{% endif %}">Archives</a>
-						<a href="{{ WOOLF_URL }}database.php" class="{% if page.content_key == 'DATABASE' %}current{% else %}black{% endif %}">Database</a>
-						<a href="{{ WOOLF_URL }}interviews.php" class="{% if page.content_key == 'INTERVIEWS' %}current{% else %}black{% endif %}">Interviews</a>
-					</nav>
 				</div>
 				<div class="col">
 					<a class="title black" href="{{ WOOLF_URL }}">
-						<img src="/images/LogoVirginiaWoolfAndItaliansReaders.png" />
+						<img src="{{ WOOLF_URL }}images/LogoVirginiaWoolfAndItaliansReaders.png" />
 						<!-- VIRGINIA
 						<br />
 						WOOLF 
@@ -23,9 +18,9 @@
 				</div>
 				<div class="col">
 					<nav>
-						<a href="{{ WOOLF_URL }}project.php">Project</a>
-						<a href="{{ WOOLF_URL }}path.php">Paths</a>
-						<a href="{{ WOOLF_URL }}search.php">Search</a>
+						<a href="{{ WOOLF_URL }}archives.php" class="{% if page.content_key == 'ARCHIVES' %}current{% else %}black{% endif %}">Archives</a>
+						<a href="{{ WOOLF_URL }}database.php" class="{% if page.content_key == 'DATABASE' %}current{% else %}black{% endif %}">Database</a>
+						<a href="{{ WOOLF_URL }}interviews.php" class="{% if page.content_key == 'INTERVIEWS' %}current{% else %}black{% endif %}">Interviews</a>
 					</nav>
 				</div>
 			</div>
