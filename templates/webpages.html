@@ -9,10 +9,10 @@
 		<div class="row align-items-center">
 			<div class="col align-self-center">
 				<h1>VIRGINIA WOOLF IN <span class="black">ITALY</span></h1>
-				<p>
+				<!-- <p>
 					Search among translations, texts, articles, essays, books and reviews on Virginia Woolf published in Italy.
 				</p>
-				<a href="">Search</a>
+				<a href="">Search</a> -->
 			</div>
 		</div>
 	</div>
@@ -22,8 +22,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-10 offset-md-1">
+				{% if page.content_key != 'HOME' %}	
 					<h1>{{ page.menu_title }}</h1>
-					{{ page.content }}
+				{% endif %}
+				{{ page.content }}
 			</div>
 		</div>
 	</div>
