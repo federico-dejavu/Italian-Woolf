@@ -6,13 +6,13 @@
 			<div class="row align-items-start">
 				<div class="col">
 					<nav>
-						<a href="{{ WOOLF_URL }}archives.php" {% if page.content_key == 'ARCHIVES' %} class="current"{% endif %} >Archives</a>
+						<a href="{{ WOOLF_URL }}archives.php" class="{% if page.content_key == 'ARCHIVES' %}current{% else %}black{% endif %}">Archives</a>
 						<a href="{{ WOOLF_URL }}database.php">Database</a>
 						<a href="{{ WOOLF_URL }}interviews.php">Interviews</a>
 					</nav>
 				</div>
 				<div class="col">
-					<a class="title" href="{{ WOOLF_URL }}">
+					<a class="title black" href="{{ WOOLF_URL }}">
 						VIRGINIA
 						<br />
 						WOOLF 
