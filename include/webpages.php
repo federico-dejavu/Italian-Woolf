@@ -64,7 +64,7 @@ function checkLanguage() {
 
     if ((!$_COOKIE["lang"])&&($_COOKIE["lang"]=="")) {
 
-        $_COOKIE["lang"] = 1;
+        setcookie('lang',1,time() + (86400 * 7));
         $languages_id = 1;
 
     } else {
