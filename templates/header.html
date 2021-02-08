@@ -18,9 +18,9 @@
 				</div>
 				<div class="col">
 					<nav>
-						<a href="{{ WOOLF_URL }}archives.php" class="{% if page.content_key == 'ARCHIVES' %}current{% else %}black{% endif %}">Archives</a>
-						<a href="{{ WOOLF_URL }}database.php" class="{% if page.content_key == 'DATABASE' %}current{% else %}black{% endif %}">Database</a>
-						<a href="{{ WOOLF_URL }}interviews.php" class="{% if page.content_key == 'INTERVIEWS' %}current{% else %}black{% endif %}">Interviews</a>
+						{% for menu in menus %}
+							<a href="{{ WOOLF_URL }}{{menu.menu_title}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
+						{% endfor %}
 					</nav>
 				</div>
 			</div>

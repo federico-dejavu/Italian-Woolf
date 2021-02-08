@@ -57,8 +57,6 @@ function renderMenu($parent_id = "1", $languages_id = "1") {
     $menuObject = new webpages();
     $menu = $menuObject->getMenuByParentid($parent_id,$languages_id);
 
-    var_dump($menu);
-
 }
 
 function renderPage($content_key = "HOME", $languages_id = "1") {
@@ -73,7 +71,17 @@ function renderPage($content_key = "HOME", $languages_id = "1") {
     $pageObject = new webpages();
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
 
-    var_dump($page);
+/*
+    ["id"]
+    ["title"]
+    ["menu_title"]
+    ["content"]
+    ["content_key"]
+    ["parent_id"]
+    ["languages_id"]
+*/
+    $menuObject = new webpages();
+    $menu = $menuObject->getMenuByParentid($page["parent_id"],$languages_id);
         
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader, [
@@ -83,6 +91,7 @@ function renderPage($content_key = "HOME", $languages_id = "1") {
     echo $twig->render('webpages.html', [
         'SITE_TITLE'	=> SITE_TITLE,
         'WOOLF_URL'	    => WOOLF_URL,
+        'menus'         => $menu,
         'page'			=> $page,
         'page_name' 	=> $page_name,
     ]);
