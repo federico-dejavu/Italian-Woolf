@@ -86,6 +86,7 @@ function renderMenu($parent_id = "1", $languages_id = "1") {
 function renderPage($content_key = "HOME") {
 
     $languages_id = checkLanguage();
+    echo $languages_id;
 
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
