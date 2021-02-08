@@ -35,14 +35,18 @@ class webpages{
     public function getMenuByParentid($parent_id = "0", $languages_id = "1") {
 
         $menuArray = array();
+        $menuTotal = array();
 
         $db = new DBManager();
-        $query = "SELECT `id`, `menu_title`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `parent_id` = '$parent_id' AND `languages_id` = '$languages_id'";
-        echo $query;
-
-        $menuArray = $db->query($query);
-        var_dump($menuArray);
-        return $menuArray;
+        $queryList = "SELECT `id` FROM `pages` WHERE `parent_id` = '$parent_id' AND `languages_id` = '$languages_id'";
+        $menuList = $db->query($queryList);
+        foreach ($menuList as $menu_id){
+            $queryList = "SELECT `id`, `menu_title`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `id` = '$menu_id'";
+            $menuArray = $db->queryList($query);
+            $menuTotal[$menu_id] = $menuArray;
+        }
+        
+        return $menuTotal;
 
     }
 
