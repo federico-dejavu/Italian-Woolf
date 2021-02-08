@@ -9,9 +9,9 @@
 						{% for menu in menus %}
 							{% if page.content_key == menu.content_key %}
 								{% if page.languages_id == 1 %}
-									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">ITA</a>
+									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">Leggi in italiano</a>
 								{% elseif page.languages_id == 2 %}
-									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">ENG</a>
+									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">Read in English</a>
 								{% endif %}
 							{% endif %}
 						{% endfor %}
