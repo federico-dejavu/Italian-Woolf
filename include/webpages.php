@@ -55,9 +55,10 @@ class webpages{
 function checkLanguage() {
 
     if (($_GET["lang"])&&($_GET["lang"]!="")) {
-
+        
         setcookie('lang',$_GET['lang'],time() + (86400 * 7));
         $languages_id = $_GET["lang"];
+        echo $languages_id;
 
     }
 
@@ -86,7 +87,6 @@ function renderMenu($parent_id = "1", $languages_id = "1") {
 function renderPage($content_key = "HOME") {
 
     $languages_id = checkLanguage();
-    echo $languages_id;
 
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
