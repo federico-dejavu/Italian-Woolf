@@ -31,6 +31,24 @@ class webpages{
 
     }    
 
+    /* Cerca i content_key per creare un menù */
+    public function getMenuByParentid($parent_id = "0", $languages_id = "1") {
+
+        $db = new DBManager();
+        $query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `parent_id` = '$parent_id' AND `languages_id` = '$languages_id'";
+        $Menu = $db->query($query);
+        return $Menu;
+
+    }
+
+}
+
+function renderMenu($parent_id = "0", $languages_id = "1") {
+
+    $menuObject = new webpages();
+    $menu = $menuObject->getMenuByParentid($parent_id,$languages_id);
+
+    var_dump($menu);
 
 }
 
