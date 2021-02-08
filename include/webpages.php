@@ -23,7 +23,7 @@ class webpages{
  
         if($content_key!=""){
             $db = new DBManager();
-			$query = "SELECT `id`, `title`, `menu_title`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE content_key = '$content_key' AND languages_id = $languages_id";
+			$query = "SELECT `id`, `title`, `menu_title`, `file_name`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE content_key = '$content_key' AND languages_id = $languages_id";
             $Webpage = $db->query($query);
         }
 
@@ -87,12 +87,6 @@ function renderPage($content_key = "HOME") {
 
     $languages_id = checkLanguage();
 
-    $page_name = strtolower($content_key);
-    $filename = WOOLF_PATH.'/css/'.$page_name.'.less';
-    if (!file_exists($filename)) {
-        $page_name = NULL;
-    }
-
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
@@ -101,14 +95,23 @@ function renderPage($content_key = "HOME") {
     ["id"]
     ["title"]
     ["menu_title"]
+    ["file_name"]
     ["content"]
     ["content_key"]
     ["parent_id"]
     ["languages_id"]
 */
+
+    $file_name = WOOLF_PATH.'/css/'.$page['file_name'].'.less';
+    if (!file_exists($filename)) {
+        $file_name = NULL;
+    }
+
     $menuObject = new webpages();
     $menu = $menuObject->getMenuByParentid($page["parent_id"],$languages_id);
-        
+ 
+    
+
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader, [
         'cache' => false,
@@ -120,6 +123,7 @@ function renderPage($content_key = "HOME") {
         'menus'         => $menu,
         'page'			=> $page,
         'page_name' 	=> $page_name,
+        'file_name'     => $file_name,
     ]);
 
 }
