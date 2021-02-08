@@ -33,12 +33,14 @@ class webpages{
 
     /* Cerca i content_key per creare un menù */
     public function getMenuByParentid($parent_id = "0", $languages_id = "1") {
-
         $menuArray = array();
+        $menuTotal = array();
+
         $db = new DBManager();
         $query = "SELECT `id`, `menu_title`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `parent_id` = '$parent_id' AND `languages_id` = '$languages_id'";
-        $menuArray = $db->query($query);
-        return $menuArray;
+        $menuArray = $db->queryList($query);
+        $menuTotal[] = $menuArray; 
+        return $menuTotal;
 
     }
 
