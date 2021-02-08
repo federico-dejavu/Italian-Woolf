@@ -57,16 +57,22 @@ function checkLanguage() {
     if (($_GET["lang"])&&($_GET["lang"]!="")) {
 
         setcookie('lang',$_GET['lang'],time() + (86400 * 7));
+        $languages_id = $_GET["lang"];
 
     }
 
     if ((!$_COOKIE["lang"])&&($_COOKIE["lang"]=="")) {
 
         $_COOKIE["lang"] = 1;
+        $languages_id = 1;
+
+    } else {
+
+        $languages_id = $_COOKIE["lang"];
 
     }
     
-    return $_COOKIE["lang"];
+    return $languages_id;
 
 }
 
