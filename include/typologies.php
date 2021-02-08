@@ -18,7 +18,6 @@ class typologies{
         if($typology_id){
             $db = new DBManager();
             $query = "SELECT id, typology FROM typologies where id = $typology_id";
-         
             $arrElements = $db->query($query);
         }
         return $arrElements;
