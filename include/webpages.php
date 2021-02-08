@@ -41,7 +41,7 @@ class webpages{
         $queryList = "SELECT `id` FROM `pages` WHERE `parent_id` = '$parent_id' AND `languages_id` = '$languages_id'";
         $menuList = $db->queryList($queryList);
         foreach ($menuList as $menu_id){
-            $query = "SELECT `id`, `menu_title`, `hidden`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `id` = '$menu_id'";
+            $query = "SELECT `id`, `menu_title`,`file_name`, `hidden`,  `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `id` = '$menu_id'";
             $menuArray = $db->query($query);
             if ($menuArray["hidden"]==0) {
                 $menuTotal[$menu_id] = $menuArray;
