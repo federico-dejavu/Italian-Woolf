@@ -10,7 +10,7 @@
 							{% if page.content_key == menu.content_key %}
 								{% if page.languages_id == 1 %}
 									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">ITA</a>
-								{% else if page.languages_id == 2 %}
+								{% elseif page.languages_id == 2 %}
 									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">ENG</a>
 								{% endif %}
 							{% endif %}
