@@ -54,6 +54,24 @@ class webpages{
 
 }
 
+function checkLanguage() {
+
+    if (($_GET["lang"])&&($_GET["lang"]!="")) {
+
+        setcookie('lang',$_GET['lang'],time() + (86400 * 7));
+
+    }
+
+    if ((!$_COOKIE["lang"])&&($_COOKIE["lang"]=="")) {
+
+        $_COOKIE["lang"] = 1;
+
+    }
+    
+    return $_COOKIE["lang"];
+
+}
+
 function renderMenu($parent_id = "1", $languages_id = "1") {
 
     $menuObject = new webpages();
@@ -61,7 +79,9 @@ function renderMenu($parent_id = "1", $languages_id = "1") {
 
 }
 
-function renderPage($content_key = "HOME", $languages_id = "1") {
+function renderPage($content_key = "HOME") {
+
+    $languages_id = checkLanguage();
 
     $page_name = strtolower($content_key);
     $filename = WOOLF_PATH.'/css/'.$page_name.'.less';
