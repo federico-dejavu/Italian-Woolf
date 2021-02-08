@@ -39,7 +39,7 @@ class webpages{
 
         $db = new DBManager();
         $queryList = "SELECT `id` FROM `pages` WHERE `parent_id` = '$parent_id' AND `languages_id` = '$languages_id'";
-        $menuList = $db->query($queryList);
+        $menuList = $db->queryList($queryList);
         foreach ($menuList as $menu_id){
             $query = "SELECT `id`, `menu_title`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `id` = '$menu_id'";
             $menuArray = $db->query($query);
