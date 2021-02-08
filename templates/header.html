@@ -19,7 +19,7 @@
 				<div class="col">
 					<nav>
 						{% for menu in menus %}
-							<a href="{{ WOOLF_URL }}{{menu.menu_title}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.file_name}}</a>
+							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
 						{% endfor %}
 					</nav>
 				</div>
