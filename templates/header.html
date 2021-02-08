@@ -8,8 +8,11 @@
 					<nav>
 						{% for menu in menus %}
 							{% if page.content_key == menu.content_key %}
-								<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">ITA</a>
-								<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">ENG</a>
+								{% if page.languages_id == 1 %}
+									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">ITA</a>
+								{% else if page.languages_id == 2 %}
+									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">ENG</a>
+								{% endif %}
 							{% endif %}
 						{% endfor %}
 					</nav>
@@ -23,7 +26,7 @@
 					<nav>
 						{% for menu in menus %}
 							{% if menu.hidden == 0 %}
-							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}{{menu.languages_id}}</a>
+							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
 							{% endif %}
 						{% endfor %}
 					</nav>
