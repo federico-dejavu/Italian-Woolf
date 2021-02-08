@@ -6,8 +6,12 @@
 			<div class="row align-items-start">
 				<div class="col">
 					<nav>
-						<a href="{{ WOOLF_URL }}?lang=2">ITA</a>
-						<a href="{{ WOOLF_URL }}?lang=1">ENG</a>
+						{% for menu in menus %}
+							{% if page.content_key == menu.content_key %}
+								<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">ITA</a>
+								<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">ENG</a>
+							{% endif %}
+						{% endfor %}
 					</nav>
 				</div>
 				<div class="col">
@@ -18,7 +22,9 @@
 				<div class="col">
 					<nav>
 						{% for menu in menus %}
+							{% if menu.hidden == 0 %}
 							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
+							{% endif %}
 						{% endfor %}
 					</nav>
 				</div>

@@ -43,9 +43,7 @@ class webpages{
         foreach ($menuList as $menu_id){
             $query = "SELECT `id`, `menu_title`,`file_name`, `hidden`,  `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `id` = '$menu_id'";
             $menuArray = $db->query($query);
-            if ($menuArray["hidden"]==0) {
-                $menuTotal[$menu_id] = $menuArray;
-            }
+            $menuTotal[$menu_id] = $menuArray;
         }
         
         return $menuTotal;
