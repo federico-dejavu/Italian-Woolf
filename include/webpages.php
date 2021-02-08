@@ -42,7 +42,7 @@ class webpages{
         $menuList = $db->query($queryList);
         foreach ($menuList as $menu_id){
             $query = "SELECT `id`, `menu_title`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE `id` = '$menu_id'";
-            $menuArray = $db->queryList($query);
+            $menuArray = $db->query($query);
             $menuTotal[$menu_id] = $menuArray;
         }
         
