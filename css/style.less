@@ -59,8 +59,15 @@ body {
 		
 		nav {
 			
-			position: absolute;
-			top: 6.2em;
+			position: relative;
+			top: 1em;
+			text-align: revert;
+			
+			&.menu {
+
+				top: 5em;
+
+			}
 			
 			a {
 				
@@ -300,7 +307,7 @@ body {
 } // body
 
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
 
 	body {
 		
@@ -344,7 +351,7 @@ body {
 	
 } // 576px
 
-@media (min-width: 768px) {
+@media (max-width: 768px)  {
 
 	body {
 		
@@ -368,7 +375,7 @@ body {
 	
 } // 768px
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
 
 	body {
 		
