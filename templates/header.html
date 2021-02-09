@@ -5,31 +5,33 @@
 	    <div class="container">
 			<div class="row align-items-start">
 				<div class="col">
-					<nav>
-						{% for menu in menus %}
-							{% if page.content_key == menu.content_key %}
-								{% if page.languages_id == 1 %}
-									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">Leggi in italiano</a>
-								{% elseif page.languages_id == 2 %}
-									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">Read in English</a>
-								{% endif %}
-							{% endif %}
-						{% endfor %}
-					</nav>
-				</div>
-				<div class="col">
 					<a class="title black" href="{{ WOOLF_URL }}">
 						<img src="{{ WOOLF_URL }}images/LogoVirginiaWoolfAndItaliansReaders.png" />
 					</a>
 				</div>
 				<div class="col">
-					<nav>
-						{% for menu in menus %}
-							{% if menu.hidden == 0 %}
-							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
-							{% endif %}
-						{% endfor %}
-					</nav>
+					<row>
+						<nav>
+							{% for menu in menus %}
+								{% if page.content_key == menu.content_key %}
+									{% if page.languages_id == 1 %}
+										<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=2">Leggi in italiano</a>
+									{% elseif page.languages_id == 2 %}
+										<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?lang=1">Read in English</a>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</nav>
+					</row>
+					<row>
+						<nav>
+							{% for menu in menus %}
+								{% if menu.hidden == 0 %}
+								<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
+								{% endif %}
+							{% endfor %}
+						</nav>
+					</row>
 				</div>
 			</div>
 		</div>

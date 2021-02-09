@@ -97,7 +97,7 @@ body {
 		background-color: @bghome;
 		background-image: url(../images/headerbg.jpeg);
 		background-size: cover;
-		background-position: top center;
+		background-position: center 5%;
 		background-repeat: no-repeat;
 		text-align: center;
 
@@ -304,8 +304,22 @@ body {
 
 	body {
 		
-		#home {
+		#header {
 
+			nav {
+
+				a {
+
+					margin-left: 0em;
+					font-size: 0.8em;
+
+				} // a
+
+			} //nav
+
+		} // header
+
+		#home {
 	
 			.container {
 	
@@ -314,8 +328,8 @@ body {
 			
 					h1 {
 	
-						font-size: 3em;
-						line-height: 1.2;
+						font-size: 2.5em;
+						line-height: 1em;
 	
 					} // h1 
 	
@@ -330,23 +344,52 @@ body {
 	
 } // 576px
 
-// @media (min-width: 768px) {
+@media (min-width: 768px) {
 
-// 	body {
+	body {
 		
-	
-// 	} // body
-	
-// } // 768px
+		#header {
 
-// @media (min-width: 992px) {
+			nav {
 
-// 	body {
+				a {
+
+					margin-left: 0em;
+					font-size: 0.8em;
+
+				} // a
+
+			} //nav
+
+		} // header
+
+
+	} // body
+	
+} // 768px
+
+@media (min-width: 992px) {
+
+	body {
 		
+		#header {
+
+			nav {
+
+				a {
+
+					margin-left: 1em;
+
+				} // a
+
+			} //nav
+
+		} // header
+
+
+	} // body
 	
-// 	} // body
-	
-// } // 992px
+} // 992px
 
 // @media (min-width: 1200px) {
 
