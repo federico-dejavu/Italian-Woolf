@@ -2,9 +2,7 @@
 	<div id="header">
 	    <div class="container">
 			<div class="row align-items-start">
-				<div class="col">
-				</div>
-				<div class="col">
+				<div class="col-sm-2">
 					<a class="title" href="<?php echo WOOLF_URL; ?>">
 						VIRGINIA
 						<br />
