@@ -3,13 +3,16 @@
 	<div id="header">
 	    <div class="container">
 			<div class="row align-items-start">
-				<div class="col offset-1">
+				<div class="col-min offset-1">
 					<a class="title black" href="{{ WOOLF_URL }}">
 						<img src="{{ WOOLF_URL }}images/LogoVirginiaWoolfAndItaliansReaders.png" />
 					</a>
 				</div>
 				<div class="col">
 					<row>
+						<div class="mobile">
+							X
+						</div>
 						<nav>
 							{% for menu in menus %}
 								{% if page.content_key == menu.content_key %}

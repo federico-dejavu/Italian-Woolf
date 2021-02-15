@@ -72,7 +72,7 @@ body {
 					margin: 0;
 					padding: 0;
 					border: 0;
-							
+
 					img {
 		
 						height: 3em;
@@ -116,6 +116,8 @@ body {
 
 		}//title
 		
+		.mobile { display: none; }
+
 		nav {
 			
 			position: relative;
@@ -380,7 +382,15 @@ body {
 		
 		#header {
 
+			.mobile { 
+
+				display: inline-block;
+
+			}
+
 			nav {
+
+				display: none;
 
 				&.home {
 
