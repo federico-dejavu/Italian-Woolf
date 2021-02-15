@@ -41,7 +41,14 @@ body {
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-				
+		z-index: 1;
+
+		&.open {
+
+			display: none;
+
+		}
+			
 		nav {
 			
 			position: relative;
@@ -117,6 +124,7 @@ body {
 		}//title
 		
 		.mobile { 
+
 			display: none; 
 
 			#menu-icon {
@@ -422,6 +430,14 @@ body {
 
 			}
 
+			.col-min {
+
+				text-align: center;
+				width: 100%;
+				margin: 0;
+
+			}
+
 			nav {
 
 				display: none;
@@ -443,6 +459,16 @@ body {
 
 		} // header
 
+		#mobile {
+
+			&.open {
+
+				display: block;
+
+			}
+
+		}
+		
 		#home {
 	
 			.container {

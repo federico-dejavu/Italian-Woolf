@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	$("#menu-icon").on("click", function() {
 		$(this).toggleClass("change");
-		$("#main-nav").toggleClass("open");
+		$("#mobile").toggleClass("open");
 		return false;
 	});
 	
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		$('a').each(function () {
 			$(this).removeClass('active');
 			$("#menu-icon").removeClass("change");
-			$("#main-nav").removeClass("open");
+			$("#mobile").removeClass("open");
 		})
 		$(this).addClass('active');
 	});
