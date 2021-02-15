@@ -116,7 +116,41 @@ body {
 
 		}//title
 		
-		.mobile { display: none; }
+		.mobile { 
+			display: none; 
+
+			#menu-icon {
+				top: 24px;
+				right: 33px;
+				display: inline-block;
+				cursor: pointer;
+				position: fixed;
+				z-index: 3;
+				div {
+				    width: 28px;
+				    height: 3px;
+					background-color: @menulinkcolor;
+				    margin: 4px 0;
+				    transition: 0.4s;
+				}
+				&.change {
+				     .bar1 {
+					    -webkit-transform: rotate(-45deg) translate(-6px, 3px) ;
+					    transform: rotate(-45deg) translate(-6px, 3px) ;
+					    background-color: @menulinkcolor;
+					}
+					.bar2 {
+					    opacity: 0;
+					}
+					.bar3 {
+					    -webkit-transform: rotate(45deg) translate(-6px, -4px) ;
+					    transform: rotate(45deg) translate(-6px, -4px) ;
+					    background-color: @menulinkcolor;
+					}
+				}
+			}
+
+		}
 
 		nav {
 			
