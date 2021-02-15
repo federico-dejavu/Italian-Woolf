@@ -1,33 +1,32 @@
 {% autoescape false %}
 <!— Output by Twig :: modul "wysiwyg" —>
-<div id="research">
-	<div  id="content" class="container">
-		<div class="row">
-			<div class="col">
-				<h2>Research</h2>
+	<div id="research">
+		<div  id="content" class="container">
+			<div class="row">
+				<div class="col">
+					<h2>Research</h2>
+				</div>
 			</div>
+			<form id="search">
+				<div class="row align-items-center">
+					<div class="col">
+						<input type="text" 		name="keywords" id="keywords" />
+						<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">Works</label>
+						<input id="articles" 	name="articles"	type="checkbox" checked/><label for="articles">Articles</label>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col">
+						<input type="button" value="Search" id="submit" onClick="ajaxSearch('searchKeywords');" /> 
+						<p>
+							or make an <a href="advancedSearch.php" >Advanced search</a>
+						</p>
+					</div>
+				</div>
+			</form>
 		</div>
-		<form id="search">
-			<div class="row align-items-center">
-				<div class="col">
-					<input type="text" 		name="keywords" id="keywords" />
-					<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">Works</label>
-					<input id="articles" 	name="articles"	type="checkbox" checked/><label for="articles">Articles</label>
-				</div>
-			</div>
-			<div class="row align-items-center">
-				<div class="col">
-					<input type="button" value="Search" id="submit" onClick="ajaxSearch('searchKeywords');" /> 
-					<p>
-						or make an <a href="advancedSearch.php" >Advanced search</a>
-					</p>
-				</div>
-			</div>
-		</form>
 	</div>
-</div>
-<div id="result">
-
-</div>
+	<div id="result">
+	</div>
 <!— end Twig —>
 {% endautoescape %}

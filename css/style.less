@@ -31,6 +31,64 @@ body {
 		
 	} // a
 	
+	#mobile {
+
+		background-color: @bgheader;
+		height: 9.688em;
+		position: relative;
+		
+		.title {
+			
+			font-size: 1.875em;
+			line-height: 1.067em;
+			font-weight: 700;
+			font-family: "Urbane";
+			text-align: left;
+			text-decoration: none;
+			display: block;
+			margin-top: 0.5em;
+
+			img {
+
+				height: 3em;
+				border: 0;
+				margin-top: 0.5em;
+
+			}
+
+		}//title
+		
+		nav {
+			
+			position: relative;
+			top: 1em;
+			text-align: right;
+			
+			&.menu {
+
+				top: 5em;
+
+			}
+			
+			a {
+				
+				display: inline-block;
+				margin-left: 1.813em;
+				color: @menulinkcolor;
+				text-transform: uppercase;
+
+				&.current {
+
+					font-weight: 700;
+
+				} // current
+				
+			} //a
+			
+		} //nav
+		
+	} //mobile
+
 	#header {
 
 		background-color: @bgheader;

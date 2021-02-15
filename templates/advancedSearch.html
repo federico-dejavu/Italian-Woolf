@@ -2,99 +2,99 @@
 <!— Output by Twig :: modul "wysiwyg" —>
 <div id="research">
 	<form id="search">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h2>Research</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Research</h2>
+				</div>
+			</div>
+				<div class="row align-items-center">
+					<div class="col-8">
+						<input type="text" 	placeholder="Keywords" 	name="keywords" id="keywords" />
+					</div>
+					<div class="col-4">
+						<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">Works</label>
+						<input id="articles" 	name="articles" type="checkbox" checked/><label for="articles">Articles</label>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col">
+						<input type="text" 	placeholder="Name" 	name="nome" id="nome" />
+						<input id="authors"   name="authors"   type="checkbox" value="1" checked/><label for="authors">Autori</label>
+						<input id="translators" name="translators" type="checkbox" value="1" checked/><label for="translators">Traduttori</label>
+						<input id="editors"   name="editors" type="checkbox" value="1" checked/><label for="editors">Editors</label>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col">
+						<input type="text" placeholder="Title" name="title" id="title" />
+					</div>
+				</div>	
+				<div class="row align-items-center">
+					<div class="col-6">
+						<label class="custom-select" for="publisher">
+							<select  name="publisher" id="publisher" >
+								<option value="" id="">All editors</option>
+								{% for publisher in publishers %}
+								<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
+								{% endfor %}
+							</select>
+						</label>
+					</div>
+					<div class="col-6">
+						<input type="text" placeholder="Journal" name="journal" id="journal" />
+					</div>
+				</div>		
+				<div class="row align-items-center">
+					<div class="col-6">	
+						<input type="text" placeholder="Year start (1901)" name="fromYear" id="fromYear"/>
+					</div>
+					<div class="col-6">
+						<input type="text" placeholder="Year ending (1956)" name="toYear" id="toYear" />
+					</div>
+				</div>					
+				<div class="row align-items-center">
+					<div class="col-6">
+						<label class="custom-select" for="language">
+							<select  name="language" id="language" >
+								<option value="" id="">All languages</option>
+								{% for language in languages %}
+								<option value="{{ language.id }}" id="{{ language.id }}">{{ language.language }}</option>
+								{% endfor %}
+							</select>
+						</label>
+					</div>
+					<div class="col">
+						<label class="custom-select" for="typology">
+							<select  name="typology" id="typology" >
+								<option value="" id="">All typologies</option>
+								{% for typology in typologies %}
+								<option value="{{ typology.id }}" id="{{ typology.id }}">{{ typology.typology }}</option>
+								{% endfor %}
+							</select>
+						</label>
+					</div>					
+				</div>	
+				<div class="row align-items-center">
+					<div class="col-6">
+						<label class="custom-select" for="openAccess">
+							<select  name="openAccess" id="openAccess" >
+								<option value="" id="">All access type</option>
+								<option value="1" id="1">Public acces</option>
+								<option value="0" id="0">Resrticted acces</option>
+							</select>
+						</label>
+					</div>					
+				</div>					
+				<div class="row align-items-center">
+					<div class="col">
+						<input type="button" value="Search" onClick="ajaxSearch('searchExtended');" id="submit" /> 
+					</div>
+				</div>
 			</div>
 		</div>
-			<div class="row align-items-center">
-				<div class="col-8">
-					<input type="text" 	placeholder="Keywords" 	name="keywords" id="keywords" />
-				</div>
-				<div class="col-4">
-					<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">Works</label>
-					<input id="articles" 	name="articles" type="checkbox" checked/><label for="articles">Articles</label>
-				</div>
-			</div>
-			<div class="row align-items-center">
-				<div class="col">
-					<input type="text" 	placeholder="Name" 	name="nome" id="nome" />
-					<input id="authors"   name="authors"   type="checkbox" value="1" checked/><label for="authors">Autori</label>
-					<input id="translators" name="translators" type="checkbox" value="1" checked/><label for="translators">Traduttori</label>
-					<input id="editors"   name="editors" type="checkbox" value="1" checked/><label for="editors">Editors</label>
-				</div>
-			</div>
-			<div class="row align-items-center">
-				<div class="col">
-					<input type="text" placeholder="Title" name="title" id="title" />
-				</div>
-			</div>	
-			<div class="row align-items-center">
-				<div class="col-6">
-					<label class="custom-select" for="publisher">
-						<select  name="publisher" id="publisher" >
-							<option value="" id="">All editors</option>
-							{% for publisher in publishers %}
-							<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
-							{% endfor %}
-						</select>
-					</label>
-				</div>
-				<div class="col-6">
-					<input type="text" placeholder="Journal" name="journal" id="journal" />
-				</div>
-			</div>		
-			<div class="row align-items-center">
-				<div class="col-6">	
-					<input type="text" placeholder="Year start (1901)" name="fromYear" id="fromYear"/>
-				</div>
-				<div class="col-6">
-					<input type="text" placeholder="Year ending (1956)" name="toYear" id="toYear" />
-				</div>
-			</div>					
-			<div class="row align-items-center">
-				<div class="col-6">
-					<label class="custom-select" for="language">
-						<select  name="language" id="language" >
-							<option value="" id="">All languages</option>
-							{% for language in languages %}
-							<option value="{{ language.id }}" id="{{ language.id }}">{{ language.language }}</option>
-							{% endfor %}
-						</select>
-					</label>
-				</div>
-				<div class="col">
-					<label class="custom-select" for="typology">
-						<select  name="typology" id="typology" >
-							<option value="" id="">All typologies</option>
-							{% for typology in typologies %}
-							<option value="{{ typology.id }}" id="{{ typology.id }}">{{ typology.typology }}</option>
-							{% endfor %}
-						</select>
-					</label>
-				</div>					
-			</div>	
-			<div class="row align-items-center">
-				<div class="col-6">
-					<label class="custom-select" for="openAccess">
-						<select  name="openAccess" id="openAccess" >
-							<option value="" id="">All access type</option>
-							<option value="1" id="1">Public acces</option>
-							<option value="0" id="0">Resrticted acces</option>
-						</select>
-					</label>
-				</div>					
-			</div>					
-			<div class="row align-items-center">
-				<div class="col">
-					<input type="button" value="Search" onClick="ajaxSearch('searchExtended');" id="submit" /> 
-				</div>
-			</div>
+	</form>
+	<div id="result">
 	</div>
-</form>
-</div>
-<div id="result">
-</div>
 <!— end Twig —>
 {% endautoescape %}
