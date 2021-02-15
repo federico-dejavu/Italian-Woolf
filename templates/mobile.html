@@ -6,9 +6,6 @@
 				<div class="col">
 					<row>
 						<nav class="menu">
-							<a class="title black" href="{{ WOOLF_URL }}">
-								<img src="{{ WOOLF_URL }}images/LogoVirginiaWoolfAndItaliansReaders.png" />
-							</a>
 							{% for menu in menus %}
 								{% if menu.hidden == 0 %}
 									<a href="{{ WOOLF_URL }}{{menu.file_name}}.php" class="{% if page.content_key == menu.content_key %}current{% else %}black{% endif %}">{{menu.menu_title}}</a>
