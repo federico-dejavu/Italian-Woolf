@@ -11,12 +11,10 @@ $(document).ready(function(){
 		e.preventDefault();
 		$(document).off("scroll");
 
-		$('a').each(function () {
-			$(this).removeClass('active');
+		$("#menu-icon").each(function () {
 			$("#menu-icon").removeClass("change");
 			$("#mobile").removeClass("open");
 		})
-		$(this).addClass('active');
 	});
 });
 
