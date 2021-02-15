@@ -8,15 +8,15 @@
 						<img src="{{ WOOLF_URL }}images/LogoVirginiaWoolfAndItaliansReaders.png" />
 					</a>
 				</div>
+				<div class="mobile">
+					<div id="menu-icon">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+				</div>
 				<div class="col">
 					<row>
-						<div class="mobile">
-							<div id="menu-icon">
-								<div class="bar1"></div>
-								<div class="bar2"></div>
-								<div class="bar3"></div>
-							</div>
-						</div>
 						<nav>
 							{% for menu in menus %}
 								{% if page.content_key == menu.content_key %}
