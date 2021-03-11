@@ -23,7 +23,7 @@ class webpages{
  
         if($content_key!=""){
             $db = new DBManager();
-			$query = "SELECT `id`, `title`, `menu_title`, `file_name`, `content`, `content_key`, `parent_id`, `languages_id` FROM `pages` WHERE content_key = '$content_key' AND languages_id = $languages_id";
+			$query = "SELECT * FROM `pages` WHERE content_key = '$content_key' AND languages_id = $languages_id";
             $Webpage = $db->query($query);
         }
 
@@ -102,7 +102,7 @@ function renderPage($content_key = "HOME") {
     ["languages_id"]
 */
     var_dump($page);
-    
+
     $file_name = WOOLF_PATH.'/css/'.$page['file_name'].'.less';
     if (!file_exists($filename)) {
         $file_name = NULL;
