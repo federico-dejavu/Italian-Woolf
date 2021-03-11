@@ -46,7 +46,7 @@
 					<b>As Author:</b><br />
 					{% for author in phpPage.author %}
 						{% if  author.id %}
-							{% if not loop.first %} | {% endif %}<a href="works.php?id={{ author.id }}" > <b>{{ author.title }}</b> </a>
+							{% if not loop.first %} | {% endif %}<a href="work.php?id={{ author.id }}" > <b>{{ author.title }}</b> </a>
 						{% endif %}
 					{% endfor %}
 					</p>
@@ -56,7 +56,7 @@
 					<b>As Second Author:</b><br />
 					{% for second_author in phpPage.second_author %}
 						{% if  second_author.id %}
-							{% if not loop.first %} | {% endif %}<a href="works.php?id={{ second_author.id }}" > <b>{{ second_author.title }}</b> </a>
+							{% if not loop.first %} | {% endif %}<a href="work.php?id={{ second_author.id }}" > <b>{{ second_author.title }}</b> </a>
 						{% endif %}
 					{% endfor %}
 					</p>
