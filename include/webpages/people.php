@@ -65,7 +65,7 @@
 
     /* Reperisco dati works come illustrator */
     $illustratorObject = new illustrators();
-    $worksByIllustratorId = $illustratorObject->getWorksByIllustratorId($id);
+    $worksByIllustratorId = $illustratorObject->getWorksByIllutratorsId($id);
     $illustratorWorksObject = new works();
     $illustratorWorksAll = array();
     foreach ($worksByIllustratorId as $illustratorWork_id ) {
