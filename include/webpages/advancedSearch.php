@@ -1,11 +1,11 @@
 <?php
 
-	require_once '../config.php';
-    require_once '../cleaner.php';
-	
-	include_once('../publishers.php');
-	include_once('../languages.php');
-	include_once('../typologies.php');
+	require_once 'include/config.php';
+	require_once 'include/cleaner.php';
+
+	include_once('include/publishers.php');
+	include_once('include/languages.php');
+	include_once('include/typologies.php');
 
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
