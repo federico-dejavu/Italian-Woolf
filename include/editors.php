@@ -24,7 +24,7 @@ class editors{
        
         if($id>0){
             $db = new DBManager();
-            $query = "SELECT distinct(works_id) FROM works_authors WHERE peoples_id = $id";
+            $query = "SELECT distinct(works_id) FROM works_editors WHERE peoples_id = $id";
             $arrWorks = $db->queryList($query);
         }
         return $arrWorks;
