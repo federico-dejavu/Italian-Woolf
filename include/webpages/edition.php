@@ -1,16 +1,16 @@
 <?php
 
-	require_once 'include/config.php';
-    require_once 'include/cleaner.php';
-    require_once 'include/works.php';
-    require_once 'include/publishers.php';
-    require_once 'include/authors.php';
-    require_once 'include/secondary_authors.php';   
-    require_once 'include/editors.php';
-    require_once 'include/languages.php'; 
-    require_once 'include/series.php';     
-    require_once 'include/illustrators.php';
-    require_once 'include/editions.php';
+	require_once '../config.php';
+    require_once '../cleaner.php';
+    require_once '../works.php';
+    require_once '../publishers.php';
+    require_once '../authors.php';
+    require_once '../secondary_authors.php';   
+    require_once '../editors.php';
+    require_once '../languages.php'; 
+    require_once '../series.php';     
+    require_once '../illustrators.php';
+    require_once '../editions.php';
     
     $actionParam	= (isset($_REQUEST['action'])	? $_REQUEST['action']	: '');
     $subject		= (isset($_REQUEST['subject'])	? $_REQUEST['subject']	: '');

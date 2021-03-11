@@ -4,53 +4,55 @@
 <body>
 	{{ include('mobile.html') }}
 	{{ include('header.html') }}
-	<div id="content" class="container">
-		<div class="row">
-			<div class="col">
-				<h2>{{ edition.title }}
-				{% if edition.year %}
-					({{ edition.year }})
-				{% endif %}
-				</h2>
-				<h3>
-					{{ edition.abstract }}	
-				</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				{% if edition.language %}
-				<p>
-				Language: {{ edition.language }}
-				</p>
-				{% endif %}
-
-				
-				<a href="publisher.php?subject={{ edition.publisher_title }}&id={{ edition.publisher_id }}" target="main"><i>{{ edition.work_title }}</i> </a>
-				
-				{{ edition.publisher['publisher'] }}
-				{% if edition.serie %}	
-					<i> - {{ edition.serie }}</i>
-				{% endif %} 
-				&nbsp;{{ edition.city }} {{ edition.libraries }}					
-
-
-				<p>
-				Pages: {{ edition.pages }} | Price: {{ edition.price }} | ISBN: {{ edition.isbn }} 
-				</p>
-			
-				<p>
-					{% if edition.image %}
-					<img src="{{ edition.image }}" align="left">
+	<div id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>{{ edition.title }}
+					{% if edition.year %}
+						({{ edition.year }})
 					{% endif %}
-					{{ edition.description }}
-				</p> 
-				<p>
-					<!-- back to work -->
-					Original work: <a href="work.php?subject={{ edition.work_title }}&id={{ edition.works_id }}"><i>{{ edition.work_title }}</i> </a>
-
-				</p>
+					</h2>
+					<h3>
+						{{ edition.abstract }}	
+					</h3>
 				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{% if edition.language %}
+					<p>
+					Language: {{ edition.language }}
+					</p>
+					{% endif %}
+
+					
+					<a href="publisher.php?subject={{ edition.publisher_title }}&id={{ edition.publisher_id }}" target="main"><i>{{ edition.work_title }}</i> </a>
+					
+					{{ edition.publisher['publisher'] }}
+					{% if edition.serie %}	
+						<i> - {{ edition.serie }}</i>
+					{% endif %} 
+					&nbsp;{{ edition.city }} {{ edition.libraries }}					
+
+
+					<p>
+					Pages: {{ edition.pages }} | Price: {{ edition.price }} | ISBN: {{ edition.isbn }} 
+					</p>
+				
+					<p>
+						{% if edition.image %}
+						<img src="{{ edition.image }}" align="left">
+						{% endif %}
+						{{ edition.description }}
+					</p> 
+					<p>
+						<!-- back to work -->
+						Original work: <a href="work.php?subject={{ edition.work_title }}&id={{ edition.works_id }}"><i>{{ edition.work_title }}</i> </a>
+
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 {{ include('footer.html') }}
