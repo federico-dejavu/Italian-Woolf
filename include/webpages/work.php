@@ -14,8 +14,6 @@
 
     $arrWorks = '';
 
-    $actionParam	= (isset($_REQUEST['action'])	? $_REQUEST['action']	: '');
-    $subject	= (isset($_REQUEST['subject'])	? $_REQUEST['subject']	: '');
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
     $workObject = new works();

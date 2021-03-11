@@ -13,8 +13,6 @@
     require_once 'include/editions.php';
     require_once 'include/articles.php';
 
-    $actionParam	= (isset($_REQUEST['action'])	? $_REQUEST['action']	: '');
-    $subject	= (isset($_REQUEST['subject'])	? $_REQUEST['subject']	: '');
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
 /**
