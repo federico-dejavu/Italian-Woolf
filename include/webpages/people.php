@@ -106,6 +106,6 @@
     $phpPage['second_author']   = $second_authorWorksAll;
     $phpPage['editor']          = $editorWorksAll;
     $phpPage['translator']      = $translatorWorksAll;
-    $phpPage['illustrator']      = illustratorWorksAll;
+    $phpPage['illustrator']     = $illustratorWorksAll;
 	
 ?>
