@@ -126,7 +126,7 @@ function renderPage($content_key = "HOME") {
         'cache' => false,
     ]);
     
-    echo $twig->render('webpages.html', [
+    echo $twig->render($renderTarget, [
         'SITE_TITLE'	=> SITE_TITLE,
         'WOOLF_URL'	    => WOOLF_URL,
         'menus'         => $menu,
