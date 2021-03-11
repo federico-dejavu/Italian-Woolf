@@ -4,7 +4,19 @@
 <body>
 	{{ include('mobile.html') }}
 	{{ include('header.html') }}
-	
+	author
+		id
+		title
+		original
+		year
+		publisher_id
+		city
+		serie_id
+		pages
+		description
+		isbn
+		libraries
+		image
 	
 	<div id="content">
 		<div class="container">
@@ -42,6 +54,16 @@
 						<img src="{{ phpPage.people.image }}" align="left">
 						{% endif %}
 					</p>
+					{% if phpPage.author %}
+					<p>
+					As Author:
+					{% for author in phpPage.author %}
+						{% if not loop.first %} | {% endif %}<a href="works.php?id={{ author.id }}" > <b>{{ author.title }}</b> </a>
+					{% endfor %}
+					</p>
+				{% endif %}
+
+					{% endif %}
 				</div>
 			</div>
 		</div>

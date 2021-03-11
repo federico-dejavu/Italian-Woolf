@@ -23,7 +23,6 @@
         $authorWorksAll[] = $authorWorks;        
     }
 
-    var_dump($authorWorksAll);
 /**  
    $people[]
         id
@@ -34,9 +33,23 @@
         authority_record
         image
 
+    $authorWorksAll[]
+        id
+        title
+        original
+        year
+        publisher_id
+        city
+        serie_id
+        pages
+        description
+        isbn
+        libraries
+        image
 
 **/
 
     $phpPage['people'] = $people;
+    $phpPage['author'] = $authorWorksAll;
 	
 ?>
