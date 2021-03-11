@@ -4,6 +4,7 @@
     require_once 'include/peoples.php';
     require_once 'include/authors.php';
     require_once 'include/secondary_authors.php';
+    require_once 'include/editors.php';
     require_once 'include/works.php';
 
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
@@ -23,6 +24,7 @@
 
         $authorWorksAll[] = $authorWorks;        
     }
+
     /* Reperisco dati works come second_author */
     $second_authorObject = new secondary_authors();
     $worksBySecond_authorId = $second_authorObject->getWorksBySecondary_authorsId($id);
@@ -35,6 +37,19 @@
         $second_authorWorksAll[] = $second_authorWorks;        
     }
 
+    /* Reperisco dati works come editor */
+    $editorObject = new editors();
+    $worksByEditorId = $editorObject->getWorksByEditorId($id);
+    $editorWorksObject = new works();
+    $editorWorksAll = array();
+    foreach ($worksByEditorId as $editorWork_id ) {
+
+        $editorWorks = $editorWorksObject->getWorksByWork_id($editorWork_id);
+
+        $editorWorksAll[] = $editorWorks;        
+    }
+
+
 /**  
    $people[]
         id
@@ -45,7 +60,7 @@
         authority_record
         image
 
-    $authorWorksAll[], $second_authorWorksAll[]
+    $authorWorksAll[], $second_authorWorksAll[], $editorWorksAll[]
         id
         title
         original
@@ -64,5 +79,6 @@
     $phpPage['people']          = $people;
     $phpPage['author']          = $authorWorksAll;
     $phpPage['second_author']   = $second_authorWorksAll;
+    $phpPage['editor']          = $editorWorksAll;
 	
 ?>

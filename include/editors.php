@@ -17,7 +17,20 @@ class editors{
         return $arrPeoples;
     }    
   
-       public function getEditorsByArticleId($id = "") {
+    /* Dato un editor restituisce un array di works */
+    public function getWorksByEditorId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT distinct(works_id) FROM works_authors WHERE peoples_id = $id";
+            $arrWorks = $db->queryList($query);
+        }
+        return $arrWorks;
+    }    
+
+    public function getEditorsByArticleId($id = "") {
 
         $arrPeoples = array();
        

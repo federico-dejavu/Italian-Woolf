@@ -51,6 +51,7 @@
 					{% endfor %}
 					</p>
 					{% endif %}
+
 					{% if phpPage.second_author %}
 					<p>
 					<b>As Second Author:</b><br />
@@ -61,6 +62,18 @@
 					{% endfor %}
 					</p>
 					{% endif %}
+
+					{% if phpPage.editor %}
+					<p>
+					<b>As Editor:</b><br />
+					{% for editor in phpPage.editor %}
+						{% if  editor.id %}
+							{% if not loop.first %} | {% endif %}<a href="work.php?id={{ editor.id }}" > <b>{{ editor.title }}</b> </a>
+						{% endif %}
+					{% endfor %}
+					</p>
+					{% endif %}
+
 				</div>
 			</div>
 		</div>
