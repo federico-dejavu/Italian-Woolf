@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col">
 					{% for author in phpPage.work.authors %}
-						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}" > <b>{{ author.fullname }}</b> </a>
+						<p><a href="people.php?id={{ author.id }}" > <b>{{ author.fullname }}</b> </a></p>
 					{% endfor %}  
 
 					<!-- questo dovrebbe essere un pop-up -->

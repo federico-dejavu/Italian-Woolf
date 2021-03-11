@@ -6,7 +6,7 @@
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
     /* Reperisco dati publisher */
-    $peopleObject = new people();
+    $peopleObject = new peoples();
     $people = $peopleObject->getPeopleById($id);
 
 
