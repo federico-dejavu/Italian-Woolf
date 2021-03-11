@@ -11,7 +11,7 @@
     $people = $peopleObject->getPeopleById($id);
 
     /* Reperisco dati works come author */
-    $authorObject = new $authors();
+    $authorObject = new authors();
     $worksByAuthorId = $authorObject->getWorksByAuthorId($id);
     
     var_dump($worksByAuthorId);
