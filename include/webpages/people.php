@@ -5,6 +5,8 @@
     require_once 'include/authors.php';
     require_once 'include/secondary_authors.php';
     require_once 'include/editors.php';
+    require_once 'include/translators.php';
+    require_once 'include/illutrators.php';
     require_once 'include/works.php';
 
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
@@ -49,6 +51,29 @@
         $editorWorksAll[] = $editorWorks;        
     }
 
+    /* Reperisco dati works come translator */
+    $translatorObject = new translators();
+    $worksByTranslatorId = $translatorObject->getWorksByTranslatorId($id);
+    $translatorWorksObject = new works();
+    $translatorWorksAll = array();
+    foreach ($worksByTranslatorId as $translatorWork_id ) {
+
+        $translatorWorks = $translatorWorksObject->getWorksByWork_id($translatorWork_id);
+
+        $translatorWorksAll[] = $translatorWorks;        
+    }
+
+    /* Reperisco dati works come illutrator */
+    $illutratorObject = new illutrators();
+    $worksByIllutratorId = $illutratorObject->getWorksByIllutratorId($id);
+    $illutratorWorksObject = new works();
+    $illutratorWorksAll = array();
+    foreach ($worksByIllutratorId as $illutratorWork_id ) {
+
+        $illutratorWorks = $illutratorWorksObject->getWorksByWork_id($illutratorWork_id);
+
+        $illutratorWorksAll[] = $illutratorWorks;        
+    }
 
 /**  
    $people[]
@@ -60,7 +85,7 @@
         authority_record
         image
 
-    $authorWorksAll[], $second_authorWorksAll[], $editorWorksAll[]
+    $authorWorksAll[], $second_authorWorksAll[], $editorWorksAll[], $translatorWorksAll[], $illutratorWorksAll[]
         id
         title
         original
@@ -80,5 +105,7 @@
     $phpPage['author']          = $authorWorksAll;
     $phpPage['second_author']   = $second_authorWorksAll;
     $phpPage['editor']          = $editorWorksAll;
+    $phpPage['translator']      = $translatorWorksAll;
+    $phpPage['illutrator']      = illutratorWorksAll;
 	
 ?>

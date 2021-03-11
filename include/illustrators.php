@@ -4,7 +4,7 @@ require_once('peoples.php');
 
 class illustrators{
 
-      /* Dato un work restituisce un array di editor */
+      /* Dato un work restituisce un array di illutrators */
       public function getIllustratorsByWorkId($id = "") {
 
         $arrPeoples = array();
@@ -17,7 +17,20 @@ class illustrators{
         return $arrPeoples;
     }    
   
-       public function getIllustratorsByArticleId($id = "") {
+    /* Dato un illutrator restituisce un array di works */
+    public function getWorksByIllutratorId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT distinct(works_id) FROM works_illustrators WHERE peoples_id = $id";
+            $arrWorks = $db->queryList($query);
+        }
+        return $arrWorks;
+    }    
+
+    public function getIllustratorsByArticleId($id = "") {
 
         $arrPeoples = array();
        

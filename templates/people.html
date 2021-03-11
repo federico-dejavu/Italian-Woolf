@@ -74,6 +74,29 @@
 					</p>
 					{% endif %}
 
+					{% if phpPage.translator %}
+					<p>
+					<b>As Translator:</b><br />
+					{% for translator in phpPage.translator %}
+						{% if  translator.id %}
+							{% if not loop.first %} | {% endif %}<a href="work.php?id={{ translator.id }}" > <b>{{ translator.title }}</b> </a>
+						{% endif %}
+					{% endfor %}
+					</p>
+					{% endif %}
+					
+					{% if phpPage.illustrator %}
+					<p>
+					<b>As Illustrator:</b><br />
+					{% for illustrator in phpPage.illustrator %}
+						{% if  illustrator.id %}
+							{% if not loop.first %} | {% endif %}<a href="work.php?id={{ illustrator.id }}" > <b>{{ illustrator.title }}</b> </a>
+						{% endif %}
+					{% endfor %}
+					</p>
+					{% endif %}
+					
+
 				</div>
 			</div>
 		</div>

@@ -4,7 +4,7 @@ require_once('peoples.php');
 
 class translators{
     
-      /* Dato un work restituisce un array di author */
+      /* Dato un work restituisce un array di translators */
       public function getAuthorsByWorkId($id = "") {
 
         $arrPeoples = array();
@@ -17,7 +17,19 @@ class translators{
         return $arrPeoples;
     }    
 
-  
+     /* Dato un translator restituisce un array di works */
+     public function getWorksByTranslatorId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT distinct(works_id) FROM works_translators WHERE peoples_id = $id";
+            $arrWorks = $db->queryList($query);
+        }
+        return $arrWorks;
+    }    
+ 
     public function getAuthorsByArticleId($id = "") {
 
         $arrPeoples = array();
