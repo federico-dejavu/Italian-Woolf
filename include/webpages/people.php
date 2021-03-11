@@ -22,6 +22,17 @@
 
         $authorWorksAll[] = $authorWorks;        
     }
+    /* Reperisco dati works come second_author */
+    $second_authorObject = new authors();
+    $worksBySecond_authorId = $second_authorObject->getWorksBySecond_authorId($id);
+    $second_authorWorksObject = new works();
+    $second_authorWorksAll = array();
+    foreach ($worksBySecond_authorId as $second_authorWork_id ) {
+
+        $second_authorWorks = $second_authorWorksObject->getWorksByWork_id($second_authorWork_id);
+
+        $second_authorWorksAll[] = $second_authorWorks;        
+    }
 
 /**  
    $people[]
@@ -33,7 +44,7 @@
         authority_record
         image
 
-    $authorWorksAll[]
+    $authorWorksAll[], $second_authorWorksAll[]
         id
         title
         original
@@ -49,7 +60,8 @@
 
 **/
 
-    $phpPage['people'] = $people;
-    $phpPage['author'] = $authorWorksAll;
+    $phpPage['people']          = $people;
+    $phpPage['author']          = $authorWorksAll;
+    $phpPage['second_author']   = $second_authorWorksAll;
 	
 ?>
