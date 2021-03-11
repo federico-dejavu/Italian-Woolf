@@ -91,7 +91,7 @@ function renderPage($content_key = "HOME") {
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
-    echo $page["type"];
+
     if ($page["type"] == "php") {
 
         $renderTarget = $page['file_name'].'.html';
