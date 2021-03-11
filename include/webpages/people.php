@@ -63,16 +63,16 @@
         $translatorWorksAll[] = $translatorWorks;        
     }
 
-    /* Reperisco dati works come illutrator */
-    $illutratorObject = new illutrators();
-    $worksByIllutratorId = $illutratorObject->getWorksByIllutratorId($id);
-    $illutratorWorksObject = new works();
-    $illutratorWorksAll = array();
-    foreach ($worksByIllutratorId as $illutratorWork_id ) {
+    /* Reperisco dati works come illustrator */
+    $illustratorObject = new illustrators();
+    $worksByIllustratorId = $illustratorObject->getWorksByIllustratorId($id);
+    $illustratorWorksObject = new works();
+    $illustratorWorksAll = array();
+    foreach ($worksByIllustratorId as $illustratorWork_id ) {
 
-        $illutratorWorks = $illutratorWorksObject->getWorksByWork_id($illutratorWork_id);
+        $illustratorWorks = $illustratorWorksObject->getWorksByWork_id($illustratorWork_id);
 
-        $illutratorWorksAll[] = $illutratorWorks;        
+        $illustratorWorksAll[] = $illustratorWorks;        
     }
 
 /**  
@@ -85,7 +85,7 @@
         authority_record
         image
 
-    $authorWorksAll[], $second_authorWorksAll[], $editorWorksAll[], $translatorWorksAll[], $illutratorWorksAll[]
+    $authorWorksAll[], $second_authorWorksAll[], $editorWorksAll[], $translatorWorksAll[], $illustratorWorksAll[]
         id
         title
         original
@@ -106,6 +106,6 @@
     $phpPage['second_author']   = $second_authorWorksAll;
     $phpPage['editor']          = $editorWorksAll;
     $phpPage['translator']      = $translatorWorksAll;
-    $phpPage['illutrator']      = illutratorWorksAll;
+    $phpPage['illustrator']      = illustratorWorksAll;
 	
 ?>
