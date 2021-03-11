@@ -26,10 +26,10 @@
 
         /* Estraggo works ed editions */
         if($worksParam){ 
- 
+
             $works = new works();
             $allWorksID = $works->getWorkIdByKeywords($keyOptimized);
-                    
+
             $arrayWorks=array();
             foreach($allWorksID as $work_id){
                 $arrayWorks['id']=$work_id;
@@ -42,15 +42,16 @@
                 /* Reperisco dati Author */
                 $authors = new authors();
                 $arrAuthors = $authors->getAuthorsByWorkId($work_id);
-                
+
                 $people = new peoples();
                 $arrElements = array();
                 foreach($arrAuthors as $peoples_id){
-                
+
                     $author = $people->getPeopleById($peoples_id);
-                    
+
                     $arrElements[] = $author;     
                 }
+
                 $singleWork['author']=$arrElements;
 
                 /* Reperisco le edizioni */
@@ -69,44 +70,43 @@
 
                 $arrayWorks[]=$singleWork;
             }
-         
+
         }
 
-       /* Estraggo articles */
-       if($articlesParam){ 
+        /* Estraggo articles */
+        if($articlesParam){ 
 
-        $articles = new articles();
-        $allArticlesID = $articles->getArticlesIdByKeywords($keyOptimized);
-                
-        $arrayArticles=array();
-        foreach($allArticlesID as $articles_id){
-            $singleArticles = $articles->getArticlesByArticles_id($articles_id);
-            /* Reperisco dati publisher */
-            $publisherObject = new publishers();
-            $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
-            $singleArticle['publisher']=$publisher[0]['publisher'];
+            $articles = new articles();
+            $allArticlesID = $articles->getArticlesIdByKeywords($keyOptimized);
 
-            /* Reperisco dati Author */
-            $authors = new authors();
-            $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
-            
-            $people = new peoples();
-            $arrElements = array();
-            foreach($arrAuthors as $peoples_id){
-            
-                $author = $people->getPeopleById($peoples_id);
-                
-                $arrElements[] = $author;     
+            $arrayArticles=array();
+            foreach($allArticlesID as $articles_id){
+                $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+                /* Reperisco dati publisher */
+                $publisherObject = new publishers();
+                $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
+                $singleArticle['publisher']=$publisher[0]['publisher'];
+
+                /* Reperisco dati Author */
+                $authors = new authors();
+                $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
+
+                $people = new peoples();
+                $arrElements = array();
+                foreach($arrAuthors as $peoples_id){
+
+                    $author = $people->getPeopleById($peoples_id);
+
+                    $arrElements[] = $author;     
+                }
+                $singleArticles['author']=$arrElements;
+
+                $arrayArticles[]=$singleArticles;
             }
-            $singleArticles['author']=$arrElements;
-
-            $arrayArticles[]=$singleArticles;
+            
         }
-
-       
-     
-    }
         
+    }
   
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader, [
@@ -119,5 +119,5 @@
         'articles'	=> $arrayArticles,
     
     ]);
-    
+
 ?>
