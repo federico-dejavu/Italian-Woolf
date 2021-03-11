@@ -4,7 +4,7 @@ require_once('peoples.php');
 
 class illustrators{
 
-      /* Dato un work restituisce un array di illutrators */
+      /* Dato un work restituisce un array di illustrators */
       public function getIllustratorsByWorkId($id = "") {
 
         $arrPeoples = array();
@@ -17,8 +17,8 @@ class illustrators{
         return $arrPeoples;
     }    
   
-    /* Dato un illutrator restituisce un array di works */
-    public function getWorksByIllutratorId($id = "") {
+    /* Dato un illustrators restituisce un array di works */
+    public function getWorksByIllutratorsId($id = "") {
 
         $arrPeoples = array();
        
