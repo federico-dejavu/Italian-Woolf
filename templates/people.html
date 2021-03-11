@@ -42,12 +42,14 @@
 					{% endif %}
 
 					{% if phpPage.author %}
-					<p><b>As Author:</b></p>
-						{% for author in phpPage.author %}
-							<p>
-								<a href="works.php?id={{ author.id }}" > <b>{{ author.title }}</b> </a>
-							</p>
-						{% endfor %}
+					<p>
+					<b>As Author:</b><br />
+					{% for author in phpPage.author %}
+						{% if phpPage.author.id %}
+							{% if not loop.first %} | {% endif %}<a href="works.php?id={{ author.id }}" > <b>{{ author.title }}</b> </a>
+						{% endif %}
+					{% endfor %}
+					</p>
 					{% endif %}
 				</div>
 			</div>
