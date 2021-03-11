@@ -2,7 +2,7 @@
 
 	require_once 'include/config.php';
     require_once 'include/peoples.php';
-    require_once 'include/works.php';
+    require_once 'include/authors.php';
 
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
