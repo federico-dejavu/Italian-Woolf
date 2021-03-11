@@ -3,6 +3,7 @@
 	require_once 'include/config.php';
     require_once 'include/peoples.php';
     require_once 'include/authors.php';
+    require_once 'include/secondary_authors.php';
     require_once 'include/works.php';
 
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
@@ -23,8 +24,8 @@
         $authorWorksAll[] = $authorWorks;        
     }
     /* Reperisco dati works come second_author */
-    $second_authorObject = new authors();
-    $worksBySecond_authorId = $second_authorObject->getWorksBySecond_authorId($id);
+    $second_authorObject = new secondary_authors();
+    $worksBySecond_authorId = $second_authorObject->getWorksBySecondary_authorsId($id);
     $second_authorWorksObject = new works();
     $second_authorWorksAll = array();
     foreach ($worksBySecond_authorId as $second_authorWork_id ) {

@@ -30,19 +30,6 @@ class authors{
         return $arrWorks;
     }    
   
-    /* Dato un second_author restituisce un array di works */
-    public function getWorksBySecond_authorId($id = "") {
-
-        $arrPeoples = array();
-       
-        if($id>0){
-            $db = new DBManager();
-            $query = "SELECT distinct(works_id) FROM works_secondary_authors WHERE peoples_id = $id";
-            $arrWorks = $db->queryList($query);
-        }
-        return $arrWorks;
-    }    
-
     public function getAuthorsByArticleId($id = "") {
 
         $arrPeoples = array();
