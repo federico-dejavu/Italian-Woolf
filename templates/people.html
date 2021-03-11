@@ -53,7 +53,7 @@
 					{% endif %}
 					{% if phpPage.second_author %}
 					<p>
-					<b>As Author:</b><br />
+					<b>As Second Author:</b><br />
 					{% for second_author in phpPage.second_author %}
 						{% if  second_author.id %}
 							{% if not loop.first %} | {% endif %}<a href="works.php?id={{ second_author.id }}" > <b>{{ second_author.title }}</b> </a>
