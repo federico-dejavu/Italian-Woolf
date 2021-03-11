@@ -6,7 +6,7 @@
     require_once 'include/secondary_authors.php';
     require_once 'include/editors.php';
     require_once 'include/translators.php';
-    require_once 'include/illutrators.php';
+    require_once 'include/illustrators.php';
     require_once 'include/works.php';
 
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
