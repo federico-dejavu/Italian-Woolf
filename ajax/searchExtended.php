@@ -303,7 +303,12 @@
         echo "</pre>";
     }
 
-    echo $twig->render('searchResults.tpl', [
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+        'cache' => false,
+    ]);
+
+    echo $twig->render('result.html', [
 		
         'works'		=> $arrayWorks,
         'articles'	=> $arrayArticles,

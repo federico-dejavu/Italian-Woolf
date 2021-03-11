@@ -107,12 +107,17 @@
      
     }
         
-        echo $twig->render('searchResults.tpl', [
-		
-            'works'		=> $arrayWorks,
-            'articles'	=> $arrayArticles,
-    
-        ]);
-    }
+  
+    $loader = new \Twig\Loader\FilesystemLoader('templates');
+    $twig = new \Twig\Environment($loader, [
+        'cache' => false,
+    ]);
 
+    echo $twig->render('result.html', [
+		
+        'works'		=> $arrayWorks,
+        'articles'	=> $arrayArticles,
+    
+    ]);
+    
 ?>

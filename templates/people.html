@@ -1,0 +1,51 @@
+{% autoescape false %}
+<!— Output by Twig :: modul "wysiwyg" —>
+{{ include('head.html') }}
+<body>
+	{{ include('mobile.html') }}
+	{{ include('header.html') }}
+	
+	
+	<div id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>{{ phpPage.people.fullname }}
+					{% if phpPage.people.other_name %}
+						({{ phpPage.people.other_name }})
+					{% endif %}
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{% if phpPage.people.birth_date %}
+					<p>
+					Birth date: {{ phpPage.people.birth_date }}
+					</p>
+					{% endif %}
+
+					{% if phpPage.people.death_date %}
+					<p>
+					Birth date: {{ phpPage.people.death_date }}
+					</p>
+					{% endif %}	
+					
+					{% if phpPage.people.authority_record %}
+					<p>
+						Authority record: <a href="{{ phpPage.people.authority_record }}"><i>{{ phpPage.people.authority_record }}</i> </a>
+					</p>
+					{% endif %}
+
+					<p>
+						{% if phpPage.people.image %}
+						<img src="{{ phpPage.people.image }}" align="left">
+						{% endif %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{{ include('footer.html') }}
+<!— end Twig —>
+{% endautoescape %}

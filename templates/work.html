@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col">
 					{% for author in phpPage.work.authors %}
-					<b>{{ author.fullname }}</b> |
+						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}" > <b>{{ author.fullname }}</b> </a>
 					{% endfor %}  
 
 					<!-- questo dovrebbe essere un pop-up -->
@@ -34,7 +34,7 @@
 						<p>
 						Secondary Author:
 						{% for secondary_author in phpPage.work.secondary_authors %}
-							{{ secondary_author.fullname }}|
+							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ secondary_author.id }}" > <b>{{ secondary_author.fullname }}</b> </a>
 						{% endfor %}
 						</p>
 					{% endif %}
@@ -55,7 +55,7 @@
 						<p>
 						Editor:
 						{% for editor in phpPage.work.editors %}
-							{{ editor.fullname }}|
+							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ editor.id }}" > <b>{{ editor.fullname }}</b> </a>
 						{% endfor %}
 						</p>
 					{% endif %}
@@ -64,7 +64,7 @@
 						<p>
 						Translator:
 						{% for translator in phpPage.work.translator %}
-							{{ translator.fullname }}|
+							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ translator.id }}" > <b>{{ translator.fullname }}</b> </a>
 						{% endfor %}
 						</p>
 					{% endif %}					
