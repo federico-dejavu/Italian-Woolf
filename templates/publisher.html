@@ -1,0 +1,32 @@
+{% autoescape false %}
+<!— Output by Twig :: modul "wysiwyg" —>
+{{ include('head.html') }}
+<body>
+	{{ include('mobile.html') }}
+	{{ include('header.html') }}
+	<div id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>{{ phpPage.publisher.publisher }}</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p>
+						{{ phpPage.publisher.description }}
+					</p>  
+					
+
+					{% if phpPage.publisher.link %}
+					<p>
+						Web site: <a href="{{ phpPage.publisher.link }}">{{ phpPage.publisher.publisher }}</a>
+					</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{{ include('footer.html') }}
+<!— end Twig —>
+{% endautoescape %}
