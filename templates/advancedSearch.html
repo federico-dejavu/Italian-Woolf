@@ -38,7 +38,7 @@
 							<label class="custom-select" for="publisher">
 								<select  name="publisher" id="publisher" >
 									<option value="" id="">All editors</option>
-									{% for publisher in publishers %}
+									{% for publisher in phpPage.publishers %}
 									<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
 									{% endfor %}
 								</select>
@@ -61,7 +61,7 @@
 							<label class="custom-select" for="language">
 								<select  name="language" id="language" >
 									<option value="" id="">All languages</option>
-									{% for language in languages %}
+									{% for language in phpPage.languages %}
 									<option value="{{ language.id }}" id="{{ language.id }}">{{ language.language }}</option>
 									{% endfor %}
 								</select>
@@ -71,7 +71,7 @@
 							<label class="custom-select" for="typology">
 								<select  name="typology" id="typology" >
 									<option value="" id="">All typologies</option>
-									{% for typology in typologies %}
+									{% for typology in phpPage.typologies %}
 									<option value="{{ typology.id }}" id="{{ typology.id }}">{{ typology.typology }}</option>
 									{% endfor %}
 								</select>

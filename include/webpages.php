@@ -87,6 +87,7 @@ function renderPage($content_key = "HOME") {
 
     $languages_id = checkLanguage();
     $renderTarget = 'webpages.html';
+    $phpPage = array();
 
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
@@ -95,6 +96,7 @@ function renderPage($content_key = "HOME") {
     if ($page["type"] == "php") {
 
         $renderTarget = $page['file_name'].'.html';
+        include_once('webpages'.$page['file_name'].'.php');
 
     }
 
@@ -133,6 +135,7 @@ function renderPage($content_key = "HOME") {
         'page'			=> $page,
         'page_name' 	=> $page_name,
         'file_name'     => $file_name,
+        'phpPage'       => $phpPage,
     ]);
 
 }

@@ -28,11 +28,8 @@
 		$typologies[$typologyID] = $typologySingle;
 	}
 
-
-	echo $twig->render('advancedSearch.html', [
-        'publishers'	=> $publishers,
-		'languages'		=> $languages,
-		'typologies'	=> $typologies,
-	]);
+	$phpPage['publishers'] = $publishers;
+	$phpPage['languages'] = $languages;
+	$phpPage['typologies'] = $typologies;
 
 ?>
