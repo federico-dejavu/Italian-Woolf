@@ -22,11 +22,11 @@
 				<p>Journal title: {{ phpPage.article.journal_title }} </p>
 
 				{% for author in phpPage.article.authors %}
-				<b>{{ author.fullname }}</b> |
+				<p><a href="people.php?id={{ author.id }}" > <b>{{ author.fullname }}</b> </a></p>
 				{% endfor %}  
 
 				<!-- questo dovrebbe essere un pop-up -->
-				<a href="publisher.php?subject={{ phpPage.article.publisher_name }}&id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
+				<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
 
 				{% if phpPage.article.editors %}
 				<p>

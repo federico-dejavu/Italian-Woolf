@@ -17,6 +17,18 @@ class authors{
         return $arrPeoples;
     }    
 
+    /* Dato un work restituisce un array di works */
+      public function getWorksByAuthorId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT distinct(works_id) FROM works_authors WHERE peoples_id = $id";
+            $arrWorks = $db->queryList($query);
+        }
+        return $arrWorks;
+    }    
   
     public function getAuthorsByArticleId($id = "") {
 
