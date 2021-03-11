@@ -110,7 +110,6 @@ function renderPage($content_key = "HOME") {
     ["parent_id"]
     ["languages_id"]
 */
-    var_dump($page);
 
     $file_name = WOOLF_PATH.'/css/'.$page['file_name'].'.less';
     if (!file_exists($filename)) {
