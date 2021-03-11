@@ -86,16 +86,25 @@ function renderMenu($parent_id = "1", $languages_id = "1") {
 function renderPage($content_key = "HOME") {
 
     $languages_id = checkLanguage();
+    $renderTarget = 'webpages.html';
 
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
+
+    if ($page['type'] == 'PHP') {
+
+        $renderTarget = $page['file_name'].'.html';
+
+    }
 
 /*
     ["id"]
     ["title"]
     ["menu_title"]
     ["file_name"]
+    ["hidden"]
+    ["type"]
     ["content"]
     ["content_key"]
     ["parent_id"]
