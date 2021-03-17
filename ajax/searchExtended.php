@@ -157,7 +157,7 @@
                     $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
                         $author = $people->getPeopleById($peoples_id);
-                        $arrAuthorsResult[] = $author;     
+                        $arrAuthorsResult[] = $author[0];     
                     }
                     $singleWork['authors']=$arrAuthorsResult;
 
@@ -168,7 +168,7 @@
                     $arrTranslatorsResult = array();
                     foreach($arrTranslators as $peoples_id){
                         $translator = $people->getPeopleById($peoples_id);
-                        $arrTranslatorsResult[] = $translator;     
+                        $arrTranslatorsResult[] = $translator[0];     
                     }
                     $singleWork['translators']=$arrTranslatorsResult;
 
