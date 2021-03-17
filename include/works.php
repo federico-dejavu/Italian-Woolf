@@ -11,7 +11,7 @@ class works{
 
         $db = new DBManager();
         $queryK = "SELECT id,title FROM works order by title asc";
-        $arrWorksID = $db->query($queryK);
+        $arrWorksID = $db->queryList($queryK);
 
         return $arrWorksID;
     }

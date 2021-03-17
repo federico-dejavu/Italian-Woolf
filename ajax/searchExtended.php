@@ -157,9 +157,9 @@
                     $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
                         $author = $people->getPeopleById($peoples_id);
-                        $arrAuthorsResult[] = $author[0];     
+                        $arrAuthorsResult[] = $author;     
                     }
-                    $singleWork['authors']=$arrAuthorsResult;
+                    $singleWork['author']=$arrAuthorsResult;
 
                     /* Reperisco dati Translators */
                     $translators = new translators();
@@ -168,7 +168,7 @@
                     $arrTranslatorsResult = array();
                     foreach($arrTranslators as $peoples_id){
                         $translator = $people->getPeopleById($peoples_id);
-                        $arrTranslatorsResult[] = $translator[0];     
+                        $arrTranslatorsResult[] = $translator;     
                     }
                     $singleWork['translators']=$arrTranslatorsResult;
 
