@@ -38,7 +38,7 @@ class works{
     public function getWorksByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
-        $query = "SELECT distinct(works.id),title";
+        $query = "SELECT distinct(works.id),title, year";
         $from =" FROM works ";
         $where =" works.id !=''";
         $passo = 0;
@@ -75,7 +75,7 @@ class works{
             $where = $where." AND works.publisher_id = $postPublisher ";
         }   
 
-        $query = $query.$from." WHERE ".$where." order by works.year asc";
+        $query = $query.$from." WHERE ".$where." order by year asc";
          
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;
