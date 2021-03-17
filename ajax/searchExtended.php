@@ -155,6 +155,7 @@
                     $publisherObject = new publishers();
                     $arrPublishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
                     $arrPublishersResult = array();
+                    var_dump($arrPublishers);
                     foreach($arrPublishers as $publishers_id){
                         $publisher = $arrPublishers->getPublisherById($publishers_id);
                         array_push($arrPublishersResult[$publisher['publisher']],$publisher);
@@ -164,7 +165,6 @@
                     /* Reperisco dati Author */
                     $authorsObject = new authors();
                     $arrAuthors = $authorsObject->getAuthorsByWorkId($work_id);
-                    $people = new peoples();
                     $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
                         $author = $authorsObject->getPeopleById($peoples_id);
