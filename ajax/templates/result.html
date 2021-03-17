@@ -6,7 +6,10 @@
 				<div class="col-md-6 works">
 					<h2>Works</h2>
 					{% for work in works %}
-						<a href="work.php?id={{ work.id }}"><b>{{ work.title }}</b></a>{% if work.publisher %}, <a href="publishers.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>{% endif %}{% if work.year %}, {{ work.year }}{% endif %}
+						<a href="work.php?id={{ work.id }}"><b>{{ work.title }}</b></a>{% if work.year %}, {{ work.year }}{% endif %}
+						{% if work.publisher %}
+							<br /><a href="publishers.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>
+						{% endif %}
 						{% if work.authors %}
 							<br />Authors:
 							{% for author in work.authors %}{% if not loop.first %}, {% endif %}<a href="peoples.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
@@ -17,7 +20,8 @@
 						{% endif %}
 						<ul>
 							{% for edition in work.editions %}
-								<li><a href="edition.php?id={{ edition.id }}"><b>{{ edition.title }}</b></a>, {{ edition.year }}{% if edition.publisher %}, <a href="publishers.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>{% endif %}</li>
+								<li><a href="edition.php?id={{ edition.id }}"><b>{{ edition.title }}</b></a>, {{ edition.year }}
+								{% if edition.publisher %}<br /><a href="publishers.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>{% endif %}</li>
 							{% endfor %}
 						</ul>
 				{% endfor %}
