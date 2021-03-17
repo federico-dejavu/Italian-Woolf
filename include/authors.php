@@ -12,7 +12,7 @@ class authors{
         if($id>0){
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_authors WHERE works_id = $id";
-            $arrPeoples = $db->queryList($query);
+            $arrPeoples = $db->query($query);
         }
         return $arrPeoples;
     }    
