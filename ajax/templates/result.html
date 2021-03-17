@@ -12,11 +12,11 @@
 						{% endif %}
 						{% if work.authors %}
 							<br />Authors:
-							{% for author in work.authors %}{% if not loop.first %}, {% endif %}<a href="peoples.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
+							{% for author in work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if work.translators %}
 							<br />Translators:
-							{% for translator in work.translators %}{% if not loop.first %}, {% endif %}<a href="peoples.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
+							{% for translator in work.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
 						{% endif %}
 						<ul>
 							{% for edition in work.editions %}
