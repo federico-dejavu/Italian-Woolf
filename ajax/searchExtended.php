@@ -103,6 +103,7 @@
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
                     $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    var_dump($publisher);
                     $singleWork['publisher'] = $publisher;
 
                     /* Reperisco dati Author */
@@ -137,6 +138,7 @@
                         $editionPublisherObject = new publishers();
                         $editionPublisher = $editionPublisherObject->getPublisherById($edition['publisher_id']);
                         $edition['publisher'] = $publisher;
+                        var_dump($edition);
                         array_push($arrEditionsResult,$edition);
                     }
                     $singleWork['editions'] = $arrEditionsResult;
@@ -153,6 +155,7 @@
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
                     $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    var_dump($publisher);
                     $singleWork['publisher'] = $publisher;
 
                     /* Reperisco dati Author */
@@ -187,6 +190,7 @@
                         $editionPublisherObject = new publishers();
                         $editionPublisher = $editionPublisherObject->getPublisherById($edition['publisher_id']);
                         $edition['publisher'] = $publisher;
+                        var_dump($edition);
                         array_push($arrEditionsResult,$edition);
                     }
                     $singleWork['editions'] = $arrEditionsResult;
