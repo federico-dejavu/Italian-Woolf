@@ -102,7 +102,12 @@
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
-                    $publishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $arrPublishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $arrPublishersResult = array();
+                    foreach($arrPublishers as $publishers_id){
+                        $publisher = $publisherObject->getPublisherById($publishers_id);
+                        array_push($arrPublishersResult,$publisher);
+                    }
                     $singleWork['publishers'] = $publisher;
 
                     /* Reperisco dati Author */
@@ -148,8 +153,13 @@
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
-                    $publishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
-                    $singleWork['publishers'] = $publishers;
+                    $arrPublishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $arrPublishersResult = array();
+                    foreach($arrPublishers as $publishers_id){
+                        $publisher = $publisherObject->getPublisherById($publishers_id);
+                        array_push($arrPublishersResult,$publisher);
+                    }
+                    $singleWork['publishers'] = $publisher;
 
                     /* Reperisco dati Author */
                     $authors = new authors();
