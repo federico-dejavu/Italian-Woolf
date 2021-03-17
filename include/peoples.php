@@ -36,7 +36,7 @@ class peoples{
         if($arrEditionsID){
             $db = new DBManager();
             $queryW = "SELECT id, other_name, fullname, birth_date, death_date, authority_record, image FROM peoples";
-            $arrElements = $db->query($queryW);
+            $arrElements = $db->queryList($queryW);
             $arrTotal[] = $arrElements;
         }
         

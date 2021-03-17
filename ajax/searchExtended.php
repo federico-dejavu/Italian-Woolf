@@ -112,7 +112,7 @@
                     $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
                         $author = $people->getPeopleById($peoples_id);
-                        $arrAuthorsResult[] = $author;     
+                        array_push($arrAuthorsResult,$author);
                     }
                     $singleWork['authors']=$arrAuthorsResult;
 
@@ -123,18 +123,19 @@
                     $arrTranslatorsResult = array();
                     foreach($arrTranslators as $peoples_id){
                         $translator = $people->getPeopleById($peoples_id);
-                        $arrTranslatorsResult[] = $translator;     
+                        array_push($arrTranslatorsResult,$translator);
                     }
                     $singleWork['translators']=$arrTranslatorsResult;
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
                     $editionsList = $editions->getEditionsByWork_id($work_id);
-                    $arrEditions = array();
+                    $arrEditionsResult = array();
                     foreach($editionsList as $edition_id){
-                        $arrEditions[] = $editions->getEditionById($edition_id);
+                        $edition = $editions->getEditionById($edition_id);
+                        array_push($arrEditionsResult,$edition);
                     }
-                    $singleWork['editions'] = $arrEditions;
+                    $singleWork['editions'] = $arrEditionsResult;
 
                     $arrayWorks[]=$singleWork;
                 }
