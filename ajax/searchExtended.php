@@ -97,26 +97,38 @@
                 }
 
                 if($trovato == 1){
-                    //$arrayWorks['id'] = $work_id;
+
                     $singleWork = $works->getWorksByWork_id($work_id);
+
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
                     $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
                     $singleWork['publisher']=$publisher[0]['publisher'];
+                    var_dump($singleWork['publisher']);
 
                     /* Reperisco dati Author */
                     $authors = new authors();
                     $arrAuthors = $authors->getAuthorsByWorkId($work_id);
-                
                     $people = new peoples();
-                    $arrElements = array();
+                    $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
-                
                         $author = $people->getPeopleById($peoples_id);
-                    
-                        $arrElements[] = $author;     
+                        $arrAuthorsResult[] = $author;     
                     }
-                    $singleWork['author']=$arrElements;
+                    $singleWork['author']=$arrAuthorsResult;
+                    var_dump($singleWork['author']);
+
+                    /* Reperisco dati Translators */
+                    $translators = new translators();
+                    $arrTranslators = $translators->getTranslatorsByWorkId($work_id);
+                    $people = new peoples();
+                    $arrTranslatorsResult = array();
+                    foreach($arrTranslators as $peoples_id){
+                        $translator = $people->getPeopleById($peoples_id);
+                        $arrTranslatorsResult[] = $translator;     
+                    }
+                    $singleWork['publisher']=$arrTranslatorsResult;
+                    var_dump($singleWork['publisher']);
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
@@ -127,6 +139,7 @@
                     }
 
                     $singleWork['editions'] = $arrEditions;
+                    var_dump($singleWork['editions']);
 
                     $arrayWorks[]=$singleWork;
                 }
