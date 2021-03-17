@@ -308,7 +308,6 @@
         }
     }
 
-    var_dump($arrayWorks);
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
         echo "<pre> Works</br>";

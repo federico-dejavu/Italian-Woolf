@@ -7,17 +7,22 @@
 					<h2>Works</h2>
 					{% for work in works %}
 						<a href="work.php?id={{ work.id }}"><b>{{ work.title }}</b></a>
-						{% if work.publishers %}
-							{% for publisher in work.publishers %}
-								, Pub: <a href="publishers.php?id={{ publisher.id }}">{{ publisher.publisher }}</a>
-							{% endfor %}
+						{% if work.publisher %}
+								, <a href="publishers.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>
 						{% endif %}
 						{% if work.year %}
 							, Year: {{ work.year }}
 						{% endif %}
 						{% if work.authors %}
+							<br />Authors:
 							{% for author in work.authors %}
-							Auth:	{{ author.fullname }}
+								{{ author.fullname }}
+							{% endfor %}
+						{% endif %}
+						{% if work.translators %}
+							<br />Translators:
+							{% for translator in work.translators %}
+								{{ translator.fullname }}
 							{% endfor %}
 						{% endif %}
 						<ul>
