@@ -75,7 +75,7 @@ class works{
             $where = $where." AND works.publisher_id = $postPublisher ";
         }   
 
-        $query = $query.$from." WHERE ".$where." order by works.title asc";
+        $query = $query.$from." WHERE ".$where." order by works.year asc";
          
         $arrWorksID = $db->queryList($query);
         return $arrWorksID;

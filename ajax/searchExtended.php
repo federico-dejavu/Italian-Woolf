@@ -133,6 +133,10 @@
                     $arrEditionsResult = array();
                     foreach($editionsList as $edition_id){
                         $edition = $editions->getEditionById($edition_id);
+                        /* Reperisco dati publisher */
+                        $editionPublisherObject = new publishers();
+                        $editionPublisher = $editionPublisherObject->getPublisherById($edition['publisher_id']);
+                        $edition['publisher'] = $publisher;
                         array_push($arrEditionsResult,$edition);
                     }
                     $singleWork['editions'] = $arrEditionsResult;
@@ -179,6 +183,10 @@
                     $arrEditionsResult = array();
                     foreach($editionsList as $edition_id){
                         $edition = $editions->getEditionById($edition_id);
+                        /* Reperisco dati publisher */
+                        $editionPublisherObject = new publishers();
+                        $editionPublisher = $editionPublisherObject->getPublisherById($edition['publisher_id']);
+                        $edition['publisher'] = $publisher;
                         array_push($arrEditionsResult,$edition);
                     }
                     $singleWork['editions'] = $arrEditionsResult;
