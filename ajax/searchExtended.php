@@ -104,7 +104,7 @@
                     $publisherObject = new publishers();
                     $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
                     $singleWork['publisher']=$publisher[0]['publisher'];
-                    var_dump($singleWork['publisher']);
+                    var_dump($publisher);
 
                     /* Reperisco dati Author */
                     $authors = new authors();
