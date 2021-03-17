@@ -67,7 +67,7 @@ class DBManager{
 		}
 		$data = array();
 		while ($row = $result->fetch_row()) {
-			$data[] = $row[0];
+			$data[] = $row;
 	    }
 		
 		return $data;
