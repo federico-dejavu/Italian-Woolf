@@ -72,9 +72,7 @@
                 if($postAuthors){
                     $authors = new authors();
                     $authorList = $authors->getAuthorsByWorkId($work_id);
-
                     $intersec = array_intersect($peoplesList,$authorList);
-
                     if(!empty($intersec)){
                         $trovato = 1;
                     }
@@ -82,7 +80,7 @@
 
                 if($postTranslators){
                     $translators = new translators();
-                    $translatorsList = $translators->getAuthorsByWorkId($work_id);
+                    $translatorsList = $translators->getTranslatorsByWorkId($work_id);
                     $intersec = array_intersect($peoplesList,$translatorsList);
                     if(!empty($intersec)){
                         $trovato = 1;
@@ -148,14 +146,28 @@
                     $arrAuthors = $authors->getAuthorsByWorkId($work_id);
                 
                     $people = new peoples();
-                    $arrElements = array();
+                    $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
                 
                         $author = $people->getPeopleById($peoples_id);
                     
-                        $arrElements[] = $author;     
+                        $arrAuthorsResult[] = $author;     
                     }
-                    $singleWork['author']=$arrElements;
+                    $singleWork['author']=$arrAuthorsResult;
+
+                    /* Reperisco dati Translators */
+                    $translators = new translators();
+                    $arrTranslators = $translators->getTranslatorsByWorkId($work_id);
+                
+                    $people = new peoples();
+                    $arrTranslatorsResult = array();
+                    foreach($arrTranslators as $peoples_id){
+                
+                        $translator = $people->getPeopleById($peoples_id);
+                    
+                        $arrTranslatorsResult[] = $translator;     
+                    }
+                    $singleWork['translator']=$arrTranslatorsResult;
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
@@ -214,7 +226,7 @@
 
                 if($postTranslators){
                     $translators = new translators();
-                    $translatorsList = $translators->getAuthorsByArticleId($articles_id);
+                    $translatorsList = $translators->getTranslatorsByArticleId($articles_id);
                     $intersec = array_intersect($peoplesList,$translatorsList);
                     if(!empty($intersec)){
                         $trovato = 1;

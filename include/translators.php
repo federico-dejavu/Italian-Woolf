@@ -4,8 +4,8 @@ require_once('peoples.php');
 
 class translators{
     
-      /* Dato un work restituisce un array di translators */
-      public function getAuthorsByWorkId($id = "") {
+    /* Dato un work restituisce un array di translators */
+    public function getTranslatorsByWorkId($id = "") {
 
         $arrPeoples = array();
        
@@ -30,7 +30,7 @@ class translators{
         return $arrWorks;
     }    
  
-    public function getAuthorsByArticleId($id = "") {
+    public function getTranslatorsByArticleId($id = "") {
 
         $arrPeoples = array();
        
