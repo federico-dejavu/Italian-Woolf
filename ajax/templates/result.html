@@ -7,8 +7,8 @@
 					<h2>Works</h2>
 					{% for work in works %}
 					<a href="work.php?id={{ work.id }}"><b>{{ work.title }}</b></a>{% if work.publishers %}{% for publisher in work.publishers %}, <a href="publishers.php?id={{ publisher.id }}">{{ publisher.publisher }}</a>{% endfor %}{% endif %}, {{ work.year }}
-					{% if work.author %}
-						{% for author in work.author %}
+					{% if work.authors %}
+						{% for author in work.authors %}
 							{{ author.fullname }}
 						{% endfor %}
 					{% endif %}

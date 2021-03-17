@@ -114,7 +114,7 @@
                         $author = $people->getPeopleById($peoples_id);
                         $arrAuthorsResult[] = $author;     
                     }
-                    $singleWork['author']=$arrAuthorsResult;
+                    $singleWork['authors']=$arrAuthorsResult;
 
                     /* Reperisco dati Translators */
                     $translators = new translators();
@@ -125,7 +125,7 @@
                         $translator = $people->getPeopleById($peoples_id);
                         $arrTranslatorsResult[] = $translator;     
                     }
-                    $singleWork['publisher']=$arrTranslatorsResult;
+                    $singleWork['translators']=$arrTranslatorsResult;
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
@@ -134,7 +134,6 @@
                     foreach($editionsList as $edition_id){
                         $arrEditions[] = $editions->getEditionById($edition_id);
                     }
-
                     $singleWork['editions'] = $arrEditions;
 
                     $arrayWorks[]=$singleWork;
@@ -145,38 +144,33 @@
             foreach($allWorksID as $work_id){
                     //$arrayWorks['id'] = $work_id;
                     $singleWork = $works->getWorksByWork_id($work_id);
+
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
-                    $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
-                    $singleWork['publisher']=$publisher[0]['publisher'];
+                    $publishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $singleWork['publishers'] = $publishers;
 
                     /* Reperisco dati Author */
                     $authors = new authors();
                     $arrAuthors = $authors->getAuthorsByWorkId($work_id);
-                
                     $people = new peoples();
                     $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
-                
                         $author = $people->getPeopleById($peoples_id);
-                    
                         $arrAuthorsResult[] = $author;     
                     }
-                    $singleWork['author']=$arrAuthorsResult;
+                    $singleWork['authors']=$arrAuthorsResult;
 
                     /* Reperisco dati Translators */
                     $translators = new translators();
                     $arrTranslators = $translators->getTranslatorsByWorkId($work_id);
-                
                     $people = new peoples();
                     $arrTranslatorsResult = array();
                     foreach($arrTranslators as $peoples_id){
-                
                         $translator = $people->getPeopleById($peoples_id);
-                    
                         $arrTranslatorsResult[] = $translator;     
                     }
-                    $singleWork['translator']=$arrTranslatorsResult;
+                    $singleWork['translators']=$arrTranslatorsResult;
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
@@ -185,7 +179,6 @@
                     foreach($editionsList as $edition_id){
                         $arrEditions[] = $editions->getEditionById($edition_id);
                     }
-
                     $singleWork['editions'] = $arrEditions;
 
                     $arrayWorks[]=$singleWork;
