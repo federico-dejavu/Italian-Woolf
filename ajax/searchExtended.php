@@ -102,9 +102,8 @@
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
-                    $publisher = $publisherObject->getPublisherById($singleWork['publisher_id']);
-                    $singleWork['publisher']=$publisher;
-                    var_dump($singleWork['publisher']);
+                    $publishers = $publisherObject->getPublisherById($singleWork['publisher_id']);
+                    $singleWork['publishers'] = $publisher;
 
                     /* Reperisco dati Author */
                     $authors = new authors();
@@ -116,7 +115,6 @@
                         $arrAuthorsResult[] = $author;     
                     }
                     $singleWork['author']=$arrAuthorsResult;
-                    var_dump($singleWork['author']);
 
                     /* Reperisco dati Translators */
                     $translators = new translators();
@@ -128,7 +126,6 @@
                         $arrTranslatorsResult[] = $translator;     
                     }
                     $singleWork['publisher']=$arrTranslatorsResult;
-                    var_dump($singleWork['publisher']);
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
@@ -139,7 +136,6 @@
                     }
 
                     $singleWork['editions'] = $arrEditions;
-                    var_dump($singleWork['editions']);
 
                     $arrayWorks[]=$singleWork;
                 }
@@ -317,7 +313,7 @@
         }
     }
 
-
+    var_dump($arrayWorks);
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
         echo "<pre> Works</br>";
