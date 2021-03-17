@@ -152,14 +152,15 @@
                     $singleWork['publisher'] = $publisher;
 
                     /* Reperisco dati Author */
-                    $authorsObject = new authors();
-                    $arrAuthors = $authorsObject->getAuthorsByWorkId($work_id);
+                    $authors = new authors();
+                    $arrAuthors = $authors->getAuthorsByWorkId($work_id);
+                    $people = new peoples();
                     $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
-                        $author = $authorsObject->getPeopleById($peoples_id);
-                        $arrAuthorsResult[] = $author;     
+                        $author = $people->getPeopleById($peoples_id);
+                        array_push($arrAuthorsResult,$author);
                     }
-                    $singleWork['author']=$arrAuthorsResult;
+                    $singleWork['authors']=$arrAuthorsResult;
 
                     /* Reperisco dati Translators */
                     $translators = new translators();
@@ -168,18 +169,19 @@
                     $arrTranslatorsResult = array();
                     foreach($arrTranslators as $peoples_id){
                         $translator = $people->getPeopleById($peoples_id);
-                        $arrTranslatorsResult[] = $translator;     
+                        array_push($arrTranslatorsResult,$translator);
                     }
                     $singleWork['translators']=$arrTranslatorsResult;
 
                     /* Reperisco le edizioni */
                     $editions = new editions();
                     $editionsList = $editions->getEditionsByWork_id($work_id);
-                    $arrEditions = array();
+                    $arrEditionsResult = array();
                     foreach($editionsList as $edition_id){
-                        $arrEditions[] = $editions->getEditionById($edition_id);
+                        $edition = $editions->getEditionById($edition_id);
+                        array_push($arrEditionsResult,$edition);
                     }
-                    $singleWork['editions'] = $arrEditions;
+                    $singleWork['editions'] = $arrEditionsResult;
 
                     $arrayWorks[]=$singleWork;
             }
