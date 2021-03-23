@@ -12,9 +12,7 @@
 						({{ phpPage.article.year }})
 					{% endif %}
 					</h2>
-					<h3>
-						{{ phpPage.article.abstract }}	
-					</h3>
+
 			</div>
 			<div class="row">
 
@@ -22,7 +20,7 @@
 					<p>
 						Author:
 						{% for author in phpPage.work.authors %}
-							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
+						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
 						{% endfor %}
 					</p>
 
@@ -102,6 +100,10 @@
 						{% endfor %}
 					</ul>
 					{% endif %}
+
+					<P>
+						{{ phpPage.article.abstract }}
+					</P>
 				</div>
 				</div>
 			</div>
