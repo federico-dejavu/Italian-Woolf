@@ -103,7 +103,7 @@ class articles{
             $where = $where." and articles.open_access =  $postopenAccess";
         }         
 
-        $query = $query.$from." WHERE ".$where." order by year asc";
+        $query = $query.$from." WHERE ".$where." order by articles.year asc";
         if (DEBUG) {
             echo "<pre>getArticlesByParam Query</br>";
             var_dump($query);
