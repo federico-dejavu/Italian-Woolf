@@ -19,10 +19,8 @@ class paratexts{
             $db = new DBManager();
             $query = "SELECT paratexts_id FROM works_paratexts WHERE works_id = $work_id";
             $paratext_id = $db->queryList($query);
-            $paratexts = new paratexts();
-            $paratext = $paratexts->getParatextsById($paratext_id);
         }
-        return $paratext;
+        return $paratext_id;
     }    
     
     /* Dato restituisce un array di tutti i  paratexts */

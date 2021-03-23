@@ -39,7 +39,8 @@
 
     /* Reperisco paratexts */
     $paratexts = new paratexts();
-    $paratext = $paratexts->getParatextByWorkId($id);
+    $paratext_id = $paratexts->getParatextByWorkId($id);
+    $paratext = $paratexts->getParatextById($paratext_id);
     $work['paratext']=$paratext['paratext'];
 
     /* Reperisco dati Author */
