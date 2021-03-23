@@ -315,7 +315,7 @@
 
                 /* Reperisco dati Translators */
                 $translators = new translators();
-                $arrTranslators = $translators->getTranslatorsByArticlesId($work_id);
+                $arrTranslators = $translators->getTranslatorsByArticleId($work_id);
                 $people = new peoples();
                 $arrTranslatorsResult = array();
                 foreach($arrTranslators as $peoples_id){
