@@ -7,11 +7,7 @@
 	<div id="content">
 		<div class="container">
 			<div class="row">
-					<h2>{{ phpPage.article.title }}
-					{% if phpPage.article.year %}
-						({{ phpPage.article.year }})
-					{% endif %}
-					</h2>
+					<h2>{{ phpPage.article.title }}</h2>
 
 			</div>
 			<div class="row">
@@ -19,18 +15,55 @@
 				<div class="col">
 					<p>
 						Author:
-						{% for author in phpPage.work.authors %}
+						{% for author in phpPage.article.authors %}
 						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
 						{% endfor %}
 					</p>
-
-					<p>Pubblication date: {{ phpPage.article.pubblication_date }} </p>
-					<p>Volume title: {{ phpPage.article.volume_title }} </p>
+					{% if phpPage.article.journal_title %}
 					<p>Journal title: {{ phpPage.article.journal_title }} </p>
+					{% endif %}
 
-					{% for author in phpPage.article.authors %}
-					<p><a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a></p>
-					{% endfor %}
+					{% if phpPage.article.journal_issue %}
+					<p>Journal issue: {{ phpPage.article.journal_issue }} </p>
+					{% endif %}
+
+					{% if phpPage.article.year %}
+					<p>Year: {{ phpPage.article.year }}</p>
+					{% endif %}
+
+					{% if phpPage.article.language %}
+					<p>
+						Language: {{ phpPage.article.language }}
+					</p>
+					{% endif %}
+
+					{% if phpPage.article.pages %}
+					<p>
+						Pages: {{ phpPage.article.pages }}
+					</p>
+					{% endif %}
+
+
+					{% if phpPage.article.issn %}
+					<p>
+						ISSN: {{ phpPage.article.issn }}
+					</p>
+					{% endif %}
+
+
+					{% if phpPage.article.open_access %}
+					<p>
+						Open access: {{ phpPage.article.open_access }}
+					</p>
+					{% endif %}
+
+					{% if phpPage.article.doi %}
+					<p>
+						DOI: {{ phpPage.article.doi }}
+					</p>
+					{% endif %}
+
+
 
 					<!-- questo dovrebbe essere un pop-up -->
 					<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
@@ -50,16 +83,9 @@
 					{% endif %}
 					&nbsp;{{ phpPage.article.city }} {{ phpPage.article.libraries }}
 
-					{% if phpPage.article.language %}
-					<p>
-						Language: {{ phpPage.article.language }}
-					</p>
-					{% endif %}
 
 
-					<p>
-						Pages: {{ phpPage.article.pages }} | ISBN: {{ phpPage.article.isbn }} | ISSN: {{ phpPage.article.isbn }}
-					</p>
+
 
 
 					{% if phpPage.article.editors %}
