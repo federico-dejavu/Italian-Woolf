@@ -37,7 +37,6 @@ class authors{
         if($id>0){
             $db = new DBManager();
             $query = "SELECT peoples_id FROM articles_authors WHERE articles_id = $id";
-            echo $query;
             $arrPeoples = $db->queryList($query);
         }
         return $arrPeoples;

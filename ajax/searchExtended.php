@@ -282,7 +282,7 @@
                     }
                     $singleArticle['translators']=$arrTranslatorsResult;
 
-                    $arrayArticles[]=$singleArticles;
+                    $arrayArticles[]=$singleArticle;
                 }
             }
         } else {
@@ -306,7 +306,7 @@
                 $authors = new authors();
                 $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
                 $people = new peoples();
-                $arrElements = array();
+                $arrAuthorsResult = array();
                 foreach($arrAuthors as $peoples_id){
                     $author = $people->getPeopleById($peoples_id);
                     array_push($arrAuthorsResult,$author);
@@ -324,11 +324,11 @@
                 }
                 $singleArticle['translators']=$arrTranslatorsResult;
 
-                $arrayArticles[]=$singleArticles;
+                $arrayArticles[]=$singleArticle;
             }
         }
     }
-//    var_dump($arrayArticles);
+    var_dump($arrayArticles);
 
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
