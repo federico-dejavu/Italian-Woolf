@@ -8,9 +8,9 @@ class paratexts{
         if($paratexts_id){
             $db = new DBManager();
             $query = "SELECT id, paratexts FROM paratexts_id WHERE id = $paratexts_id";
-            $arrElements = $db->query($query);
+            $paratext = $db->query($query);
         }
-        return $arrElements;
+        return $paratext[0];
     }   
 
     /* Dato un work restituisce un paratext */
@@ -20,7 +20,7 @@ class paratexts{
             $query = "SELECT paratexts_id FROM works_paratexts WHERE works_id = $work_id";
             $paratext_id = $db->queryList($query);
         }
-        return $paratext_id;
+        return $paratext_id[0];
     }    
     
     /* Dato restituisce un array di tutti i  paratexts */
