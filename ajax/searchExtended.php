@@ -221,7 +221,7 @@
                 $allArticlesID = $articles->getAllArticles();
             }
    
-            $arrayArticles=array();
+            $arrayArticle=array();
             foreach($allArticlesID as $articles_id){
                 $trovato = 0;
                 if($postAuthors){
@@ -292,7 +292,7 @@
                 echo "</pre>";
             }
             // Solo se non devo filtrare per peoples
-            $arrayArticles=array();
+            $arrayArticle=array();
             foreach($allArticlesID as $articles_id){
                 //$arrayArticles['id'] = $articles_id;
                 $singleArticles = $articles->getArticlesByArticles_id($articles_id);
