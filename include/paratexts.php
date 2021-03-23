@@ -7,7 +7,7 @@ class paratexts{
     public function getParatextById($paratexts_id = "") {      
         if($paratexts_id){
             $db = new DBManager();
-            $query = "SELECT id, paratexts FROM paratexts_id WHERE id = $paratexts_id";
+            $query = "SELECT id, paratexts FROM paratexts WHERE paratexts_id = $paratexts_id";
             $paratext = $db->query($query);
         }
         return $paratext[0];
