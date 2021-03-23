@@ -12,89 +12,101 @@
 						({{ phpPage.article.year }})
 					{% endif %}
 					</h2>
-					<h3>
-						{{ phpPage.article.abstract }}	
-					</h3>
+
 			</div>
 			<div class="row">
-				<p>Pubblication date: {{ phpPage.article.pubblication_date }} </p>
-				<p>Volume title: {{ phpPage.article.volume_title }} </p>
-				<p>Journal title: {{ phpPage.article.journal_title }} </p>
 
-				{% for author in phpPage.article.authors %}
-				<p><a href="people.php?id={{ author.id }}" > <b>{{ author.fullname }}</b> </a></p>
-				{% endfor %}  
-
-				<!-- questo dovrebbe essere un pop-up -->
-				<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
-
-				{% if phpPage.article.editors %}
-				<p>
-				Editor:
-				{% for editor in phpPage.article.editors %}
-					{{ editor.fullname }}
-				{% endfor %} 
-				</p>
-				{% endif %} 
-
-				{{ phpPage.article.publisher['publisher'] }}
-				{% if phpPage.article.serie %}	
-					<i> - {{ phpPage.article.serie }}</i>
-				{% endif %} 
-				&nbsp;{{ phpPage.article.city }} {{ phpPage.article.libraries }}
-
-				{% if phpPage.article.language %}
-				<p>
-				Language: {{ phpPage.article.language }}
-				</p>
-				{% endif %}
-
-
-				<p>
-				Pages: {{ phpPage.article.pages }} | ISBN: {{ phpPage.article.isbn }} | ISSN: {{ phpPage.article.isbn }}
-				</p>
-
-
-				{% if phpPage.article.editors %}
+				<div class="col">
 					<p>
-					Editor:
-					{% for editor in phpPage.article.editors %}
-						{{ editor.fullname }}|
-					{% endfor %}
+						Author:
+						{% for author in phpPage.work.authors %}
+						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
+						{% endfor %}
 					</p>
-				{% endif %}
 
-				{% if phpPage.article.translators %}
+					<p>Pubblication date: {{ phpPage.article.pubblication_date }} </p>
+					<p>Volume title: {{ phpPage.article.volume_title }} </p>
+					<p>Journal title: {{ phpPage.article.journal_title }} </p>
+
+					{% for author in phpPage.article.authors %}
+					<p><a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a></p>
+					{% endfor %}
+
+					<!-- questo dovrebbe essere un pop-up -->
+					<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
+
+					{% if phpPage.article.editors %}
 					<p>
-					Translator:
-					{% for translator in phpPage.article.translator %}
-						{{ translator.fullname }}|
-					{% endfor %}
+						Editor:
+						{% for editor in phpPage.article.editors %}
+						{{ editor.fullname }}
+						{% endfor %}
 					</p>
-				{% endif %}					
-
-
-
-				<p>
-					{% if phpPage.article.image %}
-					<img src="{{ phpPage.article.image }}" align="left">
 					{% endif %}
-					{{ phpPage.article.description }}
-				</p>  
-				
 
-				{% if phpPage.article.editions %}
-				<p>
-					Editions:
-				</p>
+					{{ phpPage.article.publisher['publisher'] }}
+					{% if phpPage.article.serie %}
+					<i> - {{ phpPage.article.serie }}</i>
+					{% endif %}
+					&nbsp;{{ phpPage.article.city }} {{ phpPage.article.libraries }}
+
+					{% if phpPage.article.language %}
+					<p>
+						Language: {{ phpPage.article.language }}
+					</p>
+					{% endif %}
+
+
+					<p>
+						Pages: {{ phpPage.article.pages }} | ISBN: {{ phpPage.article.isbn }} | ISSN: {{ phpPage.article.isbn }}
+					</p>
+
+
+					{% if phpPage.article.editors %}
+					<p>
+						Editor:
+						{% for editor in phpPage.article.editors %}
+						{{ editor.fullname }}|
+						{% endfor %}
+					</p>
+					{% endif %}
+
+					{% if phpPage.article.translators %}
+					<p>
+						Translator:
+						{% for translator in phpPage.article.translator %}
+						{{ translator.fullname }}|
+						{% endfor %}
+					</p>
+					{% endif %}
+
+
+
+					<p>
+						{% if phpPage.article.image %}
+						<img src="{{ phpPage.article.image }}" align="left">
+						{% endif %}
+						{{ phpPage.article.description }}
+					</p>
+
+
+					{% if phpPage.article.editions %}
+					<p>
+						Editions:
+					</p>
 					<ul>
 						{% for edition in phpPage.article.editions %}
-							<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
-							{% endfor %}
+						<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
+						{% endfor %}
 					</ul>
-				{% endif %}
+					{% endif %}
+
+					<P>
+						{{ phpPage.article.abstract }}
+					</P>
+				</div>
+				</div>
 			</div>
-		</div>
 	</div>
 {{ include('footer.html') }}
 <!— end Twig —>
