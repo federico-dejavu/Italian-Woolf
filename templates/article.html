@@ -24,6 +24,25 @@
 						{% endfor %}
 					</p>
 					{% endif %}
+					{% if phpPage.article.volume_title %}
+					<p>Volume title: {{ phpPage.article.volume_title }} </p>
+					{% endif %}
+
+					{% if phpPage.article.editors %}
+					<p>
+						Editor(s):
+						{% for editor in phpPage.article.editors %}
+						{% if not loop.first %} | {% endif %} {{ editor.fullname }}
+						{% endfor %}
+					</p>
+					{% endif %}
+					{% if phpPage.article.publisher_name %}
+					<!-- questo dovrebbe essere un pop-up -->
+					<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
+					{% endif %}
+					{% if phpPage.article.city %}
+					<p>City: {{ phpPage.article.city }} </p>
+					{% endif %}
 					{% if phpPage.article.journal_title %}
 					<p>Journal title: {{ phpPage.article.journal_title }} </p>
 					{% endif %}
@@ -72,17 +91,8 @@
 
 
 
-					<!-- questo dovrebbe essere un pop-up -->
-					<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
 
-					{% if phpPage.article.editors %}
-					<p>
-						Editor:
-						{% for editor in phpPage.article.editors %}
-						{{ editor.fullname }}
-						{% endfor %}
-					</p>
-					{% endif %}
+
 
 					{{ phpPage.article.publisher['publisher'] }}
 					{% if phpPage.article.serie %}
