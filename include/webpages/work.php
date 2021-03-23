@@ -39,10 +39,14 @@
 
     /* Reperisco paratexts */
     $paratexts = new paratexts();
-    $paratext_id = $paratexts->getParatextByWorkId($id);
-    $paratext = $paratexts->getParatextById($paratext_id);
-    $work['paratext']=$paratext['paratext'];
-
+    $paratexts_id = $paratexts->getParatextByWorkId($id);
+    $arrParatexts = array();
+    foreach($paratexts_id as $paratext_id){
+        $paratext = $paratexts->getParatextById($paratext_id);
+        $arrParatexts[] = $paratext;
+    }   
+    $work['paratext']=$arrParatexts;
+    var_dump( $work['paratext']);
     /* Reperisco dati Author */
     $authors = new authors();
     $arrAuthors = $authors->getAuthorsByWorkId($id);

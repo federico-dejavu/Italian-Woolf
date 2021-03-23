@@ -10,7 +10,7 @@ class paratexts{
             $query = "SELECT id, paratext FROM paratexts WHERE id = $paratexts_id";
             $paratext = $db->query($query);
         }
-        return $paratext[0];
+        return $paratext;
     }   
 
     /* Dato un work restituisce un paratext */
