@@ -15,11 +15,9 @@
 				<div class="col">
 
 
-					{% if phpPage.article.typology_id %}
-					<p>Text Typology: {{ phpPage.article.phpPage.article.typology_id }} </p>
+					{% if phpPage.article.typology %}
+					<p>Text Typology: {{ phpPage.article.typology }} </p>
 					{% endif %}
-
-
 					{% if phpPage.article.authors %}
 					<p>
 						Author:
@@ -28,7 +26,6 @@
 						{% endfor %}
 					</p>
 					{% endif %}
-
 					{% if phpPage.article.journal_title %}
 					<p>Journal title: {{ phpPage.article.journal_title }} </p>
 					{% endif %}

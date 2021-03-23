@@ -64,7 +64,7 @@
         death_date
         authority_record
         image   
-
+    typology
 **/
          
     $articlesObject = new articles();
@@ -109,7 +109,7 @@
     $languages = new languages();
     $language = $languages->getLanguageById($article['language']);
     $article['language']=$language['language']; 
-         
+    $article['typology']=$article['typology'];     
     $phpPage['article'] = $article;
     
 ?>
