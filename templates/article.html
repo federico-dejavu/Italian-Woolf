@@ -90,35 +90,22 @@
 					{% endif %}
 
 
-
-
-
-
-					{{ phpPage.article.publisher['publisher'] }}
+					{% if phpPage.article.publisher['publisher'] %}
+					<p>
+						Publisher: {{ phpPage.article.publisher['publisher'] }}
+					</p>
+					{% endif %}
 					{% if phpPage.article.serie %}
-					<i> - {{ phpPage.article.serie }}</i>
-					{% endif %}
-					&nbsp;{{ phpPage.article.city }} {{ phpPage.article.libraries }}
-
-					{% if phpPage.article.editors %}
 					<p>
-						Editor:
-						{% for editor in phpPage.article.editors %}
-						{{ editor.fullname }}|
-						{% endfor %}
+						Serie: {{ phpPage.article.serie }}
 					</p>
 					{% endif %}
 
-					{% if phpPage.article.translators %}
+					{% if phpPage.article.libraries %}
 					<p>
-						Translator:
-						{% for translator in phpPage.article.translator %}
-						{{ translator.fullname }}|
-						{% endfor %}
+						Libraries: {{ phpPage.article.libraries }}
 					</p>
 					{% endif %}
-
-
 
 					<p>
 						{% if phpPage.article.image %}
@@ -143,9 +130,9 @@
 						{{ phpPage.article.abstract }}
 					</P>
 				</div>
+					</div>
 				</div>
-			</div>
-	</div>
-{{ include('footer.html') }}
-<!— end Twig —>
-{% endautoescape %}
+		</div>
+	{{ include('footer.html') }}
+	<!— end Twig —>
+	{% endautoescape %}
