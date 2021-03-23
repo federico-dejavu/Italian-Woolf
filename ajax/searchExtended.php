@@ -302,7 +302,7 @@
                 $publisher = $publisherObject->getPublisherById($singleArticle['publisher_id']);
                 $singleArticle['publisher']=$publisher;
 
-                /* Reperisco dati Author */
+               /* Reperisco dati Author */
                 $authors = new authors();
                 $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
                 $people = new peoples();
@@ -328,8 +328,8 @@
             }
         }
     }
-    var_dump($arrayArticles);
-    
+//    var_dump($arrayArticles);
+
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
         echo "<pre> Works</br>";

@@ -40,7 +40,7 @@
     libraries
     image
     doi
-    authos[]
+    authors[]
     editors[]
     authority_record
     image
