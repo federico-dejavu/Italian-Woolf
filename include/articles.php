@@ -49,7 +49,7 @@ class articles{
     public function getArticlesByParam($keyOptimized = "",$postNome = "",$postAuthors = "",$postTranslators = "",$postEditors = "",$postTitle = "",$postPublisher = "",$postJournal = "",$fromYear="",$toYear="",$postLanguage = "",$postTypology = "",$postopenAccess = "") {
         $arrWorksID = array();
         $db = new DBManager();
-        $query = "SELECT distinct(articles.id),title";
+        $query = "SELECT distinct(articles.id),title,year";
         $from =" FROM articles";
         $where =" articles.id != '' ";
         $passo = 0;
@@ -103,9 +103,8 @@ class articles{
             $where = $where." and articles.open_access =  $postopenAccess";
         }         
 
-        $query = $query.$from." WHERE ".$where." order by articles.title asc";
-        echo $query;
-        
+        $query = $query.$from." WHERE ".$where." order by articles.year asc";
+
         if (DEBUG) {
             echo "<pre>getArticlesByParam Query</br>";
             var_dump($query);
