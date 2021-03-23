@@ -282,7 +282,7 @@
                     }
                     $singleArticle['translators']=$arrTranslatorsResult;
 
-                    $arrayArticles[]=$singleArticles;
+                    $arrayArticles[]=$singleArticle;
                 }
             }
         } else {
@@ -324,7 +324,7 @@
                 }
                 $singleArticle['translators']=$arrTranslatorsResult;
 
-                $arrayArticles[]=$singleArticles;
+                $arrayArticles[]=$singleArticle;
             }
         }
     }
