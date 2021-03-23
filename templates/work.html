@@ -8,81 +8,59 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2>{{ phpPage.work.title }}
-					{% if phpPage.work.year %}
-						({{ phpPage.work.year }})
-					{% endif %}
+					<h2>{{ phpPage.work.title }}{% if phpPage.work.year %} ({{ phpPage.work.year }}){% endif %}
 					</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
-					{% for author in phpPage.work.authors %}
-						<p><a href="people.php?id={{ author.id }}" > <b>{{ author.fullname }}</b> </a></p>
-					{% endfor %}  
-
-
-					<!-- questo dovrebbe essere un pop-up -->
-					<a href="publisher.php?subject={{ phpPage.work.publisher_name }}&id={{ phpPage.work.publisher_id }}" ><i>{{ phpPage.work.publisher_name }}</i> </a>
-					
-					{{ phpPage.work.publisher['publisher'] }}
-					{% if phpPage.work.serie %}	
-						<i> - {{ phpPage.work.serie }}</i>
-					{% endif %} 
-					&nbsp;{{ phpPage.work.city }} {{ phpPage.work.libraries }}
-
-					{% if phpPage.work.secondary_authors %}
-						<p>
-						Secondary Author:
-						{% for secondary_author in phpPage.work.secondary_authors %}
-							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ secondary_author.id }}" > <b>{{ secondary_author.fullname }}</b> </a>
-						{% endfor %}
-						</p>
+					{% if phpPage.work.authors %}
+						<br />Authors:
+						{% for author in phpPage.work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
 					{% endif %}
-
-					{% if phpPage.work.language %}
-					<p>
-					Language: {{ phpPage.work.language }}
-					</p>
-					{% endif %}
-
-					{% if phpPage.work.isbn %}
-					<p>
-					Pages: {{ phpPage.work.pages }} | ISBN: {{ phpPage.work.isbn }}
-					</p>
-					{% endif %}
-
-					{% if phpPage.work.editors %}
-						<p>
-						Editor:
-						{% for editor in phpPage.work.editors %}
-							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ editor.id }}" > <b>{{ editor.fullname }}</b> </a>
-						{% endfor %}
-						</p>
-					{% endif %}
-
 					{% if phpPage.work.translators %}
-						<p>
-						Translator:
-						{% for translator in phpPage.work.translator %}
-							{% if not loop.first %} | {% endif %}<a href="people.php?id={{ translator.id }}" > <b>{{ translator.fullname }}</b> </a>
-						{% endfor %}
-						</p>
-					{% endif %}					
-
-
-
+						<br />Translators:
+						{% for translator in phpPage.work.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
+					{% endif %}
+					{% if phpPage.work.secondary_authors %}
+						<br />Secondary authors:
+						{% for secondary_author in phpPage.work.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_authors.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
+					{% endif %}
+					{% if phpPage.work.editors %}
+						<br />Editors:
+						{% for editor in phpPage.work.editors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ editor.fullname }}</a>{% endfor %}
+					{% endif %}
+					{% if phpPage.work.illustrators %}
+						<br />Illustrators:
+						{% for illustrator in phpPage.work.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ illustrator.fullname }}</a>{% endfor %}
+					{% endif %}
+					{% if phpPage.work.publisher_id %}
+						<br />Publisher:
+						<a href="publisher.php?subject={{ phpPage.work.publisher_name }}&id={{ phpPage.work.publisher_id }}" ><i>{{ phpPage.work.publisher_name }}</i> </a>
+					{% endif %}
+					{% if work.city %}
+						<br />City: {{ phpPage.work.city }}
+					{% endif %}
+					{% if work.pages %}
+						<br />Pages: {{ phpPage.work.pages }}
+					{% endif %}
+					{% if phpPage.work.language %}
+						<br />Language: {{ phpPage.work.language }}
+					{% endif %}
+					{% if phpPage.work.isbn %}
+						<br />ISBN: {{ phpPage.work.isbn }}
+					{% endif %}
+					{% if phpPage.work.image %}
+						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
+					{% endif %}
+					{% if phpPage.work.description %}
 					<p>
-						{% if phpPage.work.image %}
-						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left">
-						{% endif %}
 						{{ phpPage.work.description }}
 					</p>  
-					
-
+					{% endif %}
 					{% if phpPage.work.editions %}
 					<p>
-						Editions:
+						Other Editions:
 					</p>
 						<ul>
 							{% for edition in phpPage.work.editions %}
