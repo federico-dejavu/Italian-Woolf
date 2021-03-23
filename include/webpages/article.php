@@ -81,6 +81,7 @@
     }
     $article['authors']=$arrElements;
 
+
     /* Reperisco dati Editor */
     $editors = new editors();
     $arrEditors = $editors->getEditorsByArticleId($id);
@@ -90,6 +91,7 @@
         $arrElements[] = $editor;     
     }
     $article['editors']=$arrElements; 
+  
             
     /* Reperisco dati publisher */
     $publisherObject = new publishers();
