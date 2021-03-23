@@ -24,7 +24,7 @@
 								{% if edition.publisher %}<br /><a href="publisher.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>{% endif %}</li>
 							{% endfor %}
 						</ul>
-				{% endfor %}
+					{% endfor %}
 				</div>
 				{% endif%}
 				{% if articles %}
@@ -43,11 +43,10 @@
 							<br />Translators:
 							{% for translator in article.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
 						{% endif %}
-				{% endfor %}
+					{% endfor %}
 				</div>
 				{% endif%}
 			</div>
-			{% endif%}
 		</div> {# container #}
 <!— end Twig —>
 {% endautoescape %}
