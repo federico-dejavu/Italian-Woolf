@@ -46,6 +46,10 @@
 					{% endif %}
 					{% if phpPage.work.language %}
 						<br />Language: {{ phpPage.work.language }}
+					{% endif %}					
+					{% if phpPage.work.paratexts %}
+						<br />Paratexts:
+						{% for paratext in phpPage.work.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.work.isbn %}
 						<br />ISBN: {{ phpPage.work.isbn }}

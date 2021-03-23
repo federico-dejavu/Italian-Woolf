@@ -45,8 +45,8 @@
         $paratext = $paratexts->getParatextById($paratext_id);
         $arrParatexts[] = $paratext;
     }   
-    $work['paratext']=$arrParatexts;
-    var_dump( $work['paratext']);
+    $work['paratexts']=$arrParatexts;
+
     /* Reperisco dati Author */
     $authors = new authors();
     $arrAuthors = $authors->getAuthorsByWorkId($id);
