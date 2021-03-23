@@ -253,7 +253,7 @@
 
                 if($trovato == 1){
                     //$arrayArticles['id'] = $articles_id;
-                    $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+                    $singleArticle = $articles->getArticlesByArticles_id($articles_id);
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
@@ -295,7 +295,7 @@
             $arrayArticle=array();
             foreach($allArticlesID as $articles_id){
                 //$arrayArticles['id'] = $articles_id;
-                $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+                $singleArticle = $articles->getArticlesByArticles_id($articles_id);
 
                 /* Reperisco dati publisher */
                 $publisherObject = new publishers();
