@@ -14,13 +14,13 @@ class paratexts{
     }   
 
     /* Dato un work restituisce un paratext */
-    public function getParatextByWorkId($work_id = "") {
+    public function getParatextsByWorkId($work_id = "") {
         if($work_id){
             $db = new DBManager();
             $query = "SELECT paratexts_id FROM works_paratexts WHERE works_id = $work_id";
-            $paratext_id = $db->queryList($query);
+            $paratexts_id = $db->queryList($query);
         }
-        return $paratext_id[0];
+        return $paratexts_id;
     }    
     
     /* Dato restituisce un array di tutti i  paratexts */

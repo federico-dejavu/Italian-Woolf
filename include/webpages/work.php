@@ -39,7 +39,7 @@
 
     /* Reperisco paratexts */
     $paratexts = new paratexts();
-    $paratexts_id = $paratexts->getParatextByWorkId($id);
+    $paratexts_id = $paratexts->getParatextsByWorkId($id);
     $arrParatexts = array();
     foreach($paratexts_id as $paratext_id){
         $paratext = $paratexts->getParatextById($paratext_id);
