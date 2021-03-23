@@ -221,7 +221,7 @@
                 $allArticlesID = $articles->getAllArticles();
             }
    
-            $arrayArticles=array();
+            $arrayArticle=array();
             foreach($allArticlesID as $articles_id){
                 $trovato = 0;
                 if($postAuthors){
@@ -253,7 +253,7 @@
 
                 if($trovato == 1){
                     //$arrayArticles['id'] = $articles_id;
-                    $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+                    $singleArticle = $articles->getArticlesByArticles_id($articles_id);
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
@@ -292,10 +292,10 @@
                 echo "</pre>";
             }
             // Solo se non devo filtrare per peoples
-            $arrayArticles=array();
+            $arrayArticle=array();
             foreach($allArticlesID as $articles_id){
                 //$arrayArticles['id'] = $articles_id;
-                $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+                $singleArticle = $articles->getArticlesByArticles_id($articles_id);
 
                 /* Reperisco dati publisher */
                 $publisherObject = new publishers();
@@ -328,7 +328,7 @@
             }
         }
     }
-    var_dump($arrayArticles);
+    var_dump($arrayArticles[0]);
 
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
