@@ -36,7 +36,7 @@ class articles{
        
         if($id){
             $db = new DBManager();
-            $queryW = "SELECT id, title, volume_title, journal_title, journal_issue, pubblication_date, year, publisher_id, city, serie_id, pages, price, typology_id, language, open_access, abstract, description, isbn, issn, libraries, image, doi, typology FROM articles, typologies WHERE articles.id = $id and typologies.id=articles.typology_id order by title asc";
+            $queryW = "SELECT articles.id, title, volume_title, journal_title, journal_issue, pubblication_date, year, publisher_id, city, serie_id, pages, price, typology_id, language, open_access, abstract, description, isbn, issn, libraries, image, doi, typology FROM articles, typologies WHERE articles.id = $id and typologies.id=articles.typology_id order by title asc";
 
             $arrArticles = $db->query($queryW);
         }

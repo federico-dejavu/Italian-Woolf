@@ -111,5 +111,5 @@
     $article['language']=$language['language']; 
     $article['typology']=$article['typology'];     
     $phpPage['article'] = $article;
-    var_dump($phpPage);
+    //var_dump($phpPage);
 ?>
