@@ -223,14 +223,11 @@
    
             $arrayArticles=array();
             foreach($allArticlesID as $articles_id){
-
-              $trovato = 0;
+                $trovato = 0;
                 if($postAuthors){
                     $authors = new authors();
                     $authorList = $authors->getAuthorsByArticleId($articles_id);
-
                     $intersec = array_intersect($peoplesList,$authorList);
-
                     if(!empty($intersec)){
                         $trovato = 1;
                     }
@@ -260,22 +257,30 @@
 
                     /* Reperisco dati publisher */
                     $publisherObject = new publishers();
-                    $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
-                    $singleArticles['publisher']=$publisher[0]['publisher'];
+                    $publisher = $publisherObject->getPublisherById($singleArticle['publisher_id']);
+                    $singleArticle['publisher']=$publisher;
 
                     /* Reperisco dati Author */
                     $authors = new authors();
                     $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
-                
                     $people = new peoples();
-                    $arrElements = array();
+                    $arrAuthorsResult = array();
                     foreach($arrAuthors as $peoples_id){
-                
                         $author = $people->getPeopleById($peoples_id);
-                    
-                        $arrElements[] = $author;     
+                        array_push($arrAuthorsResult,$author);
                     }
-                    $singleArticles['author']=$arrElements;
+                    $singleArticle['authors']=$arrAuthorsResult;
+
+                    /* Reperisco dati Translators */
+                    $translators = new translators();
+                    $arrTranslators = $translators->getTranslatorsByWorkId($articles_id);
+                    $people = new peoples();
+                    $arrTranslatorsResult = array();
+                    foreach($arrTranslators as $peoples_id){
+                        $translator = $people->getPeopleById($peoples_id);
+                        array_push($arrTranslatorsResult,$translator);
+                    }
+                    $singleArticle['translators']=$arrTranslatorsResult;
 
                     $arrayArticles[]=$singleArticles;
                 }
@@ -289,29 +294,37 @@
             // Solo se non devo filtrare per peoples
             $arrayArticles=array();
             foreach($allArticlesID as $articles_id){
-                    //$arrayArticles['id'] = $articles_id;
-                    $singleArticles = $articles->getArticlesByArticles_id($articles_id);
+                //$arrayArticles['id'] = $articles_id;
+                $singleArticles = $articles->getArticlesByArticles_id($articles_id);
 
-                    /* Reperisco dati publisher */
-                    $publisherObject = new publishers();
-                    $publisher = $publisherObject->getPublisherById($singleArticles['publisher_id']);
-                    $singleArticles['publisher']=$publisher[0]['publisher'];
+                /* Reperisco dati publisher */
+                $publisherObject = new publishers();
+                $publisher = $publisherObject->getPublisherById($singleArticle['publisher_id']);
+                $singleArticle['publisher']=$publisher;
 
-                    /* Reperisco dati Author */
-                    $authors = new authors();
-                    $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
-                
-                    $people = new peoples();
-                    $arrElements = array();
-                    foreach($arrAuthors as $peoples_id){
-                
-                        $author = $people->getPeopleById($peoples_id);
-                    
-                        $arrElements[] = $author;     
-                    }
-                    $singleArticles['author']=$arrElements;
+                /* Reperisco dati Author */
+                $authors = new authors();
+                $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
+                $people = new peoples();
+                $arrElements = array();
+                foreach($arrAuthors as $peoples_id){
+                    $author = $people->getPeopleById($peoples_id);
+                    array_push($arrAuthorsResult,$author);
+                }
+                $singleArticle['authors']=$arrAuthorsResult;
 
-                    $arrayArticles[]=$singleArticles;
+                /* Reperisco dati Translators */
+                $translators = new translators();
+                $arrTranslators = $translators->getTranslatorsByArticles_id($work_id);
+                $people = new peoples();
+                $arrTranslatorsResult = array();
+                foreach($arrTranslators as $peoples_id){
+                    $translator = $people->getPeopleById($peoples_id);
+                    array_push($arrTranslatorsResult,$translator);
+                }
+                $singleArticle['translators']=$arrTranslatorsResult;
+
+                $arrayArticles[]=$singleArticles;
             }
         }
     }
