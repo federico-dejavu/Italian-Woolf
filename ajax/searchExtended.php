@@ -328,7 +328,6 @@
             }
         }
     }
-    var_dump($arrayArticles[0]);
 
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
