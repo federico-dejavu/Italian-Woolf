@@ -27,17 +27,25 @@
 				{% endfor %}
 				</div>
 				{% endif%}
-				{% if works %}
-				<div class="col-md-6 articles">
+				{% if articles %}
+				<div class="col-md-6 works">
 					<h2>Articles</h2>
-				{% for article in articles %}
-					<p>
-					<a href="article.php?id={{ article.id }}"><b>{{ article.title }},</b></a> {{ article.year }} / <a href="article.php?id={{ article.id }}"></a>{{ article.publisher }} -
-						{% for author in article.author %}
-							{{ author.fullname }}
-						{% endfor %}
-					</p>
-				 {% endfor %}    
+					{% for article in articles %}
+						<a href="article.php?id={{ article.id }}"><b>{{ article.title }}</b></a>{% if article.year %}, {{ article.year }}{% endif %}
+						{% if article.publisher %}
+							<br /><a href="publisher.php?id={{ article.publisher.id }}">{{ article.publisher.publisher }}</a>
+						{% endif %}
+						{% if article.authors %}
+							<br />Authors:
+							{% for author in article.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
+						{% endif %}
+						{% if article.translators %}
+							<br />Translators:
+							{% for translator in article.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
+						{% endif %}
+				{% endfor %}
+				</div>
+				{% endif%}
 			</div>
 			{% endif%}
 		</div> {# container #}
