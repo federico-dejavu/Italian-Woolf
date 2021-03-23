@@ -13,12 +13,15 @@
 			<div class="row">
 
 				<div class="col">
+					{% if phpPage.article.authors %}
 					<p>
 						Author:
 						{% for author in phpPage.article.authors %}
 						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
 						{% endfor %}
 					</p>
+					{% endif %}
+
 					{% if phpPage.article.journal_title %}
 					<p>Journal title: {{ phpPage.article.journal_title }} </p>
 					{% endif %}
@@ -53,13 +56,18 @@
 
 					{% if phpPage.article.open_access %}
 					<p>
-						Open access: {{ phpPage.article.open_access }}
+						Open access:
+						{% if phpPage.article.open_access == 1 %}
+						yes
+						{% else %}
+						no
+						{% endif %}
 					</p>
 					{% endif %}
 
 					{% if phpPage.article.doi %}
 					<p>
-						DOI: {{ phpPage.article.doi }}
+						DOI: <a href="{{ phpPage.article.doi }}" target?"main">{{ phpPage.article.doi }}</a>
 					</p>
 					{% endif %}
 
@@ -82,11 +90,6 @@
 					<i> - {{ phpPage.article.serie }}</i>
 					{% endif %}
 					&nbsp;{{ phpPage.article.city }} {{ phpPage.article.libraries }}
-
-
-
-
-
 
 					{% if phpPage.article.editors %}
 					<p>
