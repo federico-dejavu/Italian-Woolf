@@ -269,7 +269,6 @@
                         $author = $people->getPeopleById($peoples_id);
                         array_push($arrAuthorsResult,$author);
                     }
-                    var_dump($arrAuthorsResult);
                     $singleArticle['authors']=$arrAuthorsResult;
 
                     /* Reperisco dati Translators */
@@ -307,7 +306,7 @@
                 $authors = new authors();
                 $arrAuthors = $authors->getAuthorsByArticleId($articles_id);
                 $people = new peoples();
-                $arrElements = array();
+                $arrAuthorsResult = array();
                 foreach($arrAuthors as $peoples_id){
                     $author = $people->getPeopleById($peoples_id);
                     array_push($arrAuthorsResult,$author);
