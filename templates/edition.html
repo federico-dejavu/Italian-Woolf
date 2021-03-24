@@ -54,8 +54,8 @@
 					{% if phpPage.edition.isbn %}
 						<br />ISBN: {{ phpPage.edition.isbn }}
 					{% endif %}
-					{% if phpPage.edition.work_id %}
-						<br />First edition: <a href="work.php?id={{ phpPage.edition.work_id }}" >{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
+					{% if phpPage.edition.works_id %}
+						<br />First edition: <a href="work.php?id={{ phpPage.edition.works_id }}" >{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
 					{% endif %}
 				</div>
 			</div>

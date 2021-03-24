@@ -19,6 +19,8 @@
   ["id"]
   ["title"]
   ["works_id"]
+  ["work_title"]
+  ["work_year"]
   ["original"]
   ["year"]
   ["publisher_id"]
