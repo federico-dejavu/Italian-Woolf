@@ -70,9 +70,8 @@
 					{% if phpPage.article.serie %}
 						<br />Serie: {{ phpPage.article.serie }}
 					{% endif %}
-
 					{% if phpPage.article.libraries %}
-						<br />Libraries: {{ phpPage.article.libraries }}
+						<br />Libraries:  <a href="{{ phpPage.article.libraries }}" target="_blank">{{ phpPage.article.libraries }}</a>
 					{% endif %}
 					{% if phpPage.article.image or phpPage.article.description  or phpPage.article.abstract %}
 				</div>
