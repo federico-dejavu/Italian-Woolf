@@ -17,6 +17,19 @@ class secondary_authors{
         return $arrPeoples;
     }         
   
+      /* Dato una edition restituisce un array di secondary_author */
+      public function getSecondaryAuthorsByEditionId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT peoples_id FROM editions_secondary_authors WHERE editions_id = $id";
+            $arrPeoples = $db->queryList($query);
+        }
+        return $arrPeoples;
+    }         
+
     /* Dato un second_author restituisce un array di works */
     public function getWorksBySecondary_authorsId($id = "") {
 
