@@ -107,5 +107,5 @@
     $phpPage['editor']          = $editorWorksAll;
     $phpPage['translator']      = $translatorWorksAll;
     $phpPage['illustrator']     = $illustratorWorksAll;
-	var_dump($phpPage);
+	var_dump($phpPage['people']);
 ?>
