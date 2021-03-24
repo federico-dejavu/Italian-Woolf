@@ -16,7 +16,42 @@
 
 /**  
 
-
+  ["id"]
+  ["title"]
+  ["works_id"]
+  ["original"]
+  ["year"]
+  ["publisher_id"]
+  ["city"]
+  ["serie_id"]
+  ["pages"]
+  ["price"]
+  ["description"]
+  ["isbn"]
+  ["libraries"]
+  ["image"]
+  ["work_title"]
+  ["publisher_name"]
+  ["publisher_link"]
+  ["serie"]
+  ["language"]
+  ["paratexts"]
+      ["id"]
+      ["paratext"]
+  ["authors"]
+      ["id"]
+      ["other_name"]
+      ["fullname"]
+      ["birth_date"]
+      ["death_date"]
+      ["authority_record"]
+      ["image"]
+      ["description"]
+    }
+  }
+  ["secondary_authors"]
+  ["editors"]
+  ["illustrators"]
 **/
 
     $id = (isset($_REQUEST['id']) ? $_REQUEST['id'] : '');
