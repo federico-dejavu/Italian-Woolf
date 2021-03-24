@@ -8,131 +8,107 @@
 		<div class="container">
 			<div class="row">
 					<h2>{{ phpPage.article.title }}</h2>
-
 			</div>
 			<div class="row">
-
 				<div class="col">
 					{% if phpPage.article.typology %}
-					<p>Text Typology: {{ phpPage.article.typology }} </p>
+						<br />Text Typology: {{ phpPage.article.typology }}
 					{% endif %}
 					{% if phpPage.article.authors %}
-					<p>
-						Author:
+						<br />Author:
 						{% for author in phpPage.article.authors %}
 						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
 						{% endfor %}
-					</p>
 					{% endif %}
 					{% if phpPage.article.volume_title %}
-					<p>Volume title: {{ phpPage.article.volume_title }} </p>
+						<br />Volume title: {{ phpPage.article.volume_title }}
 					{% endif %}
-
 					{% if phpPage.article.editors %}
-					<p>
-						Editor(s):
+						<br />Editor(s):
 						{% for editor in phpPage.article.editors %}
-						{% if not loop.first %} | {% endif %} {{ editor.fullname }}
+							{% if not loop.first %} | {% endif %} {{ editor.fullname }}
 						{% endfor %}
-					</p>
 					{% endif %}
 					{% if phpPage.article.publisher_name %}
-					<!-- questo dovrebbe essere un pop-up -->
-					<a href="publisher.php?id={{ phpPage.article.publisher_id }}" target="main"><i>{{ phpPage.article.publisher_name }}</i> </a>
+						<a href="publisher.php?id={{ phpPage.article.publisher_id }}">{{ phpPage.article.publisher_name }}</a>
 					{% endif %}
 					{% if phpPage.article.city %}
-					<p>City: {{ phpPage.article.city }} </p>
+						<br />City: {{ phpPage.article.city }}
 					{% endif %}
 					{% if phpPage.article.journal_title %}
-					<p>Journal title: {{ phpPage.article.journal_title }} </p>
+						<br />Journal title: {{ phpPage.article.journal_title }}
 					{% endif %}
 					{% if phpPage.article.journal_issue %}
-					<p>Journal issue: {{ phpPage.article.journal_issue }} </p>
+						Journal issue: {{ phpPage.article.journal_issue }}
 					{% endif %}
 					{% if phpPage.article.year %}
-					<p>Year: {{ phpPage.article.year }}</p>
+						<br />Year: {{ phpPage.article.year }}
 					{% endif %}
 					{% if phpPage.article.language %}
-					<p>
-						Language: {{ phpPage.article.language }}
-					</p>
+						<br />Language: {{ phpPage.article.language }}
 					{% endif %}
-
 					{% if phpPage.article.pages %}
-					<p>
-						Pages: {{ phpPage.article.pages }}
-					</p>
+						<br />Pages: {{ phpPage.article.pages }}
 					{% endif %}
-
-
 					{% if phpPage.article.issn %}
-					<p>
-						ISSN: {{ phpPage.article.issn }}
-					</p>
+						<br />ISSN: {{ phpPage.article.issn }}
 					{% endif %}
-
-
 					{% if phpPage.article.open_access %}
-					<p>
-						Open access:
+						<br />Open access:
 						{% if phpPage.article.open_access == 1 %}
-						yes
+							Yes
 						{% else %}
-						no
+							No
 						{% endif %}
-					</p>
 					{% endif %}
-
 					{% if phpPage.article.doi %}
-					<p>
-						DOI: <a href="{{ phpPage.article.doi }}" target="main">{{ phpPage.article.doi }}</a>
-					</p>
+						<br />DOI: <a href="{{ phpPage.article.doi }}">{{ phpPage.article.doi }}</a>
 					{% endif %}
-
-
 					{% if phpPage.article.publisher['publisher'] %}
-					<p>
-						Publisher: {{ phpPage.article.publisher['publisher'] }}
-					</p>
+						<br />Publisher: {{ phpPage.article.publisher['publisher'] }}
 					{% endif %}
 					{% if phpPage.article.serie %}
-					<p>
-						Serie: {{ phpPage.article.serie }}
-					</p>
+						<br />Serie: {{ phpPage.article.serie }}
 					{% endif %}
 
 					{% if phpPage.article.libraries %}
-					<p>
-						Libraries: {{ phpPage.article.libraries }}
-					</p>
+						<br />Libraries: {{ phpPage.article.libraries }}
 					{% endif %}
-
+					{% if phpPage.article.image or phpPage.article.description  or phpPage.article.abstract %}
+				</div>
+				<div class="col">
+					{% endif %}
+					{% if phpPage.article.image %}
+						<img src="/italianwoolf/public/{{ phpPage.article.image }}" align="left" class="image">
+					{% endif %}
+					{% if phpPage.article.description %}
 					<p>
-						{% if phpPage.article.image %}
-						<img src="{{ phpPage.article.image }}" align="left">
-						{% endif %}
 						{{ phpPage.article.description }}
-					</p>
-
-
-					{% if phpPage.article.editions %}
+					</p>  
+					{% if phpPage.article.description %}
+					<p>
+						Abstract: {{ phpPage.article.description }}
+					</p>  
+					{% endif %}
+					{% if phpPage.article.abstract %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
 					<p>
 						Editions:
 					</p>
-					<ul>
-						{% for edition in phpPage.article.editions %}
-						<li> <a href=""><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
-						{% endfor %}
-					</ul>
+						<ul>
+							{% for edition in phpPage.article.editions %}
+								
+								<li> <a href="edition.php?subject={{ edition.title }}&id={{ edition.id }}" ><b>{{ edition.title }}</b></a> - {{ edition.year }}</li>
+							{% endfor %}
+						</ul>
 					{% endif %}
-
-					<P>
-						{{ phpPage.article.abstract }}
-					</P>
 				</div>
-					</div>
-				</div>
+			</div>
 		</div>
-	{{ include('footer.html') }}
-	<!— end Twig —>
-	{% endautoescape %}
+	</div>
+{{ include('footer.html') }}
+<!— end Twig —>
+{% endautoescape %}
