@@ -38,7 +38,7 @@
   ["paratexts"]
       ["id"]
       ["paratext"]
-  ["authors"]
+  ["authors"] ["secondary_authors"] ["editors"] ["illustrators"]
       ["id"]
       ["other_name"]
       ["fullname"]
@@ -47,11 +47,6 @@
       ["authority_record"]
       ["image"]
       ["description"]
-    }
-  }
-  ["secondary_authors"]
-  ["editors"]
-  ["illustrators"]
 **/
 
     $id = (isset($_REQUEST['id']) ? $_REQUEST['id'] : '');
@@ -68,13 +63,13 @@
     $publisherObject = new publishers();
     $publisher = $publisherObject->getPublisherById($edition['publisher_id']);
     $edition['publisher_id']=$edition['publisher_id'];
-    $edition['publisher_name']=$edition['publisher'];
-    $edition['publisher_link']=$edition['link'];
+    $edition['publisher_name']=$publisher['publisher'];
+    $edition['publisher_link']=$publisher['link'];
 
     /* Reperisco della serie */
     $seriesObject = new series();
     $serie = $seriesObject->getSerierById($edition['serie_id']);
-    $edition['serie']=$serie['serie'];        
+    $edition['serie']=$serie['serie'];
 
     /* Reperisco lingua */
     $languages = new languages();
@@ -124,16 +119,13 @@
 
     /* Reperisco dati Illustrator */
     $illustrators = new illustrators();
-    $arrIllustrators = $illustrators->getIllustratorsByWorkId($id);
+    $arrIllustrators = $illustrators->getIllustratorsByEditionId($id);
     $arrElements = array();
     foreach($arrIllustrators as $peoples_id){
         $illustrator = $people->getPeopleById($peoples_id);
         $arrElements[] = $illustrator;     
     }
     $edition['illustrators']=$arrElements; 
-
-    var_dump($edition);
-
     $phpPage['edition'] = $edition;
 
 ?>

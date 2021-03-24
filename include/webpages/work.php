@@ -30,7 +30,7 @@
     /* Reperisco della serie */
     $seriesObject = new series();
     $serie = $seriesObject->getSerierById($work['serie_id']);
-    $work['serie']=$serie['serie'];        
+    $work['serie']=$serie['serie'];
 
     /* Reperisco lingua */
     $languages = new languages();
