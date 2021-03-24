@@ -47,6 +47,9 @@
 					{% if phpPage.work.language %}
 						<br />Language: {{ phpPage.work.language }}
 					{% endif %}					
+					{% if phpPage.work.libraries %}
+						<br />Libraries:  <a href="{{ phpPage.work.libraries }}" target="_blank">{{ phpPage.work.libraries }}</a>
+					{% endif %}
 					{% if phpPage.work.paratexts %}
 						<br />Paratexts:
 						{% for paratext in phpPage.work.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
