@@ -23,6 +23,16 @@ class paratexts{
         return $paratexts_id;
     }    
     
+    /* Dato una edition restituisce un paratext */
+    public function getParatextsByEditionId($edition_id = "") {
+        if($edition_id){
+            $db = new DBManager();
+            $query = "SELECT paratexts_id FROM editions_paratexts WHERE editions_id = $edition_id";
+            $paratexts_id = $db->queryList($query);
+        }
+        return $paratexts_id;
+    }    
+
     /* Dato restituisce un array di tutti i  paratexts */
     public function getAllParatexts() {
         $arrElements = array();

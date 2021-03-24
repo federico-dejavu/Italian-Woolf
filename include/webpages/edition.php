@@ -11,40 +11,45 @@
     require_once 'include/series.php';     
     require_once 'include/illustrators.php';
     require_once 'include/editions.php';
-    
-    $id				= (isset($_REQUEST['id'])		? $_REQUEST['id']		: '');
+    require_once 'include/paratexts.php';
+
 
 /**  
-    $edition[]
-   id, 
-   title, 
-   works_id, 
-   original, 
-   year, 
-   publisher_id, 
-   city, 
-   serie_id, 
-   pages, 
-   price, 
-   description, 
-   isbn, 
-   libraries, 
-   image 
 
-    publisher_id
-    publisher_name
-    publisher_link
-    publisher
-        id, 
-        publisher, 
-        description, 
-        link
-    serie
-        id, 
-        publisher_id, 
-        serie
-
+  ["id"]
+  ["title"]
+  ["works_id"]
+  ["original"]
+  ["year"]
+  ["publisher_id"]
+  ["city"]
+  ["serie_id"]
+  ["pages"]
+  ["price"]
+  ["description"]
+  ["isbn"]
+  ["libraries"]
+  ["image"]
+  ["work_title"]
+  ["publisher_name"]
+  ["publisher_link"]
+  ["serie"]
+  ["language"]
+  ["paratexts"]
+      ["id"]
+      ["paratext"]
+  ["authors"] ["secondary_authors"] ["editors"] ["illustrators"]
+      ["id"]
+      ["other_name"]
+      ["fullname"]
+      ["birth_date"]
+      ["death_date"]
+      ["authority_record"]
+      ["image"]
+      ["description"]
 **/
+
+    $id = (isset($_REQUEST['id']) ? $_REQUEST['id'] : '');
 
     $editionsObject = new editions();
     $edition = $editionsObject->getEditionById($id);
@@ -53,24 +58,75 @@
     $workObject = new works();
     $work = $workObject->getWorksByWork_id($edition['works_id']);
     $edition['work_title'] = $work['title'];
-            
+    $edition['work_year'] = $work['year'];
+
     /* Reperisco dati publisher */
     $publisherObject = new publishers();
     $publisher = $publisherObject->getPublisherById($edition['publisher_id']);
     $edition['publisher_id']=$edition['publisher_id'];
-    $edition['publisher_name']=$edition['publisher'];
-    $edition['publisher_link']=$edition['link'];
+    $edition['publisher_name']=$publisher['publisher'];
+    $edition['publisher_link']=$publisher['link'];
 
     /* Reperisco della serie */
     $seriesObject = new series();
     $serie = $seriesObject->getSerierById($edition['serie_id']);
-    $edition['serie']=$serie['serie'];        
+    $edition['serie']=$serie['serie'];
 
     /* Reperisco lingua */
     $languages = new languages();
     $language = $languages->getLanguageById($edition['original']);
     $edition['language']=$language['language'];
-     
+
+    /* Reperisco paratexts */
+    $paratexts = new paratexts();
+    $paratexts_id = $paratexts->getParatextsByEditionId($id);
+    $arrParatexts = array();
+    foreach($paratexts_id as $paratext_id){
+        $paratext = $paratexts->getParatextById($paratext_id);
+        $arrParatexts[] = $paratext;
+    }   
+    $edition['paratexts']=$arrParatexts;
+
+    /* Reperisco dati Author */
+    $authors = new authors();
+    $arrAuthors = $authors->getAuthorsByWorkId($edition['works_id']);
+    $people = new peoples();
+    $arrElements = array();
+    foreach($arrAuthors as $peoples_id){
+        $author = $people->getPeopleById($peoples_id);
+        $arrElements[] = $author;
+    }
+    $edition['authors']=$arrElements;
+    
+    /* Reperisco dati Secondary Author */
+    $secondary_authors = new secondary_authors();
+    $arrSecondaryAuthors = $secondary_authors->getSecondaryAuthorsByEditionId($id);
+    $arrElements = array();
+    foreach($arrSecondaryAuthors as $peoples_id){
+        $secondary_author = $people->getPeopleById($peoples_id);
+        $arrElements[] = $secondary_author;
+    }
+    $edition['secondary_authors']=$arrElements;
+
+    /* Reperisco dati Editor */
+    $editors = new editors();
+    $arrEditors = $editors->getEditorsByEditionId($id);
+    $arrElements = array();
+    foreach($arrEditors as $peoples_id){
+        $editor = $people->getPeopleById($peoples_id);
+        $arrElements[] = $editor;     
+    }
+    $edition['editors']=$arrElements; 
+
+    /* Reperisco dati Illustrator */
+    $illustrators = new illustrators();
+    $arrIllustrators = $illustrators->getIllustratorsByEditionId($id);
+    $arrElements = array();
+    foreach($arrIllustrators as $peoples_id){
+        $illustrator = $people->getPeopleById($peoples_id);
+        $arrElements[] = $illustrator;     
+    }
+    $edition['illustrators']=$arrElements; 
     $phpPage['edition'] = $edition;
 
 ?>

@@ -16,7 +16,20 @@ class editors{
         }
         return $arrPeoples;
     }    
-  
+
+    
+    /* Dato una edition restituisce un array di editor */
+      public function getEditorsByEditionId($id = "") {
+
+        $arrPeoples = array();
+       
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT peoples_id FROM editions_editors WHERE editions_id = $id";
+            $arrPeoples = $db->queryList($query);
+        }
+        return $arrPeoples;
+    }        
     /* Dato un editor restituisce un array di works */
     public function getWorksByEditorId($id = "") {
 
