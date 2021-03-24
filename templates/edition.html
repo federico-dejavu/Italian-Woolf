@@ -36,7 +36,7 @@
 					{% endif %}
 					{% if phpPage.edition.publisher_id %}
 						<br />Publisher:
-						<a href="publisher.php?subject={{ phpPage.edition.publisher_name }}&id={{ phpPage.edition.publisher_id }}" ><i>{{ phpPage.edition.publisher_name }}</i> </a>
+						<a href="publisher.php?id={{ phpPage.edition.publisher_id }}" ><i>{{ phpPage.edition.publisher_name }}</i> </a>
 					{% endif %}
 					{% if work.city %}
 						<br />City: {{ phpPage.edition.city }}
@@ -53,6 +53,9 @@
 					{% endif %}
 					{% if phpPage.edition.isbn %}
 						<br />ISBN: {{ phpPage.edition.isbn }}
+					{% endif %}
+					{% if phpPage.edition.isbn %}
+						<br />First edition: <a href="work.php?id={{ phpPage.edition.id }}" >{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
 					{% endif %}
 				</div>
 			</div>

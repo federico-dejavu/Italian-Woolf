@@ -58,6 +58,7 @@
     $workObject = new works();
     $work = $workObject->getWorksByWork_id($edition['works_id']);
     $edition['work_title'] = $work['title'];
+    $edition['work_year'] = $work['year'];
 
     /* Reperisco dati publisher */
     $publisherObject = new publishers();
