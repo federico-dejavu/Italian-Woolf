@@ -88,7 +88,6 @@ class works{
         if($work_id){
             $db = new DBManager();
             $queryW = "SELECT id, title, original, year, publisher_id, city, serie_id, pages, description, isbn, libraries, image FROM works WHERE id = $work_id order by title asc";
-            echo $queryW;
             $arrWorks = $db->query($queryW);
         }
         
