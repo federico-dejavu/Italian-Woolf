@@ -42,14 +42,14 @@
 					{% if phpPage.second_author %}
 					<br /><b>As Second Author:</b><br />
 					{% for second_author in phpPage.second_author %}
-					{%  if not loop.first  %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
+					{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
 					{% endfor %}
 					{% endif %}
 
 					{% if phpPage.editor %}
 					<br /><b>s Editor:</b><br />
 					{% for editor in phpPage.editor %}
-					{%  if not loop.first %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
+					{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
 					{% endfor %}
 					</p>
 					{% endif %}
@@ -57,16 +57,15 @@
 					{% if phpPage.translator %}
 					<br /><b>As Translator:</b><br />
 					{% for translator in phpPage.translator %}
-					{%  if not loop.first %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b> </a>
+					{%  if not loop.first and translator.title  %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b> </a>
 					{% endfor %}
 					{% endif %}
 
 					{% if phpPage.illustrator %}
 					<br /><b>As Illustrator:</b><br />
 					{% for illustrator in phpPage.illustrator %}
-					{%  if not loop.first %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b> </a>
+					{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b> </a>
 					{% endfor %}
-
 					{% endif %}
 
 					{% if phpPage.people.description %}
