@@ -11,6 +11,7 @@
     require_once 'include/series.php';     
     require_once 'include/illustrators.php';
     require_once 'include/editions.php';
+    require_once 'include/paratexts.php';
 
     $arrWorks = '';
 
@@ -35,6 +36,16 @@
     $languages = new languages();
     $language = $languages->getLanguageById($work['original']);
     $work['language']=$language['language'];
+
+    /* Reperisco paratexts */
+    $paratexts = new paratexts();
+    $paratexts_id = $paratexts->getParatextsByWorkId($id);
+    $arrParatexts = array();
+    foreach($paratexts_id as $paratext_id){
+        $paratext = $paratexts->getParatextById($paratext_id);
+        $arrParatexts[] = $paratext;
+    }   
+    $work['paratexts']=$arrParatexts;
 
     /* Reperisco dati Author */
     $authors = new authors();

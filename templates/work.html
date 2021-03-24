@@ -46,9 +46,17 @@
 					{% endif %}
 					{% if phpPage.work.language %}
 						<br />Language: {{ phpPage.work.language }}
+					{% endif %}					
+					{% if phpPage.work.paratexts %}
+						<br />Paratexts:
+						{% for paratext in phpPage.work.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.work.isbn %}
 						<br />ISBN: {{ phpPage.work.isbn }}
+					{% endif %}
+					{% if phpPage.work.image or phpPage.work.description %}
+				</div>
+				<div class="col">
 					{% endif %}
 					{% if phpPage.work.image %}
 						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
@@ -59,6 +67,10 @@
 					</p>  
 					{% endif %}
 					{% if phpPage.work.editions %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
 					<p>
 						Other Editions:
 					</p>
