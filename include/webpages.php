@@ -68,7 +68,7 @@ function checkLanguage() {
         $languages_id = $_GET["lang"];
         
     }
-    include_once('templates/lang/lang'.$languages_id.'.php');
+
     return $languages_id;
 
 }
@@ -81,7 +81,7 @@ function renderMenu($parent_id = "1", $languages_id = "1") {
 }
 
 function renderPage($content_key = "HOME") {
-
+    include_once('templates/lang/lang'.$languages_id.'.php');
     $languages_id = checkLanguage();
     $renderTarget = 'webpages.html';
     $phpPage = array();
