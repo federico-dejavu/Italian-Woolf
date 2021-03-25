@@ -135,7 +135,7 @@ function renderPage($content_key = "HOME") {
         'phpPage'       => $phpPage,
         'LANG'          => $language,
     ]);
-    var_dump($language):
+    var_dump($language);
 }
 
 
