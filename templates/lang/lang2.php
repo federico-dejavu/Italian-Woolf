@@ -52,4 +52,5 @@
 	$language["ALL_ACCESS_TYPE"] = "Tutti i tipi di accesso";
 	$language["PUBLIC_ACCES"] = "Accesso libero";
 	$language["RESTRICTED_ACCES"] = "Accesso protetto";
+	  var_dump($language);
 ?>
