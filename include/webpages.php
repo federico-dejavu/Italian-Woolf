@@ -58,21 +58,17 @@ function checkLanguage() {
 
         setcookie('lang',1,time() + (86400 * 7));
         $languages_id = 1;
-        require_once('lang/lang1.php');
-
     } else {
-
         $languages_id = $_COOKIE["lang"];
-        require_once('lang/lang'.$languages_id.'.php');
     }
 
     if (($_GET["lang"])&&($_GET["lang"]!="")) {
         
         setcookie('lang',$_GET['lang'],time() + (86400 * 7));
         $languages_id = $_GET["lang"];
-        require_once('lang/lang'.$languages_id.'.php');
+        
     }
-
+    require_once('inlcude/lang/lang'.$languages_id.'.php');
     return $languages_id;
 
 }
