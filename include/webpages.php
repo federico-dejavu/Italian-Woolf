@@ -124,7 +124,7 @@ function renderPage($content_key = "HOME") {
     $twig = new \Twig\Environment($loader, [
         'cache' => false,
     ]);
-    
+    var_dump($language);  
     echo $twig->render($renderTarget, [
         'SITE_TITLE'	=> SITE_TITLE,
         'WOOLF_URL'	    => WOOLF_URL,

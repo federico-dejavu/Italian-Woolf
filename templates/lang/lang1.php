@@ -52,5 +52,4 @@
 	$language["ALL_ACCESS_TYPE"] = "All access type";
 	$language["PUBLIC_ACCES"] = "Public acces";
 	$language["RESTRICTED_ACCES"] = "Resrticted acces";
-	    var_dump($language);
 ?>
