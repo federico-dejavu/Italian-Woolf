@@ -9,7 +9,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<h2>Advanced Search</h2>
+						<h2>{{ LANG.ADVANCED_SEARCH }}</h2>
 					</div>
 					<div class="row align-items-center">
 						<div class="col-8">
@@ -32,18 +32,19 @@
 						<div class="col">
 							<input type="text" placeholder="Title" name="title" id="title" />
 						</div>
-					</div>	
+					</div>
 					<div class="row align-items-center">
 						<div class="col-6">
 							<label class="custom-select" for="publisher">
 								<select  name="publisher" id="publisher" >
 									<option value="" id="">All editors</option>
 									{% for publisher in phpPage.publishers %}
-									<option value="{{ publisher.id }}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
-									{% endfor %}
-								</select>
+									<option value="{{ publisher.id
+							}}" id="{{ publisher.id }}">{{ publisher.publisher }}</option>
+							{% endfor %}
+							</select>
 							</label>
-						</div>
+</div>
 						<div class="col-6">
 							<input type="text" placeholder="Journal" name="journal" id="journal" />
 						</div>

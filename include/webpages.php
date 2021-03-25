@@ -133,7 +133,7 @@ function renderPage($content_key = "HOME") {
         'page_name' 	=> $page_name,
         'file_name'     => $file_name,
         'phpPage'       => $phpPage,
-        'Language'       => $language,
+        'LANG'          => $language,
     ]);
 
 }
