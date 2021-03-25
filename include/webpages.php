@@ -68,7 +68,7 @@ function checkLanguage() {
         $languages_id = $_GET["lang"];
         
     }
-    require_once('inlcude/lang/lang'.$languages_id.'.php');
+    require_once('templates/lang/lang'.$languages_id.'.php');
     return $languages_id;
 
 }
