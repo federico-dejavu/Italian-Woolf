@@ -68,7 +68,6 @@ function checkLanguage() {
         $languages_id = $_GET["lang"];
         
     }
-     include_once('templates/lang/lang'.$languages_id.'.php');
     return $languages_id;
 
 }
@@ -124,7 +123,9 @@ function renderPage($content_key = "HOME") {
     $twig = new \Twig\Environment($loader, [
         'cache' => false,
     ]);
-    var_dump($language);  
+ 
+    include_once('templates/lang/lang'.$languages_id.'.php');
+        var_dump($language); 
     echo $twig->render($renderTarget, [
         'SITE_TITLE'	=> SITE_TITLE,
         'WOOLF_URL'	    => WOOLF_URL,
