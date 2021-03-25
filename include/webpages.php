@@ -125,7 +125,7 @@ function renderPage($content_key = "HOME") {
     ]);
  
     include_once('templates/lang/lang'.$languages_id.'.php');
-        var_dump($language); 
+
     echo $twig->render($renderTarget, [
         'SITE_TITLE'	=> SITE_TITLE,
         'WOOLF_URL'	    => WOOLF_URL,
