@@ -15,7 +15,7 @@
 	$language["PROJECT"] = "PROGETTO";
 	$language["WORKS"] = "Opere";
 	$language["ARTICLES"] = "Articoli";
-	$language["ADVANCED_SEARC"] = "Ricerca avanzata";
+	$language["ADVANCED_SEARCH"] = "Ricerca avanzata";
 	$language["SEARCH"] = "Ricerca";
 	$language["WEB_SITE"] = "Sito Web";
 	$language["BIRTH_DATE"] = "Anno di nascita";
