@@ -15,7 +15,9 @@
 			<div class="row">
 				<div class="col-lg-6">
 					{% if phpPage.work.image %}
-					<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
+					<div class="image">
+						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left">
+					</div>
 					{% endif %}
 					{% if phpPage.work.authors %}
 					<br />{{ LANG.AUTHORS }}:
