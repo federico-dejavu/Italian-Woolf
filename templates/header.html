@@ -42,5 +42,20 @@
 			</div>
 		</div>
     </div>
+	<div id="home" class="{{ page.content_key }}">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col align-self-center">
+					<h1>
+						{% if page.content_key == 'HOME' %}
+							ITALIAN WOOLF <span class="black">PROJECT</span>
+						{% else %}
+							{{ page.title }}
+						{% endif %}
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 <!— end Twig —>
 {% endautoescape %}
