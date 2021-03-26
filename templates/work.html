@@ -14,6 +14,9 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
+					{% if phpPage.work.image %}
+					<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
+					{% endif %}
 					{% if phpPage.work.authors %}
 					<br />{{ LANG.AUTHORS }}:
 					{% for author in phpPage.work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
@@ -56,9 +59,6 @@
 					{% endif %}
 					{% if phpPage.work.isbn %}
 					<br />ISBN: {{ phpPage.work.isbn }}
-					{% endif %}
-					{% if phpPage.work.image %}
-					<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
 					{% endif %}
 					{% if phpPage.work.description %}
 				</div>
