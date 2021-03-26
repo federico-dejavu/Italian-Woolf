@@ -19,7 +19,7 @@
 						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left">
 					</div>
 					{% endif %}
-					<p>
+					<p class="description">
 						{% if phpPage.work.authors %}
 						<br />{{ LANG.AUTHORS }}:
 						{% for author in phpPage.work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
