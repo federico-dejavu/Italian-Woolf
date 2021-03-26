@@ -164,5 +164,6 @@
         []
 **/
  
+    var_dump($work['secondary_authors']);
     $phpPage['work'] = $work;
 ?>
