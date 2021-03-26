@@ -19,49 +19,50 @@
 						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left">
 					</div>
 					{% endif %}
+					{% set br = 0 %}
 					<p class="description">
 						{% if phpPage.work.authors %}
-						<br />{{ LANG.AUTHORS }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.AUTHORS }}:
 						{% for author in phpPage.work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.translators %}
-						<br />{{ LANG.TRANSLATORS }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.TRANSLATORS }}:
 						{% for translator in phpPage.work.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.secondary_authors %}
-						<br />{{ LANG.SECONDARY_AUTHORS }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.SECONDARY_AUTHORS }}:
 						{% for secondary_author in phpPage.work.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_author.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.editors %}
-						<br />{{ LANG.EDITORS }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.EDITORS }}:
 						{% for editor in phpPage.work.editors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ editor.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.illustrators %}
-						<br />{{ LANG.ILLUSTRATORS }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.ILLUSTRATORS }}:
 						{% for illustrator in phpPage.work.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ illustrator.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.publisher_id %}
-						<br />{{ LANG.PUBLISHER }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.PUBLISHER }}:
 						<a href="publisher.php?subject={{ phpPage.work.publisher_name }}&id={{ phpPage.work.publisher_id }}"><i>{{ phpPage.work.publisher_name }}</i> </a>
 						{% endif %}
 						{% if work.city %}
-						<br />{{ LANG.CITY }}: {{ phpPage.work.city }}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.CITY }}: {{ phpPage.work.city }}
 						{% endif %}
 						{% if work.pages %}
-						<br />{{ LANG.PAGES }}: {{ phpPage.work.pages }}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.PAGES }}: {{ phpPage.work.pages }}
 						{% endif %}
 						{% if phpPage.work.language %}
-						<br />{{ LANG.LANGUAGE }}: {{ phpPage.work.language }}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.LANGUAGE }}: {{ phpPage.work.language }}
 						{% endif %}
 						{% if phpPage.work.libraries %}
-						<br />{{ LANG.LIBRARIES }}:  <a href="{{ phpPage.work.libraries }}" target="_blank">{{ phpPage.work.libraries }}</a>
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.LIBRARIES }}:  <a href="{{ phpPage.work.libraries }}" target="_blank">{{ phpPage.work.libraries }}</a>
 						{% endif %}
 						{% if phpPage.work.paratexts %}
-						<br />{{ LANG.PARATEXTS }}:
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{{ LANG.PARATEXTS }}:
 						{% for paratext in phpPage.work.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.isbn %}
-						<br />ISBN: {{ phpPage.work.isbn }}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}ISBN: {{ phpPage.work.isbn }}
 						{% endif %}
 						{% if phpPage.work.description %}
 					</p>
