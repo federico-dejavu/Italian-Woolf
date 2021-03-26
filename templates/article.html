@@ -85,13 +85,13 @@
 				<div class="col-lg-8">
 					{% endif %}
 					{% if phpPage.article.description %}
-					<p>
-						{{ phpPage.article.description }}
+					<p class="description">
+						{{ LANG.DESCRIPTION }}: {{ phpPage.article.description }}
 					</p>  
 					{% endif %}
 					{% if phpPage.article.abstract %}
-					<p>
-						Abstract: {{ phpPage.article.abstract }}
+					<p class="description">
+						{{ LANG.ABSTRACT }}: {{ phpPage.article.abstract }}
 					</p>  
 					{% endif %}
 				</div>

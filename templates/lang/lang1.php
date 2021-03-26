@@ -19,6 +19,7 @@
 	$language["BIRTH_DATE"] = "Birth date";
 	$language["CITY"] = "City";
 	$language["DEATH_DATE"] = "Death date";
+	$language["DESCRIPTION"] = "Description";
 	$language["EDITIONS"] = "Editions";
 	$language["EDITOR_S"] = "Editor(s)";
 	$language["EDITORS"] = "Editors";
