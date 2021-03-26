@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
+				<div class="col-lg-6">
 					{% if phpPage.work.authors %}
 					<br />{{ LANG.AUTHORS }}:
 					{% for author in phpPage.work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
@@ -59,7 +59,7 @@
 					{% endif %}
 					{% if phpPage.work.image or phpPage.work.description %}
 				</div>
-				<div class="col">
+				<div class="col-lg-6">
 					{% endif %}
 					{% if phpPage.work.image %}
 						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
