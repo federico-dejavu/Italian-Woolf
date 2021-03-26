@@ -9,10 +9,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="row align-items-center">
-						<div class="col-8">
+						<div class="col">
 							<input type="text" 	placeholder="{{ LANG.KEYWORDS }}" 	name="keywords" id="keywords" />
 						</div>
-						<div class="col-4">
+						<div class="col">
 							<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">{{ LANG.WORKS }}</label>
 							<input id="articles" 	name="articles" type="checkbox" checked/><label for="articles">{{ LANG.ARTICLES }}</label>
 						</div>
@@ -31,7 +31,7 @@
 						</div>
 					</div>
 					<div class="row align-items-center">
-						<div class="col-6">
+						<div class="col">
 							<label class="custom-select" for="publisher">
 								<select  name="publisher" id="publisher" >
 									<option value="" id="">{{ LANG.ALL_EDITORS }}</option>
@@ -41,21 +41,21 @@
 							{% endfor %}
 							</select>
 							</label>
-</div>
-						<div class="col-6">
+						</div>
+						<div class="col">
 							<input type="text" placeholder="{{ LANG.JOURNAL }}" name="journal" id="journal" />
 						</div>
 					</div>		
 					<div class="row align-items-center">
-						<div class="col-6">	
+						<div class="col">	
 							<input type="text" placeholder="{{ LANG.YEAR_START }} (1901)" name="fromYear" id="fromYear"/>
 						</div>
-						<div class="col-6">
+						<div class="col">
 							<input type="text" placeholder="{{ LANG.YEAR_ENDING }} (1956)" name="toYear" id="toYear" />
 						</div>
 					</div>					
 					<div class="row align-items-center">
-						<div class="col-6">
+						<div class="col">
 							<label class="custom-select" for="language">
 								<select  name="language" id="language" >
 									<option value="" id="">{{ LANG.ALL_LANGUAGES }}</option>
@@ -77,7 +77,7 @@
 						</div>					
 					</div>	
 					<div class="row align-items-center">
-						<div class="col-6">
+						<div class="col">
 							<label class="custom-select" for="openAccess">
 								<select  name="openAccess" id="openAccess" >
 									<option value="" id="">{{ LANG.ALL_ACCESS_TYPE }}</option>
