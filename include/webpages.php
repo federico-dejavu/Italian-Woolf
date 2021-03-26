@@ -93,6 +93,7 @@ function renderPage($content_key = "HOME") {
 
         $renderTarget = $page['file_name'].'.html';
         include_once('webpages/'.$page['file_name'].'.php');
+        $page['title'] = isset($phpPage['work']['title']) ? $phpPage['work']['title'] : $page['title'];
         $page['title'] = isset($phpPage['work_title']) ? $phpPage['work_title'] : $page['title'];
 
     }
