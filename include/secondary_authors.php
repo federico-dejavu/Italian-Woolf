@@ -15,6 +15,7 @@ class secondary_authors{
             $arrPeoples = $db->queryList($query);
         }
         return $arrPeoples;
+        var_dump($arrPeoples);
     }         
   
       /* Dato una edition restituisce un array di secondary_author */
