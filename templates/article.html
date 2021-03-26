@@ -93,6 +93,7 @@
 					{% if phpPage.article.abstract %}
 				</div>
 			</div>
+			{% if phpPage.article.editions %}
 			<div class="row">
 				<div class="col">
 					<p>
@@ -107,6 +108,7 @@
 					{% endif %}
 				</div>
 			</div>
+			{% endif %}
 		</div>
 	</div>
 {{ include('footer.html') }}
