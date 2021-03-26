@@ -93,7 +93,7 @@ function renderPage($content_key = "HOME") {
 
         $renderTarget = $page['file_name'].'.html';
         include_once('webpages/'.$page['file_name'].'.php');
-        switch $page['file_name'] {
+        switch(page['file_name']) {
             case 'work';
                 $page['title'] = $phpPage['work']['title'];
                 break;
