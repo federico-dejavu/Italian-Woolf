@@ -57,7 +57,7 @@ class webpages{
 
         foreach ($_REQUEST as $key => $value) {
 
-            $args =. $key.'='.$value.'&';
+            $args .= $key.'='.$value.'&';
 
         }
 
