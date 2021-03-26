@@ -14,9 +14,9 @@
 							{% for menu in menus %}
 							{% if page.content_key == menu.content_key %}
 							{% if page.languages_id == 1 %}
-							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?{% if page.args %}{{ page.args }}{% endif %}lang=2">ITA</a>
+							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?{% if args %}{{ args }}{% endif %}lang=2">ITA</a>
 							{% elseif page.languages_id == 2 %}
-							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?{% if page.args %}{{ page.args }}{% endif %}lang=1">ENG</a>
+							<a href="{{ WOOLF_URL }}{{menu.file_name}}.php?{% if args %}{{ args }}{% endif %}lang=1">ENG</a>
 							{% endif %}
 							{% endif %}
 							{% endfor %}

@@ -105,8 +105,6 @@ function renderPage($content_key = "HOME") {
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
     $args = $pageObject->renderPageArgs();
 
-    var_dump($args);
-
     if ($page["type"] == "php") {
 
         $renderTarget = $page['file_name'].'.html';
