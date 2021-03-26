@@ -12,66 +12,66 @@
 			<div class="row">
 				<div class="col">
 					{% if phpPage.article.typology %}
-						<br />Text Typology: {{ phpPage.article.typology }}
+					<br />{{ LANG.TEXT_TYPOLOGY }}: {{ phpPage.article.typology }}
 					{% endif %}
 					{% if phpPage.article.authors %}
-						<br />Author:
-						{% for author in phpPage.article.authors %}
-						{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
-						{% endfor %}
+					<br />{{ LANG.AUTHOR }}:
+					{% for author in phpPage.article.authors %}
+					{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
+					{% endfor %}
 					{% endif %}
 					{% if phpPage.article.volume_title %}
-						<br />Volume title: {{ phpPage.article.volume_title }}
+					<br />{{ LANG.VOLUME_TITLE }}: {{ phpPage.article.volume_title }}
 					{% endif %}
 					{% if phpPage.article.editors %}
-						<br />Editor(s):
-						{% for editor in phpPage.article.editors %}
-							{% if not loop.first %} | {% endif %} {{ editor.fullname }}
-						{% endfor %}
+					<br />{{ LANG.EDITOR_S }}:
+					{% for editor in phpPage.article.editors %}
+					{% if not loop.first %} | {% endif %} {{ editor.fullname }}
+					{% endfor %}
 					{% endif %}
 					{% if phpPage.article.publisher_name %}
-						<a href="publisher.php?id={{ phpPage.article.publisher_id }}">{{ phpPage.article.publisher_name }}</a>
+					<a href="publisher.php?id={{ phpPage.article.publisher_id }}">{{ phpPage.article.publisher_name }}</a>
 					{% endif %}
 					{% if phpPage.article.city %}
-						<br />City: {{ phpPage.article.city }}
+					<br />City: {{ phpPage.article.city }}
 					{% endif %}
 					{% if phpPage.article.journal_title %}
-						<br />Journal title: {{ phpPage.article.journal_title }}
+					<br />{{ LANG.JOURNAL_TITLE }}: {{ phpPage.article.journal_title }}
 					{% endif %}
 					{% if phpPage.article.journal_issue %}
-						Journal issue: {{ phpPage.article.journal_issue }}
+					{{ LANG.JOURNAL_ISSUE }}: {{ phpPage.article.journal_issue }}
 					{% endif %}
 					{% if phpPage.article.year %}
-						<br />Year: {{ phpPage.article.year }}
+					<br />{{ LANG.YEAR }}: {{ phpPage.article.year }}
 					{% endif %}
 					{% if phpPage.article.language %}
-						<br />Language: {{ phpPage.article.language }}
+					<br />{{ LANG.LANGUAGE }}: {{ phpPage.article.language }}
 					{% endif %}
 					{% if phpPage.article.pages %}
-						<br />Pages: {{ phpPage.article.pages }}
+					<br />{{ LANG.PAGES }}: {{ phpPage.article.pages }}
 					{% endif %}
 					{% if phpPage.article.issn %}
-						<br />ISSN: {{ phpPage.article.issn }}
+					<br />ISSN: {{ phpPage.article.issn }}
 					{% endif %}
 					{% if phpPage.article.open_access %}
-						<br />Open access:
-						{% if phpPage.article.open_access == 1 %}
-							Yes
-						{% else %}
-							No
-						{% endif %}
+					<br />{{ LANG.OPEN_ACCESS }}:
+					{% if phpPage.article.open_access == 1 %}
+					Yes
+					{% else %}
+					No
+					{% endif %}
 					{% endif %}
 					{% if phpPage.article.doi %}
-						<br />DOI: <a href="{{ phpPage.article.doi }}">{{ phpPage.article.doi }}</a>
+					<br />DOI: <a href="{{ phpPage.article.doi }}">{{ phpPage.article.doi }}</a>
 					{% endif %}
 					{% if phpPage.article.publisher['publisher'] %}
-						<br />Publisher: {{ phpPage.article.publisher['publisher'] }}
+					<br />{{ LANG.PUBLISHER }}: {{ phpPage.article.publisher['publisher'] }}
 					{% endif %}
 					{% if phpPage.article.serie %}
-						<br />Serie: {{ phpPage.article.serie }}
+					<br />Serie: {{ phpPage.article.serie }}
 					{% endif %}
 					{% if phpPage.article.libraries %}
-						<br />Libraries:  <a href="{{ phpPage.article.libraries }}" target="_blank">{{ phpPage.article.libraries }}</a>
+					<br />{{ LANG.LIBRARIES }}:  <a href="{{ phpPage.article.libraries }}" target="_blank">{{ phpPage.article.libraries }}</a>
 					{% endif %}
 					{% if phpPage.article.image or phpPage.article.description  or phpPage.article.abstract %}
 				</div>
