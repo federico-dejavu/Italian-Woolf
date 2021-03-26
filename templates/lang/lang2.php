@@ -18,6 +18,7 @@
 	$language["AUTHORS"] = "Autori";
 	$language["BIRTH_DATE"] = "Anno di nascita";
 	$language["CITY"] = "Città";
+	$language["DEATH_DATE"] = "Anno di morte";
 	$language["EDITIONS"] = "Edizioni";
 	$language["EDITOR_S"] = "Curatore(i)";
 	$language["EDITORS"] = "Curatore/Curatrice";

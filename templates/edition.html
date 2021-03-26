@@ -15,47 +15,47 @@
 			<div class="row">
 				<div class="col">
 					{% if phpPage.edition.authors %}
-						<br />Authors:
-						{% for author in phpPage.edition.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
+					<br />{{ LANG.AUTHORS }}:
+					{% for author in phpPage.edition.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.translators %}
-						<br />Translators:
-						{% for translator in phpPage.edition.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
+					<br />{{ LANG.TRANSLATORS }}:
+					{% for translator in phpPage.edition.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.secondary_authors %}
-						<br />Secondary authors:
-						{% for secondary_author in phpPage.edition.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_authors.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
+					<br />{{ LANG.SECONDARY_AUTHORS }}:
+					{% for secondary_author in phpPage.edition.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_authors.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.editors %}
-						<br />Editors:
-						{% for editor in phpPage.edition.editors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ editor.fullname }}</a>{% endfor %}
+					<br />{{ LANG.EDITORS }}:
+					{% for editor in phpPage.edition.editors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ editor.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.illustrators %}
-						<br />Illustrators:
-						{% for illustrator in phpPage.edition.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ illustrator.fullname }}</a>{% endfor %}
+					<br />{{ LANG.ILLUSTRATORS }}:
+					{% for illustrator in phpPage.edition.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ illustrator.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.publisher_id %}
-						<br />Publisher:
-						<a href="publisher.php?id={{ phpPage.edition.publisher_id }}" ><i>{{ phpPage.edition.publisher_name }}</i> </a>
+					<br />{{ LANG.PUBLISHER }}:
+					<a href="publisher.php?id={{ phpPage.edition.publisher_id }}"><i>{{ phpPage.edition.publisher_name }}</i> </a>
 					{% endif %}
 					{% if work.city %}
-						<br />City: {{ phpPage.edition.city }}
+					<br />{{ LANG.CITY }}: {{ phpPage.edition.city }}
 					{% endif %}
 					{% if work.pages %}
-						<br />Pages: {{ phpPage.edition.pages }}
+					<br />{{ LANG.PAGES }}: {{ phpPage.edition.pages }}
 					{% endif %}
 					{% if phpPage.edition.language %}
-						<br />Language: {{ phpPage.edition.language }}
-					{% endif %}					
+					<br />{{ LANG.LANGUAGE }}: {{ phpPage.edition.language }}
+					{% endif %}
 					{% if phpPage.edition.paratexts %}
-						<br />Paratexts:
-						{% for paratext in phpPage.edition.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
+					<br />{{ LANG.PARATEXTS }}:
+					{% for paratext in phpPage.edition.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.isbn %}
-						<br />ISBN: {{ phpPage.edition.isbn }}
+					<br />ISBN: {{ phpPage.edition.isbn }}
 					{% endif %}
 					{% if phpPage.edition.works_id %}
-						<br />First edition: <a href="work.php?id={{ phpPage.edition.works_id }}" >{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
+					<br />{{ LANG.FIRST_EDITION }}: <a href="work.php?id={{ phpPage.edition.works_id }}">{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
 					{% endif %}
 				</div>
 			</div>

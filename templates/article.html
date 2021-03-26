@@ -68,7 +68,7 @@
 					<br />{{ LANG.PUBLISHER }}: {{ phpPage.article.publisher['publisher'] }}
 					{% endif %}
 					{% if phpPage.article.serie %}
-					<br />Serie: {{ phpPage.article.serie }}
+					<br />{{ LANG.SERIE }}: {{ phpPage.article.serie }}
 					{% endif %}
 					{% if phpPage.article.libraries %}
 					<br />{{ LANG.LIBRARIES }}:  <a href="{{ phpPage.article.libraries }}" target="_blank">{{ phpPage.article.libraries }}</a>
@@ -96,7 +96,7 @@
 			<div class="row">
 				<div class="col">
 					<p>
-						Editions:
+						{{ LANG.EDITIONS }}:
 					</p>
 						<ul>
 							{% for edition in phpPage.article.editions %}
