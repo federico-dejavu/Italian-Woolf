@@ -10,75 +10,75 @@
 					<h2>{{ phpPage.article.title }}</h2>
 			</div>
 			<div class="row">
-				<div class="col">
+				<div class="col-lg-4">
+					{% if phpPage.article.image %}
+					<div class="image">
+						<img src="/italianwoolf/public/{{ phpPage.article.image }}" align="left">
+					</div>
+					{% endif %}
+					{% set br = 0 %}
 					{% if phpPage.article.typology %}
-					<br />{{ LANG.TEXT_TYPOLOGY }}: {{ phpPage.article.typology }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.TEXT_TYPOLOGY }}: {{ phpPage.article.typology }}
 					{% endif %}
 					{% if phpPage.article.authors %}
-					<br />{{ LANG.AUTHOR }}:
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.AUTHOR }}:
 					{% for author in phpPage.article.authors %}
 					{% if not loop.first %} | {% endif %}<a href="people.php?id={{ author.id }}"> <b>{{ author.fullname }}</b> </a>
 					{% endfor %}
 					{% endif %}
 					{% if phpPage.article.volume_title %}
-					<br />{{ LANG.VOLUME_TITLE }}: {{ phpPage.article.volume_title }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.VOLUME_TITLE }}: {{ phpPage.article.volume_title }}
 					{% endif %}
 					{% if phpPage.article.editors %}
-					<br />{{ LANG.EDITOR_S }}:
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.EDITOR_S }}:
 					{% for editor in phpPage.article.editors %}
 					{% if not loop.first %} | {% endif %} {{ editor.fullname }}
 					{% endfor %}
 					{% endif %}
 					{% if phpPage.article.publisher_name %}
-					<a href="publisher.php?id={{ phpPage.article.publisher_id }}">{{ phpPage.article.publisher_name }}</a>
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PUBLISHER }}: <a href="publisher.php?id={{ phpPage.article.publisher_id }}">{{ phpPage.article.publisher_name }}</a>
 					{% endif %}
 					{% if phpPage.article.city %}
-					<br />City: {{ phpPage.article.city }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}City: {{ phpPage.article.city }}
 					{% endif %}
 					{% if phpPage.article.journal_title %}
-					<br />{{ LANG.JOURNAL_TITLE }}: {{ phpPage.article.journal_title }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.JOURNAL_TITLE }}: {{ phpPage.article.journal_title }}
 					{% endif %}
 					{% if phpPage.article.journal_issue %}
 					{{ LANG.JOURNAL_ISSUE }}: {{ phpPage.article.journal_issue }}
 					{% endif %}
 					{% if phpPage.article.year %}
-					<br />{{ LANG.YEAR }}: {{ phpPage.article.year }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.YEAR }}: {{ phpPage.article.year }}
 					{% endif %}
 					{% if phpPage.article.language %}
-					<br />{{ LANG.LANGUAGE }}: {{ phpPage.article.language }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.LANGUAGE }}: {{ phpPage.article.language }}
 					{% endif %}
 					{% if phpPage.article.pages %}
-					<br />{{ LANG.PAGES }}: {{ phpPage.article.pages }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PAGES }}: {{ phpPage.article.pages }}
 					{% endif %}
 					{% if phpPage.article.issn %}
-					<br />ISSN: {{ phpPage.article.issn }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}ISSN: {{ phpPage.article.issn }}
 					{% endif %}
 					{% if phpPage.article.open_access %}
-					<br />{{ LANG.OPEN_ACCESS }}:
-					{% if phpPage.article.open_access == 1 %}
-					Yes
-					{% else %}
-					No
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.OPEN_ACCESS }}:
+					{% if phpPage.article.open_access == 1 %} {{ LANG.YES }} {% else %} {{ LANG.NO }}
 					{% endif %}
 					{% endif %}
 					{% if phpPage.article.doi %}
-					<br />DOI: <a href="{{ phpPage.article.doi }}">{{ phpPage.article.doi }}</a>
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}DOI: <a href="{{ phpPage.article.doi }}">{{ phpPage.article.doi }}</a>
 					{% endif %}
 					{% if phpPage.article.publisher['publisher'] %}
-					<br />{{ LANG.PUBLISHER }}: {{ phpPage.article.publisher['publisher'] }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PUBLISHER }}: {{ phpPage.article.publisher['publisher'] }}
 					{% endif %}
 					{% if phpPage.article.serie %}
-					<br />{{ LANG.SERIE }}: {{ phpPage.article.serie }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.SERIE }}: {{ phpPage.article.serie }}
 					{% endif %}
 					{% if phpPage.article.libraries %}
-					<br />{{ LANG.LIBRARIES }}:  <a href="{{ phpPage.article.libraries }}" target="_blank">{{ phpPage.article.libraries }}</a>
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.LIBRARIES }}:  <a href="{{ phpPage.article.libraries }}" target="_blank">{{ phpPage.article.libraries }}</a>
 					{% endif %}
-					{% if phpPage.article.image or phpPage.article.description  or phpPage.article.abstract %}
+					{% if phpPage.article.description  or phpPage.article.abstract %}
 				</div>
-				<div class="col">
-					{% endif %}
-					{% if phpPage.article.image %}
-						<img src="/italianwoolf/public/{{ phpPage.article.image }}" align="left" class="image">
+				<div class="col-lg-8">
 					{% endif %}
 					{% if phpPage.article.description %}
 					<p>
