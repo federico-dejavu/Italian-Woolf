@@ -57,14 +57,12 @@
 					{% if phpPage.work.isbn %}
 					<br />ISBN: {{ phpPage.work.isbn }}
 					{% endif %}
-					{% if phpPage.work.image or phpPage.work.description %}
-				</div>
-				<div class="col-lg-6">
-					{% endif %}
 					{% if phpPage.work.image %}
-						<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
+					<img src="/italianwoolf/public/{{ phpPage.work.image }}" align="left" class="image">
 					{% endif %}
 					{% if phpPage.work.description %}
+				</div>
+				<div class="col-lg-6">
 					<p>
 						{{ phpPage.work.description }}
 					</p>  
