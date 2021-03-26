@@ -14,6 +14,7 @@ class secondary_authors{
             $query = "SELECT peoples_id FROM works_secondary_authors WHERE works_id = $id";
             $arrPeoples = $db->queryList($query);
         }
+        var_dump($arrPeoples);
         return $arrPeoples;
     }         
   
