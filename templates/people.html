@@ -40,14 +40,14 @@
 					{% endif %}
 
 					{% if phpPage.second_author %}
-					<br /><b>{{ LANG.AS_SECON_AUTHOR }}:</b><br />
+					<br /><b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
 					{% for second_author in phpPage.second_author %}
 					{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
 					{% endfor %}
 					{% endif %}
 
 					{% if phpPage.editor %}
-					<br /><b>{{ LANG.AS_EDITORS }}:</b><br />
+					<br /><b>{{ LANG.AS_EDITOR }}:</b><br />
 					{% for editor in phpPage.editor %}
 					{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
 					{% endfor %}
