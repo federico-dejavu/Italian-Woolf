@@ -50,6 +50,21 @@ class webpages{
 
     }
 
+   /* Rende gli args della pagina attuale */
+   public function renderPageArgs() {
+
+        $args = '';
+
+        foreach ($_REQUEST as $key => $value) {
+
+            $args =. $key.'='.$value.'&';
+
+        }
+
+        return $args;
+
+   }
+
 }
 
 function checkLanguage() {
@@ -88,6 +103,7 @@ function renderPage($content_key = "HOME") {
     // Reperisco i contenuti ella webpage
     $pageObject = new webpages();
     $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
+    $args = $pageObject->renderPageArgs();
 
     if ($page["type"] == "php") {
 
@@ -148,6 +164,7 @@ function renderPage($content_key = "HOME") {
         'WOOLF_URL'	    => WOOLF_URL,
         'menus'         => $menu,
         'page'			=> $page,
+        'args'          => $args,
         'page_name' 	=> $page_name,
         'file_name'     => $file_name,
         'phpPage'       => $phpPage,
