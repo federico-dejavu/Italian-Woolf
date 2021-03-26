@@ -4,22 +4,22 @@
 		<div  id="content" class="container">
 			<div class="row">
 				<div class="col">
-					<h2>Search</h2>
+					<h2>{{ LANG.SEARCH }}</h2>
 				</div>
 			</div>
 			<form id="search">
 				<div class="row align-items-center">
 					<div class="col">
-						<input type="text" 		name="keywords" id="keywords" />
-						<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">Works</label>
-						<input id="articles" 	name="articles"	type="checkbox" checked/><label for="articles">Articles</label>
+						<input type="text" 		name="{{ LANG.KEYWORDS }}" id="keywords" />
+						<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">{{ LANG.WORK }}</label>
+						<input id="articles" 	name="articles"	type="checkbox" checked/><label for="articles">{{ LANG.ARTICLE }}</label>
 					</div>
 				</div>
 				<div class="row align-items-center">
 					<div class="col">
-						<input type="button" value="Search" id="submit" onClick="ajaxSearch('searchKeywords');" /> 
+						<input type="button" value="{{ LANG.SEARCH }}" id="submit" onClick="ajaxSearch('searchKeywords');" /> 
 						<p>
-							or make an <a href="advancedSearch.php" >Advanced search</a>
+							or make an <a href="advancedSearch.php">{{ LANG.ADVANCED_SEARCH }}</a>
 						</p>
 					</div>
 				</div>
