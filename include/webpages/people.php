@@ -75,6 +75,65 @@
         $illustratorWorksAll[] = $illustratorWorks;        
     }
 
+    /* Reperisco dati editions come author */
+    $authorObject = new authors();
+    $editionsByAuthorId = $authorObject->getEditionsByAuthorId($id);
+    $authorEditionsObject = new editions();
+    $authorEditionsAll = array();
+    foreach ($editionsByAuthorId as $authorEdition_id ) {
+
+        $authorEditions = $authorEditionsObject->getEditionById($authorEdition_id);
+
+        $authorEditionsAll[] = $authorEditions;        
+    }
+
+    /* Reperisco dati editions come second_author */
+    $second_authorObject = new secondary_authors();
+    $editionsBySecond_authorId = $second_authorObject->getEditionsBySecondary_authorsId($id);
+    $second_authorEditionsObject = new editions();
+    $second_authorEditionsAll = array();
+    foreach ($editionsBySecond_authorId as $second_authorEdition_id ) {
+
+        $second_authorEditions = $second_authorEditionsObject->getEditionById($second_authorEdition_id);
+
+        $second_authorEditionsAll[] = $second_authorEditions;        
+    }
+
+    /* Reperisco dati editions come editor */
+    $editorObject = new editors();
+    $editionsByEditorId = $editorObject->getEditionsByEditorId($id);
+    $editorEditionsObject = new editions();
+    $editorEditionsAll = array();
+    foreach ($editionsByEditorId as $editorEdition_id ) {
+
+        $editorEditions = $editorEditionsObject->getEditionById($editorEdition_id);
+
+        $editorEditionsAll[] = $editorEditions;        
+    }
+
+    /* Reperisco dati editions come translator */
+    $translatorObject = new translators();
+    $editionsByTranslatorId = $translatorObject->getEditionsByTranslatorId($id);
+    $translatorEditionsObject = new editions();
+    $translatorEditionsAll = array();
+    foreach ($editionsByTranslatorId as $translatorEdition_id ) {
+
+        $translatorEditions = $translatorEditionsObject->getEditionById($translatorEdition_id);
+
+        $translatorEditionsAll[] = $translatorEditions;        
+    }
+
+    /* Reperisco dati editions come illustrator */
+    $illustratorObject = new illustrators();
+    $editionsByIllustratorId = $illustratorObject->getEditionsByIllutratorsId($id);
+    $illustratorEditionsObject = new editions();
+    $illustratorEditionsAll = array();
+    foreach ($editionsByIllustratorId as $illustratorEdition_id ) {
+
+        $illustratorEditions = $illustratorEditionsObject->getEditionById($illustratorEdition_id);
+
+        $illustratorEditionsAll[] = $illustratorEditions;        
+    }
 /**  
    $people[]
         id
@@ -101,11 +160,15 @@
 
 **/
 
-    $phpPage['people']          = $people;
-    $phpPage['author']          = $authorWorksAll;
-    $phpPage['second_author']   = $second_authorWorksAll;
-    $phpPage['editor']          = $editorWorksAll;
-    $phpPage['translator']      = $translatorWorksAll;
-    $phpPage['illustrator']     = $illustratorWorksAll;
-	
+    $phpPage['people']                  = $people;
+    $phpPage['author']                  = $authorWorksAll;
+    $phpPage['second_author']           = $second_authorWorksAll;
+    $phpPage['editor']                  = $editorWorksAll;
+    $phpPage['translator']              = $translatorWorksAll;
+    $phpPage['illustrator']             = $illustratorWorksAll;
+	$phpPage['authorEdition']           = $authorEditionsAll;
+    $phpPage['second_authorEdition']    = $second_authorEditionsAll;
+    $phpPage['editorEdition']           = $editorEditionsAll;
+    $phpPage['translatorEdition']       = $translatorEditionsAll;
+    $phpPage['illustratorEdition']      = $illustratorEditionsAll;	
 ?>
