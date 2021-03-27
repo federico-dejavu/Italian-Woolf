@@ -16,7 +16,19 @@ class translators{
         }
     return $arrPeoples;
     }         
+    
+    /* Dato un work restituisce un array di translators */
+    public function getEditionsByTranslatorId($id = "") {
 
+    $arrPeoples = array();
+
+        if($id>0){
+            $db = new DBManager();
+            $query = "SELECT peoples_id FROM editions_translators WHERE editions_id = $id";
+            $arrPeoples = $db->queryList($query);
+        }
+    return $arrPeoples;
+    }      
     /* Dato un work restituisce un array di translators */
     public function getTranslatorsByEditionId($id = "") {
 

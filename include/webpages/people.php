@@ -75,17 +75,6 @@
         $illustratorWorksAll[] = $illustratorWorks;        
     }
 
-    /* Reperisco dati editions come author */
-    $authorObject = new authors();
-    $editionsByAuthorId = $authorObject->getEditionsByAuthorId($id);
-    $authorEditionsObject = new editions();
-    $authorEditionsAll = array();
-    foreach ($editionsByAuthorId as $authorEdition_id ) {
-
-        $authorEditions = $authorEditionsObject->getEditionById($authorEdition_id);
-
-        $authorEditionsAll[] = $authorEditions;        
-    }
 
     /* Reperisco dati editions come second_author */
     $second_authorObject = new secondary_authors();
