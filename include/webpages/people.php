@@ -138,6 +138,8 @@
     $second_authorsAll = array();
     foreach ($second_authors as $second_author) {
 
+        var_dump($second_author);
+
         $second_authorKey['id']     = $second_author[0];
         $second_authorKey['title']  = $second_author[1];
         $second_authorKey['year']   = $second_author[2];
@@ -171,13 +173,6 @@
         image
 
 **/
-    function array_sort_by_column($arr, $col, $dir = SORT_ASC) {
-        $sort_col = array();
-        foreach ($arr as $key=> $row) {
-            $sort_col[$key] = $row[$col];
-        }
-        array_multisort($sort_col, $dir, $arr);
-    }
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
