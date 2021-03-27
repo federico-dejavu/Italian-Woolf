@@ -104,7 +104,6 @@
     /* Reperisco dati editions come translator */
     $translatorObject = new translators();
     $editionsByTranslatorId = $translatorObject->getEditionsByTranslatorId($id);
-    var_dump($editionsByTranslatorId);
     $translatorEditionsObject = new editions();
     $translatorEditionsAll = array();
     foreach ($editionsByTranslatorId as $translatorEdition_id ) {
@@ -135,7 +134,7 @@
         authority_record
         image
 
-    $authorWorksAll[], $second_authorWorksAll[], $editorWorksAll[], $translatorWorksAll[], $illustratorWorksAll[]
+    $authorAll[], $second_authorAll[], $editorAll[], $translatorAll[], $illustratorAll[]
         id
         title
         original
@@ -153,8 +152,8 @@
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
-    $phpPage['second_author']           = $second_authorsAll;
-    $phpPage['editor']                  = $editorsAll;
-    $phpPage['translator']              = $translatorsAll;
-    $phpPage['illustrator']             = $illustratorsAll;
+    $phpPage['second_author']           = uasort($second_authorsAll, 'title');
+    $phpPage['editor']                  = uasort($editorsAll, 'title');
+    $phpPage['translator']              = uasort($translatorsAll, 'title');
+    $phpPage['illustrator']             = uasort($illustratorsAll, 'title');
 ?>

@@ -24,7 +24,7 @@ class translators{
 
         if($id>0){
             $db = new DBManager();
-            $query = "SELECT peoples_id FROM editions_translators WHERE editions_id = $id";
+            $query = "SELECT editions_id FROM editions_translators WHERE peoples_id = $id";
             $arrPeoples = $db->queryList($query);
         }
     return $arrPeoples;

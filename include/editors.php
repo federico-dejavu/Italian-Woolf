@@ -17,14 +17,14 @@ class editors{
         return $arrPeoples;
     }    
 
-      /* Dato un work restituisce un array di editor */
+      /* Dato un editions restituisce un array di editor */
       public function getEditionsByEditorId($id = "") {
 
         $arrPeoples = array();
        
         if($id>0){
             $db = new DBManager();
-            $query = "SELECT peoples_id FROM editions_editors WHERE editions_id = $id";
+            $query = "SELECT editions_id FROM editions_editors WHERE peoples_id = $id";
             $arrPeoples = $db->queryList($query);
         }
         return $arrPeoples;

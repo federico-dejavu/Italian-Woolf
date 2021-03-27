@@ -17,14 +17,14 @@ class illustrators{
         return $arrPeoples;
     }    
 
-    /* Dato un work restituisce un array di illustrators */
+    /* Dato un edition restituisce un array di illustrators */
     public function getEditionsByIllutratorsId($id = "") {
 
         $arrPeoples = array();
        
         if($id>0){
             $db = new DBManager();
-            $query = "SELECT peoples_id FROM editions_illustrators WHERE editions_id = $id";
+            $query = "SELECT editions_id FROM editions_illustrators WHERE peoples_id = $id";
             $arrPeoples = $db->queryList($query);
         }
         return $arrPeoples;
