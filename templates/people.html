@@ -46,7 +46,7 @@
 						{% endif %}
 						{% if phpPage.second_author %}
 							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
-							{% for second_author in phpPage.second_author|sort((a, b) => a.title <=> b.title)|column('title') %}
+							{% for second_author in phpPage.second_author|sort((a, b) => a.id <=> b.id)|column('title') %}
 								{%  if not loop.first and second_author.title   %} | {% endif %}<a href="{% if second_author.works_id %}edition{% else %}work{% endif %}.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b></a>{% if second_author.year %} ({{ second_author.year }}){% endif %}
 							{% endfor %}
 						{% endif %}
