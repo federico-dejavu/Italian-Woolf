@@ -17,21 +17,18 @@
 			</div>
 			<div class="row">
 				<div class="col">
+					{% if phpPage.people.image %}
+					<br />	<img src="/italianwoolf/public/{{ phpPage.people.image }}" align="left">
+					{% endif %}
 					{% if phpPage.people.birth_date %}
 					<br />{{ LANG.BIRTH_DATE }}: {{ phpPage.people.birth_date }}
 					{% endif %}
 					{% if phpPage.people.death_date %}
 					<br />{{ LANG.DEATH_DATE }}: {{ phpPage.people.death_date }}
 					{% endif %}
-
 					{% if phpPage.people.authority_record %}
 					<br />Authority record: <a href="{{ phpPage.people.authority_record }}" target="_blank"><i>{{ phpPage.people.authority_record }}</i> </a>
 					{% endif %}
-
-					{% if phpPage.people.image %}
-					<br />	<img src="{{ phpPage.people.image }}" align="left">
-					{% endif %}
-
 					{% if phpPage.author %}
 					<br /><b>{{ LANG.AS_AUTHOR }}:</b><br />
 					{% for author in phpPage.author %}
