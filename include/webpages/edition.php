@@ -113,7 +113,7 @@
 
     /* Reperisco dati Translators */
     $translators = new translators();
-    $arrTranslators = $translators->getTranslatorsByWorkId($id);
+    $arrTranslators = $translators->getTranslatorsByEditionId($id);
     $arrElements = array();
     foreach($arrTranslators as $peoples_id){
         $translator = $people->getPeopleById($peoples_id);
