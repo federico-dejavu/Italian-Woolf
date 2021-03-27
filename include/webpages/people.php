@@ -149,17 +149,18 @@
         image
 
 **/
-    function compare_title($field)
-    {
-        $code = "return strnatcmp(\$a['$field'], \$b['$field']);";
-        return create_function('$a,$b', $code);
+    function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
+        $sort_col = array();
+        foreach ($arr as $key=> $row) {
+            $sort_col[$key] = $row[$col];
+        }
+        array_multisort($sort_col, $dir, $arr);
     }
-
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
-    $phpPage['second_author']           = uasort($second_authorsAll, compare_title('title'));
-    $phpPage['editor']                  = uasort($editorsAll, compare_title('title'));
-    $phpPage['translator']              = uasort($translatorsAll, compare_title('title'));
-    $phpPage['illustrator']             = uasort($illustratorsAll, compare_title('title'));
+    $phpPage['second_author']           = array_sort_by_column($second_authorsAll, 'title');
+    $phpPage['editor']                  = array_sort_by_column($editorsAll, 'title');
+    $phpPage['translator']              = array_sort_by_column($translatorsAll, 'title');
+    $phpPage['illustrator']             = array_sort_by_column($illustratorsAll, 'title');
 ?>
