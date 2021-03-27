@@ -158,8 +158,8 @@
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
-    $phpPage['second_author']           = uasort($second_authorsAll, 'title');
-    $phpPage['editor']                  = uasort($editorsAll, 'title');
-    $phpPage['translator']              = uasort($translatorsAll, 'title');
-    $phpPage['illustrator']             = uasort($illustratorsAll, 'title');
+    $phpPage['second_author']           = uasort($second_authorsAll, compare_title('title'));
+    $phpPage['editor']                  = uasort($editorsAll, compare_title('title'));
+    $phpPage['translator']              = uasort($translatorsAll, compare_title('title'));
+    $phpPage['illustrator']             = uasort($illustratorsAll, compare_title('title'));
 ?>
