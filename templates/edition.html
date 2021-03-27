@@ -32,7 +32,7 @@
 					{% endif %}
 					{% if phpPage.edition.illustrators %}
 					<br />{{ LANG.ILLUSTRATORS }}:
-					{% for illustrator in phpPage.edition.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ illustrator.fullname }}</a>{% endfor %}
+					{% for illustrator in phpPage.edition.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ illustrator.id }}">{{ illustrator.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.publisher_id %}
 					<br />{{ LANG.PUBLISHER }}:
