@@ -39,7 +39,7 @@
 						{% endif %}
 						{% if phpPage.work.illustrators %}
 						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.ILLUSTRATORS }}:
-						{% for illustrator in phpPage.work.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ illustrators.id }}">{{ illustrator.fullname }}</a>{% endfor %}
+						{% for illustrator in phpPage.work.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ illustrator.id }}">{{ illustrator.fullname }}</a>{% endfor %}
 						{% endif %}
 						{% if phpPage.work.publisher_id %}
 						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PUBLISHER }}: <a href="publisher.php?id={{ phpPage.work.publisher_id }}"><i>{{ phpPage.work.publisher_name }}</i> </a>
