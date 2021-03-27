@@ -22,7 +22,7 @@
 							<ul>
 								{% for edition in work.editions %}
 									<li><a href="edition.php?id={{ edition.id }}"><b>{{ edition.title }}</b></a>, {{ edition.year }}
-									{% if edition.publisher %}<br /><a href="publisher.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>{% endif %}</li>
+									{% if edition.publisher %}<br /><a href="publisher.php?id={{ edition.publisher.id }}">{{ edition.publisher.publisher }}</a>{% endif %}</li>
 								{% endfor %}
 							</ul>
 						</p>
