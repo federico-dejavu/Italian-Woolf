@@ -10,7 +10,7 @@
     require_once 'include/illustrators.php';
     require_once 'include/works.php';
 
-    function cmp($a, $b)
+    function title($a, $b)
     {
         return strcmp($a["title"], $b["title"]);
     }
@@ -156,13 +156,12 @@
 
 **/
    
-    usort($authorsAll,'cmp');
-    usort($second_authorsAll,'cmp');
-    usort($editorsAll,'cmp');
-    usort($translatorsAll,'cmp');
-    usort($illustratorsAll,'cmp');
+    if (isset($authorsAll)          { usort($authorsAll,'title'); }
+    if (isset($second_authorsAll)   { usort($second_authorsAll,'title'); }
+    if (isset($editorsAll)          { usort($editorsAll,'title');}
+    if (isset($translatorsAll)      { usort($translatorsAll,'title');}
+    if (isset($illustratorsAll)     { usort($illustratorsAll,'title');}
 
-    $phpPage['people']                  = $people;
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
     $phpPage['second_author']           = $second_authorsAll;
