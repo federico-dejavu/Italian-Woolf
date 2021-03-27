@@ -8,10 +8,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2>{{ phpPage.people.fullname }}
-					{% if phpPage.people.other_name %}
-						({{ phpPage.people.other_name }})
-					{% endif %}
+					<h2>{{ phpPage.people.fullname }}{% if phpPage.people.other_name %} ({{ phpPage.people.other_name }}){% endif %}
 					</h2>
 				</div>
 			</div>
@@ -22,56 +19,56 @@
 						<img src="/italianwoolf/public/{{ phpPage.people.image }}" align="left">
 					</div>
 					{% endif %}
-					{% set br = 0 %}
 					<p class="description">
 						{% if phpPage.people.birth_date %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.BIRTH_DATE }}: {{ phpPage.people.birth_date }}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.BIRTH_DATE }}: {{ phpPage.people.birth_date }}
 						{% endif %}
 						{% if phpPage.people.death_date %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.DEATH_DATE }}: {{ phpPage.people.death_date }}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.DEATH_DATE }}: {{ phpPage.people.death_date }}
 						{% endif %}
 						{% if phpPage.people.authority_record %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}Authority record: <a href="{{ phpPage.people.authority_record }}" target="_blank"><i>{{ phpPage.people.authority_record }}</i> </a>
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}Authority record: <a href="{{ phpPage.people.authority_record }}" target="_blank"><i>{{ phpPage.people.authority_record }}</i> </a>
 						{% endif %}
 					</p>
-				{% if phpPage.people.description or phpPage.author or phpPage.second_author or phpPage.editor or phpPage.translator or phpPage.illustrator %}
+					{% if phpPage.people.description or phpPage.author or phpPage.second_author or phpPage.editor or phpPage.translator or phpPage.illustrator %}
 				</div>
 				<div class="col-lg-8">
 					<p class="description">
-					{% if phpPage.people.description %}
-						{{ phpPage.people.description }}
+						{% set br = 0 %}
+						{% if phpPage.people.description %}
+							{{ phpPage.people.description }}
 						{% endif %}
 						{% if phpPage.author %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_AUTHOR }}:</b><br />
-						{% for author in phpPage.author %}
-						{% if not loop.first and author.title %} | {% endif %}<a href="work.php?id={{ author.id }}"> <b>{{ author.title }}</b> </a>
-						{% endfor %}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_AUTHOR }}:</b><br />
+							{% for author in phpPage.author %}
+								{% if not loop.first and author.title %} | {% endif %}<a href="work.php?id={{ author.id }}"> <b>{{ author.title }}</b> </a>
+							{% endfor %}
 						{% endif %}
 						{% if phpPage.second_author %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
-						{% for second_author in phpPage.second_author %}
-						{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
-						{% endfor %}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
+							{% for second_author in phpPage.second_author %}
+								{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
+							{% endfor %}
 						{% endif %}
 						{% if phpPage.editor %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_EDITOR }}:</b><br />
-						{% for editor in phpPage.editor %}
-						{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
-						{% endfor %}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_EDITOR }}:</b><br />
+							{% for editor in phpPage.editor %}
+								{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
+							{% endfor %}
 						{% endif %}
 						{% if phpPage.translator %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_TRANSLATOR }}:</b><br />
-						{% for translator in phpPage.translator %}
-						{%  if not loop.first and translator.title  %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b> </a>
-						{% endfor %}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_TRANSLATOR }}:</b><br />
+							{% for translator in phpPage.translator %}
+								{%  if not loop.first and translator.title  %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b> </a>
+							{% endfor %}
 						{% endif %}
 						{% if phpPage.illustrator %}
-						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_ILLUSTRATOR }}:</b><br />
-						{% for illustrator in phpPage.illustrator %}
-						{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b> </a>
-						{% endfor %}
+							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_ILLUSTRATOR }}:</b><br />
+							{% for illustrator in phpPage.illustrator %}
+								{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b> </a>
+							{% endfor %}
 						{% endif %}
-						{% endif %}
+					{% endif %}
 					</p>  
 				</div>
 			</div>
