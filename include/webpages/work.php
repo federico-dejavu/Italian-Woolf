@@ -8,6 +8,7 @@
     require_once 'include/secondary_authors.php';   
     require_once 'include/editors.php';
     require_once 'include/languages.php'; 
+    require_once 'include/translators.php'; 
     require_once 'include/series.php';     
     require_once 'include/illustrators.php';
     require_once 'include/editions.php';
@@ -78,6 +79,16 @@
         $arrElements[] = $editor;     
     }
     $work['editors']=$arrElements; 
+
+    /* Reperisco dati Translators */
+    $translators = new translators();
+    $arrTranslators = $translators->getTranslatorsByWorkId($id);
+    $arrElements = array();
+    foreach($arrTranslators as $peoples_id){
+        $editor = $people->getPeopleById($peoples_id);
+        $arrElements[] = $translator;     
+    }
+    $work['translators']=$arrElements; 
 
     /* Reperisco dati Illustrator */
     $illustrators = new illustrators();
