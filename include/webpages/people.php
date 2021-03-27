@@ -149,16 +149,17 @@
         image
 
 **/
-    function compare_title($a, $b)
+    function compare_title($field)
     {
-        return strnatcmp($a['title'], $b['title']);
+        $code = "return strnatcmp(\$a['$field'], \$b['$field']);";
+        return create_function('$a,$b', $code);
     }
 
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
-    $phpPage['second_author']           = uasort($second_authorsAll, 'compare_title');
-    $phpPage['editor']                  = uasort($editorsAll, 'compare_title');
-    $phpPage['translator']              = uasort($translatorsAll, 'compare_title');
-    $phpPage['illustrator']             = uasort($illustratorsAll, 'compare_title');
+    $phpPage['second_author']           = uasort($second_authorsAll, 'title');
+    $phpPage['editor']                  = uasort($editorsAll, 'title');
+    $phpPage['translator']              = uasort($translatorsAll, 'title');
+    $phpPage['illustrator']             = uasort($illustratorsAll, 'title');
 ?>
