@@ -16,11 +16,9 @@
 					<p>
 						{{ phpPage.publisher.description }}
 					</p>  
-					
-
 					{% if phpPage.publisher.link %}
 					<p>
-						{{ LANG.WEB_SITE }}: <a href="{{ phpPage.publisher.link }}">{{ phpPage.publisher.publisher }}</a>
+						{{ LANG.WEB_SITE }}: <a href="{{ phpPage.publisher.link }}" target="_blank">{{ phpPage.publisher.publisher }}</a>
 					</p>
 					{% endif %}
 				</div>
