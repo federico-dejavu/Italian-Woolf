@@ -15,65 +15,65 @@
 					</h2>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col">
-					{% if phpPage.people.image %}
-					<br />	<img src="/italianwoolf/public/{{ phpPage.people.image }}" align="left">
-					{% endif %}
+			<div class="col-lg-4">
+				{% if phpPage.people.image %}
+				<div class="image">
+					<img src="/italianwoolf/public/{{ phpPage.people.image }}" align="left">
+				</div>
+				{% endif %}
+				{% set br = 0 %}
+				<p class="description">
 					{% if phpPage.people.birth_date %}
-					<br />{{ LANG.BIRTH_DATE }}: {{ phpPage.people.birth_date }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.BIRTH_DATE }}: {{ phpPage.people.birth_date }}
 					{% endif %}
 					{% if phpPage.people.death_date %}
-					<br />{{ LANG.DEATH_DATE }}: {{ phpPage.people.death_date }}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.DEATH_DATE }}: {{ phpPage.people.death_date }}
 					{% endif %}
 					{% if phpPage.people.authority_record %}
-					<br />Authority record: <a href="{{ phpPage.people.authority_record }}" target="_blank"><i>{{ phpPage.people.authority_record }}</i> </a>
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}Authority record: <a href="{{ phpPage.people.authority_record }}" target="_blank"><i>{{ phpPage.people.authority_record }}</i> </a>
 					{% endif %}
-					{% if phpPage.author %}
-					<br /><b>{{ LANG.AS_AUTHOR }}:</b><br />
+				</p>
+			{% if phpPage.people.description or phpPage.author or phpPage.second_author or phpPage.editor or phpPage.translator or phpPage.illustrator %}
+			</div>
+			<div class="col-lg-8">
+				{% if phpPage.people.description %}
+				<p class="description">
+					{{ phpPage.people.description }}
+				</p>  
+				{% endif %}
+				{% if phpPage.author %}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_AUTHOR }}:</b><br />
 					{% for author in phpPage.author %}
-					{% if not loop.first and author.title %} | {% endif %}<a href="work.php?id={{ author.id }}"> <b>{{ author.title }}</b> </a>
+						{% if not loop.first and author.title %} | {% endif %}<a href="work.php?id={{ author.id }}"> <b>{{ author.title }}</b> </a>
 					{% endfor %}
-					{% endif %}
-
-					{% if phpPage.second_author %}
-					<br /><b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
+				{% endif %}
+				{% if phpPage.second_author %}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
 					{% for second_author in phpPage.second_author %}
-					{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
+						{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b> </a>
 					{% endfor %}
-					{% endif %}
-
-					{% if phpPage.editor %}
-					<br /><b>{{ LANG.AS_EDITOR }}:</b><br />
+				{% endif %}
+				{% if phpPage.editor %}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_EDITOR }}:</b><br />
 					{% for editor in phpPage.editor %}
-					{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
+						{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b> </a>
 					{% endfor %}
-					</p>
-					{% endif %}
-
-					{% if phpPage.translator %}
-					<br /><b>{{ LANG.AS_TRANSLATOR }}:</b><br />
+				{% endif %}
+				{% if phpPage.translator %}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_TRANSLATOR }}:</b><br />
 					{% for translator in phpPage.translator %}
-					{%  if not loop.first and translator.title  %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b> </a>
+						{%  if not loop.first and translator.title  %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b> </a>
 					{% endfor %}
-					{% endif %}
-
-					{% if phpPage.illustrator %}
-					<br /><b>{{ LANG.AS_ILLUSTRATOR }}:</b><br />
+				{% endif %}
+				{% if phpPage.illustrator %}
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_ILLUSTRATOR }}:</b><br />
 					{% for illustrator in phpPage.illustrator %}
-					{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b> </a>
+						{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b> </a>
 					{% endfor %}
-					{% endif %}
-
-					{% if phpPage.people.description %}
-					<p>
-						{{ phpPage.people.description }}
-					</p>
-					{% endif %}
-				</div>
+				{% endif %}
+			{% endif %}
 			</div>
 		</div>
-	</div>
 {{ include('footer.html') }}
 <!— end Twig —>
 {% endautoescape %}
