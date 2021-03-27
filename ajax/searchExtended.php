@@ -136,7 +136,7 @@
                         /* Reperisco dati publisher */
                         $editionPublisherObject = new publishers();
                         $editionPublisher = $editionPublisherObject->getPublisherById($edition['publisher_id']);
-                        $edition['publisher'] = $publisher;
+                        $edition['publisher'] = $editionPublisher;
                         array_push($arrEditionsResult,$edition);
                     }
                     $singleWork['editions'] = $arrEditionsResult;
