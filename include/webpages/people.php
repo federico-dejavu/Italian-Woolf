@@ -10,6 +10,11 @@
     require_once 'include/illustrators.php';
     require_once 'include/works.php';
 
+    function cmp($a, $b)
+    {
+        return strcmp($a["title"], $b["title"]);
+    }
+    
     $id	= (isset($_REQUEST['id'])	? $_REQUEST['id']	: '');
 
     /* Reperisco dati publisher */
@@ -125,35 +130,6 @@
         $illustratorsAll[] = $illustratorEditions;        
     }
 
-    // $second_authors = array();
-
-    // foreach ($second_authorsAll as $second_author) {
-
-    //     $second_author['type'] = (isset($second_author['work_id'])) ? 'editions' : 'works';
-    //     array_push($second_authors, $second_author['id'], $second_author['title'], $second_author['year'], $second_author['type']);
-        
-    // }
-    // $second_authorsOrdered = array();
-    // $second_authorsAll = array();
-    // foreach ($second_authors as $second_author) {
-        
-        //     var_dump($second_author);
-        
-        //     $second_authorKey['id']     = $second_author[0];
-        //     $second_authorKey['title']  = $second_author[1];
-        //     $second_authorKey['year']   = $second_author[2];
-        //     $second_authorKey['type']   = $second_author[3];
-        
-        //     $second_authorsAll[] = $second_authorKey;
-        
-        // }
-        
-        
-        function cmp($a, $b)
-        {
-            return strcmp($a["title"], $b["title"]);
-        }
-        usort($second_authorsAll,'cmp');
 /**  
    $people[]
         id
@@ -181,9 +157,9 @@
 **/
 
     $phpPage['people']                  = $people;
-    $phpPage['author']                  = $authorsAll;
-    $phpPage['second_author']           = $second_authorsAll;
-    $phpPage['editor']                  = $editorsAll;
-    $phpPage['translator']              = $translatorsAll;
-    $phpPage['illustrator']             = $illustratorsAll;
+    $phpPage['author']                  = usort($authorsAll,'cmp');
+    $phpPage['second_author']           = usort($second_authorsAll,'cmp');
+    $phpPage['editor']                  = usort($editorsAll,'cmp');
+    $phpPage['translator']              = usort($translatorsAll,'cmp');
+    $phpPage['illustrator']             = usort($illustratorsAll,'cmp');
 ?>
