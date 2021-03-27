@@ -159,8 +159,8 @@
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
-    $phpPage['second_author']           = array_sort_by_column($second_authorsAll, 'title');
-    $phpPage['editor']                  = array_sort_by_column($editorsAll, 'title');
-    $phpPage['translator']              = array_sort_by_column($translatorsAll, 'title');
-    $phpPage['illustrator']             = array_sort_by_column($illustratorsAll, 'title');
+    $phpPage['second_author']           = $second_authorsAll;
+    $phpPage['editor']                  = $editorsAll;
+    $phpPage['translator']              = $translatorsAll;
+    $phpPage['illustrator']             = $illustratorsAll;
 ?>
