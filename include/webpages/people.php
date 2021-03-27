@@ -138,10 +138,10 @@
     $second_authorsAll = array();
     foreach ($second_authors as $second_author) {
 
-        $second_authorKey['id']=>$second_author[0];
-        $second_authorKey['title']=>$second_author[1];
-        $second_authorKey['year']=>$second_author[2];
-        $second_authorKey['type']=>$second_author[3];
+        $second_authorKey['id']     = $second_author[0];
+        $second_authorKey['title']  = $second_author[1];
+        $second_authorKey['year']   = $second_author[2];
+        $second_authorKey['type']   = $second_author[3];
 
         $second_authorsAll[] = $second_authorKey;
 
