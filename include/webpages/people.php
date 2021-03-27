@@ -156,11 +156,11 @@
 
 **/
    
-    if (isset($authorsAll)          { usort($authorsAll,'title'); }
-    if (isset($second_authorsAll)   { usort($second_authorsAll,'title'); }
-    if (isset($editorsAll)          { usort($editorsAll,'title');}
-    if (isset($translatorsAll)      { usort($translatorsAll,'title');}
-    if (isset($illustratorsAll)     { usort($illustratorsAll,'title');}
+    if (isset($authorsAll))          { usort($authorsAll,'title'); }
+    if (isset($second_authorsAll))   { usort($second_authorsAll,'title'); }
+    if (isset($editorsAll))          { usort($editorsAll,'title');}
+    if (isset($translatorsAll))      { usort($translatorsAll,'title');}
+    if (isset($illustratorsAll))     { usort($illustratorsAll,'title');}
 
     $phpPage['people']                  = $people;
     $phpPage['author']                  = $authorsAll;
