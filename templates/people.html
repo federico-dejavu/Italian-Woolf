@@ -47,25 +47,25 @@
 						{% if phpPage.second_author %}
 							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_SECOND_AUTHOR }}:</b><br />
 							{% for second_author in phpPage.second_author %}
-								{%  if not loop.first and second_author.title   %} | {% endif %}<a href="work.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b></a>{% if second_author.year %} ({{ second_author.year }}){% endif %}
+								{%  if not loop.first and second_author.title   %} | {% endif %}<a href="{% if second_author.works_id %}edition{% else %}work{% endif %}.php?id={{ second_author.id }}"> <b>{{ second_author.title }}</b></a>{% if second_author.year %} ({{ second_author.year }}){% endif %}
 							{% endfor %}
 						{% endif %}
 						{% if phpPage.editor %}
 							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_EDITOR }}:</b><br />
 							{% for editor in phpPage.editor %}
-								{%  if not loop.first and editor.title  %} | {% endif %}<a href="work.php?id={{ editor.id }}"> <b>{{ editor.title }}</b></a>{% if editor.year %} ({{ editor.year }}){% endif %}
+								{%  if not loop.first and editor.title  %} | {% endif %}<a href="{% if editor.works_id %}edition{% else %}work{% endif %}.php?id={{ editor.id }}"> <b>{{ editor.title }}</b></a>{% if editor.year %} ({{ editor.year }}){% endif %}
 							{% endfor %}
 						{% endif %}
 						{% if phpPage.translator %}
 							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_TRANSLATOR }}:</b><br />
 							{% for translator in phpPage.translator %}
-								{%  if not loop.first and translator.title  %} | {% endif %}<a href="work.php?id={{ translator.id }}"> <b>{{ translator.title }}</b></a>{% if translator.year %} ({{ translator.year }}){% endif %}
+								{%  if not loop.first and translator.title  %} | {% endif %}<a href="{% if translator.works_id %}edition{% else %}work{% endif %}.php?id={{ translator.id }}"> <b>{{ translator.title }}</b></a>{% if translator.year %} ({{ translator.year }}){% endif %}
 							{% endfor %}
 						{% endif %}
 						{% if phpPage.illustrator %}
 							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_ILLUSTRATOR }}:</b><br />
 							{% for illustrator in phpPage.illustrator %}
-								{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="work.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b></a>{% if illustrator.year %} ({{ illustrator.year }}){% endif %}
+								{%  if not loop.first and illustrator.title  %} | {% endif %}<a href="{% if illustrator.works_id %}edition{% else %}work{% endif %}.php?id={{ illustrator.id }}"> <b>{{ illustrator.title }}</b></a>{% if illustrator.year %} ({{ illustrator.year }}){% endif %}
 							{% endfor %}
 						{% endif %}
 					{% endif %}
