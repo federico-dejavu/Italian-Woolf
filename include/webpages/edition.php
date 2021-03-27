@@ -110,6 +110,16 @@
     }
     $edition['secondary_authors']=$arrElements;
 
+    /* Reperisco dati Translators */
+    $translators = new translators();
+    $arrTranslators = $translators->getTranslatorsByWorkId($id);
+    $arrElements = array();
+    foreach($arrTranslators as $peoples_id){
+        $translator = $people->getPeopleById($peoples_id);
+        $arrElements[] = $translator;     
+    }
+    $edition['translators']=$arrElements; 
+
     /* Reperisco dati Editor */
     $editors = new editors();
     $arrEditors = $editors->getEditorsByEditionId($id);
