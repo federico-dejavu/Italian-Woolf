@@ -104,6 +104,7 @@
     /* Reperisco dati editions come translator */
     $translatorObject = new translators();
     $editionsByTranslatorId = $translatorObject->getEditionsByTranslatorId($id);
+    var_dump($editionsByTranslatorId);
     $translatorEditionsObject = new editions();
     $translatorEditionsAll = array();
     foreach ($editionsByTranslatorId as $translatorEdition_id ) {
@@ -111,7 +112,6 @@
         $translatorEditions = $translatorEditionsObject->getEditionById($translatorEdition_id);
 
         $translatorsAll[] = $translatorEditions;        
-        var_dump($translatorEditions);
     }
 
     /* Reperisco dati editions come illustrator */
