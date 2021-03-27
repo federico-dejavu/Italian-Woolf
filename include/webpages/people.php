@@ -111,6 +111,7 @@
         $translatorEditions = $translatorEditionsObject->getEditionById($translatorEdition_id);
 
         $translatorsAll[] = $translatorEditions;        
+        var_dump($translatorEditions);
     }
 
     /* Reperisco dati editions come illustrator */
