@@ -24,7 +24,7 @@
 					{% endif %}
 					{% if phpPage.edition.secondary_authors %}
 					<br />{{ LANG.SECONDARY_AUTHORS }}:
-					{% for secondary_author in phpPage.edition.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_authors.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
+					{% for secondary_author in phpPage.edition.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_author.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
 					{% endif %}
 					{% if phpPage.edition.editors %}
 					<br />{{ LANG.EDITORS }}:
