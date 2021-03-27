@@ -44,10 +44,10 @@
 						{% if phpPage.work.publisher_id %}
 						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PUBLISHER }}: <a href="publisher.php?subject={{ phpPage.work.publisher_name }}&id={{ phpPage.work.publisher_id }}"><i>{{ phpPage.work.publisher_name }}</i> </a>
 						{% endif %}
-						{% if work.city %}
+						{% if phpPage.work.city %}
 						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.CITY }}: {{ phpPage.work.city }}
 						{% endif %}
-						{% if work.pages %}
+						{% if phpPage.work.pages %}
 						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PAGES }}: {{ phpPage.work.pages }}
 						{% endif %}
 						{% if phpPage.work.language %}
