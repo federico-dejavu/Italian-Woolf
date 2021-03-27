@@ -155,11 +155,18 @@
         image
 
 **/
+   
+    usort($authorsAll,'cmp');
+    usort($second_authorsAll,'cmp');
+    usort($editorsAll,'cmp');
+    usort($translatorsAll,'cmp');
+    usort($illustratorsAll,'cmp');
 
     $phpPage['people']                  = $people;
-    $phpPage['author']                  = usort($authorsAll,'cmp');
-    $phpPage['second_author']           = usort($second_authorsAll,'cmp');
-    $phpPage['editor']                  = usort($editorsAll,'cmp');
-    $phpPage['translator']              = usort($translatorsAll,'cmp');
-    $phpPage['illustrator']             = usort($illustratorsAll,'cmp');
+    $phpPage['people']                  = $people;
+    $phpPage['author']                  = $authorsAll;
+    $phpPage['second_author']           = $second_authorsAll;
+    $phpPage['editor']                  = $editorsAll;
+    $phpPage['translator']              = $translatorsAll;
+    $phpPage['illustrator']             = $illustratorsAll;
 ?>
