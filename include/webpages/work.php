@@ -85,7 +85,7 @@
     $arrTranslators = $translators->getTranslatorsByWorkId($id);
     $arrElements = array();
     foreach($arrTranslators as $peoples_id){
-        $editor = $people->getPeopleById($peoples_id);
+        $translator = $people->getPeopleById($peoples_id);
         $arrElements[] = $translator;     
     }
     $work['translators']=$arrElements; 

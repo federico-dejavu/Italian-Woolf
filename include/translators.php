@@ -7,15 +7,15 @@ class translators{
     /* Dato un work restituisce un array di translators */
     public function getTranslatorsByWorkId($id = "") {
 
-        $arrPeoples = array();
-       
+    $arrPeoples = array();
+
         if($id>0){
             $db = new DBManager();
             $query = "SELECT peoples_id FROM works_translators WHERE works_id = $id";
             $arrPeoples = $db->queryList($query);
         }
-        return $arrPeoples;
-    }    
+    return $arrPeoples;
+    }         
 
      /* Dato un translator restituisce un array di works */
      public function getWorksByTranslatorId($id = "") {
