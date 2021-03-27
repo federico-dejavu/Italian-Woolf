@@ -25,7 +25,7 @@
 
         $authorWorks = $authorWorksObject->getWorksByWork_id($authorWork_id);
 
-        $authorWorksAll[] = $authorWorks;        
+        $authorsAll[] = $authorWorks;
     }
 
     /* Reperisco dati works come second_author */
@@ -37,7 +37,7 @@
 
         $second_authorWorks = $second_authorWorksObject->getWorksByWork_id($second_authorWork_id);
 
-        $second_authorWorksAll[] = $second_authorWorks;        
+        $second_authorsAll[] = $second_authorWorks;        
     }
 
     /* Reperisco dati works come editor */
@@ -49,7 +49,7 @@
 
         $editorWorks = $editorWorksObject->getWorksByWork_id($editorWork_id);
 
-        $editorWorksAll[] = $editorWorks;        
+        $editorsAll[] = $editorWorks;        
     }
 
     /* Reperisco dati works come translator */
@@ -61,7 +61,7 @@
 
         $translatorWorks = $translatorWorksObject->getWorksByWork_id($translatorWork_id);
 
-        $translatorWorksAll[] = $translatorWorks;        
+        $translatorsAll[] = $translatorWorks;        
     }
 
     /* Reperisco dati works come illustrator */
@@ -73,7 +73,7 @@
 
         $illustratorWorks = $illustratorWorksObject->getWorksByWork_id($illustratorWork_id);
 
-        $illustratorWorksAll[] = $illustratorWorks;        
+        $illustratorsAll[] = $illustratorWorks;        
     }
 
 
@@ -86,7 +86,7 @@
 
         $second_authorEditions = $second_authorEditionsObject->getEditionById($second_authorEdition_id);
 
-        $second_authorEditionsAll[] = $second_authorEditions;        
+        $second_authorsAll[] = $second_authorEditions;        
     }
 
     /* Reperisco dati editions come editor */
@@ -98,7 +98,7 @@
 
         $editorEditions = $editorEditionsObject->getEditionById($editorEdition_id);
 
-        $editorEditionsAll[] = $editorEditions;        
+        $editorsAll[] = $editorEditions;        
     }
 
     /* Reperisco dati editions come translator */
@@ -110,7 +110,7 @@
 
         $translatorEditions = $translatorEditionsObject->getEditionById($translatorEdition_id);
 
-        $translatorEditionsAll[] = $translatorEditions;        
+        $translatorsAll[] = $translatorEditions;        
     }
 
     /* Reperisco dati editions come illustrator */
@@ -122,7 +122,7 @@
 
         $illustratorEditions = $illustratorEditionsObject->getEditionById($illustratorEdition_id);
 
-        $illustratorEditionsAll[] = $illustratorEditions;        
+        $illustratorsAll[] = $illustratorEditions;        
     }
 /**  
    $people[]
@@ -151,14 +151,9 @@
 **/
 
     $phpPage['people']                  = $people;
-    $phpPage['author']                  = $authorWorksAll;
-    $phpPage['second_author']           = $second_authorWorksAll;
-    $phpPage['editor']                  = $editorWorksAll;
-    $phpPage['translator']              = $translatorWorksAll;
-    $phpPage['illustrator']             = $illustratorWorksAll;
-	$phpPage['authorEdition']           = $authorEditionsAll;
-    $phpPage['second_authorEdition']    = $second_authorEditionsAll;
-    $phpPage['editorEdition']           = $editorEditionsAll;
-    $phpPage['translatorEdition']       = $translatorEditionsAll;
-    $phpPage['illustratorEdition']      = $illustratorEditionsAll;	
+    $phpPage['author']                  = $authorsAll;
+    $phpPage['second_author']           = $second_authorsAll;
+    $phpPage['editor']                  = $editorsAll;
+    $phpPage['translator']              = $translatorsAll;
+    $phpPage['illustrator']             = $illustratorsAll;
 ?>
