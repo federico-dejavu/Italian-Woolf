@@ -13,51 +13,65 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
-					{% if phpPage.edition.authors %}
-					<br />{{ LANG.AUTHORS }}:
-					{% for author in phpPage.edition.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
+				<div class="col-lg-4">
+					{% if phpPage.edition.image %}
+					<div class="image">
+						<img src="/italianwoolf/public/{{ phpPage.edition.image }}" align="left">
+					</div>
 					{% endif %}
-					{% if phpPage.edition.translators %}
-					<br />{{ LANG.TRANSLATORS }}:
-					{% for translator in phpPage.edition.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
-					{% endif %}
-					{% if phpPage.edition.secondary_authors %}
-					<br />{{ LANG.SECONDARY_AUTHORS }}:
-					{% for secondary_author in phpPage.edition.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_author.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
-					{% endif %}
-					{% if phpPage.edition.editors %}
-					<br />{{ LANG.EDITORS }}:
-					{% for editor in phpPage.edition.editors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ editor.fullname }}</a>{% endfor %}
-					{% endif %}
-					{% if phpPage.edition.illustrators %}
-					<br />{{ LANG.ILLUSTRATORS }}:
-					{% for illustrator in phpPage.edition.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ illustrator.id }}">{{ illustrator.fullname }}</a>{% endfor %}
-					{% endif %}
-					{% if phpPage.edition.publisher_id %}
-					<br />{{ LANG.PUBLISHER }}:
-					<a href="publisher.php?id={{ phpPage.edition.publisher_id }}"><i>{{ phpPage.edition.publisher_name }}</i> </a>
-					{% endif %}
-					{% if work.city %}
-					<br />{{ LANG.CITY }}: {{ phpPage.edition.city }}
-					{% endif %}
-					{% if work.pages %}
-					<br />{{ LANG.PAGES }}: {{ phpPage.edition.pages }}
-					{% endif %}
-					{% if phpPage.edition.language %}
-					<br />{{ LANG.LANGUAGE }}: {{ phpPage.edition.language }}
-					{% endif %}
-					{% if phpPage.edition.paratexts %}
-					<br />{{ LANG.PARATEXTS }}:
-					{% for paratext in phpPage.edition.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
-					{% endif %}
-					{% if phpPage.edition.isbn %}
-					<br />ISBN: {{ phpPage.edition.isbn }}
-					{% endif %}
-					{% if phpPage.edition.works_id %}
-					<br />{{ LANG.FIRST_EDITION }}: <a href="work.php?id={{ phpPage.edition.works_id }}">{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
-					{% endif %}
+					{% set br = 0 %}
+					<p class="description">
+						{% if phpPage.edition.authors %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.AUTHORS }}:
+						{% for author in phpPage.edition.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
+						{% endif %}
+						{% if phpPage.edition.translators %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.TRANSLATORS }}:
+						{% for translator in phpPage.edition.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
+						{% endif %}
+						{% if phpPage.edition.secondary_authors %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.SECONDARY_AUTHORS }}:
+						{% for secondary_author in phpPage.edition.secondary_authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ secondary_author.id }}">{{ secondary_author.fullname }}</a>{% endfor %}
+						{% endif %}
+						{% if phpPage.edition.editors %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.EDITORS }}:
+						{% for editor in phpPage.edition.editors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ editor.id }}">{{ editor.fullname }}</a>{% endfor %}
+						{% endif %}
+						{% if phpPage.edition.illustrators %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.ILLUSTRATORS }}:
+						{% for illustrator in phpPage.edition.illustrators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ illustrator.id }}">{{ illustrator.fullname }}</a>{% endfor %}
+						{% endif %}
+						{% if phpPage.edition.publisher_id %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PUBLISHER }}:
+						<a href="publisher.php?id={{ phpPage.edition.publisher_id }}"><i>{{ phpPage.edition.publisher_name }}</i> </a>
+						{% endif %}
+						{% if work.city %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.CITY }}: {{ phpPage.edition.city }}
+						{% endif %}
+						{% if work.pages %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PAGES }}: {{ phpPage.edition.pages }}
+						{% endif %}
+						{% if phpPage.edition.language %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.LANGUAGE }}: {{ phpPage.edition.language }}
+						{% endif %}
+						{% if phpPage.edition.paratexts %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PARATEXTS }}:
+						{% for paratext in phpPage.edition.paratexts %}{% if not loop.first %}, {% endif %}{{ paratext.paratext }}</a>{% endfor %}
+						{% endif %}
+						{% if phpPage.edition.isbn %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}ISBN: {{ phpPage.edition.isbn }}
+						{% endif %}
+						{% if phpPage.edition.works_id %}
+						{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.FIRST_EDITION }}: <a href="work.php?id={{ phpPage.edition.works_id }}">{{ phpPage.edition.work_title }}{% if phpPage.edition.work_year %} ({{ phpPage.edition.work_year }}){% endif %}</a>
+						{% endif %}
+					</p>
+				{% if phpPage.edition.description %}
 				</div>
+				<div class="col-lg-8">
+					<p class="description">
+						{{ phpPage.edition.description }}
+					</p>  
+				{% endif %}
 			</div>
 		</div>
 	</div>
