@@ -125,7 +125,7 @@
         $illustratorsAll[] = $illustratorEditions;        
     }
 
-    foreach ($second_author as $second_authorsAll) {
+    foreach ($second_authorsAll as $second_author) {
 
         var_dump($second_author);
 
