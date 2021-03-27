@@ -125,29 +125,35 @@
         $illustratorsAll[] = $illustratorEditions;        
     }
 
-    $second_authors = array();
+    // $second_authors = array();
 
-    foreach ($second_authorsAll as $second_author) {
+    // foreach ($second_authorsAll as $second_author) {
 
-        $second_author['type'] = (isset($second_author['work_id'])) ? 'editions' : 'works';
-        array_push($second_authors, $second_author['id'], $second_author['title'], $second_author['year'], $second_author['type']);
+    //     $second_author['type'] = (isset($second_author['work_id'])) ? 'editions' : 'works';
+    //     array_push($second_authors, $second_author['id'], $second_author['title'], $second_author['year'], $second_author['type']);
         
-    }
-    array_sort_by_column($second_authors,'title');
-    $second_authorsOrdered = array();
-    $second_authorsAll = array();
-    foreach ($second_authors as $second_author) {
-
-        var_dump($second_author);
-
-        $second_authorKey['id']     = $second_author[0];
-        $second_authorKey['title']  = $second_author[1];
-        $second_authorKey['year']   = $second_author[2];
-        $second_authorKey['type']   = $second_author[3];
-
-        $second_authorsAll[] = $second_authorKey;
-
-    }
+    // }
+    // $second_authorsOrdered = array();
+    // $second_authorsAll = array();
+    // foreach ($second_authors as $second_author) {
+        
+        //     var_dump($second_author);
+        
+        //     $second_authorKey['id']     = $second_author[0];
+        //     $second_authorKey['title']  = $second_author[1];
+        //     $second_authorKey['year']   = $second_author[2];
+        //     $second_authorKey['type']   = $second_author[3];
+        
+        //     $second_authorsAll[] = $second_authorKey;
+        
+        // }
+        
+        
+        function cmp($a, $b)
+        {
+            return strcmp($a["title"], $b["title"]);
+        }
+        usort($second_authorsAll,'cmp');
 /**  
    $people[]
         id
