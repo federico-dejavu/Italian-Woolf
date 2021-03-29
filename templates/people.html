@@ -36,7 +36,9 @@
 					<p class="description">
 						{% set br = 0 %}
 						{% if phpPage.people.description %}
+						<p class="description">
 							{{ phpPage.people.description }}
+						</p>
 						{% endif %}
 						{% if phpPage.author %}
 							{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}<b>{{ LANG.AS_AUTHOR }}:</b><br />
