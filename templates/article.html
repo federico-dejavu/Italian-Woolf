@@ -69,7 +69,7 @@
 					{% endif %}
 					{% endif %}
 					{% if phpPage.article.doi %}
-					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}DOI: <a href="{{ phpPage.article.doi }}">{{ phpPage.article.doi }}</a>
+					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}DOI: <a href="{{ phpPage.article.doi }}" target="_blank">{{ phpPage.article.doi }}</a>
 					{% endif %}
 					{% if phpPage.article.publisher['publisher'] %}
 					{% if br != 0 %}<br />{% else %}{% set br = 1 %}{% endif %}{{ LANG.PUBLISHER }}: {{ phpPage.article.publisher['publisher'] }}
