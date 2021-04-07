@@ -2,7 +2,6 @@
 
 require_once('include/config.php');
 require_once('DBManager.php');
-require_once('functions/functions.php');
 
 class webpages{
     
@@ -51,7 +50,57 @@ class webpages{
 
     }
 
+   /* Rende gli args della pagina attuale */
+   public function renderPageArgs() {
+
+        $args = '';
+
+        foreach ($_REQUEST as $key => $value) {
+
+            $args .= ($key != 'lang') ? $key.'='.$value.'&' : '';
+
+        }
+
+        return $args;
+
+   }
+
 }
+
+function renderPage($content_key = "HOME") {
+   
+    $languages_id = checkLanguage();
+    $renderTarget = 'webpages.html';
+    $phpPage = array();
+
+    // Reperisco i contenuti ella webpage
+    $pageObject = new webpages();
+    $page = $pageObject->getWebpageByContentKeyId($content_key,$languages_id);
+    $args = $pageObject->renderPageArgs();
+
+    if ($page["type"] == "php") {
+
+        $renderTarget = $page['file_name'].'.html';
+        include_once('webpages/'.$page['file_name'].'.php');
+        switch($page['file_name']) {
+            case 'work';
+                $page['title'] = $phpPage['work']['title'];
+                break;
+            case 'edition';
+                $page['title'] = $phpPage['edition']['title'];
+                break;
+            case 'article';
+                $page['title'] = $phpPage['article']['title'];
+                break;
+            case 'people';
+                $page['title'] = $phpPage['people']['fullname'];
+                break;
+            case 'publisher';
+                $page['title'] = $phpPage['publisher']['publisher'];
+                break;
+        }
+
+    }
 
 /*
     ["id"]
@@ -95,6 +144,7 @@ class webpages{
         'LANG'          => $language,
     ]);
 
+}
 
 
 ?>
