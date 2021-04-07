@@ -11,7 +11,7 @@
     require_once '../include/editors.php';
     require_once '../include/articles.php';
     require_once '../include/languages.php';   
-    require_once 'functions/functions.php';
+    require_once '../functions/functions.php';
 
     $arrWorks = '';
     $keyOptimized="";
