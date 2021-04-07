@@ -110,6 +110,9 @@
         
     }
   
+    $languages_id = checkLanguage();
+    include_once(WOOLF_PATH.'templates/lang/lang'.$languages_id.'.php');
+
     $loader = new \Twig\Loader\FilesystemLoader('templates');
     $twig = new \Twig\Environment($loader, [
         'cache' => false,
