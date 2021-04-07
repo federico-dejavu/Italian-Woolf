@@ -51,6 +51,7 @@ class webpages{
 
     }
 
+}
 
 /*
     ["id"]
@@ -94,7 +95,6 @@ class webpages{
         'LANG'          => $language,
     ]);
 
-}
 
 
 ?>
