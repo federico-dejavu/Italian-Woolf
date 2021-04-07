@@ -11,6 +11,7 @@
     require_once '../include/editors.php';
     require_once '../include/articles.php';
     require_once '../include/languages.php';   
+    require_once 'functions/functions.php';
 
     $arrWorks = '';
     $keyOptimized="";
@@ -329,6 +330,10 @@
         }
     }
 
+
+    $languages_id = checkLanguage();
+
+
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
         echo "<pre> Works</br>";
@@ -348,6 +353,7 @@
 		
         'works'		=> $arrayWorks,
         'articles'	=> $arrayArticles,
+        'LANG'      => $language,
     
     ]);
 ?>

@@ -3,11 +3,12 @@
 	$language["ABSTRACT"] = "Abstract";
 	$language["ADVANCED_SEARCH"] = "Advanced search";
 	$language["ADVANCED_SEARCH"] = "Advanced Search";
-	$language["ALL_ACCESS_TYPE"] = "All access type";
-	$language["ALL_EDITORS"] = "All editors";
+	$language["ALL_ACCESS_TYPE"] = "Open access";
+	$language["ALL_PUBLISHERS"] = "All publishers";
 	$language["ALL_LANGUAGES"] = "All languages";
+	$language["ALL_EDITORS"] = "All editors";
 	$language["ALL_TYPOLOGIES"] = "All typologies";
-	$language["ARTICLES"] = "Articles";
+	$language["ARTICLES"] = "Articles/Essays";
 	$language["AS_AUTHOR"] = "As Author";
 	$language["AS_EDITOR"] = "As Editor";
 	$language["AS_ILLUSTRATOR"] = "As Illustrator";
@@ -16,6 +17,7 @@
 	$language["AUTHOR"] = "Author";
 	$language["AUTHORITY_RECORD"] = "Authority record";
 	$language["AUTHORS"] = "Authors";
+	$language["BOOKS"] = "Books";
 	$language["BIRTH_DATE"] = "Birth date";
 	$language["CITY"] = "City";
 	$language["DEATH_DATE"] = "Death date";

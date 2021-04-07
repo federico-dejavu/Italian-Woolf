@@ -6,8 +6,9 @@
 	$language["ALL_ACCESS_TYPE"] = "Tutti i tipi di accesso";
 	$language["ALL_EDITORS"] = "Curatori/Curatrici";
 	$language["ALL_LANGUAGES"] = "Tutte le lingue";
+	$language["ALL_PUBLISHERS"] = "Tutti gli editori";
 	$language["ALL_TYPOLOGIES"] = "Tutte le tipologie";
-	$language["ARTICLES"] = "Articoli";
+	$language["ARTICLES"] = "Articoli/Saggi";
 	$language["AS_AUTHOR"] = "Come autore";
 	$language["AS_EDITOR"] = "Come curatore";
 	$language["AS_ILLUSTRATOR"] = "Come illustratore";
@@ -16,6 +17,7 @@
 	$language["AUTHOR"] = "Autore";
 	$language["AUTHORITY_RECORD"] = "Authority record";
 	$language["AUTHORS"] = "Autori";
+	$language["BOOKS"] = "Libri";
 	$language["BIRTH_DATE"] = "Anno di nascita";
 	$language["CITY"] = "Citt&aacute;";
 	$language["DEATH_DATE"] = "Anno di morte";
