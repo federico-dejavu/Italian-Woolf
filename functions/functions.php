@@ -56,7 +56,7 @@ function renderPage($content_key = "HOME") {
     if ($page["type"] == "php") {
 
         $renderTarget = $page['file_name'].'.html';
-        include_once('../webpages/'.$page['file_name'].'.php');
+        include_once(WOOLF_PATH.'/include/webpages/'.$page['file_name'].'.php');
         switch($page['file_name']) {
             case 'work';
                 $page['title'] = $phpPage['work']['title'];
