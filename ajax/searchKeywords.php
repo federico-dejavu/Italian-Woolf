@@ -7,6 +7,8 @@
     require_once '../include/authors.php';
     require_once '../include/editions.php';
     require_once '../include/articles.php';
+    require_once '../include/languages.php';   
+    require_once '../functions/functions.php';
 
     $arrWorks = '';
 
@@ -117,6 +119,7 @@
 		
         'works'		=> $arrayWorks,
         'articles'	=> $arrayArticles,
+        'LANG'      => $language,
     
     ]);
 
