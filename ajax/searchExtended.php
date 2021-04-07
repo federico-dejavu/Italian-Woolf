@@ -332,7 +332,7 @@
 
 
     $languages_id = checkLanguage();
-    include_once(WOOLF_PATH.'templates/lang/lang'.$languages_id.'.php');
+    include_once(WOOLF_PATH.'/templates/lang/lang'.$languages_id.'.php');
 
     if (DEBUG) {
         echo "<h2>Pre template</h2><br />";
