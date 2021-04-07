@@ -4,7 +4,7 @@
 			<div class="row">
 				{% if works %}
 				<div class="col-md-6 works">
-					<h2>Works</h2>
+					<h2>{{ LANG.BOOKS }}</h2>
 					{% for work in works %}
 						<p>
 							<a href="work.php?id={{ work.id }}"><b>{{ work.title }}</b></a>{% if work.year %}, {{ work.year }}{% endif %}
@@ -12,11 +12,11 @@
 								<br /><a href="publisher.php?id={{ work.publisher.id }}">{{ work.publisher.publisher }}</a>
 							{% endif %}
 							{% if work.authors %}
-								<br />Authors:
+								<br />{{ LANG.AUTHORS }}:
 								{% for author in work.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
 							{% endif %}
 							{% if work.translators %}
-								<br />Translators:
+								<br />{{ LANG.TRANSLATORS }}:
 								{% for translator in work.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
 							{% endif %}
 							<ul>
@@ -31,7 +31,7 @@
 				{% endif%}
 				{% if articles %}
 				<div class="col-md-6 works">
-					<h2>Articles</h2>
+					<h2>{{ LANG.ARTICLES }}</h2>
 					{% for article in articles %}
 						<p>
 							<a href="article.php?id={{ article.id }}"><b>{{ article.title }}</b></a>{% if article.year %}, {{ article.year }}{% endif %}
@@ -39,11 +39,11 @@
 								<br /><a href="publisher.php?id={{ article.publisher.id }}">{{ article.publisher.publisher }}</a>
 							{% endif %}
 							{% if article.authors %}
-								<br />Authors:
+								<br />{{ LANG.AUTHORS }}:
 								{% for author in article.authors %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ author.id }}">{{ author.fullname }}</a>{% endfor %}
 							{% endif %}
 							{% if article.translators %}
-								<br />Translators:
+								<br />{{ LANG.TRANSLATORS }}:
 								{% for translator in article.translators %}{% if not loop.first %}, {% endif %}<a href="people.php?id={{ translator.id }}">{{ translator.fullname }}</a>{% endfor %}
 							{% endif %}
 						</p>
