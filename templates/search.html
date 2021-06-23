@@ -1,32 +1,25 @@
 {% autoescape false %}
 <!— Output by Twig :: modul "wysiwyg" —>
-	<div id="research">
-		<div  id="content" class="container">
-			<div class="row">
+<div id="research">
+	<form id="search">
+		<div class="container">
+			<div class="row align-items-center">
 				<div class="col">
-					<h2>{{ LANG.SEARCH }}</h2>
+					<input type="text" 	placeholder="{{ LANG.KEYWORDS }}" 	name="keywords" id="keywords" />
 				</div>
 			</div>
-			<form id="search">
-				<div class="row align-items-center">
-					<div class="col">
-						<input type="text" 		name="{{ LANG.KEYWORDS }}" id="keywords" />
-						<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">{{ LANG.WORK }}</label>
-						<input id="articles" 	name="articles"	type="checkbox" checked/><label for="articles">{{ LANG.ARTICLE }}</label>
-					</div>
+			<div class="row align-items-center">
+				<div class="col-lg-6 align-items-left">
+					<input id="works"  		name="works"  	type="checkbox" checked/><label for="works">{{ LANG.BOOKS }}</label>
+					<input id="articles" 	name="articles" type="checkbox" checked/><label for="articles">{{ LANG.ARTICLES }}</label>
 				</div>
-				<div class="row align-items-center">
-					<div class="col">
-						<input type="button" value="{{ LANG.SEARCH }}" id="submit" onClick="ajaxSearch('searchKeywords');" /> 
-						<p>
-							or make an <a href="advancedSearch.php">{{ LANG.ADVANCED_SEARCH }}</a>
-						</p>
-					</div>
+			</div>
+			<div class="row align-items-center">
+				<div class="col">
+					<input type="button" value="{{ LANG.SEARCH }}" onClick="ajaxSearch('searchExtended');" id="submit" /> 
 				</div>
-			</form>
+			</div>
 		</div>
-	</div>
-	<div id="result">
-	</div>
+	</form>
 <!— end Twig —>
 {% endautoescape %}

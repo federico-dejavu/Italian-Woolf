@@ -7,6 +7,8 @@
 	include_once('include/languages.php');
 	include_once('include/typologies.php');
 
+	var_dump[$_POST];
+
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
 	foreach($publishersList as $publisherID){
