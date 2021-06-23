@@ -411,9 +411,45 @@ body {
 
 			.container {
 
+				background-color: #FFFFFF;
+
 				&:first-of-type {
 
-					padding: 0;
+					padding: 1em 0;
+
+				}
+
+				form {
+
+					input {
+
+						&[type=text] {
+
+							background-color: lighten(@linkhover, 40%);
+
+							&:focus {
+								
+								outline: none;
+								background-color: lighten(@linkhover, 20%);
+								
+							}
+
+						}
+
+						submit {
+					
+							font-size: 1.250em;
+							line-height: 2.600em;
+							padding-left: 1.400em;
+							padding-right: 1.400em;
+							border-radius: 0.250em;
+							background-color: #000;
+							color: #FFF;
+							border: 0;
+							text-transform: uppercase;
+							
+						}// submit
+					}
 
 				}
 
