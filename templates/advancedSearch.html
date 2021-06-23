@@ -9,10 +9,6 @@
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col">
-						<p>{{ phpPage.postdata.action }}</p>
-						<p>{{ phpPage.postdata.keywords }}</p>
-						<p>{{ phpPage.postdata.works }}</p>
-						<p>{{ phpPage.postdata.articles }}</p>
 						<input type="text" 	placeholder="{{ LANG.KEYWORDS }}" 	name="keywords" id="keywords" />
 					</div>
 				</div>
@@ -113,9 +109,9 @@
 					url: baseUrl + 'ajax/searchExtended.php',
 					async: false,
 					data: {
-						keywords: "{{ phpPage.post.keywords }}",
-						works: "{{ phpPage.post.works }}",
-						articles: "{{ phpPage.post.articles }}"
+						keywords: "{{ phpPage.postdata.keywords }}",
+						works: "{{ phpPage.postdata.works }}",
+						articles: "{{ phpPage.postdata.articles }}"
 					},
 					success: function(html) {
 						$('#result').html(html);;
