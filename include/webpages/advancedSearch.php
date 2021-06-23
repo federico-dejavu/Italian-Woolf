@@ -7,7 +7,11 @@
 	include_once('include/languages.php');
 	include_once('include/typologies.php');
 
-	var_dump($_POST);
+	if (isset($_POST['action'] && $_POST['action'] == 'search') {
+
+		$phpPage['post'] = $_POST;
+
+	}
 
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
