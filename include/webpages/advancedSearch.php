@@ -6,13 +6,7 @@
 	include_once('include/publishers.php');
 	include_once('include/languages.php');
 	include_once('include/typologies.php');
-
-	if (isset($_POST['action']) && ($_POST['action'] == 'search')) {
-
-		$phpPage['post'] = $_POST;
-
-	}
-
+		
 	$publishers_obj = new publishers();
 	$publishersList = $publishers_obj->getAllPublishers();
 	foreach($publishersList as $publisherID){
@@ -37,5 +31,6 @@
 	$phpPage['publishers'] = $publishers;
 	$phpPage['languages'] = $languages;
 	$phpPage['typologies'] = $typologies;
+	$phpPage['post'] = $_POST;
 
 ?>
