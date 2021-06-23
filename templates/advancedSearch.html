@@ -98,12 +98,12 @@
 		<div id="result">
 		</div>
 	</div>
-	{{ if post.action == 'search' }}
+	{{ if postdata.action == 'search' }}
 		<script>
 
 			$(document).ready(function(){
 				var baseUrl = 'https://italianwoolf.reading.ac.uk/stage/';
-				
+
 				$.ajax({
 					type: "POST",
 					url: baseUrl + 'ajax/' + action + '.php',

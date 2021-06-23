@@ -28,9 +28,11 @@
 		$typologies[$typologyID] = $typologySingle;
 	}
 
+	var_dump($_POST);
+
 	$phpPage['publishers'] = $publishers;
 	$phpPage['languages'] = $languages;
 	$phpPage['typologies'] = $typologies;
-	$phpPage['post'] = $_POST;
+	$phpPage['postdata'] = $_POST;
 
 ?>
