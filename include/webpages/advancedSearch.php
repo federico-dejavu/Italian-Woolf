@@ -7,7 +7,7 @@
 	include_once('include/languages.php');
 	include_once('include/typologies.php');
 
-	if (isset($_POST['action'] && $_POST['action'] == 'search') {
+	if (isset($_POST['action']) && ($_POST['action'] == 'search')) {
 
 		$phpPage['post'] = $_POST;
 
