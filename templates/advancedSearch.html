@@ -109,9 +109,9 @@
 					url: baseUrl + 'ajax/searchExtended.php',
 					async: false,
 					data: {
-						keywords: "{{ post.keywords }}",
-						works: "{{ post.works }}",
-						articles: "{{ post.articles }}"
+						keywords: "{{ phpPage.post.keywords }}",
+						works: "{{ phpPage.post.works }}",
+						articles: "{{ phpPage.post.articles }}"
 					},
 					success: function(html) {
 						$('#result').html(html);;
